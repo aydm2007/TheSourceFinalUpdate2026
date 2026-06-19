@@ -1,0 +1,15 @@
+{
+    "filesCreated":  [
+                         "package/dev-platform/bootstrap.js",
+                         "package/dev-platform/provider-router.js",
+                         "package/dev-platform/context-engine.js",
+                         "package/dev-platform/mcp-native-runtime.js"
+                     ],
+    "filesModified":  [
+                          "package/preload.js",
+                          "aether.ps1"
+                      ],
+    "workspaceRoot":  "C:\\tools\\workspace\\TheSource\\patches",
+    "backupRoot":  "C:\\tools\\workspace\\TheSource\\patches\\.patch-backups\\20260530-151921",
+    "patchedAt":  "2026-05-30T15:19:21.3627836-07:00"
+}

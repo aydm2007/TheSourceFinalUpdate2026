@@ -1,0 +1,42 @@
+services:
+  mcp-server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: aether-zenith-mcp:latest
+    ports:
+      - "3847:3847"
+    environment:
+      - PORT=3847
+      - NODE_ENV=production
+      - REDIS_URL=redis://redis:6379
+    env_file:
+      - .env.example
+    volumes:
+      - ./config:/usr/src/app/config
+      - ./logs:/usr/src/app/.agents/memory
+    depends_on:
+      - redis
+    healthcheck:
+      test: ["CMD", "node", "-e", "const http=require('http');const port=process.env.PORT||3847;const key=process.env.MCP_API_KEY||process.env.API_KEY||'';const req=http.request({host:'127.0.0.1',port,path:'/health',headers:{Authorization:'Bearer '+key}},res=>process.exit(res.statusCode<500?0:1));req.on('error',()=>process.exit(1));req.end();"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 20s
+    mem_limit: 768m
+    cpus: 1.0
+    restart: always
+
+  redis:
+    image: redis:7-alpine
+    # FIX-5: Redis is internal-only — expose to sibling services, not the host network
+    expose:
+      - "6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+    mem_limit: 256m
+    cpus: 0.5
+    restart: always

@@ -1,0 +1,5 @@
+{
+  "allowed_tools": [
+    "FileRead","FileWrite","FileEdit","Glob","Grep","Bash","EnterWorktree","ExitWorktree","VisualAuditReport","ShadowLedgerAudit","TaskCreate","TaskUpdate","UndoChanges"
+  ]
+}

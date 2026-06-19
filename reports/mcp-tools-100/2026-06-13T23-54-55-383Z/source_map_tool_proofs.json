@@ -1,0 +1,114 @@
+{
+  "mapPath": "package/cli.js.map",
+  "verifyCliMap": {
+    "status": "pass",
+    "timestamp": "2026-06-13T23:55:03.682Z",
+    "workspaceRoot": "C:\\tools\\workspace\\TheSource",
+    "cli": {
+      "exists": true,
+      "bytes": 13066790,
+      "lastModified": "2026-06-12T12:14:23.700Z"
+    },
+    "cliMap": {
+      "exists": true,
+      "bytes": 59766257,
+      "lastModified": "2026-04-02T14:55:13.000Z"
+    },
+    "metadata": {
+      "version": 3,
+      "file": null,
+      "sourceCount": 4756,
+      "sourcesContentCount": 4756,
+      "firstSources": [
+        "../node_modules/lodash-es/_listCacheClear.js",
+        "../node_modules/lodash-es/eq.js",
+        "../node_modules/lodash-es/_assocIndexOf.js",
+        "../node_modules/lodash-es/_listCacheDelete.js",
+        "../node_modules/lodash-es/_listCacheGet.js"
+      ],
+      "lastSources": [
+        "../src/cli/handlers/agents.ts",
+        "../src/cli/handlers/autoMode.ts",
+        "../src/cli/update.ts",
+        "../src/main.tsx",
+        "../src/entrypoints/cli.tsx"
+      ]
+    },
+    "visualDom": {
+      "status": "dom_mapped",
+      "components": 1504,
+      "hooks": 50,
+      "pages": 1,
+      "stores": 1,
+      "contentAnalyzed": 1906,
+      "mode": "static_sourcemap_topology"
+    },
+    "liveUiMonitoring": {
+      "status": "not_proven",
+      "reason": "This verifier reads SourceMap topology only; it does not capture runtime DOM, accessibility tree, or screenshots."
+    }
+  },
+  "remoteMapDecoder": {
+    "status": "pass",
+    "frames": [
+      {
+        "generated": {
+          "file": "package/cli.js",
+          "line": 8,
+          "column": 1924
+        },
+        "original": {
+          "source": "../node_modules/lodash-es/_listCacheClear.js",
+          "line": 8,
+          "column": 0,
+          "name": "sample"
+        }
+      }
+    ],
+    "mapAnchor": {
+      "generated": {
+        "file": "package/cli.js",
+        "line": 8,
+        "column": 1924
+      },
+      "original": {
+        "source": "../node_modules/lodash-es/_listCacheClear.js",
+        "line": 8,
+        "column": 0,
+        "name": "sample"
+      }
+    }
+  },
+  "vectorAstMapper": {
+    "status": "indexed",
+    "source_count": 4756,
+    "vectors_indexed": 4756,
+    "sample_sources": [
+      "../node_modules/lodash-es/_listCacheClear.js",
+      "../node_modules/lodash-es/eq.js",
+      "../node_modules/lodash-es/_assocIndexOf.js",
+      "../node_modules/lodash-es/_listCacheDelete.js",
+      "../node_modules/lodash-es/_listCacheGet.js"
+    ],
+    "index_mode": "metadata_only"
+  },
+  "mapDrivenOptimizer": {
+    "status": "optimized",
+    "total_sources": 4756,
+    "used_sources": 4756,
+    "dead_sources_count": 0,
+    "dead_ratio_percent": 0
+  },
+  "visualDomMapper": {
+    "status": "dom_mapped",
+    "total_mapped": 1904,
+    "content_analyzed": 1906,
+    "components": 1504,
+    "hooks": 50,
+    "pages": 1,
+    "stores": 1,
+    "utils": 348,
+    "mode": "static_sourcemap_topology",
+    "limitation": "Static topology is not runtime DOM/accessibility/screenshot proof."
+  }
+}

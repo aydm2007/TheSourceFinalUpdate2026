@@ -1,0 +1,66 @@
+/* src/glassmorphism.css */
+/* Glassmorphism container with subtle blur and translucency */
+.glass {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+/* Micro‑animation on hover – gentle lift and color shift */
+.glass:hover {
+  transform: translateY(-4px) scale(1.02);
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* Fade‑in animation for initial load */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.glass {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+/* Example button with glass effect and ripple */
+.glass-button {
+  position: relative;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: #fff;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+  transition: background 0.3s ease;
+}
+
+.glass-button::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 100%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: width 0.4s ease, height 0.4s ease, opacity 0.4s ease;
+}
+
+.glass-button:hover::after {
+  width: 200px;
+  height: 200px;
+  opacity: 0;
+}
+
+.glass-button:hover {
+  background: rgba(255, 255, 255, 0.3);
+}

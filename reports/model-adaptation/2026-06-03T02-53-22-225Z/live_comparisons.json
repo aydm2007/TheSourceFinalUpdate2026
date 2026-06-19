@@ -1,0 +1,64 @@
+[
+  {
+    "axis": "instruction_following",
+    "selected": {
+      "status": "console_error",
+      "provider": "aether-console",
+      "model": "openai/gpt-oss-120b:free",
+      "startedAt": "2026-06-03T02:53:23.192Z",
+      "endedAt": "2026-06-03T02:54:08.697Z",
+      "exitCode": 0,
+      "signal": null,
+      "outputHash": "5c60e2100cd3be358ac55cf95f01ce22a9b973536552dc35e72f64b002d19118",
+      "outputBytes": 3240,
+      "transcriptHash": "5c60e2100cd3be358ac55cf95f01ce22a9b973536552dc35e72f64b002d19118",
+      "transcriptBytes": 3240,
+      "score": {
+        "score": 25,
+        "structured": {
+          "score": 0,
+          "proofValid": false,
+          "required": [
+            "scope",
+            "constraints",
+            "evidence",
+            "uncertainty",
+            "residualRisk"
+          ],
+          "present": [],
+          "missing": [
+            "scope",
+            "constraints",
+            "evidence",
+            "uncertainty",
+            "residualRisk"
+          ],
+          "axisMatches": false
+        },
+        "keywordScore": 25,
+        "rubric": [
+          "scope",
+          "evidence",
+          "risk",
+          "uncertainty"
+        ],
+        "hits": [
+          "scope"
+        ],
+        "missing": [
+          "evidence",
+          "risk",
+          "uncertainty"
+        ]
+      },
+      "output": "Opening Sovereign Developer Console...\nModel: openai/gpt-oss-120b:free\nProvider: openrouter\nPlanner: openai/gpt-oss-120b:free via openrouter\nExecutor: openai/gpt-oss-120b:free via openrouter\nDefault Skill: mcp-developer\nBootstrap: MCP runtime + provider router + context engine\n🧠 [Aether-Memory] Initiating semantic index curation...\n🔄 Re-indexing vector memory scopes...\n[Indexer] Refreshing semantic index...\n[Indexer] Done. Updated C:\\tools\\workspace\\TheSource\\data\\vector_index.json\n✅ [Memory] Semantic curation cycle completed successfully.\n\u001b[32m[Relay-Bridge] Active Provider set to: OPENROUTER (https://openrouter.ai/api/v1)\u001b[0m\n[Aether-Bridge] Legacy SiliconFlowAdapter initialized via RelayBridge.\n\n🚀 [Sovereign-Kernel] Booting Aether-Zenith V44.0-Singularity...\n[DB-Manager] Persistence database initialized successfully.\n📍 [Sovereign-Kernel] Structural GPS locked: C:\\tools\\workspace\\TheSource\\package\\cli.js.map\n👁️‍🗨️ [Sovereign-Kernel] Dynamic forensic watching enabled via Chokidar.\n🔐 [Sovereign-Vault] Secrets redaction layer active.\n🕐 [HLC] Boot timestamp: 1780455204897:00000\n✅ [Sovereign-Kernel] System Sovereign & Active. V44.0-Singularity\n\n[Preload Interceptor] Intercepted Anthropic URL: https://api.anthropic.com Method: HEAD Headers: {} Body: none\n[Preload Interceptor] Intercepted Anthropic URL: https://api.anthropic.com/api/eval/sdk-zAZezfDKGoZuXXKe Method: POST Headers: {\"Content-Type\":\"application/json\",\"x-api-key\":\"sk-ant-dummykey\"} Body: {\"attributes\":{\"id\":\"c04639458b79339758a87a45b4f17c457dc17fd3b3dd65cf533c6677cc5cc9bf\",\"sessionId\":\"06e004b2-ff7d-485d-86fa-f7335cc63b84\",\"deviceID\":\"\n[Preload Interceptor] Intercepted Anthropic URL: https://api.anthropic.com/v1/messages?beta=true Method: POST Headers: {} Body: {\"model\":\"openai/gpt-oss-120b:free\",\"messages\":[{\"role\":\"user\",\"content\":\"<available-deferred-tools>\\nAskUserQuestion\\nCronCreate\\nCronDelete\\nCronLis\n[Preload Interceptor] Intercepted Anthropic URL: https://api.anthropic.com/v1/messages?beta=true Method: POST Headers: {} Body: {\"model\":\"openai/gpt-oss-120b:free\",\"messages\":[{\"role\":\"user\",\"content\":\"<available-deferred-tools>\\nAskUserQuestion\\nCronCreate\\nCronDelete\\nCronLis\n[Preload Interceptor] Intercepted Anthropic URL: https://api.anthropic.com/v1/messages?beta=true Method: POST Headers: {} Body: {\"model\":\"openai/gpt-oss-120b:free\",\"messages\":[{\"role\":\"user\",\"content\":\"<available-deferred-tools>\\nAskUserQuestion\\nCronCreate\\nCronDelete\\nCronLis\n[Preload Interceptor] Intercepted Anthropic URL: https://api.anthropic.com/v1/messages?beta=true Method: POST Headers: {} Body: {\"model\":\"openai/gpt-oss-120b:free\",\"messages\":[{\"role\":\"user\",\"content\":\"<available-deferred-tools>\\nAskUserQuestion\\nCronCreate\\nCronDelete\\nCronLis\nWhat would you like me to do?\n\n(node:9372) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/tools/workspace/TheSource/package/cli.js is not specified and it doesn't parse as CommonJS.\nReparsing as ES module because module syntax was detected. This incurs a performance overhead.\nTo eliminate this warning, add \"type\": \"module\" to C:\\tools\\workspace\\TheSource\\package\\package.json.\n(Use `node --trace-warnings ...` to show where the warning was created)",
+      "transcriptPreview": "Opening Sovereign Developer Console...\nModel: openai/gpt-oss-120b:free\nProvider: openrouter\nPlanner: openai/gpt-oss-120b:free via openrouter\nExecutor: openai/gpt-oss-120b:free via openrouter\nDefault Skill: mcp-developer\nBootstrap: MCP runtime + provider router + context engine\n🧠 [Aether-Memory] Initiating semantic index curation...\n🔄 Re-indexing vector memory scopes...\n[Indexer] Refreshing semantic index...\n[Indexer] Done. Updated C:\\tools\\workspace\\TheSource\\data\\vector_index.json\n✅ [Memory] Semantic curation cycle completed successfully.\n\u001b[32m[Relay-Bridge] Active Provider set to: OPENROUTER (https://openrouter.ai/api/v1)\u001b[0m\n[Aether-Bridge] Legacy SiliconFlowAdapter initialized via RelayBridge.\n\n🚀 [Sovereign-Kernel] Booting Aether-Zenith V44.0-Singularity...\n[DB-Manager] Persistence database initialized successfully.\n📍 [Sovereign-Kernel] Structural GPS locked: C:\\tools\\workspace\\TheSource\\package\\cli.js.map\n👁️‍🗨️ [Sovereign-Kernel] Dynamic forensic watching enabled via Chokidar.\n🔐 [Sovereign-Vault] Secrets redaction layer active.\n🕐 [HLC] Boot timestamp: 1780455204897:00000\n✅ [Sovereign-Kernel] System Sovereign & Active. V44.0-Singularity\n\n[Preload Interceptor] Intercepted Anthropic URL: https://api.anthropic.com Method: HEAD Headers: {} Body: none\n[Preload Interceptor] Intercepted Anthropic URL: https://api.anthropic.com/api/eval/sdk-zAZezfDKGoZuXXKe Method: POST Headers: {\"Content-Type\":\"application/json\",\"x-api-key\":\"sk-ant-dummykey\"} Body: {\"attributes\":{\"id\":\"c",
+      "error": null
+    },
+    "claude": {
+      "status": "missing_key",
+      "env": "ANTHROPIC_API_KEY"
+    },
+    "directVictory": false
+  }
+]

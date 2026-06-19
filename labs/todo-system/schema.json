@@ -1,0 +1,14 @@
+{
+  "entities": {
+    "Task": {
+      "fields": {
+        "id": "uuid",
+        "title": "string",
+        "done": "boolean",
+        "created_at": "timestamp"
+      }
+    }
+  },
+  "version": "1.0.0",
+  "generated": "2026-06-12T05:52:55.368Z"
+}

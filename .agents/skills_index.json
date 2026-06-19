@@ -1,0 +1,12 @@
+{
+  "nexus-memory\\scripts\\vector_sync.js": {
+    "classes": ["class VectorSync"],
+    "functions": [
+      "constructor()",
+      "sync()",
+      "if (title && body)",
+      "syncFromGraph(graphData)",
+      "if (require.main === module)"
+    ]
+  }
+}

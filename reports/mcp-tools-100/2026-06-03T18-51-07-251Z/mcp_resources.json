@@ -1,0 +1,762 @@
+{
+  "listed": {
+    "success": true,
+    "projectAgnostic": true,
+    "resources": [
+      {
+        "uri": "mcp://tool-registry",
+        "name": "MCP Tool Registry",
+        "description": "Project-agnostic inventory of bridge tools, enforcement mode, and declared MCP capabilities.",
+        "mimeType": "application/json"
+      },
+      {
+        "uri": "mcp://latest-gates",
+        "name": "Latest Certification Gates",
+        "description": "Latest local MCP, production, 90-sweep, and SourceMap evidence pointers.",
+        "mimeType": "application/json"
+      },
+      {
+        "uri": "mcp://forensic-reports",
+        "name": "Forensic Reports Index",
+        "description": "Index of MCP tools 100% forensic evidence packs and report artifacts.",
+        "mimeType": "application/json"
+      },
+      {
+        "uri": "mcp://source-map",
+        "name": "SourceMap GPS Metadata",
+        "description": "Metadata-only proof for package/cli.js and package/cli.js.map without loading the map into model context.",
+        "mimeType": "application/json"
+      },
+      {
+        "uri": "mcp://shadow-ledger",
+        "name": "Shadow Ledger Tail",
+        "description": "Recent project telemetry entries for artifact and gate evidence.",
+        "mimeType": "application/json"
+      },
+      {
+        "uri": "agriasset://models",
+        "name": "Django Models Schema",
+        "description": "Database schema, class names, and fields for all core agricultural and financial models.",
+        "mimeType": "application/json"
+      },
+      {
+        "uri": "agriasset://engines",
+        "name": "Core Services Engines",
+        "description": "Core logic services: Posting Engine, Variance Detector, Clearance Engine, and Farm Policy Service.",
+        "mimeType": "application/json"
+      },
+      {
+        "uri": "agriasset://api-endpoints",
+        "name": "API Route Registry",
+        "description": "Registered API endpoints for SIMPLE and STRICT operations.",
+        "mimeType": "application/json"
+      },
+      {
+        "uri": "agriasset://uat-results",
+        "name": "UAT Execution Status",
+        "description": "Current status and logs of the Automated UAT Runner.",
+        "mimeType": "text/markdown"
+      }
+    ]
+  },
+  "genericUris": [
+    "mcp://tool-registry",
+    "mcp://latest-gates",
+    "mcp://forensic-reports",
+    "mcp://source-map",
+    "mcp://shadow-ledger"
+  ],
+  "genericPresent": true,
+  "reads": {
+    "mcp://tool-registry": {
+      "uri": "mcp://tool-registry",
+      "workspaceRoot": "C:\\tools\\workspace\\TheSource",
+      "bridgeVersion": "45.0.0-Apex",
+      "enforcementMode": "STRICT",
+      "remoteMcpEnabled": true,
+      "declaredAllowedTools": 129,
+      "tools": [
+        "FileRead",
+        "FileReadLines",
+        "FileWrite",
+        "FileEdit",
+        "SurgicalDiff",
+        "AstChunkPatch",
+        "ASTAutoPatch",
+        "ResolveConflict",
+        "UndoChanges",
+        "NotebookEdit",
+        "Glob",
+        "Grep",
+        "ViewCodeOutline",
+        "LSPTool",
+        "SemanticReference",
+        "SemanticSymbolLookup",
+        "Insight",
+        "ForensicAudit",
+        "AstIndexer",
+        "GraphMemorySync",
+        "Bash",
+        "PowerShell",
+        "InteractiveTerminal",
+        "ParallelTest",
+        "FullRepairLoop",
+        "ChaosTest",
+        "SandboxManager",
+        "SelfHealingImmunizer",
+        "ServerMode",
+        "VectorSearch",
+        "VectorSync",
+        "AutoDream",
+        "MemoryCompactor",
+        "MemoryGraphRefiner",
+        "MemoryLedgerForecaster",
+        "ContextIndexRefiner",
+        "QuantumTokenCompressor",
+        "SemanticContextCompressor",
+        "ShadowLedgerAudit",
+        "PredictiveForesight",
+        "CodeImpactSimulator",
+        "TodoWrite",
+        "RealtimeScan",
+        "ConsensusSecurityGuard",
+        "ConsensusSignatureAssurer",
+        "ConsensusSignatureValidator",
+        "ConsensusStructuralLinter",
+        "TelepathicSwarmConsensus",
+        "SelfEvolutionConsensusEngine",
+        "Agent",
+        "nexus_Agent",
+        "SwarmBroadcast",
+        "SwarmConsensusExecutor",
+        "SwarmPipelineOrchestrator",
+        "SwarmProcessBridge",
+        "SwarmRelocationAgent",
+        "SwarmTeleport",
+        "SendMessage",
+        "TeamManager",
+        "TaskManager",
+        "DeepCoordinatorTask",
+        "SelfEvolutionCompiler",
+        "AsyncSwarmTask",
+        "DynamicToolSynthesis",
+        "CognitiveRouter",
+        "SwarmHandoff",
+        "LoadSkill",
+        "Skill",
+        "Config",
+        "FeatureFlag",
+        "ZodSchema",
+        "AskUserQuestion",
+        "Sleep",
+        "TokenEstimation",
+        "ToolSearch",
+        "ReasoningEngine",
+        "ExitPlanMode",
+        "EnterPlanMode",
+        "ListMcpResources",
+        "OmegaDiagnostic",
+        "SystemDiagnostics",
+        "WebSearch",
+        "WebFetch",
+        "WebBrowse",
+        "MCPTool",
+        "McpCall",
+        "ReadMcpResource",
+        "ClaudeCLI",
+        "VoiceMode",
+        "VisualAuditReport",
+        "TaskCreate",
+        "TaskGet",
+        "TaskUpdate",
+        "TaskList",
+        "TaskStop",
+        "TaskOutput",
+        "SandboxImmuneShield",
+        "SandboxImmersionEmulator",
+        "SandboxEnvVisualizer",
+        "SandboxEnvImmunizer",
+        "SandboxResourceThrottle",
+        "SandboxNetworkLimiter",
+        "SandboxSessionLimiter",
+        "SandboxedRuntimeRunner",
+        "TeamCreate",
+        "TeamDelete",
+        "TeamSynthesize",
+        "RemoteMapDecoder",
+        "SandboxedChaos",
+        "SwarmTeleportation",
+        "CrossProjectHub",
+        "PredictiveImmunization",
+        "MapDrivenOptimizer",
+        "TimeTravelDebugger",
+        "V8FlamegraphProfiler",
+        "VectorAstMapper",
+        "QuantumHologram",
+        "VisualDomMapper",
+        "HardwareAstMapper",
+        "SwarmDNAExtractor",
+        "ZeroTrustMerkleLedger",
+        "EmpatheticModulator",
+        "PrecognitionAstMutator",
+        "TelepathicHiveMind",
+        "AstMutexLockManager",
+        "ParallelSwarmCoordinator",
+        "AsyncBackgroundJob",
+        "LedgerCompactor",
+        "VectorSearchEngine"
+      ],
+      "genericResources": [
+        "mcp://tool-registry",
+        "mcp://latest-gates",
+        "mcp://forensic-reports",
+        "mcp://source-map",
+        "mcp://shadow-ledger"
+      ],
+      "legacyResourcesRetained": true
+    },
+    "mcp://latest-gates": {
+      "uri": "mcp://latest-gates",
+      "generatedAt": "2026-06-03T18:51:48.781Z",
+      "reports": [
+        {
+          "path": "reports/sovereign_90_readiness_report_2026-06-02.md",
+          "exists": true,
+          "bytes": 10010,
+          "lastModified": "2026-06-03T18:51:39.015Z",
+          "sha256": "31045a866a006b0abf502d98dd4bdfe76b97c4506eaf5c489efdf369440209bd",
+          "score": 98
+        },
+        {
+          "path": "reports/sovereign_global_production_readiness_2026-06-02.md",
+          "exists": true,
+          "bytes": 1423,
+          "lastModified": "2026-06-03T18:51:24.095Z",
+          "sha256": "244b0505bffdc40fabeacc0d58a431756f660c3e38a9879d9261cdac8331bd1d",
+          "score": 100
+        }
+      ],
+      "cliMapVerifier": {
+        "path": "scripts/verify_cli_map.js",
+        "exists": true,
+        "bytes": 3519,
+        "lastModified": "2026-06-02T18:36:35.296Z",
+        "sha256": "e713bf00fd1de9daf8535d1f2152eaf970f21b7d8426d3766d58810dad41ca1b"
+      },
+      "nativeMcpVerifier": {
+        "path": "scripts/verify_native_mcp.js",
+        "exists": true,
+        "bytes": 16477,
+        "lastModified": "2026-06-02T22:40:58.123Z",
+        "sha256": "0287cacb057c73be92bf6a2437c3ba4c99a937b804061b6d70dabf6edcdc5f10"
+      },
+      "productionGate": {
+        "path": "scripts/sovereign_global_production_gate.js",
+        "exists": true,
+        "bytes": 14759,
+        "lastModified": "2026-06-02T22:43:49.341Z",
+        "sha256": "2ab50f3aeaae122f57bddbe0aef6cc8cd222fe1b7389866c825f820a47604dad"
+      },
+      "sovereign90Sweep": {
+        "path": "scripts/sovereign_90_sweep.js",
+        "exists": true,
+        "bytes": 17239,
+        "lastModified": "2026-06-02T22:41:03.467Z",
+        "sha256": "923334de47d4c8216e33b4bed3c2626f3d33af44ffd463f92c9863d3d1589c4e"
+      }
+    },
+    "mcp://forensic-reports": {
+      "uri": "mcp://forensic-reports",
+      "generatedAt": "2026-06-03T18:51:48.784Z",
+      "reports": [
+        {
+          "runId": "2026-06-03T18-51-07-251Z",
+          "summary": {
+            "path": "reports\\mcp-tools-100\\2026-06-03T18-51-07-251Z\\summary.json",
+            "exists": false
+          },
+          "scores": {
+            "path": "reports\\mcp-tools-100\\2026-06-03T18-51-07-251Z\\scores.json",
+            "exists": false
+          },
+          "report": {
+            "path": "reports\\mcp-tools-100\\2026-06-03T18-51-07-251Z\\forensic_report.md",
+            "exists": false
+          },
+          "hashes": {
+            "path": "reports\\mcp-tools-100\\2026-06-03T18-51-07-251Z\\artifact_hashes.json",
+            "exists": false
+          }
+        },
+        {
+          "runId": "2026-06-03T18-48-39-059Z",
+          "summary": {
+            "path": "reports\\mcp-tools-100\\2026-06-03T18-48-39-059Z\\summary.json",
+            "exists": true,
+            "bytes": 720,
+            "lastModified": "2026-06-03T18:49:33.656Z",
+            "sha256": "f13bdc76be538eb13a85b28476fba3e34c49f758498a88a1c99f080034d3fea0"
+          },
+          "scores": {
+            "path": "reports\\mcp-tools-100\\2026-06-03T18-48-39-059Z\\scores.json",
+            "exists": true,
+            "bytes": 303,
+            "lastModified": "2026-06-03T18:49:33.657Z",
+            "sha256": "5f6438ea92f3b65a8dd69a062b0ea32a522783317becfbdc0c054be4d637d163"
+          },
+          "report": {
+            "path": "reports\\mcp-tools-100\\2026-06-03T18-48-39-059Z\\forensic_report.md",
+            "exists": true,
+            "bytes": 2864,
+            "lastModified": "2026-06-03T18:49:33.658Z",
+            "sha256": "1ef12df2b727493fe94a4fc6de201bef9b05ff9f72a5635b9de528c4f60b2e8e"
+          },
+          "hashes": {
+            "path": "reports\\mcp-tools-100\\2026-06-03T18-48-39-059Z\\artifact_hashes.json",
+            "exists": true,
+            "bytes": 4173,
+            "lastModified": "2026-06-03T18:49:33.663Z",
+            "sha256": "46bcd899fe2c3bf296797c457acf741ca4ea202598460e9c046a4980b3e2d447"
+          }
+        },
+        {
+          "runId": "2026-06-03T18-45-58-302Z",
+          "summary": {
+            "path": "reports\\mcp-tools-100\\2026-06-03T18-45-58-302Z\\summary.json",
+            "exists": true,
+            "bytes": 724,
+            "lastModified": "2026-06-03T18:46:48.962Z",
+            "sha256": "8227e234b00cb12dba56e457d6a3d3c2f96d6019eefeb00a8e368186d17f92e1"
+          },
+          "scores": {
+            "path": "reports\\mcp-tools-100\\2026-06-03T18-45-58-302Z\\scores.json",
+            "exists": true,
+            "bytes": 305,
+            "lastModified": "2026-06-03T18:46:48.963Z",
+            "sha256": "9b06ae9a8d37838892b9c6f6a3245b53815f22e8d0f8094822e6960b213aa433"
+          },
+          "report": {
+            "path": "reports\\mcp-tools-100\\2026-06-03T18-45-58-302Z\\forensic_report.md",
+            "exists": true,
+            "bytes": 2704,
+            "lastModified": "2026-06-03T18:46:48.964Z",
+            "sha256": "a8ca2d0f58a0ac007e5c010a05675e7191fad3d352d06d4f221439a5f1fd6a2a"
+          },
+          "hashes": {
+            "path": "reports\\mcp-tools-100\\2026-06-03T18-45-58-302Z\\artifact_hashes.json",
+            "exists": true,
+            "bytes": 4175,
+            "lastModified": "2026-06-03T18:46:48.969Z",
+            "sha256": "828b0861b31234ccf2a9785514e14ab7c087906d47d3bf169254569a896eb45e"
+          }
+        },
+        {
+          "runId": "2026-06-03T18-44-19-804Z",
+          "summary": {
+            "path": "reports\\mcp-tools-100\\2026-06-03T18-44-19-804Z\\summary.json",
+            "exists": true,
+            "bytes": 724,
+            "lastModified": "2026-06-03T18:44:58.033Z",
+            "sha256": "62d1d0db56d8ea3eb40dfaa4ccd71352fcf20d77df7328150e00fef917403e36"
+          },
+          "scores": {
+            "path": "reports\\mcp-tools-100\\2026-06-03T18-44-19-804Z\\scores.json",
+            "exists": true,
+            "bytes": 305,
+            "lastModified": "2026-06-03T18:44:58.034Z",
+            "sha256": "9b06ae9a8d37838892b9c6f6a3245b53815f22e8d0f8094822e6960b213aa433"
+          },
+          "report": {
+            "path": "reports\\mcp-tools-100\\2026-06-03T18-44-19-804Z\\forensic_report.md",
+            "exists": true,
+            "bytes": 2625,
+            "lastModified": "2026-06-03T18:44:58.036Z",
+            "sha256": "32345971162ed4227db572087939d84d81c4ae2d116735d698ac5fdd6c1d746b"
+          },
+          "hashes": {
+            "path": "reports\\mcp-tools-100\\2026-06-03T18-44-19-804Z\\artifact_hashes.json",
+            "exists": true,
+            "bytes": 3948,
+            "lastModified": "2026-06-03T18:44:58.041Z",
+            "sha256": "cfb2cb49b942985510347d6053f72940b285bc466f962c529f88e9b6b7004f30"
+          }
+        },
+        {
+          "runId": "2026-06-03T18-42-48-376Z",
+          "summary": {
+            "path": "reports\\mcp-tools-100\\2026-06-03T18-42-48-376Z\\summary.json",
+            "exists": true,
+            "bytes": 724,
+            "lastModified": "2026-06-03T18:43:25.096Z",
+            "sha256": "43f00b508b510b0f99b9bdff3b6238faf6b57c02fbd0bb1952cf8c41e5dd756f"
+          },
+          "scores": {
+            "path": "reports\\mcp-tools-100\\2026-06-03T18-42-48-376Z\\scores.json",
+            "exists": true,
+            "bytes": 305,
+            "lastModified": "2026-06-03T18:43:25.097Z",
+            "sha256": "9b06ae9a8d37838892b9c6f6a3245b53815f22e8d0f8094822e6960b213aa433"
+          },
+          "report": {
+            "path": "reports\\mcp-tools-100\\2026-06-03T18-42-48-376Z\\forensic_report.md",
+            "exists": true,
+            "bytes": 2826,
+            "lastModified": "2026-06-03T18:43:25.098Z",
+            "sha256": "6f3f394cf89860fcf36982641d447754b0ac22863e47cae057bcc22d2d3d3188"
+          },
+          "hashes": {
+            "path": "reports\\mcp-tools-100\\2026-06-03T18-42-48-376Z\\artifact_hashes.json",
+            "exists": true,
+            "bytes": 3948,
+            "lastModified": "2026-06-03T18:43:25.103Z",
+            "sha256": "bdbaadcb617c92ece4c7019cb64f742e0f0c736f1d77bcfa3edcaccc08f49f3a"
+          }
+        },
+        {
+          "runId": "2026-06-03T18-40-53-440Z",
+          "summary": {
+            "path": "reports\\mcp-tools-100\\2026-06-03T18-40-53-440Z\\summary.json",
+            "exists": true,
+            "bytes": 724,
+            "lastModified": "2026-06-03T18:41:35.584Z",
+            "sha256": "3c7d68f83fc5c419db1274724b736ba0188b7f7ce72f42f08b1c4606d86db817"
+          },
+          "scores": {
+            "path": "reports\\mcp-tools-100\\2026-06-03T18-40-53-440Z\\scores.json",
+            "exists": true,
+            "bytes": 305,
+            "lastModified": "2026-06-03T18:41:35.586Z",
+            "sha256": "9b06ae9a8d37838892b9c6f6a3245b53815f22e8d0f8094822e6960b213aa433"
+          },
+          "report": {
+            "path": "reports\\mcp-tools-100\\2026-06-03T18-40-53-440Z\\forensic_report.md",
+            "exists": true,
+            "bytes": 3494,
+            "lastModified": "2026-06-03T18:41:35.587Z",
+            "sha256": "5b263b7dc56d8131604e17496a8b814d2e34c62242fc8cfa8961960ab1143c1c"
+          },
+          "hashes": {
+            "path": "reports\\mcp-tools-100\\2026-06-03T18-40-53-440Z\\artifact_hashes.json",
+            "exists": true,
+            "bytes": 3948,
+            "lastModified": "2026-06-03T18:41:35.592Z",
+            "sha256": "28c56ef157b1c2545c24e046cdc5ff65c1af9156fe85f757d6c25a6d70197c69"
+          }
+        },
+        {
+          "runId": "2026-06-03T18-39-10-435Z",
+          "summary": {
+            "path": "reports\\mcp-tools-100\\2026-06-03T18-39-10-435Z\\summary.json",
+            "exists": true,
+            "bytes": 725,
+            "lastModified": "2026-06-03T18:39:59.123Z",
+            "sha256": "48cebd6ad5123b01ef425fb915e169804afbda321dfeaae8c937e19c21b3b651"
+          },
+          "scores": {
+            "path": "reports\\mcp-tools-100\\2026-06-03T18-39-10-435Z\\scores.json",
+            "exists": true,
+            "bytes": 305,
+            "lastModified": "2026-06-03T18:39:59.124Z",
+            "sha256": "9b06ae9a8d37838892b9c6f6a3245b53815f22e8d0f8094822e6960b213aa433"
+          },
+          "report": {
+            "path": "reports\\mcp-tools-100\\2026-06-03T18-39-10-435Z\\forensic_report.md",
+            "exists": true,
+            "bytes": 3494,
+            "lastModified": "2026-06-03T18:39:59.126Z",
+            "sha256": "0eaa7992399edc9f4e6d86edcb7c7ab68ac864b440fd504eb245b6800f8e9412"
+          },
+          "hashes": {
+            "path": "reports\\mcp-tools-100\\2026-06-03T18-39-10-435Z\\artifact_hashes.json",
+            "exists": true,
+            "bytes": 3948,
+            "lastModified": "2026-06-03T18:39:59.131Z",
+            "sha256": "289aa1778ea1599177ea41b9f8a0320823abd18390b053b35d8ca18d10b6094b"
+          }
+        }
+      ]
+    },
+    "mcp://source-map": {
+      "uri": "mcp://source-map",
+      "generatedAt": "2026-06-03T18:51:48.803Z",
+      "sourceMap": {
+        "cli": {
+          "path": "package\\cli.js",
+          "exists": true,
+          "bytes": 13050081,
+          "lastModified": "2026-05-30T03:41:13.738Z"
+        },
+        "cliMap": {
+          "path": "package\\cli.js.map",
+          "exists": true,
+          "bytes": 59766257,
+          "lastModified": "2026-04-02T14:55:13.000Z"
+        },
+        "metadata": {
+          "version": 3,
+          "file": null,
+          "sourceCount": 4756,
+          "sourcesContentCount": 4756,
+          "firstSources": [
+            "../node_modules/lodash-es/_listCacheClear.js",
+            "../node_modules/lodash-es/eq.js",
+            "../node_modules/lodash-es/_assocIndexOf.js",
+            "../node_modules/lodash-es/_listCacheDelete.js",
+            "../node_modules/lodash-es/_listCacheGet.js"
+          ]
+        },
+        "status": "pass"
+      },
+      "limitation": "Static SourceMap metadata is not live UI proof. Runtime DOM/accessibility/screenshot evidence must be captured separately."
+    },
+    "mcp://shadow-ledger": {
+      "uri": "mcp://shadow-ledger",
+      "generatedAt": "2026-06-03T18:51:49.345Z",
+      "projectLedger": {
+        "path": ".nexus\\var\\telemetry\\shadow_ledger.jsonl",
+        "exists": true,
+        "bytes": 1201921,
+        "lastModified": "2026-06-03T18:51:44.281Z",
+        "sha256": "6aa26c2da577ba4f84150169cc745cfbbea3ab61aa8b01c9725bc9b77d16b44d",
+        "tail": [
+          {
+            "timestamp": "2026-06-03T18:51:25.116Z",
+            "agent": "KAIROS v45.0-Omega-Nexus | The Sovereign Orchestrator",
+            "status": "SUCCESS",
+            "action": "FileRead",
+            "type": "TOOL_EXECUTION",
+            "params": {
+              "file_path": "C:\\tools\\workspace\\TheSource\\AGENTS.md",
+              "offset": 0,
+              "limit": 80
+            },
+            "duration_ms": 3,
+            "user": "ibrahim_admin",
+            "project": "thesource",
+            "sessionId": "ibrahim_admin_thesource"
+          },
+          {
+            "seq": "22e0da69-0809-49b5-b6de-13057ee833e4",
+            "timestamp": "2026-06-03T18:51:25.138Z",
+            "pid": 16300,
+            "sessionId": "local",
+            "type": "mcp_remote_tool_execution",
+            "action": "FileRead",
+            "status": "SUCCESS",
+            "source": "MCP_REMOTE_SERVER",
+            "bridgeVersion": "45.0.0-Apex",
+            "tool": "FileRead",
+            "mcpName": "nexus_FileSystemManager",
+            "durationMs": 4,
+            "user": "ibrahim_admin",
+            "project": "thesource"
+          },
+          {
+            "timestamp": "2026-06-03T18:51:25.168Z",
+            "sessionId": "native_mcp_verify",
+            "type": "native_mcp_verification",
+            "action": "verify_native_mcp",
+            "status": "PASS_90_GATE",
+            "score": 100,
+            "httpServerReachable": true,
+            "level5Ok": true,
+            "swarmDryRunOk": true,
+            "bootstrapOk": true
+          },
+          {
+            "timestamp": "2026-06-03T18:51:39.575Z",
+            "type": "live_ui_runtime_proof",
+            "action": "verify_live_ui_runtime",
+            "status": "SUCCESS",
+            "ok": true,
+            "baseUrl": "http://127.0.0.1:3847",
+            "statusCode": 200,
+            "domSnapshotHash": "825fa152949108dd8faa41fcbfbb2483272f173a7a432b846183436f3ff01ac3",
+            "dom": {
+              "title": "Sovereign billing Dashboard | لوحة التحكم الإدارية للفوترة",
+              "elementCount": 357,
+              "scriptCount": 3,
+              "styleCount": 2
+            },
+            "sourceFile": "public/admin.html",
+            "sourceExists": true,
+            "screenshotHash": "4d1d2f21a55e8b8edd79cf94a581f9897a6e83bf0efb7bb1d2b2dcc7ce760dcf",
+            "accessibilityTreeHash": "3f489675b801b9876b4f5165905244935449b745c8819afd0a2356f48cb67dd8",
+            "cliMapSourceLink": "file:///c:/tools/workspace/TheSource/package/cli.js.map#L4750",
+            "limitation": "Proves live admin DOM delivery, screenshot rendering hash, and accessibility tree mapping to cli.js.map."
+          },
+          {
+            "timestamp": "2026-06-03T18:51:42.642Z",
+            "agent": "KAIROS v45.0-Omega-Nexus | The Sovereign Orchestrator",
+            "status": "SUCCESS",
+            "action": "GraphMemorySync",
+            "type": "TOOL_EXECUTION",
+            "params": {
+              "files": [
+                {
+                  "path": "src/main.ts",
+                  "imports": [
+                    "src/utils.ts"
+                  ]
+                },
+                {
+                  "path": "src/utils.ts",
+                  "imports": []
+                }
+              ]
+            },
+            "duration_ms": 4
+          },
+          {
+            "timestamp": "2026-06-03T18:51:42.673Z",
+            "agent": "KAIROS v45.0-Omega-Nexus | The Sovereign Orchestrator",
+            "status": "SUCCESS",
+            "action": "RealtimeScan",
+            "type": "TOOL_EXECUTION",
+            "params": {
+              "file_path": "C:\\tools\\workspace\\TheSource\\scratch\\test_scan_vuln.js"
+            },
+            "duration_ms": 21
+          },
+          {
+            "timestamp": "2026-06-03T18:51:43.216Z",
+            "agent": "KAIROS v45.0-Omega-Nexus | The Sovereign Orchestrator",
+            "status": "SUCCESS",
+            "action": "ASTAutoPatch",
+            "type": "TOOL_EXECUTION",
+            "params": {
+              "file_path": "scratch/test_patch_ast.js",
+              "class_name": "Greeter",
+              "method_name": "greet",
+              "patch_code": "return \"welcome\";"
+            },
+            "duration_ms": 540
+          },
+          {
+            "timestamp": "2026-06-03T18:51:44.280Z",
+            "agent": "KAIROS v45.0-Omega-Nexus | The Sovereign Orchestrator",
+            "status": "SUCCESS",
+            "action": "FullRepairLoop",
+            "type": "TOOL_EXECUTION",
+            "params": {
+              "workspace_root": "C:\\tools\\workspace\\TheSource",
+              "task_goal": "Test full repair loop"
+            },
+            "duration_ms": 3
+          }
+        ]
+      },
+      "agentsLedger": {
+        "path": ".agents\\memory\\shadow_ledger.jsonl",
+        "exists": true,
+        "bytes": 176018,
+        "lastModified": "2026-06-03T18:51:43.222Z",
+        "sha256": "baca2f93cec2f2dc9b6893c9bb716cd42e6957c79e940afc8e58b6cdc869c734",
+        "tail": [
+          {
+            "timestamp": "2026-06-03T18:46:32.314Z",
+            "tool": "Bash",
+            "args": {
+              "command": "non_existent_command_sovereign_xyz",
+              "error": "Error: Command failed: non_existent_command_sovereign_xyz\n'non_existent_command_sovereign_xyz' is not recognized as an internal or external command,\r\noperable program or batch file.\r\n\nStderr: 'non_existent_command_sovereign_xyz' is not recognized as an internal or external command,\r\noperable program or batch file.\r\n"
+            },
+            "durationMs": 41,
+            "status": "error",
+            "previous_hash": "995b79eea07a3ce14a50a90d3ad3667d76cd8ee853584a5d0e88893529772df0",
+            "hash": "01385a590e7171198142476b7753896d43315a3d53d01993747d5f806eaa003d",
+            "hmac": "896ef0c42f871d853989e6c9c07efcc35ec27e4c7486c9cd7570da63811efba8"
+          },
+          {
+            "timestamp": "2026-06-03T18:46:33.197Z",
+            "tool": "FileRead",
+            "args": {
+              "file_path": "C:\\tools\\workspace\\TheSource\\scratch\\test_read.txt",
+              "encoding": "utf-8"
+            },
+            "durationMs": 0,
+            "status": "success",
+            "previous_hash": "01385a590e7171198142476b7753896d43315a3d53d01993747d5f806eaa003d",
+            "hash": "efdefb36abfad6f1061bf560b9f3fa4bff7f00bbe0c70fd4b6a2c2c9a9f48278",
+            "hmac": "d6c1859074befa54ecf7269552778253c5c9c9829aae9bc205ae5f53d9dcdff0"
+          },
+          {
+            "timestamp": "2026-06-03T18:49:09.301Z",
+            "tool": "Bash",
+            "args": {
+              "command": "echo 100"
+            },
+            "durationMs": 58,
+            "status": "success",
+            "previous_hash": "efdefb36abfad6f1061bf560b9f3fa4bff7f00bbe0c70fd4b6a2c2c9a9f48278",
+            "hash": "9fb755d88f2529db609dfb39512ff67606e77191f375f9c127e823398b831eda",
+            "hmac": "f71385282716b28e53c94bbfb8792ac12e47b09028e99d38ac5803f4ee037e74"
+          },
+          {
+            "timestamp": "2026-06-03T18:49:09.324Z",
+            "tool": "Bash",
+            "args": {
+              "command": "non_existent_command_sovereign_xyz",
+              "error": "Error: Command failed: non_existent_command_sovereign_xyz\n'non_existent_command_sovereign_xyz' is not recognized as an internal or external command,\r\noperable program or batch file.\r\n\nStderr: 'non_existent_command_sovereign_xyz' is not recognized as an internal or external command,\r\noperable program or batch file.\r\n"
+            },
+            "durationMs": 14,
+            "status": "error",
+            "previous_hash": "9fb755d88f2529db609dfb39512ff67606e77191f375f9c127e823398b831eda",
+            "hash": "b9b14d9633ceef10ff6187edbf88111749bb4548967a22c74f66d97421cd9ca1",
+            "hmac": "2530a2ee1a1fa139e810896dc36a2fbfa1934007ae32626a85d5f2e0cfdf29d5"
+          },
+          {
+            "timestamp": "2026-06-03T18:49:12.044Z",
+            "tool": "FileRead",
+            "args": {
+              "file_path": "C:\\tools\\workspace\\TheSource\\scratch\\test_read.txt",
+              "encoding": "utf-8"
+            },
+            "durationMs": 0,
+            "status": "success",
+            "previous_hash": "b9b14d9633ceef10ff6187edbf88111749bb4548967a22c74f66d97421cd9ca1",
+            "hash": "4202635e0a51f5ace81e8481537c338f5d6cda1a8c56cb049362503fc801e3e9",
+            "hmac": "5841f6af4a55988ad1766174e954faf54de0617a51e6af50657d1eba76924aed"
+          },
+          {
+            "timestamp": "2026-06-03T18:51:42.804Z",
+            "tool": "FileRead",
+            "args": {
+              "file_path": "C:\\tools\\workspace\\TheSource\\scratch\\test_read.txt",
+              "encoding": "utf-8"
+            },
+            "durationMs": 0,
+            "status": "success",
+            "previous_hash": "4202635e0a51f5ace81e8481537c338f5d6cda1a8c56cb049362503fc801e3e9",
+            "hash": "7e591b53aa519bf410d60b7a2a9f209ab7c0891d33c9b1eba1fae47bcc314123",
+            "hmac": "94577c8fd52f1ebe4c3ddb3d61ffbebea5229a114844f19a8070af3875a23a0b"
+          },
+          {
+            "timestamp": "2026-06-03T18:51:43.200Z",
+            "tool": "Bash",
+            "args": {
+              "command": "echo 100"
+            },
+            "durationMs": 13,
+            "status": "success",
+            "previous_hash": "7e591b53aa519bf410d60b7a2a9f209ab7c0891d33c9b1eba1fae47bcc314123",
+            "hash": "cd2df2e1d01446b09a9d424a1caaecc8f7a0d58e6071b3aa9e37ab3407b583c5",
+            "hmac": "09704d9d828fc14fc313d0bdaf434c2ebc635ac6a28078bd92a2c7ed1db026e4"
+          },
+          {
+            "timestamp": "2026-06-03T18:51:43.221Z",
+            "tool": "Bash",
+            "args": {
+              "command": "non_existent_command_sovereign_xyz",
+              "error": "Error: Command failed: non_existent_command_sovereign_xyz\n'non_existent_command_sovereign_xyz' is not recognized as an internal or external command,\r\noperable program or batch file.\r\n\nStderr: 'non_existent_command_sovereign_xyz' is not recognized as an internal or external command,\r\noperable program or batch file.\r\n"
+            },
+            "durationMs": 12,
+            "status": "error",
+            "previous_hash": "cd2df2e1d01446b09a9d424a1caaecc8f7a0d58e6071b3aa9e37ab3407b583c5",
+            "hash": "931e0baacb61bc97de58e7b27f16d8cf9d114fa509f9c1e4435259661c3ceeaf",
+            "hmac": "01d437d262eae050f4977cc19b1f513f04760642d666942af82f81259ac75660"
+          }
+        ]
+      }
+    }
+  }
+}

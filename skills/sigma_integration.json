@@ -1,0 +1,75 @@
+{
+  "name": "sigma_integration",
+  "description": "Integrates backend services with the Sigma Coordinator and Swarm API, exposing JSON‑based endpoints for chat operations, attachment handling, and audio streaming.",
+  "endpoints": [
+    {
+      "path": "/api/sigma/message",
+      "method": "POST",
+      "requestSchema": {
+        "type": "object",
+        "properties": {
+          "message": { "type": "string" },
+          "language": { "type": "string", "enum": ["en", "ar"] },
+          "attachmentId": { "type": ["string", "null"] }
+        },
+        "required": ["message"]
+      },
+      "responseSchema": {
+        "type": "object",
+        "properties": {
+          "reply": { "type": "string" },
+          "audioUrl": { "type": ["string", "null"] }
+        },
+        "required": ["reply"]
+      }
+    },
+    {
+      "path": "/api/sigma/attachment",
+      "method": "POST",
+      "requestSchema": {
+        "type": "object",
+        "properties": {
+          "file": { "type": "string", "format": "binary" },
+          "metadata": { "type": "object" }
+        },
+        "required": ["file"]
+      },
+      "responseSchema": {
+        "type": "object",
+        "properties": {
+          "attachmentId": { "type": "string" },
+          "url": { "type": "string" }
+        },
+        "required": ["attachmentId", "url"]
+      }
+    },
+    {
+      "path": "/api/sigma/audio/toggle",
+      "method": "POST",
+      "requestSchema": {
+        "type": "object",
+        "properties": {
+          "enabled": { "type": "boolean" }
+        },
+        "required": ["enabled"]
+      },
+      "responseSchema": {
+        "type": "object",
+        "properties": {
+          "status": { "type": "string" }
+        },
+        "required": ["status"]
+      }
+    }
+  ],
+  "integration": {
+    "sigmaCoordinator": {
+      "baseUrl": "https://api.sigma.example.com/v1",
+      "authHeader": "Authorization: Bearer <YOUR_TOKEN>"
+    },
+    "swarmApi": {
+      "endpoint": "https://swarm.api.example.com/execute",
+      "method": "POST"
+    }
+  }
+}

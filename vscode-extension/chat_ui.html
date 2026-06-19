@@ -1,0 +1,621 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&family=Inter:wght@300;400;600&family=Fira+Code:wght@400;500&display=swap");
+
+      :root {
+        --bg-deep: #03060b;
+        --bg-card: rgba(13, 17, 23, 0.8);
+        --accent-blue: #58a6ff;
+        --accent-glow: rgba(88, 166, 255, 0.2);
+        --accent-red: #f85149;
+        --border: rgba(48, 54, 61, 0.5);
+        --text: #c9d1d9;
+        --text-white: #ffffff;
+      }
+
+      body {
+        background: radial-gradient(circle at bottom left, #0d1117, #03060b);
+        color: var(--text);
+        font-family: "Inter", sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        overflow: hidden;
+      }
+
+      /* Processing Indicator Zenith */
+      #status-bar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 8px 15px;
+        font-size: 0.72rem;
+        background: rgba(13, 17, 23, 0.9);
+        border-bottom: 1px solid var(--border);
+        backdrop-filter: blur(10px);
+        z-index: 100;
+      }
+
+      .pulse {
+        display: inline-block;
+        width: 8px;
+        height: 8px;
+        background: var(--accent-blue);
+        border-radius: 50%;
+        box-shadow: 0 0 10px var(--accent-blue);
+        animation: pulse-animation 1.5s infinite;
+        margin-left: 8px;
+      }
+
+      @keyframes pulse-animation {
+        0% {
+          transform: scale(0.8);
+          opacity: 0.5;
+          box-shadow: 0 0 0 var(--accent-blue);
+        }
+        50% {
+          transform: scale(1.2);
+          opacity: 1;
+          box-shadow: 0 0 12px var(--accent-blue);
+        }
+        100% {
+          transform: scale(0.8);
+          opacity: 0.5;
+          box-shadow: 0 0 0 var(--accent-blue);
+        }
+      }
+
+      #chat-container {
+        flex: 1;
+        overflow-y: auto;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        scroll-behavior: smooth;
+      }
+
+      .message {
+        padding: 14px;
+        border-radius: 12px;
+        font-size: 0.88rem;
+        max-width: 88%;
+        line-height: 1.6;
+        position: relative;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s;
+      }
+
+      .user-msg {
+        background: linear-gradient(135deg, #1f6feb, #1d4f7a);
+        color: white;
+        align-self: flex-start;
+        border-bottom-left-radius: 2px;
+        box-shadow: 0 4px 12px rgba(31, 111, 235, 0.2);
+      }
+
+      .bot-msg {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        align-self: flex-end;
+        border-bottom-right-radius: 2px;
+        backdrop-filter: blur(5px);
+      }
+
+      .bot-msg:hover {
+        border-color: var(--accent-blue);
+        box-shadow: 0 0 15px var(--accent-glow);
+      }
+
+      /* Markdown Styling Elite */
+      pre {
+        background: #010409;
+        padding: 15px;
+        border-radius: 10px;
+        overflow-x: auto;
+        border: 1px solid var(--border);
+        margin: 12px 0;
+        position: relative;
+      }
+      code {
+        font-family: "Fira Code", monospace;
+        color: #a5d6ff;
+        font-size: 0.82rem;
+      }
+
+      /* Input Area Zenith */
+      #input-area {
+        background: rgba(13, 17, 23, 0.9);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        margin: 15px;
+        padding: 12px;
+        position: relative;
+        transition: all 0.3s;
+        backdrop-filter: blur(15px);
+        box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.4);
+      }
+
+      #input-area:focus-within {
+        border-color: var(--accent-blue);
+        box-shadow: 0 0 20px var(--accent-glow);
+      }
+      #input-area.disabled {
+        opacity: 0.6;
+        pointer-events: none;
+      }
+
+      textarea {
+        background: transparent;
+        border: none;
+        color: white;
+        width: 100%;
+        min-height: 50px;
+        outline: none;
+        resize: none;
+        font-size: 0.92rem;
+        padding: 5px;
+        font-family: "Inter", sans-serif;
+      }
+
+      .input-toolbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 12px;
+        padding-top: 10px;
+        border-top: 1px solid var(--border);
+      }
+
+      .tool-group {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+
+      .tool-chip {
+        background: rgba(33, 38, 45, 0.6);
+        border: 1px solid var(--border);
+        color: var(--text);
+        padding: 4px 12px;
+        border-radius: 20px;
+        font-size: 0.72rem;
+        cursor: pointer;
+        transition: all 0.2s;
+        font-weight: 600;
+      }
+
+      .tool-chip:hover {
+        border-color: var(--accent-blue);
+        background: rgba(88, 166, 255, 0.1);
+        transform: translateY(-1px);
+      }
+
+      .action-btn {
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        border: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: 0.3s;
+        font-size: 1.3rem;
+        background: var(--accent-blue);
+        color: white;
+        box-shadow: 0 4px 12px var(--accent-glow);
+      }
+
+      #send-btn.stop {
+        background: var(--accent-red);
+        box-shadow: 0 4px 12px rgba(248, 81, 73, 0.3);
+      }
+      .action-btn:hover {
+        transform: scale(1.1) rotate(-5deg);
+        filter: brightness(1.2);
+      }
+
+      /* Custom Scrollbar */
+      ::-webkit-scrollbar {
+        width: 6px;
+      }
+      ::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: var(--border);
+        border-radius: 10px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: var(--text-muted);
+      }
+
+      /* Premium Floating Dock & Tooltip System */
+      .action-dock {
+        display: flex;
+        justify-content: center;
+        gap: 12px;
+        padding: 12px;
+        background: rgba(13, 17, 23, 0.7);
+        border-bottom: 1px solid var(--border);
+        backdrop-filter: blur(15px);
+      }
+
+      .dock-icon-btn {
+        position: relative;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: rgba(33, 38, 45, 0.6);
+        border: 1px solid var(--border);
+        color: white;
+        font-size: 1.15rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      }
+
+      .dock-icon-btn:hover {
+        transform: translateY(-4px) scale(1.15);
+        background: rgba(88, 166, 255, 0.15);
+        border-color: var(--accent-blue);
+        box-shadow: 0 0 15px var(--accent-glow);
+      }
+
+      .dock-icon-btn.danger:hover {
+        background: rgba(248, 81, 73, 0.15);
+        border-color: var(--accent-red);
+        box-shadow: 0 0 15px rgba(248, 81, 73, 0.3);
+      }
+
+      /* Tooltip Custom Styled Bubble */
+      .dock-icon-btn::before {
+        content: attr(data-tooltip);
+        position: absolute;
+        bottom: -45px;
+        left: 50%;
+        transform: translateX(-50%) translateY(10px);
+        background: rgba(13, 17, 23, 0.95);
+        border: 1px solid var(--border);
+        color: white;
+        padding: 6px 12px;
+        border-radius: 8px;
+        font-size: 0.7rem;
+        white-space: nowrap;
+        opacity: 0;
+        pointer-events: none;
+        transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+        z-index: 1000;
+      }
+
+      .dock-icon-btn:hover::before {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="status-bar">
+      <div id="processing-info" style="display: none">
+        <span class="pulse"></span> جاري المعالجة سيادياً...
+      </div>
+      <div
+        id="active-model"
+        style="font-size: 0.65rem; color: var(--text); opacity: 0.7"
+      ></div>
+      <div
+        style="
+          margin-right: auto;
+          font-family: &quot;Outfit&quot;, sans-serif;
+          font-weight: 600;
+          color: var(--accent-blue);
+        "
+      >
+        AETHER ZENITH V10.0
+        <!-- Nexus Omega -->
+      </div>
+    </div>
+
+    <div class="action-dock">
+      <button
+        class="dock-icon-btn"
+        data-tooltip="التحليل الذري للمشروع (فحص النواة البنيوية)"
+        onclick="quickTask('التحليل الذري للمشروع')"
+      >
+        🔍
+      </button>
+      <button
+        class="dock-icon-btn"
+        data-tooltip="فحص أمني جنائي V21 (كشف الثغرات ونقاط الضعف)"
+        onclick="quickTask('فحص أمني جنائي (V21)')"
+      >
+        🛡️
+      </button>
+      <button
+        class="dock-icon-btn"
+        data-tooltip="مراجعة مطابقة معايير GRP (الحوكمة والقيود)"
+        onclick="quickTask('مراجعة مطابقة GRP')"
+      >
+        ⚖️
+      </button>
+      <button
+        class="dock-icon-btn"
+        data-tooltip="تنظيف الكود وتحسين الأداء البرمجي"
+        onclick="quickTask('تنظيف الكود وتحسين الأداء')"
+      >
+        🧹
+      </button>
+      <button
+        class="dock-icon-btn"
+        data-tooltip="الشفاء الذاتي AST وإصلاح الأخطاء تلقائياً"
+        onclick="quickTask('الشفاء الذاتي AST وإصلاح الأخطاء')"
+      >
+        🚀
+      </button>
+      <button
+        class="dock-icon-btn danger"
+        data-tooltip="مسح سجل الدردشة بالكامل (تصفية السياق)"
+        onclick="clearChat()"
+      >
+        🗑️
+      </button>
+    </div>
+
+    <div id="chat-container"></div>
+
+    <div id="input-area">
+      <div
+        id="skill-actions"
+        style="display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px"
+      ></div>
+      <textarea
+        id="user-input"
+        placeholder="اطلب ما تريد بناءه... (Enter للإرسال)"
+      ></textarea>
+      <div class="input-toolbar">
+        <div class="tool-group">
+          <select
+            id="mode-select"
+            class="tool-chip"
+            style="background: var(--bg-deep); outline: none"
+          >
+            <option value="act">⚡ Act (تنفيذ)</option>
+            <option value="plan">📝 Plan (تخطيط)</option>
+          </select>
+          <div class="tool-chip" style="border-style: dashed">Context ⊕</div>
+          <button class="tool-chip" onclick="exportReport()">📥 تصدير</button>
+          <button id="voice-btn" class="tool-chip" onclick="toggleVoice()">
+            🔊 صوت: إيقاف
+          </button>
+        </div>
+        <button id="send-btn" class="action-btn" onclick="handleAction()">
+          ↑
+        </button>
+      </div>
+    </div>
+
+    <script>
+      const vscode = acquireVsCodeApi();
+      const chatContainer = document.getElementById("chat-container");
+      const userInput = document.getElementById("user-input");
+      const sendBtn = document.getElementById("send-btn");
+      const inputArea = document.getElementById("input-area");
+      const processingInfo = document.getElementById("processing-info");
+
+      let isProcessing = false;
+      let voiceEnabled = false;
+
+      function toggleVoice() {
+        voiceEnabled = !voiceEnabled;
+        document.getElementById("voice-btn").innerText = voiceEnabled
+          ? "🔊 صوت: تشغيل"
+          : "🔊 صوت: إيقاف";
+        document.getElementById("voice-btn").style.borderColor = voiceEnabled
+          ? "var(--accent-blue)"
+          : "var(--border)";
+      }
+
+      function speak(text) {
+        if (!voiceEnabled) return;
+        const msg = new SpeechSynthesisUtterance();
+        msg.text = text.replace(/```[\s\S]*?```/g, " [كود برمجى] ");
+        msg.lang = "ar-SA";
+        window.speechSynthesis.speak(msg);
+      }
+
+      function clearChat() {
+        if (confirm("هل أنت متأكد من مسح سجل الدردشة بالكامل؟")) {
+          chatContainer.innerHTML = "";
+          vscode.postMessage({ command: "clearChat" });
+        }
+      }
+
+      function quickTask(task) {
+        userInput.value = task;
+        handleAction();
+      }
+
+      userInput.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" && !e.shiftKey) {
+          e.preventDefault();
+          handleAction();
+        }
+      });
+
+      function handleAction() {
+        if (isProcessing) {
+          vscode.postMessage({ command: "cancelTask" });
+          setProcessing(false);
+          return;
+        }
+
+        const text = userInput.value.trim();
+        if (!text) return;
+
+        appendMessage("user", text);
+        userInput.value = "";
+        setProcessing(true);
+
+        vscode.postMessage({
+          command: "sendMessage",
+          text: text,
+          mode: document.getElementById("mode-select").value,
+        });
+      }
+
+      function exportReport() {
+        const messages = [];
+        const msgs = document.querySelectorAll(".message");
+        for (let i = 0; i < msgs.length; i += 2) {
+          if (msgs[i] && msgs[i + 1]) {
+            messages.push({
+              user: msgs[i].innerText,
+              bot: msgs[i + 1].innerText,
+            });
+          }
+        }
+        vscode.postMessage({ command: "exportReport", history: messages });
+      }
+
+      function setProcessing(processing) {
+        isProcessing = processing;
+        if (processing) {
+          sendBtn.innerHTML = "■";
+          sendBtn.classList.add("stop");
+          inputArea.classList.add("disabled");
+          processingInfo.style.display = "block";
+        } else {
+          sendBtn.innerHTML = "↑";
+          sendBtn.classList.remove("stop");
+          inputArea.classList.remove("disabled");
+          processingInfo.style.display = "none";
+          userInput.focus();
+        }
+      }
+
+      function renderMarkdown(text) {
+        const escaped = text
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;");
+
+        const html = escaped
+          .replace(
+            /```([a-zA-Z0-9_-]*)\n([\s\S]*?)```/g,
+            (match, lang, code) => {
+              const id = "code-" + Math.random().toString(36).substr(2, 9);
+              return `
+                        <div class="code-wrapper" style="position: relative; margin-top: 15px;">
+                            <div style="display: flex; justify-content: flex-end; gap: 8px; margin-bottom: 8px;">
+                                <button class="tool-chip" style="background:rgba(88,166,255,0.1); border-color:var(--accent-blue);" onclick="copyCode('${id}')">📋 نسخ</button>
+                                <button class="tool-chip" style="background:rgba(63,185,80,0.1); border-color:#3fb950;" onclick="insertCode('${id}')">🚀 إدراج</button>
+                            </div>
+                            <pre><code id="${id}" class="language-${lang}">${code}</code></pre>
+                        </div>
+                    `;
+            },
+          )
+          .replace(
+            /`([^`\n]+)`/g,
+            '<code style="background:rgba(13,17,23,0.6); padding:2px 4px; border-radius:4px;">$1</code>',
+          )
+          .replace(/\n{2,}/g, "</p><p>")
+          .replace(/\n/g, "<br>");
+
+        return `<p>${html}</p>`;
+      }
+
+      function appendMessage(role, text) {
+        const div = document.createElement("div");
+        div.className = `message ${role === "user" ? "user-msg" : "bot-msg"}`;
+
+        if (role === "bot") {
+          div.innerHTML = renderMarkdown(text);
+        } else {
+          div.innerHTML = text;
+        }
+
+        chatContainer.appendChild(div);
+        chatContainer.scrollTop = chatContainer.scrollHeight;
+      }
+
+      window.copyCode = (id) => {
+        const code = document.getElementById(id).innerText;
+        navigator.clipboard.writeText(code);
+        vscode.postMessage({
+          command: "showInfo",
+          text: "تم نسخ الكود بنجاح! ✔️",
+        });
+      };
+
+      window.insertCode = (id) => {
+        const code = document.getElementById(id).innerText;
+        vscode.postMessage({ command: "insertCode", text: code });
+      };
+
+      window.addEventListener("message", (event) => {
+        const msg = event.data;
+        if (msg.command === "receiveMessage") {
+          setProcessing(false);
+          appendMessage("bot", msg.text);
+          speak(msg.text);
+        } else if (msg.command === "updateStep") {
+          processingInfo.innerHTML = `<span class="pulse"></span> ${msg.text}`;
+        } else if (msg.command === "loadHistory") {
+          msg.history.forEach((h) => {
+            appendMessage("user", h.user);
+            appendMessage("bot", h.bot);
+          });
+        } else if (msg.command === "loadSettings") {
+          if (msg.skills) {
+            const skillActions = document.getElementById("skill-actions");
+            skillActions.innerHTML = msg.skills
+              .map(
+                (s) =>
+                  `<button class="tool-chip" style="border-color: #bc8cff; color: #bc8cff; background: rgba(188,140,255,0.05);" onclick="quickTask('Activate skill ${s.name || s} and analyze project')">✨ ${s.name || s}</button>`,
+              )
+              .join("");
+          }
+          // Store model info for indicator
+          window._plannerModel =
+            msg.plannerModel || "deepseek-ai/DeepSeek-V3";
+          window._executorModel =
+            msg.executorModel || "deepseek-ai/DeepSeek-V3";
+          updateModelIndicator();
+        }
+      });
+
+      // Model indicator updater
+      function updateModelIndicator() {
+        const mode = document.getElementById("mode-select").value;
+        const modelEl = document.getElementById("active-model");
+        const plannerShort = (window._plannerModel || "Planner")
+          .split("/")
+          .pop();
+        const executorShort = (window._executorModel || "Executor")
+          .split("/")
+          .pop();
+
+        const plannerHtml = `<span style="padding: 2px 6px; border-radius: 4px; display: inline-flex; align-items: center; gap: 4px; transition: all 0.3s; ${mode === "plan" ? "background: rgba(88,166,255,0.15); border: 1px solid var(--accent-blue); color: var(--accent-blue); font-weight: bold; opacity: 1;" : "opacity: 0.5;"}">🧠 المخطط: ${plannerShort}</span>`;
+        const executorHtml = `<span style="padding: 2px 6px; border-radius: 4px; display: inline-flex; align-items: center; gap: 4px; transition: all 0.3s; ${mode === "act" ? "background: rgba(188,140,255,0.15); border: 1px solid #bc8cff; color: #bc8cff; font-weight: bold; opacity: 1;" : "opacity: 0.5;"}">⚡ المنفذ: ${executorShort}</span>`;
+
+        modelEl.innerHTML = `${plannerHtml} <span style="margin: 0 4px; opacity: 0.3;">|</span> ${executorHtml}`;
+      }
+      document
+        .getElementById("mode-select")
+        .addEventListener("change", updateModelIndicator);
+
+      vscode.postMessage({ command: "requestHistory" });
+    </script>
+  </body>
+</html>

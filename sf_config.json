@@ -1,0 +1,10 @@
+{
+  "protocol": "HMEAAI-SOVEREIGN",
+  "qwen_endpoint": "https://api.siliconflow.com/v1/chat/completions",
+  "planner_model": "deepseek-ai/DeepSeek-V3",
+  "executive_model": "Qwen/Qwen2.5-7B-Instruct",
+  "timeout_ms": 60000,
+  "max_retries": 3,
+  "retry_policy": "exponential_backoff",
+  "forensic_logging": true
+}

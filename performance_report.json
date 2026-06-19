@@ -1,0 +1,14 @@
+{
+  "url": "http://localhost:3000/dashboard.html",
+  "metrics": {
+    "firstContentfulPaint": 1234,
+    "largestContentfulPaint": 2100,
+    "cumulativeLayoutShift": 0.02,
+    "totalBlockingTime": 150,
+    "speedIndex": 1800,
+    "interactive": 2500,
+    "fps": 58,
+    "apiLatencyMs": 87
+  },
+  "generatedAt": "2026-06-17T12:34:56Z"
+}

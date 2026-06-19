@@ -1,0 +1,91 @@
+=== DJANGO STRUCTURAL CHECK ===
+System check identified no issues (0 silenced).
+
+=== N+1 QUERY RISKS (10 found) ===
+/scratch_inspect.py:12: for f in Farm.objects.all():
+/scratch_inspect.py:16: for c in Crop.objects.all():
+/scratch_inspect.py:20: for p in CropPlan.objects.all():
+/ops/diagnostics/check_items.py:22: for item in Item.objects.all()[:5]:
+/ops/diagnostics/check_stock.py:15: for s in LocationTreeStock.objects.all()[:20]:
+/ops/diagnostics/inspect_settings.py:37: for gp in FarmGovernanceProfile.objects.all()[:3]:
+/ops/diagnostics/inspect_settings.py:41: for r in RaciTemplate.objects.all()[:5]:
+/scripts/maturity_audit.py:26: for t in Task.objects.all():
+/scripts/nightly_health_check.py:35: for status in TreeProductivityStatus.objects.all():
+/smart_agri/core/management/commands/cleanup_test_data.py:49: for farm in Farm.objects.all():
+
+=== FLOAT PRECISION RISKS (4 found) ===
+/scratch/harden_migrations.py:15: "FloatField": "DOUBLE PRECISION",
+/smart_agri/core/models/settings.py:749: elif field_type in {"DecimalField", "FloatField"}:
+/smart_agri/finance/tests/test_financial_integrity_governance.py:55: """[AGENTS.md §7] FinancialLedger.debit/credit must use DecimalField, not FloatField."""
+/smart_agri/finance/tests/test_financial_integrity_governance.py:60: "FinancialLedger.debit must be DecimalField (not FloatField).")
+
+=== DEBUG=True IN SETTINGS (7 found) ===
+/scripts/agri_guardian_level2.py:147: if "DEBUG = True" in content:
+/scripts/agri_guardian_level2.py:148: print("❌ CRITICAL: DEBUG = True found in settings.py!")
+/scripts/agri_guardian_level2.py:150: issues.append("Security: DEBUG = True is enabled.")
+/scripts/startup_check.py:84: warnings.append("DEBUG=True - لا ينبغي استخدامه في الإنتاج")
+/smart_agri/settings.py:34: # Use DJANGO_DEBUG=True in .env for development.
+/smart_agri/settings.py:456: #   - Development (DEBUG=True):  cookies insecure, no HSTS, no SSL redirect
+/smart_agri/test_settings_sqlite.py:17: DEBUG = True
+
+=== HARDCODED SECRETS (1 found) ===
+/scripts/agri_guardian_level2.py:154: if "SECRET_KEY = 'django-insecure" in content:
+
+=== CSRF EXEMPT USAGE ===
+CLEAN ✅
+
+=== RAW SQL INJECTION RISK (10 found) ===
+/conftest.py:99: cursor.execute("SELECT set_config('app.user_id', NULL, false)")
+/conftest.py:111: cursor.execute("SELECT set_config('app.user_id', NULL, false)")
+/db_test_query.py:15: cursor.execute("SELECT set_config('app.user_id', '123', false)")
+/db_test_query.py:19: cursor.execute("SELECT current_setting('app.user_id', true)")
+/fix_solar.py:16: cursor.execute("""
+/fix_solar.py:29: cursor.execute("""
+/fix_solar.py:36: cursor.execute("""
+/fix_solar.py:46: cursor.execute("""
+/fix_solar.py:50: cursor.execute("""
+/hotfix.py:16: cursor.execute('ALTER TABLE core_farmsettings ADD COLUMN show_advanced_reports boolean DEFAULT false NOT NULL;')
+
+=== VALIDATED_DATA.POP() RISK (10 found) ===
+/smart_agri/accounts/services.py:49: password = validated_data.pop("password", None)
+/smart_agri/accounts/services.py:64: password = validated_data.pop("password", None)
+/smart_agri/accounts/services.py:123: permissions = list(validated_data.pop("permissions", []))
+/smart_agri/accounts/services.py:133: permissions = validated_data.pop("permissions", None)
+/smart_agri/core/api/hr.py:62: validated_data.pop('phone', None)
+/smart_agri/core/api/hr.py:63: validated_data.pop('email', None)
+/smart_agri/core/api/hr.py:96: validated_data.pop('phone', None)
+/smart_agri/core/api/hr.py:97: validated_data.pop('email', None)
+/smart_agri/core/api/serializers/commercial.py:33: #         capabilities = validated_data.pop('capabilities', [])
+/smart_agri/core/api/serializers/commercial.py:39: #         capabilities = validated_data.pop('capabilities', None)
+
+=== MIGRATION STATUS (last 3000 chars) ===
+[X]  contenttypes.0001_initial
+[X]  auth.0001_initial
+[X]  core.0001_initial
+[X]  contenttypes.0002_remove_content_type_name
+[X]  auth.0002_alter_permission_name_max_length
+[X]  auth.0003_alter_user_email_max_length
+[X]  auth.0004_alter_user_username_opts
+[X]  auth.0005_alter_user_last_login_null
+[X]  auth.0006_require_contenttypes_0002
+[X]  auth.0007_alter_validators_add_error_messages
+[X]  auth.0008_alter_user_username_max_length
+[X]  auth.0009_alter_user_last_name_max_length
+[X]  auth.0010_alter_group_name_max_length
+[X]  auth.0011_update_proxy_permissions
+[X]  auth.0012_alter_user_first_name_max_length
+[X]  accounts.0001_initial
+[X]  accounts.0002_initial
+[X]  admin.0001_initial
+[X]  admin.0002_logentry_remove_auto_add
+[X]  admin.0003_logentry_add_action_flag_choices
+[X]  inventory.0001_initial
+[X]  sales.0001_initial
+[X]  core.0002_initial
+[X]  finance.0001_initial
+[X]  core.0003_initial
+[X]  core.0004_activityitem_is_cost_posted_and_more
+[X]  crop_planning.0001_initial
+[X]  field_simple.0001_initial
+[X]  integrations.0001_initial
+[X]  sessions.0001_initial

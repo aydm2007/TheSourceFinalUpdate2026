@@ -1,0 +1,23 @@
+{
+  "status": "SUCCESS",
+  "duration_ms": 94143,
+  "timestamp": "2026-06-19T13:07:28.110Z",
+  "swarm_result": {
+    "status": "launched",
+    "total_agents": 5,
+    "wave_size": 5,
+    "waves": 1,
+    "tasks": [
+      {
+        "wave": 1,
+        "launched": [
+          "[AGENT-COMPLETED] Task ID: agent_1781874353984_4e2b2d2b-1e3f-4344-b485-c7baad2aecd9. Status: completed",
+          "[AGENT-COMPLETED] Task ID: agent_1781874354000_e4d65fe9-668c-43c8-b9c2-3228d938b24e. Status: completed",
+          "[AGENT-COMPLETED] Task ID: agent_1781874354103_326a0c88-15d3-4832-9272-8f0cc2be87bd. Status: completed",
+          "[AGENT-COMPLETED] Task ID: agent_1781874354112_f4bbb6da-c1a1-48cb-875d-5afbaaf9f933. Status: completed",
+          "[AGENT-COMPLETED] Task ID: agent_1781874354253_29609a00-f0ea-40f1-bddf-80b765dd4182. Status: completed"
+        ]
+      }
+    ]
+  }
+}

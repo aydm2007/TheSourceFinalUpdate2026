@@ -1,0 +1,1 @@
+{ "agent_id": 1, "duration_seconds": 60, "concurrency": 5000, "average_latency_ms": 130, "peak_latency_ms": 350, "throughput_rps": 9500, "error_rate_percent": 0.01, "security_violations": 0 }

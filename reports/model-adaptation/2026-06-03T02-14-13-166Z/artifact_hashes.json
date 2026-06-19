@@ -1,0 +1,17 @@
+[
+  {
+    "path": "C:\\tools\\workspace\\TheSource\\reports\\model-adaptation\\2026-06-03T02-14-13-166Z\\summary.json",
+    "sha256": "b73174e116ac59b10d7879930ac82507045de5ad5998415a45281e363a275b02",
+    "bytes": 784
+  },
+  {
+    "path": "C:\\tools\\workspace\\TheSource\\reports\\model-adaptation\\2026-06-03T02-14-13-166Z\\scores.json",
+    "sha256": "b7e8a88595230b83d7f14631623013f6cbab58996c35595dbe0d038256c098d1",
+    "bytes": 1210
+  },
+  {
+    "path": "C:\\tools\\workspace\\TheSource\\reports\\model-adaptation\\2026-06-03T02-14-13-166Z\\transcripts.json",
+    "sha256": "ffd31c12f6ee7b31d976e4d3f813ba9aaa0c1dd5f1541d6071941eea7f5b8c33",
+    "bytes": 28077
+  }
+]

@@ -1,0 +1,8 @@
+{
+  "generatedAt": "2026-06-13T16:02:14.615Z",
+  "source": "npm run native-mcp:verify",
+  "transcript": {
+    "ok": false,
+    "reason": "native MCP parsed output missing streamable HTTP proof"
+  }
+}

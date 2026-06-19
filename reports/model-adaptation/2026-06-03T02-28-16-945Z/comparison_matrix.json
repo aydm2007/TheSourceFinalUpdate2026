@@ -1,0 +1,146 @@
+[
+  {
+    "axis": "deep_reasoning",
+    "target": 98,
+    "offlineContractScore": 100,
+    "offlineStatus": "pass",
+    "selectedStatus": "skipped",
+    "selectedScore": null,
+    "claudeStatus": "skipped",
+    "claudeScore": null,
+    "winner": "unproven",
+    "claudeOutcome": "unproven_no_fresh_baseline",
+    "directVictory": false,
+    "proofState": "offline_threshold_only",
+    "missingEvidence": [
+      "selected:skipped",
+      "claude:skipped"
+    ]
+  },
+  {
+    "axis": "tool_calling",
+    "target": 95,
+    "offlineContractScore": 100,
+    "offlineStatus": "pass",
+    "selectedStatus": "skipped",
+    "selectedScore": null,
+    "claudeStatus": "skipped",
+    "claudeScore": null,
+    "winner": "unproven",
+    "claudeOutcome": "unproven_no_fresh_baseline",
+    "directVictory": false,
+    "proofState": "offline_threshold_only",
+    "missingEvidence": [
+      "selected:skipped",
+      "claude:skipped"
+    ]
+  },
+  {
+    "axis": "natural_tool_calling",
+    "target": 97,
+    "offlineContractScore": 100,
+    "offlineStatus": "pass",
+    "selectedStatus": "skipped",
+    "selectedScore": null,
+    "claudeStatus": "skipped",
+    "claudeScore": null,
+    "winner": "unproven",
+    "claudeOutcome": "unproven_no_fresh_baseline",
+    "directVictory": false,
+    "proofState": "offline_threshold_only",
+    "missingEvidence": [
+      "selected:skipped",
+      "claude:skipped"
+    ]
+  },
+  {
+    "axis": "code_review",
+    "target": 98,
+    "offlineContractScore": 100,
+    "offlineStatus": "pass",
+    "selectedStatus": "skipped",
+    "selectedScore": null,
+    "claudeStatus": "skipped",
+    "claudeScore": null,
+    "winner": "unproven",
+    "claudeOutcome": "unproven_no_fresh_baseline",
+    "directVictory": false,
+    "proofState": "offline_threshold_only",
+    "missingEvidence": [
+      "selected:skipped",
+      "claude:skipped"
+    ]
+  },
+  {
+    "axis": "long_context",
+    "target": 98,
+    "offlineContractScore": 100,
+    "offlineStatus": "pass",
+    "selectedStatus": "skipped",
+    "selectedScore": null,
+    "claudeStatus": "skipped",
+    "claudeScore": null,
+    "winner": "unproven",
+    "claudeOutcome": "unproven_no_fresh_baseline",
+    "directVictory": false,
+    "proofState": "offline_threshold_only",
+    "missingEvidence": [
+      "selected:skipped",
+      "claude:skipped"
+    ]
+  },
+  {
+    "axis": "agentic_persistence",
+    "target": 97,
+    "offlineContractScore": 100,
+    "offlineStatus": "pass",
+    "selectedStatus": "skipped",
+    "selectedScore": null,
+    "claudeStatus": "skipped",
+    "claudeScore": null,
+    "winner": "unproven",
+    "claudeOutcome": "unproven_no_fresh_baseline",
+    "directVictory": false,
+    "proofState": "offline_threshold_only",
+    "missingEvidence": [
+      "selected:skipped",
+      "claude:skipped"
+    ]
+  },
+  {
+    "axis": "security",
+    "target": 95,
+    "offlineContractScore": 100,
+    "offlineStatus": "pass",
+    "selectedStatus": "skipped",
+    "selectedScore": null,
+    "claudeStatus": "skipped",
+    "claudeScore": null,
+    "winner": "unproven",
+    "claudeOutcome": "unproven_no_fresh_baseline",
+    "directVictory": false,
+    "proofState": "offline_threshold_only",
+    "missingEvidence": [
+      "selected:skipped",
+      "claude:skipped"
+    ]
+  },
+  {
+    "axis": "instruction_following",
+    "target": 95,
+    "offlineContractScore": 100,
+    "offlineStatus": "pass",
+    "selectedStatus": "skipped",
+    "selectedScore": null,
+    "claudeStatus": "skipped",
+    "claudeScore": null,
+    "winner": "unproven",
+    "claudeOutcome": "unproven_no_fresh_baseline",
+    "directVictory": false,
+    "proofState": "offline_threshold_only",
+    "missingEvidence": [
+      "selected:skipped",
+      "claude:skipped"
+    ]
+  }
+]

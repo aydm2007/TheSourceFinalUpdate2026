@@ -1,0 +1,86 @@
+{
+  "generatedAt": "2026-06-15T09:36:22.307Z",
+  "authProof": {
+    "metrics": {
+      "ok": true,
+      "statusCode": 200
+    },
+    "mcpSse": {
+      "ok": true,
+      "statusCode": 200,
+      "contentType": "text/event-stream"
+    },
+    "streamableHttp": {
+      "ok": true,
+      "toolCount": 23,
+      "fileManagerExposed": true,
+      "readOnlyToolCallOk": true,
+      "transport": "streamable-http"
+    },
+    "allTools": {
+      "ok": true,
+      "statusCode": 200,
+      "toolCount": 40
+    },
+    "toolSmoke": {
+      "ok": true,
+      "via": "streamable-http",
+      "readOnlyToolCallOk": true
+    }
+  },
+  "deniedAccessProof": {
+    "unauthMetricsDenied": true,
+    "unauthMcpDenied": true
+  },
+  "toolFilterProof": {
+    "bootstrap": {
+      "expected": [
+        "nexus_AskUserQuestion",
+        "nexus_CognitiveRouter",
+        "nexus_LoadSkill",
+        "nexus_SwarmHandoff"
+      ],
+      "actual": [
+        "nexus_AskUserQuestion",
+        "nexus_CognitiveRouter",
+        "nexus_LoadSkill",
+        "nexus_SwarmHandoff"
+      ],
+      "ok": true
+    },
+    "skills": {
+      "mcpDeveloperToolCount": 21,
+      "cloudOpusMentorToolCount": 23,
+      "swarmToolCount": 25,
+      "swarmManagerActions": [
+        "Agent",
+        "SwarmBroadcast",
+        "SwarmPipelineOrchestrator",
+        "DeepCoordinatorTask",
+        "AsyncSwarmTask",
+        "ParallelSwarmCoordinator"
+      ],
+      "swarmCoordinatorExposed": true,
+      "agentExposed": true,
+      "mcpDeveloperFileActions": [
+        "FileRead",
+        "FileReadLines",
+        "Glob",
+        "Grep",
+        "ViewCodeOutline"
+      ],
+      "securityFileActions": [
+        "FileRead",
+        "FileReadLines",
+        "Glob",
+        "Grep",
+        "ViewCodeOutline"
+      ]
+    },
+    "authorization": {
+      "fileReadUnderMcpDeveloper": true,
+      "fileWriteDeniedUnderSecurityAudit": true,
+      "denialReasonClass": "SKILL_STRICT_DENIAL"
+    }
+  }
+}

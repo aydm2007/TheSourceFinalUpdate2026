@@ -1,0 +1,5 @@
+{
+  "endpoint": "https://secure-api.example.com",
+  "hmac": "241cdbb63ec4f82c87f51d326742827829a91d568111558b2c98f9d31f5f3b99",
+  "algorithm": "sha256"
+}

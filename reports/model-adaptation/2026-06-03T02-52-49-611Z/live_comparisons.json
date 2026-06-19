@@ -1,0 +1,63 @@
+[
+  {
+    "axis": "instruction_following",
+    "selected": {
+      "status": "console_error",
+      "provider": "aether-console",
+      "model": "openai/gpt-oss-120b:free",
+      "startedAt": "2026-06-03T02:52:50.660Z",
+      "endedAt": "2026-06-03T02:52:51.149Z",
+      "exitCode": 1,
+      "signal": null,
+      "outputHash": "721b9c5c6880c146297d2882f44c866bf188d5e7d7c5d7dca7c51cd2eb20ffd4",
+      "outputBytes": 324,
+      "transcriptHash": "721b9c5c6880c146297d2882f44c866bf188d5e7d7c5d7dca7c51cd2eb20ffd4",
+      "transcriptBytes": 324,
+      "score": {
+        "score": 0,
+        "structured": {
+          "score": 0,
+          "proofValid": false,
+          "required": [
+            "scope",
+            "constraints",
+            "evidence",
+            "uncertainty",
+            "residualRisk"
+          ],
+          "present": [],
+          "missing": [
+            "scope",
+            "constraints",
+            "evidence",
+            "uncertainty",
+            "residualRisk"
+          ],
+          "axisMatches": false
+        },
+        "keywordScore": 0,
+        "rubric": [
+          "scope",
+          "evidence",
+          "risk",
+          "uncertainty"
+        ],
+        "hits": [],
+        "missing": [
+          "scope",
+          "evidence",
+          "risk",
+          "uncertainty"
+        ]
+      },
+      "output": "C:\\tools\\workspace\\TheSource\\aether.ps1 : Cannot process argument because the value of argument \"name\" is not valid. \r\nChange the value of the \"name\" argument and run the operation again.\r\n    + CategoryInfo          : InvalidArgument: (:) [aether.ps1], PSArgumentException\r\n    + FullyQualifiedErrorId : Argument,aether.ps1",
+      "transcriptPreview": "C:\\tools\\workspace\\TheSource\\aether.ps1 : Cannot process argument because the value of argument \"name\" is not valid. \r\nChange the value of the \"name\" argument and run the operation again.\r\n    + CategoryInfo          : InvalidArgument: (:) [aether.ps1], PSArgumentException\r\n    + FullyQualifiedErrorId : Argument,aether.ps1",
+      "error": null
+    },
+    "claude": {
+      "status": "missing_key",
+      "env": "ANTHROPIC_API_KEY"
+    },
+    "directVictory": false
+  }
+]

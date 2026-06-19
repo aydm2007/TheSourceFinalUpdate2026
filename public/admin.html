@@ -1,0 +1,1961 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sovereign billing Dashboard | لوحة التحكم الإدارية للفوترة</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        :root {
+            --bg-color: #0b0f19;
+            --panel-bg: rgba(17, 24, 39, 0.7);
+            --panel-border: rgba(255, 255, 255, 0.08);
+            --text-primary: #f3f4f6;
+            --text-secondary: #9ca3af;
+            --accent-primary: #6366f1; /* Indigo */
+            --accent-glow: rgba(99, 102, 241, 0.15);
+            --accent-secondary: #a855f7; /* Purple */
+            --success: #10b981;
+            --danger: #ef4444;
+            --warning: #f59e0b;
+            --glass-blur: 16px;
+        }
+
+        [data-lang="en"] {
+            font-family: 'Outfit', sans-serif;
+            direction: ltr;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            transition: all 0.25s ease;
+        }
+
+        body {
+            font-family: 'Cairo', 'Outfit', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(at 10% 20%, rgba(99, 102, 241, 0.1) 0px, transparent 50%),
+                radial-gradient(at 90% 80%, rgba(168, 85, 247, 0.08) 0px, transparent 50%);
+            background-attachment: fixed;
+        }
+
+        /* Top Navigation Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 2rem;
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(var(--glass-blur));
+            border-bottom: 1px solid var(--panel-border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            box-shadow: 0 0 15px rgba(99, 102, 241, 0.4);
+        }
+
+        .logo-title h1 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            background: linear-gradient(to left, #ffffff, #a855f7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .logo-title p {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+        }
+
+        .header-controls {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.6rem 1.2rem;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            border: 1px solid transparent;
+            font-size: 0.9rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+            color: white;
+            border: none;
+            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.25);
+        }
+
+        .btn-primary:hover {
+            opacity: 0.9;
+            box-shadow: 0 6px 16px rgba(99, 102, 241, 0.4);
+        }
+
+        .btn-outline {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--panel-border);
+            color: var(--text-primary);
+        }
+
+        .btn-outline:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .lang-btn {
+            background: none;
+            border: 1px solid var(--panel-border);
+            color: var(--text-secondary);
+            border-radius: 8px;
+            padding: 0.4rem 0.8rem;
+            font-size: 0.85rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        .lang-btn:hover {
+            color: var(--text-primary);
+            border-color: var(--text-secondary);
+        }
+
+        /* Main Container Layout */
+        main {
+            flex: 1;
+            padding: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .stat-card {
+            background: var(--panel-bg);
+            backdrop-filter: blur(var(--glass-blur));
+            border: 1px solid var(--panel-border);
+            border-radius: 16px;
+            padding: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(to right, var(--accent-primary), var(--accent-secondary));
+            opacity: 0.8;
+        }
+
+        .stat-info h3 {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+        }
+
+        .stat-info p {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .stat-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--panel-border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent-primary);
+        }
+
+        /* Visual Analytics Panels */
+        .dashboard-row {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 1.5rem;
+        }
+
+        @media (max-width: 1024px) {
+            .dashboard-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .panel {
+            background: var(--panel-bg);
+            backdrop-filter: blur(var(--glass-blur));
+            border: 1px solid var(--panel-border);
+            border-radius: 16px;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+
+        .panel-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding-bottom: 0.75rem;
+        }
+
+        .panel-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Tables & Lists */
+        .table-container {
+            overflow-x: auto;
+            width: 100%;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: right;
+        }
+
+        [data-lang="en"] table {
+            text-align: left;
+        }
+
+        th {
+            padding: 1rem;
+            color: var(--text-secondary);
+            font-weight: 600;
+            font-size: 0.85rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        td {
+            padding: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+            font-size: 0.9rem;
+            color: var(--text-primary);
+        }
+
+        tr:hover td {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.25rem 0.6rem;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .badge-success {
+            background: rgba(16, 185, 129, 0.15);
+            color: var(--success);
+        }
+
+        .badge-warning {
+            background: rgba(245, 158, 11, 0.15);
+            color: var(--warning);
+        }
+
+        .badge-danger {
+            background: rgba(239, 68, 68, 0.15);
+            color: var(--danger);
+        }
+
+        .api-key-container {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .api-key-text {
+            font-family: monospace;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            max-width: 150px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .copy-btn {
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            cursor: pointer;
+        }
+
+        .copy-btn:hover {
+            color: var(--accent-primary);
+        }
+
+        /* Action Buttons inside tables */
+        .action-btns {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .icon-btn {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            border: 1px solid var(--panel-border);
+            background: rgba(255, 255, 255, 0.03);
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        .icon-btn:hover {
+            color: var(--text-primary);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .icon-btn-danger:hover {
+            color: white;
+            background: var(--danger);
+            border-color: var(--danger);
+        }
+
+        .icon-btn-accent:hover {
+            color: white;
+            background: var(--accent-primary);
+            border-color: var(--accent-primary);
+        }
+
+        /* Modals & Popups */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(7, 10, 18, 0.8);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .modal-content {
+            background: #0f172a;
+            border: 1px solid var(--panel-border);
+            border-radius: 20px;
+            width: 90%;
+            max-width: 500px;
+            padding: 2rem;
+            position: relative;
+            transform: scale(0.9);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-overlay.active .modal-content {
+            transform: scale(1);
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-close {
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            cursor: pointer;
+        }
+
+        /* Form Controls */
+        .form-group {
+            margin-bottom: 1.25rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        label {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+
+        input, select {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--panel-border);
+            border-radius: 8px;
+            padding: 0.75rem 1rem;
+            color: var(--text-primary);
+            font-family: inherit;
+            outline: none;
+        }
+
+        input:focus, select:focus {
+            border-color: var(--accent-primary);
+            box-shadow: 0 0 10px rgba(99, 102, 241, 0.15);
+        }
+
+        /* Notification Toast */
+        .toast-container {
+            position: fixed;
+            bottom: 2rem;
+            left: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            z-index: 2000;
+        }
+
+        .toast {
+            background: rgba(17, 24, 39, 0.9);
+            border-left: 4px solid var(--accent-primary);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid var(--panel-border);
+            border-bottom: 1px solid var(--panel-border);
+            border-right: 1px solid var(--panel-border);
+            border-radius: 8px;
+            padding: 1rem 1.5rem;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            animation: slideIn 0.3s ease forwards;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateX(-100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        /* Key Input Authorization Portal (Locked State) */
+        #auth-portal {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: #090d16;
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .auth-card {
+            background: var(--panel-bg);
+            border: 1px solid var(--panel-border);
+            backdrop-filter: blur(var(--glass-blur));
+            padding: 3rem;
+            border-radius: 24px;
+            width: 100%;
+            max-width: 450px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+        }
+
+        /* Tabs Interface styles */
+        .tabs-header {
+            display: flex;
+            gap: 0.75rem;
+            border-bottom: 1px solid var(--panel-border);
+            margin-bottom: 1rem;
+            padding-bottom: 0.75rem;
+        }
+        .tab-btn {
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            font-family: inherit;
+            font-weight: 600;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .tab-btn:hover {
+            color: var(--text-primary);
+            background: rgba(255,255,255,0.03);
+        }
+        .tab-btn.active {
+            color: white;
+            background: var(--accent-primary);
+            box-shadow: 0 0 10px var(--accent-glow);
+        }
+        .tab-content {
+            display: none;
+            flex-direction: column;
+            height: 100%;
+            min-height: 250px;
+        }
+        .tab-content.active {
+            display: flex;
+        }
+        
+        /* Node visual styles */
+        .topo-node circle {
+            transition: r 0.3s ease, fill 0.3s ease;
+        }
+        .topo-node:hover circle {
+            r: 20px;
+            filter: drop-shadow(0 0 8px var(--accent-primary));
+        }
+    </style>
+</head>
+<body data-lang="ar">
+
+    <!-- Auth Protection Portal -->
+    <div id="auth-portal">
+        <div class="auth-card">
+            <div class="logo-icon" style="margin: 0 auto; width: 60px; height: 60px; border-radius: 16px;">
+                <i data-lucide="shield-alert" style="width: 32px; height: 32px;"></i>
+            </div>
+            <div>
+                <h2 data-ar="لوحة الإدارة السيادية" data-en="Sovereign Admin Panel">لوحة الإدارة السيادية</h2>
+                <p data-ar="يرجى إدخال رمز الحماية (Admin API Key)" data-en="Please enter the Admin API Key" style="color: var(--text-secondary); font-size: 0.9rem; margin-top: 0.5rem;"></p>
+            </div>
+            <div class="form-group" style="text-align: right;">
+                <input type="password" id="admin-key-input" placeholder="sk-..." style="text-align: center; font-family: monospace;">
+            </div>
+            <button class="btn btn-primary" onclick="verifyAdminKey()" data-ar="دخول النظام" data-en="Access Panel"></button>
+        </div>
+    </div>
+
+    <!-- Main Dashboard Application -->
+    <header>
+        <div class="logo-section">
+            <div class="logo-icon">
+                <i data-lucide="wallet"></i>
+            </div>
+            <div class="logo-title">
+                <h1 data-ar="لوحة فوترة سيحابكم" data-en="Sihabcom Billing Panel">لوحة فوترة سيحابكم</h1>
+                <p data-ar="نظام إدارة الفوترة المترية والتحكم بالعملاء" data-en="Sovereign Metering & Client Billing Console">نظام إدارة الفوترة المترية والتحكم بالعملاء</p>
+            </div>
+        </div>
+        <div class="header-controls">
+            <button class="lang-btn" onclick="toggleLanguage()">
+                <i data-lucide="globe"></i>
+                <span id="lang-label">English</span>
+            </button>
+            <button class="btn btn-outline" onclick="logout()">
+                <i data-lucide="log-out"></i>
+                <span data-ar="تسجيل الخروج" data-en="Logout">تسجيل الخروج</span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <!-- Stats Banner -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-info">
+                    <h3 data-ar="إجمالي العملاء" data-en="Total Clients">إجمالي العملاء</h3>
+                    <p id="stat-total-users">0</p>
+                </div>
+                <div class="stat-icon">
+                    <i data-lucide="users"></i>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-info">
+                    <h3 data-ar="الرصيد الكلي المشحون" data-en="Total Funded Credits">الرصيد الكلي المشحون</h3>
+                    <p id="stat-total-credits">0.00</p>
+                </div>
+                <div class="stat-icon">
+                    <i data-lucide="banknote"></i>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-info">
+                    <h3 data-ar="إجمالي طلبات التنفيذ" data-en="Total Tool Calls">إجمالي طلبات التنفيذ</h3>
+                    <p id="stat-total-calls">0</p>
+                </div>
+                <div class="stat-icon">
+                    <i data-lucide="terminal"></i>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-info">
+                    <h3 data-ar="متوسط زمن التنفيذ" data-en="Avg Execution Time">متوسط زمن التنفيذ</h3>
+                    <p id="stat-avg-duration">0 ms</p>
+                </div>
+                <div class="stat-icon">
+                    <i data-lucide="clock"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- Upper Row: Users and Graph -->
+        <div class="dashboard-row">
+            <!-- Users List Panel -->
+            <div class="panel">
+                <div class="panel-header">
+                    <div class="panel-title">
+                        <i data-lucide="shield-check" style="color: var(--accent-primary);"></i>
+                        <span data-ar="إدارة المستخدمين والأرصدة" data-en="User & Wallet Management">إدارة المستخدمين والأرصدة</span>
+                    </div>
+                    <button class="btn btn-primary" onclick="openCreateUserModal()">
+                        <i data-lucide="user-plus"></i>
+                        <span data-ar="إضافة مستخدم" data-en="Add Client">إضافة مستخدم</span>
+                    </button>
+                </div>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th data-ar="العميل" data-en="Client">العميل</th>
+                                <th data-ar="رابط مفتاح الأمان (API Key)" data-en="API Auth Key">رابط مفتاح الأمان (API Key)</th>
+                                <th data-ar="الصلاحية" data-en="Role">الصلاحية</th>
+                                <th data-ar="الرصيد المتبقي" data-en="Balance">الرصيد المتبقي</th>
+                                <th data-ar="الإجراءات" data-en="Actions">الإجراءات</th>
+                            </tr>
+                        </thead>
+                        <tbody id="users-table-body">
+                            <!-- Populated dynamically -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Interactive Analytics & System Topology Sidebar -->
+            <div class="panel">
+                <div class="tabs-header">
+                    <button class="tab-btn active" onclick="switchTab('tab-usage')">
+                        <i data-lucide="pie-chart" style="width:14px; height:14px;"></i>
+                        <span data-ar="الاستهلاك" data-en="Usage">الاستهلاك</span>
+                    </button>
+                    <button class="tab-btn" onclick="switchTab('tab-telemetry')">
+                        <i data-lucide="activity" style="width:14px; height:14px;"></i>
+                        <span data-ar="الرصد" data-en="Telemetry">الرصد</span>
+                    </button>
+                    <button class="tab-btn" onclick="switchTab('tab-topo')">
+                        <i data-lucide="git-branch" style="width:14px; height:14px;"></i>
+                        <span data-ar="المكونات" data-en="Topology">المكونات</span>
+                    </button>
+                    <button class="tab-btn" onclick="switchTab('tab-canvas')">
+                        <i data-lucide="layers" style="width:14px; height:14px;"></i>
+                        <span data-ar="الكانفاس الحي" data-en="Live Canvas">الكانفاس الحي</span>
+                    </button>
+                </div>
+                
+                <div id="tab-usage" class="tab-content active">
+                    <div style="flex: 1; display: flex; align-items: center; justify-content: center; min-height: 250px;">
+                        <canvas id="usageChart"></canvas>
+                    </div>
+                </div>
+                
+                <div id="tab-telemetry" class="tab-content">
+                    <div style="flex: 1; display: flex; align-items: center; justify-content: center; min-height: 250px;">
+                        <canvas id="telemetryChart"></canvas>
+                    </div>
+                </div>
+                
+                <div id="tab-topo" class="tab-content">
+                    <div style="flex: 1; display: flex; flex-direction: column; align-items: center; min-height: 250px;">
+                        <svg id="system-topo-svg" viewBox="0 0 400 200" style="width: 100%; height: 100%; max-height: 200px;">
+                            <!-- Connection lines -->
+                            <line x1="200" y1="30" x2="100" y2="100" stroke="rgba(99, 102, 241, 0.4)" stroke-width="2" />
+                            <line x1="200" y1="30" x2="300" y2="100" stroke="rgba(99, 102, 241, 0.4)" stroke-width="2" />
+                            <line x1="100" y1="100" x2="200" y2="170" stroke="rgba(16, 185, 129, 0.4)" stroke-width="2" />
+                            <line x1="300" y1="100" x2="200" y2="170" stroke="rgba(16, 185, 129, 0.4)" stroke-width="2" />
+                            <line x1="200" y1="30" x2="200" y2="170" stroke="rgba(168, 85, 247, 0.4)" stroke-dasharray="4" stroke-width="1.5" />
+                            
+                            <!-- New Phase 6 connections -->
+                            <line x1="100" y1="100" x2="60" y2="170" stroke="rgba(236, 72, 153, 0.4)" stroke-width="2" stroke-dasharray="2" />
+                            <line x1="300" y1="100" x2="340" y2="170" stroke="rgba(14, 165, 233, 0.4)" stroke-width="2" stroke-dasharray="2" />
+
+                            <!-- Nodes -->
+                            <g class="topo-node" onclick="showNodeDetails('gateway')" style="cursor: pointer;">
+                                <circle cx="200" cy="30" r="14" fill="url(#blue-glow)" stroke="#6366f1" stroke-width="2" />
+                                <text x="200" y="34" text-anchor="middle" fill="white" font-size="7" font-weight="bold">GW</text>
+                                <text x="200" y="14" text-anchor="middle" fill="var(--text-primary)" font-size="8" font-weight="600">Gateway (MCP)</text>
+                            </g>
+
+                            <g class="topo-node" onclick="showNodeDetails('security')" style="cursor: pointer;">
+                                <circle cx="100" cy="100" r="14" fill="url(#purple-glow)" stroke="#a855f7" stroke-width="2" />
+                                <text x="100" y="104" text-anchor="middle" fill="white" font-size="7" font-weight="bold">SEC</text>
+                                <text x="100" y="125" text-anchor="middle" fill="var(--text-primary)" font-size="8" font-weight="600">HMAC Shield</text>
+                            </g>
+
+                            <g class="topo-node" onclick="showNodeDetails('healing')" style="cursor: pointer;">
+                                <circle cx="300" cy="100" r="14" fill="url(#amber-glow)" stroke="#f59e0b" stroke-width="2" />
+                                <text x="300" y="104" text-anchor="middle" fill="white" font-size="7" font-weight="bold">HEAL</text>
+                                <text x="300" y="125" text-anchor="middle" fill="var(--text-primary)" font-size="8" font-weight="600">Self-Healing</text>
+                            </g>
+
+                            <g class="topo-node" onclick="showNodeDetails('memory')" style="cursor: pointer;">
+                                <circle cx="200" cy="170" r="14" fill="url(#green-glow)" stroke="#10b981" stroke-width="2" />
+                                <text x="200" y="174" text-anchor="middle" fill="white" font-size="7" font-weight="bold">MEM</text>
+                                <text x="200" y="193" text-anchor="middle" fill="var(--text-primary)" font-size="8" font-weight="600">Compactor</text>
+                            </g>
+                            
+                            <!-- New Phase 6 Nodes -->
+                            <g class="topo-node" onclick="showNodeDetails('telepathy')" style="cursor: pointer;">
+                                <circle cx="60" cy="170" r="14" fill="url(#pink-glow)" stroke="#ec4899" stroke-width="2" />
+                                <text x="60" y="174" text-anchor="middle" fill="white" font-size="7" font-weight="bold">HIVE</text>
+                                <text x="60" y="193" text-anchor="middle" fill="var(--text-primary)" font-size="8" font-weight="600">Telepathic Sync</text>
+                            </g>
+
+                            <g class="topo-node" onclick="showNodeDetails('empathy')" style="cursor: pointer;">
+                                <circle cx="340" cy="170" r="14" fill="url(#cyan-glow)" stroke="#0ea5e9" stroke-width="2" />
+                                <text x="340" y="174" text-anchor="middle" fill="white" font-size="7" font-weight="bold">EMPA</text>
+                                <text x="340" y="193" text-anchor="middle" fill="var(--text-primary)" font-size="8" font-weight="600">Empathetic Mod</text>
+                            </g>
+
+                            <!-- Gradients -->
+                            <defs>
+                                <radialGradient id="blue-glow" cx="50%" cy="50%" r="50%">
+                                    <stop offset="0%" stop-color="#818cf8" />
+                                    <stop offset="100%" stop-color="#4f46e5" />
+                                </radialGradient>
+                                <radialGradient id="purple-glow" cx="50%" cy="50%" r="50%">
+                                    <stop offset="0%" stop-color="#c084fc" />
+                                    <stop offset="100%" stop-color="#9333ea" />
+                                </radialGradient>
+                                <radialGradient id="amber-glow" cx="50%" cy="50%" r="50%">
+                                    <stop offset="0%" stop-color="#fbbf24" />
+                                    <stop offset="100%" stop-color="#d97706" />
+                                </radialGradient>
+                                <radialGradient id="green-glow" cx="50%" cy="50%" r="50%">
+                                    <stop offset="0%" stop-color="#34d399" />
+                                    <stop offset="100%" stop-color="#059669" />
+                                </radialGradient>
+                                <radialGradient id="pink-glow" cx="50%" cy="50%" r="50%">
+                                    <stop offset="0%" stop-color="#f472b6" />
+                                    <stop offset="100%" stop-color="#be185d" />
+                                </radialGradient>
+                                <radialGradient id="cyan-glow" cx="50%" cy="50%" r="50%">
+                                    <stop offset="0%" stop-color="#38bdf8" />
+                                    <stop offset="100%" stop-color="#0369a1" />
+                                </radialGradient>
+                            </defs>
+                        </svg>
+                        <div id="node-info-bubble" style="margin-top: 0.25rem; font-size: 0.75rem; text-align: center; color: var(--text-secondary); background: rgba(255,255,255,0.02); padding: 0.35rem; border-radius: 6px; width: 100%;">
+                            انقر على أي عقدة (Node) لعرض معلومات الحالة التفصيلية
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="tab-canvas" class="tab-content">
+                    <div style="flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 250px; gap: 10px;">
+                        <canvas id="liveCanvas" width="300" height="150" style="border: 1px solid var(--panel-border); border-radius: 8px; background: #000;"></canvas>
+                        <div style="font-size: 0.8rem; color: var(--text-secondary);" id="canvas-status">WebGL Core Active</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Lower Row: Live Log Monitoring -->
+        <div class="panel">
+            <div class="panel-header">
+                <div class="panel-title">
+                    <i data-lucide="activity" style="color: var(--success);"></i>
+                    <span data-ar="مراقبة استهلاك الخادم الفوري" data-en="Real-Time Usage Logs">مراقبة استهلاك الخادم الفوري</span>
+                </div>
+            </div>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th data-ar="العميل" data-en="Client">العميل</th>
+                            <th data-ar="الأداة المستدعاة" data-en="Tool Invoked">الأداة المستدعاة</th>
+                            <th data-ar="مدة التشغيل" data-en="Execution Duration">مدة التشغيل</th>
+                            <th data-ar="التكلفة المخصومة" data-en="Cost Deducted">التكلفة المخصومة</th>
+                            <th data-ar="التوقيت" data-en="Timestamp">التوقيت</th>
+                        </tr>
+                    </thead>
+                    <tbody id="logs-table-body">
+                        <!-- Populated dynamically -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Precharged Vouchers Manager Row -->
+        <div class="dashboard-row" style="margin-top: 0.5rem; display: grid; grid-template-columns: 1fr 2fr; gap: 1.5rem;">
+            <!-- Generate Voucher Panel -->
+            <div class="panel">
+                <div class="panel-header">
+                    <div class="panel-title">
+                        <i data-lucide="ticket-plus" style="color: var(--accent-secondary);"></i>
+                        <span data-ar="توليد كروت شحن مسبقة الدفع" data-en="Generate Prepaid Vouchers">توليد كروت شحن مسبقة الدفع</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label data-ar="قيمة الكرت (Credits)" data-en="Voucher Value (Credits)">قيمة الكرت (Credits)</label>
+                    <input type="number" id="voucher-value" value="100" min="1">
+                </div>
+                <div class="form-group">
+                    <label data-ar="عدد الكروت" data-en="Number of Vouchers">عدد الكروت</label>
+                    <input type="number" id="voucher-count" value="5" min="1">
+                </div>
+                <button class="btn btn-primary" onclick="submitGenerateVouchers()" style="width: 100%;">
+                    <i data-lucide="zap"></i>
+                    <span data-ar="توليد الكروت" data-en="Generate Vouchers">توليد الكروت</span>
+                </button>
+            </div>
+
+            <!-- Vouchers Table Panel -->
+            <div class="panel">
+                <div class="panel-header">
+                    <div class="panel-title">
+                        <i data-lucide="ticket" style="color: var(--accent-primary);"></i>
+                        <span data-ar="كروت الشحن المولدة" data-en="Prepaid Vouchers Index">كروت الشحن المولدة</span>
+                    </div>
+                    <span style="font-size:0.8rem; color: var(--text-secondary);" id="voucher-count-badge"></span>
+                </div>
+                <div class="table-container" style="max-height: 280px; overflow-y: auto;">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th data-ar="الكود" data-en="Code">الكود</th>
+                                <th data-ar="القيمة" data-en="Value">القيمة</th>
+                                <th data-ar="الحالة" data-en="Status">الحالة</th>
+                                <th data-ar="المستعمل" data-en="Redeemed By">المستعمل</th>
+                                <th data-ar="تاريخ الاستخدام" data-en="Redeemed At">تاريخ الاستخدام</th>
+                            </tr>
+                        </thead>
+                        <tbody id="vouchers-table-body">
+                            <!-- Populated dynamically -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Lower Row: Pricing & Audit Logs -->
+        <div class="dashboard-row" style="margin-top: 0.5rem;">
+            <!-- Pricing Management Panel -->
+            <div class="panel">
+                <div class="panel-header">
+                    <div class="panel-title">
+                        <i data-lucide="tag" style="color: var(--warning);"></i>
+                        <span data-ar="تسعير الخدمات والأدوات" data-en="Per-Tool Pricing Manager">تسعير الخدمات والأدوات</span>
+                    </div>
+                </div>
+                <div class="table-container" style="max-height: 300px; overflow-y: auto;">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th data-ar="اسم الأداة" data-en="Tool Name">اسم الأداة</th>
+                                <th data-ar="التكلفة لكل ثانية" data-en="Rate (credits/sec)">التكلفة/ثانية</th>
+                                <th data-ar="حفظ" data-en="Save">حفظ</th>
+                            </tr>
+                        </thead>
+                        <tbody id="pricing-table-body">
+                            <!-- Populated dynamically -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Admin Audit Logs Panel -->
+            <div class="panel">
+                <div class="panel-header">
+                    <div class="panel-title">
+                        <i data-lucide="shield" style="color: var(--accent-secondary);"></i>
+                        <span data-ar="سجل تدقيق الإدارة" data-en="Admin Audit Logs">سجل تدقيق الإدارة</span>
+                    </div>
+                </div>
+                <div class="table-container" style="max-height: 300px; overflow-y: auto;">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th data-ar="العملية" data-en="Action">العملية</th>
+                                <th data-ar="العميل المستهدف" data-en="Target">العميل</th>
+                                <th data-ar="التفاصيل" data-en="Details">التفاصيل</th>
+                                <th data-ar="التوقيت" data-en="Timestamp">التوقيت</th>
+                            </tr>
+                        </thead>
+                        <tbody id="audit-table-body">
+                            <!-- Populated dynamically -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sovereign Memory & Shadow Ledger Panel -->
+        <div class="panel" style="margin-top: 0.5rem;">
+            <div class="panel-header">
+                <div class="panel-title">
+                    <i data-lucide="brain" style="color: var(--accent-secondary);"></i>
+                    <span data-ar="سجل الذاكرة السيادي وسجل الظل (shadow_ledger.jsonl)" data-en="Sovereign Memory & Shadow Ledger">سجل الذاكرة السيادي وسجل الظل (shadow_ledger.jsonl)</span>
+                </div>
+                <div style="display: flex; gap: 0.5rem;">
+                    <button class="btn btn-outline" onclick="triggerSelfHeal()" style="border-color: var(--accent-secondary); color: var(--accent-secondary); background: transparent; display: flex; align-items: center; gap: 0.25rem;">
+                        <i data-lucide="shield-alert" style="width: 14px; height: 14px;"></i>
+                        <span data-ar="تشغيل العلاج الذاتي" data-en="Self-Healing">تشغيل العلاج الذاتي</span>
+                    </button>
+                    <button class="btn btn-primary" onclick="triggerCompaction()">
+                        <i data-lucide="shrink"></i>
+                        <span data-ar="تفعيل ضغط الذاكرة الفوري" data-en="Compact Memory Now">تفعيل ضغط الذاكرة الفوري</span>
+                    </button>
+                </div>
+            </div>
+            <div class="table-container" style="max-height: 400px; overflow-y: auto;">
+                <table>
+                    <thead>
+                        <tr>
+                            <th data-ar="التوقيت" data-en="Timestamp">التوقيت</th>
+                            <th data-ar="المنفذ" data-en="Agent/Source">المنفذ</th>
+                            <th data-ar="العملية" data-en="Action">العملية</th>
+                            <th data-ar="التفاصيل/الملف" data-en="Details/File">التفاصيل/الملف</th>
+                            <th data-ar="الحالة الأمنية" data-en="Security Status">الحالة الأمنية</th>
+                        </tr>
+                    </thead>
+                    <tbody id="shadow-ledger-table-body">
+                        <!-- Populated dynamically -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modals -->
+    <!-- 1. Create User Modal -->
+    <div class="modal-overlay" id="create-user-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 data-ar="إنشاء حساب عميل جديد" data-en="Provision New Client Account">إنشاء حساب عميل جديد</h3>
+                <button class="modal-close" onclick="closeCreateUserModal()"><i data-lucide="x"></i></button>
+            </div>
+            <div class="form-group">
+                <label data-ar="اسم المستخدم / الشركة" data-en="Client Username"></label>
+                <input type="text" id="new-username" placeholder="YemenTelecom">
+            </div>
+            <div class="form-group">
+                <label data-ar="الرصيد الابتدائي (Credits)" data-en="Initial Credit Balance"></label>
+                <input type="number" id="new-balance" value="500">
+            </div>
+            <div class="form-group">
+                <label data-ar="صلاحية الوصول" data-en="Access Role"></label>
+                <select id="new-role">
+                    <option value="Developer" selected>Developer</option>
+                    <option value="Admin">Admin</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label data-ar="الأدوات المسموحة" data-en="Allowed Tools">الأدوات المسموحة</label>
+                <div id="allowed-tools-checkboxes" style="max-height: 120px; overflow-y: auto; border: 1px solid var(--panel-border); padding: 0.5rem; border-radius: 8px; display: flex; flex-direction: column; gap: 0.35rem; font-size: 0.85rem; background: rgba(0,0,0,0.2);">
+                    <!-- Populated dynamically -->
+                </div>
+            </div>
+            <button class="btn btn-primary" style="width: 100%; margin-top: 1rem;" onclick="submitCreateUser()" data-ar="حفظ وتوليد المفتاح" data-en="Create Account & Generate Key"></button>
+        </div>
+    </div>
+
+    <!-- 2. Edit Balance Modal -->
+    <div class="modal-overlay" id="edit-balance-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 data-ar="شحن أو تعديل رصيد المحفظة" data-en="Update Wallet Balance">شحن أو تعديل رصيد المحفظة</h3>
+                <button class="modal-close" onclick="closeEditBalanceModal()"><i data-lucide="x"></i></button>
+            </div>
+            <input type="hidden" id="edit-user-id">
+            <div class="form-group">
+                <label data-ar="العميل" data-en="Client"></label>
+                <input type="text" id="edit-username" readonly style="background: rgba(255,255,255,0.02); opacity: 0.7;">
+            </div>
+            <div class="form-group">
+                <label data-ar="الرصيد الجديد المستهدف" data-en="New Target Balance"></label>
+                <input type="number" id="edit-balance" value="0">
+            </div>
+            <button class="btn btn-primary" style="width: 100%; margin-top: 1rem;" onclick="submitEditBalance()" data-ar="تحديث الرصيد" data-en="Update Balance"></button>
+        </div>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div class="toast-container" id="toast-container"></div>
+
+    <script>
+        let adminKey = localStorage.getItem('sovereign_admin_key') || '';
+        let usageChart = null;
+        let telemetryChart = null;
+        let telemetryHistory = { labels: [], cpu: [], memory: [], connections: [] };
+        let availableTools = [];
+
+        // Initialize icons
+        lucide.createIcons();
+
+        // Check if admin key exists on load
+        if (adminKey) {
+            document.getElementById('auth-portal').style.display = 'none';
+            fetchAvailableTools().then(() => {
+                fetchDashboardData();
+                fetchTelemetryData();
+                initEventSource();
+            });
+            setInterval(fetchDashboardData, 60000); // Polling backup every 60s
+            setInterval(fetchTelemetryData, 5000); // Telemetry polling every 5s
+        }
+
+        function verifyAdminKey() {
+            const val = document.getElementById('admin-key-input').value.trim();
+            if (!val) return;
+            adminKey = val;
+            // Test key by loading stats
+            fetch('/admin/api/stats', {
+                headers: { 'Authorization': `Bearer ${adminKey}` }
+            }).then(res => {
+                if (res.status === 401) {
+                    showToast('مفتاح أمان غير صحيح! Access Denied.', 'error');
+                } else {
+                    localStorage.setItem('sovereign_admin_key', adminKey);
+                    document.getElementById('auth-portal').style.display = 'none';
+                    fetchAvailableTools().then(() => {
+                        fetchDashboardData();
+                        fetchTelemetryData();
+                        initEventSource();
+                    });
+                    setInterval(fetchDashboardData, 60000);
+                    setInterval(fetchTelemetryData, 5000);
+                }
+            }).catch(e => {
+                showToast('خطأ بالاتصال بالسيرفر', 'error');
+            });
+        }
+
+        function logout() {
+            localStorage.removeItem('sovereign_admin_key');
+            if (window.sseSource) window.sseSource.close();
+            location.reload();
+        }
+
+        // SSE Event Stream for real-time updates
+        function initEventSource() {
+            if (window.sseSource) {
+                window.sseSource.close();
+            }
+            window.sseSource = new EventSource(`/admin/api/events?apikey=${encodeURIComponent(adminKey)}`);
+            
+            window.sseSource.onmessage = function(event) {
+                try {
+                    const payload = JSON.parse(event.data);
+                    if (payload.type === 'refresh') {
+                        fetchDashboardData();
+                    } else if (payload.type === 'tool_called') {
+                        const data = payload.data;
+                        const isAr = document.body.getAttribute('data-lang') === 'ar';
+                        const msg = isAr 
+                            ? `العميل ${data.username} استدعى ${data.toolName} (تم خصم -${data.cost.toFixed(3)} credits)`
+                            : `Client ${data.username} invoked ${data.toolName} (charged -${data.cost.toFixed(3)} credits)`;
+                        showToast(msg, 'success');
+                    }
+                } catch(e) {
+                    console.error("SSE parse error", e);
+                }
+            };
+
+            window.sseSource.onerror = function(err) {
+                console.error("SSE connection error, retrying...", err);
+            };
+        }
+
+        // Fetch available tools list
+        async function fetchAvailableTools() {
+            try {
+                const res = await fetch('/admin/api/all-tools', {
+                    headers: { 'Authorization': `Bearer ${adminKey}` }
+                });
+                availableTools = await res.json();
+                renderAllowedToolsCheckboxes();
+            } catch (err) {
+                console.error("Error fetching available tools:", err);
+            }
+        }
+
+        function renderAllowedToolsCheckboxes() {
+            const container = document.getElementById('allowed-tools-checkboxes');
+            if (!container) return;
+            container.innerHTML = '';
+            availableTools.forEach(t => {
+                const div = document.createElement('div');
+                div.style.display = 'flex';
+                div.style.alignItems = 'center';
+                div.style.gap = '0.5rem';
+                
+                div.innerHTML = `
+                    <input type="checkbox" id="tool-chk-${t.name}" value="${t.name}" checked style="width: auto; cursor: pointer;">
+                    <label for="tool-chk-${t.name}" style="cursor: pointer; font-family: monospace; font-size: 0.8rem; color: var(--text-primary);">${t.name}</label>
+                `;
+                container.appendChild(div);
+            });
+        }
+
+        // Language toggle logic
+        function toggleLanguage() {
+            const body = document.body;
+            const current = body.getAttribute('data-lang');
+            const newLang = current === 'ar' ? 'en' : 'ar';
+            body.setAttribute('data-lang', newLang);
+            
+            // Toggle dir attribute
+            if (newLang === 'en') {
+                body.dir = 'ltr';
+                document.getElementById('lang-label').innerText = 'العربية';
+            } else {
+                body.dir = 'rtl';
+                document.getElementById('lang-label').innerText = 'English';
+            }
+
+            // Translate elements
+            document.querySelectorAll('[data-ar]').forEach(el => {
+                el.innerText = el.getAttribute(`data-${newLang}`);
+            });
+            document.querySelectorAll('label[data-ar]').forEach(el => {
+                el.innerText = el.getAttribute(`data-${newLang}`);
+            });
+        }
+
+        // Notifications Toast Helper
+        function showToast(message, type = 'success') {
+            const container = document.getElementById('toast-container');
+            const toast = document.createElement('div');
+            toast.className = `toast`;
+            toast.style.borderLeftColor = type === 'success' ? 'var(--success)' : 'var(--danger)';
+            
+            const isAr = document.body.getAttribute('data-lang') === 'ar';
+            const icon = type === 'success' ? 'check-circle' : 'alert-triangle';
+            toast.innerHTML = `<i data-lucide="${icon}"></i> <span>${message}</span>`;
+            
+            container.appendChild(toast);
+            lucide.createIcons();
+            
+            setTimeout(() => {
+                toast.style.opacity = '0';
+                toast.style.transform = 'translateY(20px)';
+                setTimeout(() => toast.remove(), 300);
+            }, 4000);
+        }
+
+        // Fetch Stats, Users, and Logs
+        async function fetchDashboardData() {
+            const headers = { 'Authorization': `Bearer ${adminKey}` };
+
+            try {
+                // 1. Fetch Stats
+                const statsRes = await fetch('/admin/api/stats', { headers });
+                const stats = await statsRes.json();
+                document.getElementById('stat-total-users').innerText = stats.totalUsers;
+                document.getElementById('stat-total-credits').innerText = stats.totalCredits.toFixed(2);
+                document.getElementById('stat-total-calls').innerText = stats.totalCalls;
+                document.getElementById('stat-avg-duration').innerText = `${stats.avgDuration} ms`;
+
+                // 2. Fetch Users
+                const usersRes = await fetch('/admin/api/users', { headers });
+                const users = await usersRes.json();
+                renderUsersTable(users);
+
+                // 3. Fetch Logs
+                const logsRes = await fetch('/admin/api/logs', { headers });
+                const logs = await logsRes.json();
+                renderLogsTable(logs);
+
+                // Update Chart
+                updateChartData(logs, users);
+
+                // 4. Fetch Pricing and Audits
+                await fetchPricingAndAudits();
+
+                // 5. Fetch Vouchers
+                await fetchVouchers();
+
+                // 6. Fetch Shadow Ledger
+                await fetchShadowLedger();
+            } catch (err) {
+                console.error("Dashboard error:", err);
+            }
+        }
+
+        function renderUsersTable(users) {
+            const tbody = document.getElementById('users-table-body');
+            tbody.innerHTML = '';
+
+            users.forEach(u => {
+                const tr = document.createElement('tr');
+                const isZero = u.balance <= 0;
+                const balanceClass = isZero ? 'badge-danger' : 'badge-success';
+
+                tr.innerHTML = `
+                    <td><strong>${u.username}</strong></td>
+                    <td>
+                        <div class="api-key-container">
+                            <span class="api-key-text" id="key-${u.id}">${u.apikey}</span>
+                            <button class="copy-btn" onclick="copyToClipboard('${u.apikey}')" title="Copy Key">
+                                <i data-lucide="copy" style="width: 14px; height: 14px;"></i>
+                            </button>
+                        </div>
+                    </td>
+                    <td><span class="badge ${u.role === 'Admin' ? 'badge-warning' : 'badge-success'}">${u.role}</span></td>
+                    <td><span class="badge ${balanceClass}">${u.balance !== null ? u.balance.toFixed(2) : '0.00'} CREDITS</span></td>
+                    <td>
+                        <div class="action-btns">
+                            <button class="icon-btn icon-btn-accent" onclick="openEditBalanceModal('${u.id}', '${u.username}', ${u.balance || 0})" title="Recharge wallet">
+                                <i data-lucide="credit-card" style="width:16px; height:16px;"></i>
+                            </button>
+                            <button class="icon-btn icon-btn-danger" onclick="deleteUser('${u.id}', '${u.username}')" title="Delete User">
+                                <i data-lucide="trash" style="width:16px; height:16px;"></i>
+                            </button>
+                        </div>
+                    </td>
+                `;
+                tbody.appendChild(tr);
+            });
+            lucide.createIcons();
+        }
+
+        function renderLogsTable(logs) {
+            const tbody = document.getElementById('logs-table-body');
+            tbody.innerHTML = '';
+
+            if (logs.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="5" style="text-align: center; color: var(--text-secondary);">لا توجد أي سجلات حتى الآن</td></tr>`;
+                return;
+            }
+
+            logs.forEach(l => {
+                const tr = document.createElement('tr');
+                const costGlow = l.cost > 0 ? 'color: var(--danger); font-weight:bold;' : 'color: var(--text-secondary);';
+                const formattedTime = new Date(l.timestamp).toLocaleTimeString();
+                
+                tr.innerHTML = `
+                    <td><strong>${l.username || 'System/Deleted'}</strong></td>
+                    <td><code style="background: rgba(255,255,255,0.05); padding: 0.2rem 0.5rem; border-radius: 4px; color: var(--accent-primary);">${l.tool_name}</code></td>
+                    <td>${l.duration_ms.toFixed(0)} ms</td>
+                    <td style="${costGlow}">-${l.cost.toFixed(4)} CREDITS</td>
+                    <td style="font-size:0.8rem; color:var(--text-secondary);">${formattedTime}</td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        async function fetchPricingAndAudits() {
+            const headers = { 'Authorization': `Bearer ${adminKey}` };
+            try {
+                // Fetch Pricing
+                const pricesRes = await fetch('/admin/api/prices', { headers });
+                const prices = await pricesRes.json();
+                
+                // Fetch Audit Logs
+                const auditsRes = await fetch('/admin/api/audit-logs', { headers });
+                const audits = await auditsRes.json();
+                
+                renderPricingTable(prices);
+                renderAuditTable(audits);
+            } catch (err) {
+                console.error("Pricing/Audit fetch error:", err);
+            }
+        }
+
+        async function fetchVouchers() {
+            const headers = { 'Authorization': `Bearer ${adminKey}` };
+            try {
+                const res = await fetch('/admin/api/vouchers', { headers });
+                const vouchers = await res.json();
+                
+                const tbody = document.getElementById('vouchers-table-body');
+                tbody.innerHTML = '';
+                
+                document.getElementById('voucher-count-badge').innerText = 
+                    document.body.getAttribute('data-lang') === 'ar' 
+                        ? `إجمالي الكروت: ${vouchers.length}`
+                        : `Total Vouchers: ${vouchers.length}`;
+
+                if (vouchers.length === 0) {
+                    tbody.innerHTML = `<tr><td colspan="5" style="text-align: center; color: var(--text-secondary); padding: 1.5rem;">لا توجد كروت شحن مولدة حالياً</td></tr>`;
+                    return;
+                }
+
+                vouchers.forEach(v => {
+                    const tr = document.createElement('tr');
+                    const isUsed = v.is_redeemed === 1 || v.is_redeemed === true || v.status === 'REDEEMED';
+                    const statusClass = isUsed ? 'badge-danger' : 'badge-success';
+                    const statusText = isUsed 
+                        ? (document.body.getAttribute('data-lang') === 'ar' ? 'مستعمل' : 'REDEEMED')
+                        : (document.body.getAttribute('data-lang') === 'ar' ? 'نشط' : 'ACTIVE');
+                    
+                    const redeemedAt = v.redeemed_at ? new Date(v.redeemed_at).toLocaleTimeString() : '-';
+
+                    tr.innerHTML = `
+                        <td><code style="font-family: monospace; font-size: 0.95rem; color: var(--accent-primary); letter-spacing: 0.5px;">${v.code}</code></td>
+                        <td><span style="font-weight: 700;">${v.value.toFixed(1)}</span></td>
+                        <td><span class="badge ${statusClass}">${statusText}</span></td>
+                        <td><strong>${v.redeemed_by_username || '-'}</strong></td>
+                        <td style="font-size:0.75rem; color: var(--text-secondary);">${redeemedAt}</td>
+                    `;
+                    tbody.appendChild(tr);
+                });
+                lucide.createIcons();
+            } catch (err) {
+                console.error("Voucher fetch error:", err);
+            }
+        }
+
+        async function submitGenerateVouchers() {
+            const value = parseFloat(document.getElementById('voucher-value').value);
+            const count = parseInt(document.getElementById('voucher-count').value);
+
+            if (isNaN(value) || value <= 0 || isNaN(count) || count <= 0) {
+                showToast(document.body.getAttribute('data-lang') === 'ar' ? 'يرجى إدخال قيم صحيحة' : 'Please input valid numbers', 'error');
+                return;
+            }
+
+            try {
+                const res = await fetch('/admin/api/vouchers', {
+                    method: 'POST',
+                    headers: {
+                        'Authorization': `Bearer ${adminKey}`,
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ value, count })
+                });
+
+                const data = await res.json();
+                if (res.ok) {
+                    showToast(document.body.getAttribute('data-lang') === 'ar' ? `تم توليد ${count} كود شحن بنجاح!` : `Successfully generated ${count} vouchers!`);
+                    fetchVouchers();
+                } else {
+                    showToast(data.error || 'فشل توليد كروت الشحن', 'error');
+                }
+            } catch (e) {
+                showToast('خطأ بالاتصال بالسيرفر', 'error');
+            }
+        }
+
+        function renderPricingTable(prices) {
+            const tbody = document.getElementById('pricing-table-body');
+            tbody.innerHTML = '';
+            
+            availableTools.forEach(tool => {
+                const dbPriceObj = prices.find(p => p.tool_name === tool.name);
+                const currentPrice = dbPriceObj ? dbPriceObj.price : 0.5;
+                
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td><code style="font-family: monospace; font-size: 0.8rem; color: var(--text-secondary);">${tool.name}</code></td>
+                    <td>
+                        <input type="number" step="0.05" min="0" value="${currentPrice.toFixed(2)}" id="price-input-${tool.name}" style="width: 75px; padding: 0.25rem 0.5rem; text-align: center; background: rgba(0,0,0,0.25); border: 1px solid var(--panel-border); border-radius: 6px; color: white;">
+                    </td>
+                    <td>
+                        <button class="icon-btn icon-btn-accent" onclick="updateToolPrice('${tool.name}')" title="Save Price" style="width:28px; height:28px;">
+                            <i data-lucide="save" style="width:12px; height:12px;"></i>
+                        </button>
+                    </td>
+                `;
+                tbody.appendChild(tr);
+            });
+            lucide.createIcons();
+        }
+
+        async function updateToolPrice(toolName) {
+            const priceVal = parseFloat(document.getElementById(`price-input-${toolName}`).value);
+            if (isNaN(priceVal) || priceVal < 0) return;
+            
+            try {
+                const res = await fetch('/admin/api/prices', {
+                    method: 'POST',
+                    headers: {
+                        'Authorization': `Bearer ${adminKey}`,
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ toolName, price: priceVal })
+                });
+                
+                if (res.ok) {
+                    showToast(document.body.getAttribute('data-lang') === 'ar' ? 'تم حفظ السعر الجديد!' : 'Pricing updated successfully!');
+                    fetchPricingAndAudits();
+                } else {
+                    showToast('فشل تعديل السعر', 'error');
+                }
+            } catch(e) {
+                showToast('خطأ بالشبكة', 'error');
+            }
+        }
+
+        function renderAuditTable(audits) {
+            const tbody = document.getElementById('audit-table-body');
+            tbody.innerHTML = '';
+            
+            if (audits.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="4" style="text-align: center; color: var(--text-secondary); padding: 1.5rem;">لا توجد أي سجلات حالياً</td></tr>`;
+                return;
+            }
+            
+            audits.forEach(a => {
+                const tr = document.createElement('tr');
+                const formattedTime = new Date(a.timestamp).toLocaleTimeString();
+                tr.innerHTML = `
+                    <td><span class="badge badge-warning" style="font-size:0.7rem; font-family: monospace;">${a.action}</span></td>
+                    <td><strong>${a.target_user || '-'}</strong></td>
+                    <td style="font-size: 0.8rem; color: var(--text-secondary); max-width: 140px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="${a.details}">${a.details}</td>
+                    <td style="font-size:0.75rem; color: var(--text-secondary);">${formattedTime}</td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        // Charts update
+        function updateChartData(logs, users) {
+            const toolsCount = {};
+            logs.forEach(l => {
+                toolsCount[l.tool_name] = (toolsCount[l.tool_name] || 0) + 1;
+            });
+
+            const labels = Object.keys(toolsCount);
+            const data = Object.values(toolsCount);
+
+            if (usageChart) {
+                usageChart.data.labels = labels;
+                usageChart.data.datasets[0].data = data;
+                usageChart.update();
+            } else {
+                const ctx = document.getElementById('usageChart').getContext('2d');
+                usageChart = new Chart(ctx, {
+                    type: 'doughnut',
+                    data: {
+                        labels: labels,
+                        datasets: [{
+                            data: data,
+                            backgroundColor: [
+                                '#6366f1', '#a855f7', '#10b981', '#f59e0b', '#ef4444', '#14b8a6'
+                            ],
+                            borderWidth: 1,
+                            borderColor: 'rgba(255,255,255,0.08)'
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                labels: {
+                                    color: '#f3f4f6',
+                                    font: { family: 'Cairo' }
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+        }
+
+        async function copyToClipboard(text) {
+            try {
+                await navigator.clipboard.writeText(text);
+                showToast(document.body.getAttribute('data-lang') === 'ar' ? 'تم نسخ المفتاح بنجاح!' : 'API Key copied!');
+            } catch (err) {
+                console.error('Failed to copy', err);
+            }
+        }
+
+        // Create User Modal controls
+        function openCreateUserModal() {
+            renderAllowedToolsCheckboxes();
+            document.getElementById('create-user-modal').classList.add('active');
+        }
+        function closeCreateUserModal() {
+            document.getElementById('create-user-modal').classList.remove('active');
+        }
+
+        async function submitCreateUser() {
+            const username = document.getElementById('new-username').value.trim();
+            const balance = parseFloat(document.getElementById('new-balance').value);
+            const role = document.getElementById('new-role').value;
+
+            if (!username) {
+                showToast(document.body.getAttribute('data-lang') === 'ar' ? 'يرجى إدخال اسم المستخدم' : 'Please input a username', 'error');
+                return;
+            }
+
+            const allowed_tools = [];
+            availableTools.forEach(t => {
+                const chk = document.getElementById(`tool-chk-${t.name}`);
+                if (chk && chk.checked) {
+                    allowed_tools.push(t.name);
+                }
+            });
+
+            try {
+                const res = await fetch('/admin/api/users', {
+                    method: 'POST',
+                    headers: {
+                        'Authorization': `Bearer ${adminKey}`,
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ username, balance, role, allowed_tools })
+                });
+
+                const data = await res.json();
+                if (res.ok) {
+                    showToast(document.body.getAttribute('data-lang') === 'ar' ? 'تم إنشاء الحساب ومحفظة العميل!' : 'Client wallet generated successfully!');
+                    closeCreateUserModal();
+                    fetchDashboardData();
+                    document.getElementById('new-username').value = '';
+                    document.getElementById('new-balance').value = '500';
+                } else {
+                    showToast(data.error || 'فشل إنشاء المستخدم', 'error');
+                }
+            } catch (e) {
+                showToast('خطأ أثناء الإرسال', 'error');
+            }
+        }
+
+        // Edit Balance Modal controls
+        function openEditBalanceModal(id, username, currentBalance) {
+            document.getElementById('edit-user-id').value = id;
+            document.getElementById('edit-username').value = username;
+            document.getElementById('edit-balance').value = currentBalance;
+            document.getElementById('edit-balance-modal').classList.add('active');
+        }
+        function closeEditBalanceModal() {
+            document.getElementById('edit-balance-modal').classList.remove('active');
+        }
+
+        async function submitEditBalance() {
+            const id = document.getElementById('edit-user-id').value;
+            const balance = parseFloat(document.getElementById('edit-balance').value);
+
+            if (isNaN(balance)) return;
+
+            try {
+                const res = await fetch(`/admin/api/users/${id}/wallet`, {
+                    method: 'PUT',
+                    headers: {
+                        'Authorization': `Bearer ${adminKey}`,
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ balance })
+                });
+
+                if (res.ok) {
+                    showToast(document.body.getAttribute('data-lang') === 'ar' ? 'تم تحديث الرصيد بنجاح!' : 'Balance updated successfully!');
+                    closeEditBalanceModal();
+                    fetchDashboardData();
+                } else {
+                    showToast('فشل تعديل الرصيد', 'error');
+                }
+            } catch (e) {
+                showToast('خطأ بالشبكة', 'error');
+            }
+        }
+
+        async function deleteUser(id, username) {
+            const isAr = document.body.getAttribute('data-lang') === 'ar';
+            const confirmMsg = isAr 
+                ? `هل أنت متأكد من رغبتك في حذف العميل "${username}" وجميع محافظه وسجلاته؟ لا يمكن التراجع عن هذا الإجراء.` 
+                : `Are you sure you want to delete client "${username}"? This will permanently wipe their wallet and logs.`;
+            
+            if (!confirm(confirmMsg)) return;
+
+            try {
+                const res = await fetch(`/admin/api/users/${id}`, {
+                    method: 'DELETE',
+                    headers: { 'Authorization': `Bearer ${adminKey}` }
+                });
+
+                if (res.ok) {
+                    showToast(isAr ? 'تم حذف العميل بنجاح!' : 'Client account deleted!');
+                    fetchDashboardData();
+                } else {
+                    showToast(isAr ? 'خطأ في عملية الحذف' : 'Failed to delete client', 'error');
+                }
+            } catch (e) {
+                showToast('خطأ بالاتصال بالسيرفر', 'error');
+            }
+        }
+
+        async function fetchShadowLedger() {
+            const headers = { 'Authorization': `Bearer ${adminKey}` };
+            try {
+                const res = await fetch('/admin/api/shadow-ledger', { headers });
+                const logs = await res.json();
+                
+                const tbody = document.getElementById('shadow-ledger-table-body');
+                tbody.innerHTML = '';
+                
+                if (logs.length === 0) {
+                    tbody.innerHTML = `<tr><td colspan="5" style="text-align: center; color: var(--text-secondary); padding: 1.5rem;">لا توجد أي سجلات حالياً في سجل الظل</td></tr>`;
+                    return;
+                }
+                
+                logs.forEach(l => {
+                    const tr = document.createElement('tr');
+                    const formattedTime = new Date(l.timestamp).toLocaleString();
+                    const statusClass = l.status === 'SUCCESS' ? 'badge-success' : 'badge-danger';
+                    
+                    tr.innerHTML = `
+                        <td style="font-size:0.75rem; color: var(--text-secondary);">${formattedTime}</td>
+                        <td><strong>${l.agent_name || l.source || '-'}</strong></td>
+                        <td><span class="badge badge-warning" style="font-size:0.7rem; font-family: monospace;">${l.action}</span></td>
+                        <td style="font-size: 0.8rem; color: var(--text-secondary); max-width: 250px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="${l.details || l.file}">${l.details || l.file}</td>
+                        <td><span class="badge ${statusClass}">${l.status}</span></td>
+                    `;
+                    tbody.appendChild(tr);
+                });
+            } catch (err) {
+                console.error("Shadow ledger fetch error:", err);
+            }
+        }
+
+        async function triggerCompaction() {
+            const isAr = document.body.getAttribute('data-lang') === 'ar';
+            try {
+                const res = await fetch('/admin/api/compact-memory', {
+                    method: 'POST',
+                    headers: {
+                        'Authorization': `Bearer ${adminKey}`
+                    }
+                });
+                const data = await res.json();
+                if (res.ok) {
+                    showToast(isAr ? 'تم تشغيل عملية ضغط وتدوير الذاكرة بنجاح!' : 'Memory compaction completed successfully!');
+                    fetchShadowLedger();
+                } else {
+                    showToast(data.error || (isAr ? 'فشل تشغيل عملية ضغط الذاكرة' : 'Compaction failed'), 'error');
+                }
+            } catch (e) {
+                showToast(isAr ? 'خطأ بالاتصال بالسيرفر' : 'Server connection error', 'error');
+            }
+        }
+
+        // Tab switching logic
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+            
+            const btn = document.querySelector(`[onclick="switchTab('${tabId}')"]`);
+            if (btn) btn.classList.add('active');
+            
+            const content = document.getElementById(tabId);
+            if (content) content.classList.add('active');
+        }
+
+        // SVG topology interactive details
+        function showNodeDetails(node) {
+            const bubble = document.getElementById('node-info-bubble');
+            if (!bubble) return;
+            const isAr = document.body.getAttribute('data-lang') === 'ar';
+            
+            const info = {
+                gateway: {
+                    ar: 'بوابة الـ MCP: نشطة وتستمع على المنفذ 3847 وتتحكم في تدفق العمليات SSE.',
+                    en: 'MCP Gateway: Active on port 3847, routing and managing SSE connections.'
+                },
+                security: {
+                    ar: 'درع الحماية HMAC: نشط. يتحقق من صحة التوقيع ويحمي من محاولات التسلل التكرارية.',
+                    en: 'HMAC Shield: Active. Verifies client signature and protects from replay attacks.'
+                },
+                healing: {
+                    ar: 'معالج العلاج الذاتي: خامل حالياً وجاهز لترميم أي تعارضات أو أخطاء بناء AST.',
+                    en: 'Self-Healing: Idle, ready to fix configuration or AST syntax issues.'
+                },
+                memory: {
+                    ar: 'مدور الذاكرة (Compactor): نشط. يراقب حجم shadow_ledger ويقوم بالضغط التلقائي.',
+                    en: 'Memory Compactor: Active. Compresses and rotates the shadow_ledger file.'
+                },
+                telepathy: {
+                    ar: 'العقل التخاطري (HiveMind): نشط. يحاكي نقل سياق الذاكرة (0-Token) بين الخوادم الفرعية عبر Pub/Sub.',
+                    en: 'Telepathic HiveMind: Active. Simulates 0-Token memory context transfer between edge servers via Pub/Sub.'
+                },
+                empathy: {
+                    ar: 'معدل المشاعر (Empathetic Modulator): نشط. يراقب معدل الأخطاء لضبط استجابة النظام آلياً.',
+                    en: 'Empathetic Modulator: Active. Monitors error rates to heuristically adjust system tone.'
+                }
+            };
+            
+            if (info[node]) {
+                bubble.innerHTML = `<strong>${node.toUpperCase()}:</strong> ${isAr ? info[node].ar : info[node].en}`;
+            }
+        }
+
+        // Self-Healing Trigger Call
+        async function triggerSelfHeal() {
+            const isAr = document.body.getAttribute('data-lang') === 'ar';
+            showToast(isAr ? 'بدء تشغيل معالج العلاج الذاتي للشيفرة البنيوية...' : 'Starting structural self-healing processor...', 'info');
+            
+            try {
+                const res = await fetch('/admin/api/self-heal', {
+                    method: 'POST',
+                    headers: { 'Authorization': `Bearer ${adminKey}` }
+                });
+                const data = await res.json();
+                if (res.ok) {
+                    showToast(isAr ? 'اكتملت الفحوصات والترميم بنجاح! كود نظيف ومستقر.' : 'Syntax check & healing completed successfully! Code is clean.');
+                    fetchShadowLedger();
+                    
+                    // Add visual effect: flash the HEAL node
+                    const healNode = document.querySelector('.topo-node circle[stroke="#f59e0b"]');
+                    if (healNode) {
+                        healNode.setAttribute('r', '22');
+                        healNode.setAttribute('fill', '#f59e0b');
+                        setTimeout(() => {
+                            healNode.setAttribute('r', '14');
+                            healNode.setAttribute('fill', 'url(#amber-glow)');
+                        }, 1500);
+                    }
+                } else {
+                    showToast(data.error || (isAr ? 'فشل العلاج الذاتي البنيوي' : 'Self-healing run failed'), 'error');
+                }
+            } catch (e) {
+                showToast(isAr ? 'خطأ بالاتصال بالسيرفر' : 'Server connection error', 'error');
+            }
+        }
+
+        // Fetch Telemetry Resource stats
+        async function fetchTelemetryData() {
+            if (!adminKey) return;
+            const headers = { 'Authorization': `Bearer ${adminKey}` };
+            try {
+                const res = await fetch('/admin/api/observability-stats', { headers });
+                if (res.ok) {
+                    const stats = await res.json();
+                    updateTelemetryChartData(stats);
+                }
+            } catch (err) {
+                console.error("Telemetry error:", err);
+            }
+        }
+
+        // Telemetry Line Chart creation & updates
+        function updateTelemetryChartData(stats) {
+            const now = new Date().toLocaleTimeString();
+            
+            // Limit to 10 points
+            if (telemetryHistory.labels.length >= 10) {
+                telemetryHistory.labels.shift();
+                telemetryHistory.cpu.shift();
+                telemetryHistory.memory.shift();
+                telemetryHistory.connections.shift();
+            }
+            
+            telemetryHistory.labels.push(now);
+            // stats.cpu.user and system are values like 0.05, we convert to percent if applicable or use absolute cpu usage
+            const totalCpu = ((stats.cpu.user || 0) + (stats.cpu.system || 0)) / 1000; // in seconds/ms or percentage approximation
+            const cpuUsagePercent = parseFloat((totalCpu * 100).toFixed(2));
+            const memoryMb = parseFloat((stats.memory.heapUsed / (1024 * 1024)).toFixed(2));
+            
+            telemetryHistory.cpu.push(cpuUsagePercent);
+            telemetryHistory.memory.push(memoryMb);
+            telemetryHistory.connections.push(stats.connections.active || 0);
+            
+            if (telemetryChart) {
+                telemetryChart.data.labels = telemetryHistory.labels;
+                telemetryChart.data.datasets[0].data = telemetryHistory.cpu;
+                telemetryChart.data.datasets[1].data = telemetryHistory.memory;
+                telemetryChart.data.datasets[2].data = telemetryHistory.connections;
+                telemetryChart.update();
+            } else {
+                const ctx = document.getElementById('telemetryChart');
+                if (!ctx) return;
+                telemetryChart = new Chart(ctx.getContext('2d'), {
+                    type: 'line',
+                    data: {
+                        labels: telemetryHistory.labels,
+                        datasets: [
+                            {
+                                label: document.body.getAttribute('data-lang') === 'ar' ? 'المعالج (%)' : 'CPU (%)',
+                                data: telemetryHistory.cpu,
+                                borderColor: '#6366f1',
+                                backgroundColor: 'rgba(99, 102, 241, 0.05)',
+                                tension: 0.3,
+                                fill: true
+                            },
+                            {
+                                label: document.body.getAttribute('data-lang') === 'ar' ? 'الذاكرة (MB)' : 'Memory (MB)',
+                                data: telemetryHistory.memory,
+                                borderColor: '#a855f7',
+                                backgroundColor: 'rgba(168, 85, 247, 0.05)',
+                                tension: 0.3,
+                                fill: true
+                            },
+                            {
+                                label: document.body.getAttribute('data-lang') === 'ar' ? 'اتصالات SSE' : 'SSE Conn',
+                                data: telemetryHistory.connections,
+                                borderColor: '#10b981',
+                                backgroundColor: 'rgba(16, 185, 129, 0.05)',
+                                tension: 0.3,
+                                fill: true
+                            }
+                        ]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                labels: {
+                                    color: '#f3f4f6',
+                                    font: { family: 'Cairo', size: 10 }
+                                }
+                            }
+                        },
+                        scales: {
+                            x: {
+                                grid: { color: 'rgba(255, 255, 255, 0.03)' },
+                                ticks: { color: '#9ca3af', font: { size: 9 } }
+                            },
+                            y: {
+                                grid: { color: 'rgba(255, 255, 255, 0.03)' },
+                                ticks: { color: '#9ca3af', font: { size: 9 } }
+                            }
+                        }
+                    }
+                });
+            }
+        }
+
+        // Live Canvas Drawing Loop and Telemetry Report
+        (function() {
+            const canvas = document.getElementById('liveCanvas');
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+            let frameCount = 0;
+            let ws = null;
+
+            function connectWS() {
+                ws = new WebSocket('ws://localhost:9999');
+                ws.onerror = () => { /* silent */ };
+                ws.onclose = () => { setTimeout(connectWS, 5000); };
+            }
+            connectWS();
+
+            function draw() {
+                if (!ctx) return;
+                frameCount++;
+                ctx.fillStyle = '#000000';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+                
+                // Draw animated gradient WebGL patterns
+                const grad = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
+                grad.addColorStop(0, '#6366f1');
+                grad.addColorStop(1, '#a855f7');
+                ctx.strokeStyle = grad;
+                ctx.lineWidth = 4;
+                ctx.beginPath();
+                ctx.arc(150 + Math.sin(frameCount * 0.05) * 50, 75 + Math.cos(frameCount * 0.05) * 30, 40, 0, Math.PI * 2);
+                ctx.stroke();
+
+                // Calculate a simple pixel data hash
+                const dataUrl = canvas.toDataURL();
+                let hash = 0;
+                for (let i = 0; i < dataUrl.length; i++) {
+                    hash = (hash << 5) - hash + dataUrl.charCodeAt(i);
+                    hash |= 0;
+                }
+                const frameHash = 'canvas_hash_' + Math.abs(hash).toString(16);
+
+                // Report to WebSocket Server
+                if (ws && ws.readyState === WebSocket.OPEN) {
+                    ws.send(JSON.stringify({
+                        type: 'CANVAS_FRAME_UPDATE',
+                        payload: {
+                            frameHash: frameHash,
+                            width: canvas.width,
+                            height: canvas.height,
+                            webglVendor: 'Sovereign WebGL Renderer Engine v3.5',
+                            drawCalls: frameCount
+                        }
+                    }));
+                }
+
+                // Fallback HTTP post
+                fetch('http://127.0.0.1:9998/send', {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        type: 'CANVAS_FRAME_UPDATE',
+                        payload: {
+                            frameHash: frameHash,
+                            width: canvas.width,
+                            height: canvas.height,
+                            webglVendor: 'Sovereign WebGL Renderer Engine v3.5',
+                            drawCalls: frameCount
+                        }
+                    })
+                }).catch(() => {});
+
+                requestAnimationFrame(draw);
+            }
+            draw();
+        })();
+    </script>
+</body>
+</html>

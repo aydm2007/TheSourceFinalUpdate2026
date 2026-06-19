@@ -1,0 +1,39 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python:*)",
+      "Bash(celery:*)",
+      "Bash(node:*)",
+      "Bash(npm run:*)",
+      "Bash(mcp run:*)",
+      "Bash(pip install:*)",
+      "Bash(npm test:*)",
+      "Bash(./scripts/verify_gov_grade.sh)",
+      "mcp__nexus-bridge__nexus_Bash",
+      "mcp__nexus-bridge__nexus_ListMcpResources",
+      "mcp__nexus-bridge__nexus_MCPTool",
+      "mcp__nexus-bridge__nexus_McpCall",
+      "Bash(ListMcpResources)",
+      "mcp__nexus-bridge__nexus_OmegaDiagnostic",
+      "Bash(C:\\\\tools\\\\workspace\\\\TheSource\\\\launch_native_mcp.cmd)",
+      "Bash(chmod:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(./scripts/enable-all-mcp.sh)",
+      "Bash(powershell -NoProfile -ExecutionPolicy Bypass -File \"C:/tools/workspace/TheSource/aether.ps1\" console)",
+      "Bash(npm install:*)",
+      "Bash(npm pack:*)",
+      "Bash(npx markdown-link-check:*)",
+      "Bash(grep -r \"\\\\\" . --exclude-dir=node_modules)",
+      "Bash(git tag:*)",
+      "Bash(npx eslint:*)",
+      "Bash(npx json:*)",
+      "Bash(npm ci:*)",
+      "Bash(npx nyc:*)",
+      "Bash(npx vitest:*)",
+      "Bash(npm audit:*)",
+      "Bash(npm:*)"
+    ]
+  },
+  "enabledMcpjsonServers": ["nexus-bridge", "nexus-bridge-remote"]
+}

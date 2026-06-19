@@ -1,0 +1,146 @@
+[
+  {
+    "axis": "deep_reasoning",
+    "target": 98,
+    "offlineContractScore": 100,
+    "offlineStatus": "pass",
+    "selectedStatus": "api_url_transport_only",
+    "selectedScore": null,
+    "claudeStatus": "missing_key",
+    "claudeScore": null,
+    "winner": "unproven",
+    "claudeOutcome": "unproven_no_fresh_baseline",
+    "directVictory": false,
+    "proofState": "missing_live_evidence",
+    "missingEvidence": [
+      "selected:api_url_transport_only",
+      "claude:missing_key"
+    ]
+  },
+  {
+    "axis": "tool_calling",
+    "target": 95,
+    "offlineContractScore": 100,
+    "offlineStatus": "pass",
+    "selectedStatus": "api_url_transport_only",
+    "selectedScore": null,
+    "claudeStatus": "missing_key",
+    "claudeScore": null,
+    "winner": "unproven",
+    "claudeOutcome": "unproven_no_fresh_baseline",
+    "directVictory": false,
+    "proofState": "missing_live_evidence",
+    "missingEvidence": [
+      "selected:api_url_transport_only",
+      "claude:missing_key"
+    ]
+  },
+  {
+    "axis": "natural_tool_calling",
+    "target": 97,
+    "offlineContractScore": 100,
+    "offlineStatus": "pass",
+    "selectedStatus": "api_url_transport_only",
+    "selectedScore": null,
+    "claudeStatus": "missing_key",
+    "claudeScore": null,
+    "winner": "unproven",
+    "claudeOutcome": "unproven_no_fresh_baseline",
+    "directVictory": false,
+    "proofState": "missing_live_evidence",
+    "missingEvidence": [
+      "selected:api_url_transport_only",
+      "claude:missing_key"
+    ]
+  },
+  {
+    "axis": "code_review",
+    "target": 98,
+    "offlineContractScore": 100,
+    "offlineStatus": "pass",
+    "selectedStatus": "api_url_transport_only",
+    "selectedScore": null,
+    "claudeStatus": "missing_key",
+    "claudeScore": null,
+    "winner": "unproven",
+    "claudeOutcome": "unproven_no_fresh_baseline",
+    "directVictory": false,
+    "proofState": "missing_live_evidence",
+    "missingEvidence": [
+      "selected:api_url_transport_only",
+      "claude:missing_key"
+    ]
+  },
+  {
+    "axis": "long_context",
+    "target": 98,
+    "offlineContractScore": 100,
+    "offlineStatus": "pass",
+    "selectedStatus": "api_url_transport_only",
+    "selectedScore": null,
+    "claudeStatus": "missing_key",
+    "claudeScore": null,
+    "winner": "unproven",
+    "claudeOutcome": "unproven_no_fresh_baseline",
+    "directVictory": false,
+    "proofState": "missing_live_evidence",
+    "missingEvidence": [
+      "selected:api_url_transport_only",
+      "claude:missing_key"
+    ]
+  },
+  {
+    "axis": "agentic_persistence",
+    "target": 97,
+    "offlineContractScore": 100,
+    "offlineStatus": "pass",
+    "selectedStatus": "api_url_transport_only",
+    "selectedScore": null,
+    "claudeStatus": "missing_key",
+    "claudeScore": null,
+    "winner": "unproven",
+    "claudeOutcome": "unproven_no_fresh_baseline",
+    "directVictory": false,
+    "proofState": "missing_live_evidence",
+    "missingEvidence": [
+      "selected:api_url_transport_only",
+      "claude:missing_key"
+    ]
+  },
+  {
+    "axis": "security",
+    "target": 95,
+    "offlineContractScore": 100,
+    "offlineStatus": "pass",
+    "selectedStatus": "api_url_transport_only",
+    "selectedScore": null,
+    "claudeStatus": "missing_key",
+    "claudeScore": null,
+    "winner": "unproven",
+    "claudeOutcome": "unproven_no_fresh_baseline",
+    "directVictory": false,
+    "proofState": "missing_live_evidence",
+    "missingEvidence": [
+      "selected:api_url_transport_only",
+      "claude:missing_key"
+    ]
+  },
+  {
+    "axis": "instruction_following",
+    "target": 95,
+    "offlineContractScore": 100,
+    "offlineStatus": "pass",
+    "selectedStatus": "api_url_transport_only",
+    "selectedScore": null,
+    "claudeStatus": "missing_key",
+    "claudeScore": null,
+    "winner": "unproven",
+    "claudeOutcome": "unproven_no_fresh_baseline",
+    "directVictory": false,
+    "proofState": "missing_live_evidence",
+    "missingEvidence": [
+      "selected:api_url_transport_only",
+      "claude:missing_key"
+    ]
+  }
+]

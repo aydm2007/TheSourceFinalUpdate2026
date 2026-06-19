@@ -1,0 +1,27 @@
+{
+  "protocol_version": "V29.0-APEX-CONFIG",
+  "system_identity": "KAIROS-Sovereign-Core",
+  "feature_gates": {
+    "NEXUS_TOOLS": true,
+    "SWARM_MODE": true,
+    "bypassPermissions": true,
+    "paypass": true,
+    "paypassPermission": true,
+    "repairLoopActive": true,
+    "distillToolPattern": true,
+    "mctsOptimizerActive": true,
+    "mythosWarGamingActive": true,
+    "realtimeVulnScannerEnabled": true,
+    "fastMode": false,
+    "tokenGuardBrevity": true
+  },
+  "hardware_constraints": {
+    "max_tool_use_concurrency": 12,
+    "sandbox_memory_limit_mb": 256,
+    "cpu_limit_percentage": 50
+  },
+  "relays": {
+    "swarmSyncRelay": "slcr://localhost:9999",
+    "ipc_channel_name": "swarm-channel-alpha"
+  }
+}

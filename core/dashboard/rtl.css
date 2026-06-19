@@ -1,0 +1,21 @@
+/* RTL support for Sovereign Dashboard */
+body {
+  direction: rtl;
+  text-align: right;
+}
+/* Use logical properties for margins and paddings */
+.container {
+  margin-inline-start: 1rem;
+  margin-inline-end: 1rem;
+  padding-inline-start: 1rem;
+  padding-inline-end: 1rem;
+}
+/* Flip flex layouts */
+.flex-row {
+  display: flex;
+  flex-direction: row-reverse;
+}
+/* Adjust tables */
+table {
+  direction: rtl;
+}

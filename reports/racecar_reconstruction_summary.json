@@ -1,0 +1,54 @@
+{
+  "status": "SUCCESS",
+  "duration_ms": 869061,
+  "result": {
+    "status": "launched",
+    "total_agents": 12,
+    "wave_size": 2,
+    "waves": 6,
+    "tasks": [
+      {
+        "wave": 1,
+        "launched": [
+          "[AGENT-COMPLETED] Task ID: agent_1781517611613_2b65c74d-d19b-456b-9787-8be2d38bffa1. Status: completed",
+          "[AGENT-COMPLETED] Task ID: agent_1781517611621_13445f2c-0494-42ab-bf22-d12d4ce876a1. Status: completed"
+        ]
+      },
+      {
+        "wave": 2,
+        "launched": [
+          "[AGENT-COMPLETED] Task ID: agent_1781517660719_d0a02f34-c85e-4d0e-8210-3f9f0aef48e6. Status: completed",
+          "[AGENT-COMPLETED] Task ID: agent_1781517660725_ab29b53c-e4ac-4f69-9f38-0b3bdf243b37. Status: completed"
+        ]
+      },
+      {
+        "wave": 3,
+        "launched": [
+          "[AGENT-COMPLETED] Task ID: agent_1781517828036_31de72ff-2eda-4f6a-8c2f-83b25857cde5. Status: completed",
+          "[AGENT-COMPLETED] Task ID: agent_1781517828041_1d113d30-4877-4f0e-9a50-fe3da6eea9d4. Status: completed"
+        ]
+      },
+      {
+        "wave": 4,
+        "launched": [
+          "[AGENT-COMPLETED] Task ID: agent_1781517872680_b3f3fe00-ae35-49c4-8536-21ce0b6e42bd. Status: completed",
+          "[AGENT-COMPLETED] Task ID: agent_1781517872684_79bcffe1-d130-4f96-926d-aba66ffae111. Status: completed"
+        ]
+      },
+      {
+        "wave": 5,
+        "launched": [
+          "[AGENT-COMPLETED] Task ID: agent_1781518243078_540102b6-b291-4c91-ad64-a35c601ca4c1. Status: completed",
+          "[AGENT-COMPLETED] Task ID: agent_1781518243084_838dd09d-5f58-4be0-9cb3-ab38a1f9a876. Status: completed"
+        ]
+      },
+      {
+        "wave": 6,
+        "launched": [
+          "[AGENT-COMPLETED] Task ID: agent_1781518322848_a3bfa9ff-ec66-4f20-a97d-3c8cfab92115. Status: completed",
+          "[AGENT-COMPLETED] Task ID: agent_1781518322853_fe274db9-0fb7-432c-b85f-2415aa23073a. Status: completed"
+        ]
+      }
+    ]
+  }
+}

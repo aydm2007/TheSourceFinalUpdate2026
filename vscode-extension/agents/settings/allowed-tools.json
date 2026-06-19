@@ -1,0 +1,7 @@
+{
+  "allowedTools": [
+    "Agent",
+    "TaskOutput",
+    "LSPTool"
+  ]
+}

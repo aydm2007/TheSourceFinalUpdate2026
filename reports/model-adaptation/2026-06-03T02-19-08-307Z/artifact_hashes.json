@@ -1,0 +1,22 @@
+[
+  {
+    "path": "C:\\tools\\workspace\\TheSource\\reports\\model-adaptation\\2026-06-03T02-19-08-307Z\\summary.json",
+    "sha256": "d6c9d4cecbcc89d708fb398f43cc6b80c827f67a0bd607e2bcccbaf21c18ef3c",
+    "bytes": 895
+  },
+  {
+    "path": "C:\\tools\\workspace\\TheSource\\reports\\model-adaptation\\2026-06-03T02-19-08-307Z\\scores.json",
+    "sha256": "b7e8a88595230b83d7f14631623013f6cbab58996c35595dbe0d038256c098d1",
+    "bytes": 1210
+  },
+  {
+    "path": "C:\\tools\\workspace\\TheSource\\reports\\model-adaptation\\2026-06-03T02-19-08-307Z\\transcripts.json",
+    "sha256": "9c73e2c8a43008cdb6cd1535241c6bdf2f238ef073e3b14b5ca48f95a8d163a4",
+    "bytes": 28843
+  },
+  {
+    "path": "C:\\tools\\workspace\\TheSource\\reports\\model-adaptation\\2026-06-03T02-19-08-307Z\\live_comparisons.json",
+    "sha256": "9dd8a9b0d0a3c11934fa3f44d3f5dfa60024fe1ca21a3581b2b41138cc5c7feb",
+    "bytes": 1335
+  }
+]

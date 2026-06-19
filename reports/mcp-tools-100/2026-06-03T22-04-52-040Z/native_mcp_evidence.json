@@ -1,0 +1,82 @@
+{
+  "generatedAt": "2026-06-03T22:05:29.951Z",
+  "authProof": {
+    "metrics": {
+      "ok": false,
+      "statusCode": null
+    },
+    "mcpSse": {
+      "ok": false,
+      "statusCode": null,
+      "contentType": null
+    },
+    "streamableHttp": {
+      "ok": false,
+      "errorClass": "TypeError",
+      "reason": "fetch failed",
+      "transport": "streamable-http"
+    },
+    "allTools": {
+      "ok": false,
+      "statusCode": null,
+      "toolCount": null
+    },
+    "toolSmoke": {
+      "ok": false,
+      "via": "streamable-http",
+      "readOnlyToolCallOk": false
+    }
+  },
+  "deniedAccessProof": {
+    "unauthMetricsDenied": false,
+    "unauthMcpDenied": false
+  },
+  "toolFilterProof": {
+    "bootstrap": {
+      "expected": [
+        "nexus_AskUserQuestion",
+        "nexus_CognitiveRouter",
+        "nexus_LoadSkill",
+        "nexus_SwarmHandoff"
+      ],
+      "actual": [
+        "nexus_AskUserQuestion",
+        "nexus_CognitiveRouter",
+        "nexus_LoadSkill",
+        "nexus_SwarmHandoff"
+      ],
+      "ok": true
+    },
+    "skills": {
+      "mcpDeveloperToolCount": 20,
+      "cloudOpusMentorToolCount": 22,
+      "swarmToolCount": 23,
+      "swarmManagerActions": [
+        "Agent",
+        "SwarmPipelineOrchestrator",
+        "ParallelSwarmCoordinator"
+      ],
+      "swarmCoordinatorExposed": true,
+      "agentExposed": true,
+      "mcpDeveloperFileActions": [
+        "FileRead",
+        "FileReadLines",
+        "Glob",
+        "Grep",
+        "ViewCodeOutline"
+      ],
+      "securityFileActions": [
+        "FileRead",
+        "FileReadLines",
+        "Glob",
+        "Grep",
+        "ViewCodeOutline"
+      ]
+    },
+    "authorization": {
+      "fileReadUnderMcpDeveloper": true,
+      "fileWriteDeniedUnderSecurityAudit": true,
+      "denialReasonClass": "SKILL_STRICT_DENIAL"
+    }
+  }
+}

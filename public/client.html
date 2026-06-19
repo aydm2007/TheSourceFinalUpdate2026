@@ -1,0 +1,1311 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sovereign self-Service Portal | بوابة الخدمة الذاتية السيادية للعملاء</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        :root {
+            --bg-color: #080c14;
+            --panel-bg: rgba(13, 20, 35, 0.75);
+            --panel-border: rgba(255, 255, 255, 0.06);
+            --text-primary: #f3f4f6;
+            --text-secondary: #9ca3af;
+            --accent-primary: #3b82f6; /* Blue */
+            --accent-glow: rgba(59, 130, 246, 0.15);
+            --accent-secondary: #8b5cf6; /* Purple */
+            --success: #10b981;
+            --danger: #ef4444;
+            --warning: #f59e0b;
+            --glass-blur: 20px;
+        }
+
+        [data-lang="en"] {
+            font-family: 'Outfit', sans-serif;
+            direction: ltr;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            transition: all 0.25s ease;
+        }
+
+        body {
+            font-family: 'Cairo', 'Outfit', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(at 5% 15%, rgba(59, 130, 246, 0.12) 0px, transparent 50%),
+                radial-gradient(at 95% 85%, rgba(139, 92, 246, 0.1) 0px, transparent 50%);
+            background-attachment: fixed;
+        }
+
+        /* Top Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.25rem 2rem;
+            background: rgba(10, 15, 28, 0.6);
+            backdrop-filter: blur(var(--glass-blur));
+            border-bottom: 1px solid var(--panel-border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            box-shadow: 0 0 15px rgba(59, 130, 246, 0.4);
+        }
+
+        .logo-title h1 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            background: linear-gradient(to left, #ffffff, #a855f7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .logo-title p {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+        }
+
+        .header-controls {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.6rem 1.2rem;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            border: 1px solid transparent;
+            font-size: 0.9rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+            color: white;
+            border: none;
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.25);
+        }
+
+        .btn-primary:hover {
+            opacity: 0.95;
+            transform: translateY(-1px);
+            box-shadow: 0 6px 16px rgba(59, 130, 246, 0.4);
+        }
+
+        .btn-outline {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--panel-border);
+            color: var(--text-primary);
+        }
+
+        .btn-outline:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: var(--text-secondary);
+        }
+
+        .lang-btn {
+            background: none;
+            border: 1px solid var(--panel-border);
+            color: var(--text-secondary);
+            border-radius: 8px;
+            padding: 0.4rem 0.8rem;
+            font-size: 0.85rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        .lang-btn:hover {
+            color: var(--text-primary);
+            border-color: var(--text-secondary);
+        }
+
+        /* Main Container */
+        main {
+            flex: 1;
+            padding: 2rem;
+            max-width: 1300px;
+            margin: 0 auto;
+            width: 100%;
+            display: none; /* Shown after successful login */
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        /* Dashboard Top Grid */
+        .portal-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        @media (max-width: 900px) {
+            .portal-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .card {
+            background: var(--panel-bg);
+            backdrop-filter: blur(var(--glass-blur));
+            border: 1px solid var(--panel-border);
+            border-radius: 16px;
+            padding: 1.5rem;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(to right, var(--accent-primary), var(--accent-secondary));
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--panel-border);
+            padding-bottom: 0.75rem;
+        }
+
+        .card-title {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        /* Profile details */
+        .profile-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem 0;
+            border-bottom: 1px dashed rgba(255, 255, 255, 0.05);
+        }
+
+        .profile-row:last-child {
+            border-bottom: none;
+        }
+
+        .profile-label {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .profile-value {
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        /* Wallet view */
+        .wallet-display {
+            text-align: center;
+            padding: 1.5rem 0;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 12px;
+            border: 1px solid var(--panel-border);
+            margin: 0.5rem 0;
+        }
+
+        .wallet-amount {
+            font-size: 3rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #60a5fa, #c084fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-family: 'Outfit', sans-serif;
+            margin: 0.5rem 0;
+        }
+
+        .wallet-subtext {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        /* Recharge Input Form */
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .form-group label {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .input-group {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        input {
+            flex: 1;
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid var(--panel-border);
+            padding: 0.75rem 1rem;
+            border-radius: 10px;
+            color: var(--text-primary);
+            font-family: inherit;
+            font-size: 0.95rem;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: var(--accent-primary);
+            box-shadow: 0 0 10px var(--accent-glow);
+        }
+
+        /* Allowed Tools badges */
+        .tools-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            max-height: 120px;
+            overflow-y: auto;
+            padding: 0.25rem;
+            border: 1px solid var(--panel-border);
+            border-radius: 8px;
+            background: rgba(0, 0, 0, 0.15);
+        }
+
+        .tool-badge {
+            background: rgba(59, 130, 246, 0.1);
+            color: #93c5fd;
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            padding: 0.25rem 0.6rem;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        /* Table Card */
+        .table-panel {
+            background: var(--panel-bg);
+            backdrop-filter: blur(var(--glass-blur));
+            border: 1px solid var(--panel-border);
+            border-radius: 16px;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .table-panel::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(to right, var(--accent-secondary), var(--accent-primary));
+        }
+
+        .table-container {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: right;
+            font-size: 0.9rem;
+        }
+
+        [data-lang="en"] table {
+            text-align: left;
+        }
+
+        th {
+            padding: 1rem;
+            color: var(--text-secondary);
+            font-weight: 600;
+            border-bottom: 1px solid var(--panel-border);
+        }
+
+        td {
+            padding: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+            color: var(--text-primary);
+        }
+
+        tr:hover td {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .badge-cost {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            color: var(--danger);
+        }
+
+        /* Login Dialog Overlay */
+        .login-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(3, 7, 18, 0.9);
+            backdrop-filter: blur(12px);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+        }
+
+        .login-card {
+            background: var(--panel-bg);
+            border: 1px solid var(--panel-border);
+            border-radius: 20px;
+            width: 100%;
+            max-width: 480px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            position: relative;
+        }
+
+        .login-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, var(--accent-primary), var(--accent-secondary));
+            border-radius: 20px 20px 0 0;
+        }
+
+        .login-logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+        }
+
+        .login-logo .logo-icon {
+            width: 48px;
+            height: 48px;
+        }
+
+        .login-logo h2 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            background: linear-gradient(to left, #ffffff, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Toast Notifications */
+        .toast-container {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 2000;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        [data-lang="en"] .toast-container {
+            left: 2rem;
+            right: auto;
+        }
+
+        .toast {
+            background: rgba(17, 24, 39, 0.95);
+            border-left: 4px solid var(--accent-primary);
+            color: var(--text-primary);
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            min-width: 300px;
+            backdrop-filter: blur(10px);
+            animation: slideIn 0.3s ease forwards;
+        }
+
+        [data-lang="en"] .toast {
+            border-left: none;
+            border-right: 4px solid var(--accent-primary);
+        }
+
+        .toast.success { border-color: var(--success); }
+        .toast.error { border-color: var(--danger); }
+        .toast.warning { border-color: var(--warning); }
+
+        @keyframes slideIn {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .masked-key {
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            background: rgba(0,0,0,0.3);
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .copy-btn {
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            cursor: pointer;
+            padding: 2px;
+        }
+        .copy-btn:hover {
+            color: var(--text-primary);
+        }
+
+        .tabs-header {
+            display: flex;
+            gap: 0.5rem;
+        }
+        .tab-btn {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--panel-border);
+            color: var(--text-secondary);
+            padding: 0.4rem 0.8rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            font-weight: 600;
+            font-family: 'Outfit', 'Cairo', sans-serif;
+        }
+        .tab-btn:hover {
+            background: rgba(255, 255, 255, 0.08);
+            color: var(--text-primary);
+        }
+        .tab-btn.active {
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+            color: white;
+            border: none;
+            box-shadow: 0 0 10px rgba(59, 130, 246, 0.3);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Toast Notifications Area -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- Login overlay -->
+    <div class="login-overlay" id="loginOverlay">
+        <div class="login-card" style="max-width: 500px; width: 100%;">
+            <div class="login-logo">
+                <div class="logo-icon"><i data-lucide="shield-check"></i></div>
+                <div>
+                    <h2>NEXUS PORTAL</h2>
+                    <p style="font-size: 0.7rem; color: var(--text-secondary);">YEMEN CLOUD SERVICES | سحابكم لخدمات الحوسبة</p>
+                </div>
+            </div>
+            
+            <!-- Beautiful Mode Switcher -->
+            <div id="mode-switcher-container" style="display: flex; background: rgba(0, 0, 0, 0.25); padding: 0.3rem; border-radius: 12px; border: 1px solid var(--panel-border); margin: 0.5rem 0;">
+                <button id="mode-login-btn" class="tab-btn active" style="flex: 1; text-align: center; justify-content: center;" onclick="setPortalMode('login')">
+                    <span class="lang-text" data-ar="تسجيل الدخول" data-en="Sign In"></span>
+                </button>
+                <button id="mode-register-btn" class="tab-btn" style="flex: 1; text-align: center; justify-content: center;" onclick="setPortalMode('register')">
+                    <span class="lang-text" data-ar="إنشاء مساحة عمل" data-en="Register Workspace"></span>
+                </button>
+            </div>
+
+            <!-- Login Content -->
+            <div id="login-form-content" style="display: flex; flex-direction: column; gap: 1.25rem;">
+                <div style="text-align: center; font-size: 0.85rem; color: var(--text-secondary);">
+                    <p class="lang-text" data-ar="أدخل مفتاح الأمان للوصول إلى مساحة التطوير والفوترة" data-en="Enter API key to access development workspace & billing"></p>
+                </div>
+
+                <div class="form-group">
+                    <label class="lang-text" data-ar="مفتاح الـ API الخاص بك:" data-en="Your API Key:"></label>
+                    <input type="password" id="apiKeyInput" placeholder="sk-ant-..." style="text-align: center; font-family: 'Outfit', sans-serif;">
+                </div>
+
+                <button class="btn btn-primary" id="loginBtn" style="width: 100%;">
+                    <span class="lang-text" data-ar="دخول البوابة" data-en="Enter Portal"></span>
+                    <i data-lucide="log-in"></i>
+                </button>
+            </div>
+
+            <!-- Registration Content -->
+            <div id="register-form-content" style="display: none; flex-direction: column; gap: 1.25rem;">
+                <div style="text-align: center; font-size: 0.85rem; color: var(--text-secondary);">
+                    <p class="lang-text" data-ar="أنشئ مساحة عمل سحابية خاصة بك وابدأ التطوير عن بعد فوراً" data-en="Create your own cloud workspace and start remote development instantly"></p>
+                </div>
+
+                <div class="form-group">
+                    <label class="lang-text" data-ar="اسم المطور / العميل:" data-en="Developer / Client Name:"></label>
+                    <input type="text" id="regUsername" placeholder="e.g. ahmed_dev" style="text-align: center; font-family: 'Outfit', sans-serif;">
+                </div>
+
+                <div class="form-group">
+                    <label class="lang-text" data-ar="اسم المشروع البرمجي:" data-en="Project Name:"></label>
+                    <input type="text" id="regProject" placeholder="e.g. my-ecommerce-api" style="text-align: center; font-family: 'Outfit', sans-serif;">
+                </div>
+
+                <button class="btn btn-primary" id="registerBtn" style="width: 100%; background: linear-gradient(135deg, var(--success), var(--accent-primary)); border: none; box-shadow: 0 4px 12px rgba(16, 185, 129, 0.25);" onclick="handleRegisterClient()">
+                    <span class="lang-text" data-ar="تأسيس مساحة العمل السحابية" data-en="Provision Cloud Workspace"></span>
+                    <i data-lucide="plus-circle"></i>
+                </button>
+            </div>
+
+            <!-- Secure Provisioning Success Card -->
+            <div id="register-success-content" style="display: none; flex-direction: column; gap: 1.25rem; background: rgba(16, 185, 129, 0.08); border: 1px solid rgba(16, 185, 129, 0.25); padding: 1.25rem; border-radius: 14px;">
+                <div style="text-align: center; color: var(--success); display: flex; flex-direction: column; align-items: center; gap: 0.5rem;">
+                    <i data-lucide="check-circle-2" style="width: 40px; height: 40px;"></i>
+                    <h3 class="lang-text" data-ar="تم تأسيس المساحة السحابية بنجاح!" data-en="Workspace Provisioned Successfully!"></h3>
+                </div>
+
+                <div style="display: flex; flex-direction: column; gap: 0.75rem; font-size: 0.85rem;">
+                    <div style="display: flex; justify-content: space-between; border-bottom: 1px dashed rgba(255,255,255,0.06); padding-bottom: 0.4rem;">
+                        <span class="lang-text" data-ar="مفتاح الأمان (API Key):" data-en="API Auth Key:"></span>
+                        <span style="font-weight: 700; color: var(--success); font-family: monospace;" id="success-api-key">-</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; border-bottom: 1px dashed rgba(255,255,255,0.06); padding-bottom: 0.4rem;">
+                        <span class="lang-text" data-ar="معرّف المشروع (Project ID):" data-en="Project ID:"></span>
+                        <span style="font-weight: 700; color: var(--text-primary); font-family: monospace;" id="success-project-id">-</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; border-bottom: 1px dashed rgba(255,255,255,0.06); padding-bottom: 0.4rem;">
+                        <span class="lang-text" data-ar="المسار السحابي (Workspace Path):" data-en="Workspace Path:"></span>
+                        <span style="font-weight: 600; color: var(--text-secondary); font-size: 0.75rem; word-break: break-all;" id="success-path">-</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between;">
+                        <span class="lang-text" data-ar="رصيد الترحيب المجاني:" data-en="Free Welcome Balance:"></span>
+                        <span style="font-weight: 700; color: var(--warning);">100.00 CREDITS</span>
+                    </div>
+                </div>
+
+                <p style="font-size: 0.75rem; color: var(--text-secondary); text-align: center;" class="lang-text" data-ar="⚠️ هام جداً: احفظ مفتاح الأمان هذا في مكان آمن، فلن تتمكن من رؤيته مرة أخرى!" data-en="⚠️ CRITICAL: Save this API Key now! You will not be able to retrieve it later."></p>
+
+                <button class="btn btn-primary" onclick="autoLoginWithRegKey()" style="width: 100%;">
+                    <span class="lang-text" data-ar="نسخ المفتاح والانتقال للبوابة" data-en="Copy Key & Go to Portal"></span>
+                    <i data-lucide="arrow-right-circle"></i>
+                </button>
+            </div>
+
+            <div style="display: flex; justify-content: center; margin-top: 0.25rem;">
+                <button class="lang-btn" onclick="toggleLanguage()">
+                    <i data-lucide="languages" style="width:14px;height:14px;"></i>
+                    <span id="langBtnText">English</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Client Dashboard -->
+    <header>
+        <div class="logo-section">
+            <div class="logo-icon"><i data-lucide="wallet"></i></div>
+            <div class="logo-title">
+                <h1>NEXUS BILLING</h1>
+                <p class="lang-text" data-ar="بوابة الخدمة الذاتية للعميل" data-en="Client Self-Service Portal"></p>
+            </div>
+        </div>
+        <div class="header-controls">
+            <span id="clientUsernameBadge" style="background: rgba(255,255,255,0.06); padding: 0.4rem 0.8rem; border-radius: 8px; font-weight:600; font-size:0.85rem;"></span>
+            <button class="btn btn-outline" id="logoutBtn" style="padding: 0.4rem 0.8rem; font-size:0.8rem;">
+                <i data-lucide="log-out" style="width: 14px; height: 14px;"></i>
+                <span class="lang-text" data-ar="خروج" data-en="Logout"></span>
+            </button>
+            <button class="lang-btn" onclick="toggleLanguage()">
+                <i data-lucide="languages" style="width:14px;height:14px;"></i>
+                <span id="headerLangText">English</span>
+            </button>
+        </div>
+    </header>
+
+    <main id="mainContent">
+        <!-- Self service Grid -->
+        <div class="portal-grid">
+            <!-- Account & API Key Card -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">
+                        <i data-lucide="user" style="color: var(--accent-primary);"></i>
+                        <span class="lang-text" data-ar="حساب المشترك" data-en="Client Account Details"></span>
+                    </div>
+                </div>
+                
+                <div class="profile-row">
+                    <span class="profile-label lang-text" data-ar="اسم المستخدم" data-en="Username"></span>
+                    <span class="profile-value" id="infoUsername">-</span>
+                </div>
+                <div class="profile-row">
+                    <span class="profile-label lang-text" data-ar="الصلاحية" data-en="Account Role"></span>
+                    <span class="profile-value" id="infoRole">-</span>
+                </div>
+                <div class="profile-row" style="align-items: center;">
+                    <span class="profile-label lang-text" data-ar="مفتاح الـ API" data-en="API Auth Key"></span>
+                    <div class="profile-value" style="display:flex; align-items:center; gap: 0.5rem;">
+                        <span class="masked-key" id="infoApiKey">••••••••••••••••</span>
+                        <button class="copy-btn" id="toggleMaskBtn"><i data-lucide="eye" style="width:14px;height:14px;"></i></button>
+                        <button class="copy-btn" id="copyKeyBtn"><i data-lucide="copy" style="width:14px;height:14px;"></i></button>
+                    </div>
+                </div>
+
+                <div style="display:flex; flex-direction:column; gap:0.5rem; margin-top:0.5rem;">
+                    <span class="profile-label lang-text" data-ar="الأدوات المصرح بها" data-en="Authorized Sovereign Tools"></span>
+                    <div class="tools-badges" id="infoTools">
+                        <!-- Badges go here -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Wallet & Voucher recharge -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">
+                        <i data-lucide="coins" style="color: var(--accent-secondary);"></i>
+                        <span class="lang-text" data-ar="المحفظة والرصيد السيادي" data-en="Sovereign Wallet & Balance"></span>
+                    </div>
+                    <span style="background: rgba(16, 185, 129, 0.1); color: var(--success); padding: 0.25rem 0.5rem; border-radius: 6px; font-size: 0.75rem; display:flex; align-items:center; gap:0.25rem;">
+                        <span class="pulse-dot" style="width:6px; height:6px; background:var(--success); border-radius:50%; display:inline-block; animation: pulse 1.5s infinite;"></span>
+                        <span class="lang-text" data-ar="متصل مباشر" data-en="Live Sync"></span>
+                    </span>
+                </div>
+
+                <div class="wallet-display">
+                    <span class="lang-text wallet-subtext" data-ar="الرصيد المتاح حالياً" data-en="Current Available Balance"></span>
+                    <div class="wallet-amount" id="infoBalance">0.00</div>
+                    <span class="wallet-subtext" id="infoCurrency">CREDITS</span>
+                </div>
+
+                <!-- Redeem voucher form -->
+                <div class="form-group" style="margin-top: 0.5rem;">
+                    <label class="lang-text" data-ar="تعبئة الرصيد بواسطة كرت شحن (Voucher):" data-en="Recharge Wallet via Prepaid Voucher:"></label>
+                    <div class="input-group">
+                        <input type="text" id="voucherCodeInput" placeholder="NEXUS-XXXX-XXXX" style="font-family: 'Outfit', sans-serif; text-transform: uppercase; text-align: center; letter-spacing: 1px;">
+                        <button class="btn btn-primary" id="redeemBtn">
+                            <span class="lang-text" data-ar="شحن كود" data-en="Redeem"></span>
+                            <i data-lucide="zap"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- HMAC Security Connection Instructions -->
+        <div class="table-panel">
+            <div class="card-header" style="border-bottom:none; padding-bottom:0.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem;">
+                <div class="card-title">
+                    <i data-lucide="shield-check" style="color: var(--success);"></i>
+                    <span class="lang-text" data-ar="درع حماية المصافحة والتوقيع المشفر (HMAC-SHA256)" data-en="HMAC-SHA256 Cryptographic Connection Shield"></span>
+                </div>
+                <div class="tabs-header" style="margin-bottom: 0; padding-bottom: 0; border-bottom: none;">
+                    <button class="tab-btn active" id="btn-js-code" onclick="switchCodeTab('js')">Node.js (JS)</button>
+                    <button class="tab-btn" id="btn-py-code" onclick="switchCodeTab('py')">Python</button>
+                </div>
+            </div>
+            
+            <div style="background: rgba(0,0,0,0.3); border: 1px solid var(--panel-border); padding: 1.25rem; border-radius: 12px; font-family: monospace; font-size: 0.8rem; overflow-x: auto; color: #a5b4fc; position: relative; min-height: 120px;">
+                <button class="copy-btn" onclick="copySnippet()" style="position: absolute; top: 1rem; right: 1rem; background: rgba(255,255,255,0.06); padding: 0.35rem 0.6rem; border-radius: 6px; font-size: 0.75rem; display: flex; align-items: center; gap: 0.25rem; border: 1px solid var(--panel-border);">
+                    <i data-lucide="copy" style="width:12px; height:12px;"></i>
+                    <span class="lang-text" data-ar="نسخ الكود" data-en="Copy Code">نسخ الكود</span>
+                </button>
+                <pre id="code-snippet-pre" style="white-space: pre-wrap; word-break: break-all; margin: 0; padding-top: 1rem; line-height: 1.5; text-align: left; direction: ltr; font-family: 'Courier New', Courier, monospace;"></pre>
+            </div>
+        </div>
+
+        <!-- Personal Usage Logs -->
+        <div class="table-panel">
+            <div class="card-header" style="border-bottom:none; padding-bottom:0;">
+                <div class="card-title">
+                    <i data-lucide="activity" style="color: var(--warning);"></i>
+                    <span class="lang-text" data-ar="سجلات الاستهلاك والأدوات (آخر 50 عملية)" data-en="Tool Consumption Logs (Last 50)"></span>
+                </div>
+            </div>
+            
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="lang-text" data-ar="التوقيت" data-en="Timestamp"></th>
+                            <th class="lang-text" data-ar="الأداة المستدعاة" data-en="Invoked Tool"></th>
+                            <th class="lang-text" data-ar="زمن التنفيذ" data-en="Duration"></th>
+                            <th class="lang-text" data-ar="تكلفة العملية" data-en="Cost"></th>
+                        </tr>
+                    </thead>
+                    <tbody id="logsTableBody">
+                        <tr>
+                            <td colspan="4" style="text-align: center;" class="lang-text" data-ar="لا توجد بيانات استهلاك حالياً" data-en="No consumption records found"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <!-- Pulsing keyframes for Live Sync indicator -->
+    <style>
+        @keyframes pulse {
+            0% { transform: scale(0.9); opacity: 0.6; }
+            50% { transform: scale(1.2); opacity: 1; }
+            100% { transform: scale(0.9); opacity: 0.6; }
+        }
+    </style>
+
+    <script>
+        let currentLang = 'ar';
+        let clientApiKey = localStorage.getItem('nexus_client_apikey') || '';
+        let clientInfo = null;
+        let eventSource = null;
+        let showRawKey = false;
+
+        // Initialize Page
+        document.addEventListener('DOMContentLoaded', () => {
+            // Apply initial language
+            applyLanguage(currentLang);
+            lucide.createIcons();
+
+            // Try to extract API Key from query params
+            const urlParams = new URLSearchParams(window.location.search);
+            const queryKey = urlParams.get('apikey');
+            if (queryKey) {
+                clientApiKey = queryKey;
+                localStorage.setItem('nexus_client_apikey', clientApiKey);
+                // clean URL query param
+                window.history.replaceState({}, document.title, window.location.pathname);
+            }
+
+            if (clientApiKey) {
+                attemptLogin(clientApiKey);
+            } else {
+                document.getElementById('loginOverlay').style.display = 'flex';
+                document.getElementById('mainContent').style.display = 'none';
+            }
+
+            // Event Listeners
+            document.getElementById('loginBtn').addEventListener('click', () => {
+                const key = document.getElementById('apiKeyInput').value.trim();
+                if (!key) {
+                    showToast(currentLang === 'ar' ? 'يرجى إدخال مفتاح الـ API' : 'Please enter your API Key', 'error');
+                    return;
+                }
+                attemptLogin(key);
+            });
+
+            document.getElementById('logoutBtn').addEventListener('click', logout);
+
+            document.getElementById('redeemBtn').addEventListener('click', redeemVoucher);
+
+            document.getElementById('toggleMaskBtn').addEventListener('click', toggleKeyMasking);
+            document.getElementById('copyKeyBtn').addEventListener('click', copyApiKeyToClipboard);
+        });
+
+        // Toggle Language
+        function toggleLanguage() {
+            currentLang = currentLang === 'ar' ? 'en' : 'ar';
+            applyLanguage(currentLang);
+        }
+
+        function applyLanguage(lang) {
+            document.documentElement.lang = lang;
+            document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+            document.documentElement.setAttribute('data-lang', lang);
+
+            // Translate all elements with class .lang-text
+            document.querySelectorAll('.lang-text').forEach(el => {
+                const arText = el.getAttribute('data-ar');
+                const enText = el.getAttribute('data-en');
+                el.textContent = lang === 'ar' ? arText : enText;
+            });
+
+            // Translate page input placeholders
+            const voucherInput = document.getElementById('voucherCodeInput');
+            if (voucherInput) {
+                voucherInput.placeholder = lang === 'ar' ? 'NEXUS-XXXX-XXXX' : 'NEXUS-XXXX-XXXX';
+            }
+
+            const langBtnText = document.getElementById('langBtnText');
+            if (langBtnText) langBtnText.textContent = lang === 'ar' ? 'English' : 'العربية';
+            
+            const headerLangText = document.getElementById('headerLangText');
+            if (headerLangText) headerLangText.textContent = lang === 'ar' ? 'English' : 'العربية';
+        }
+
+        // Attempt Authentication with API Key
+        async function attemptLogin(apiKey) {
+            try {
+                const response = await fetch('/admin/api/client/info', {
+                    headers: { 'Authorization': `Bearer ${apiKey}` }
+                });
+
+                if (!response.ok) {
+                    throw new Error(currentLang === 'ar' ? 'مفتاح الـ API غير صالح أو غير مصرح به' : 'Invalid or unauthorized API key');
+                }
+
+                clientInfo = await response.json();
+                clientApiKey = apiKey;
+                localStorage.setItem('nexus_client_apikey', apiKey);
+
+                // Hide login overlay, show content
+                document.getElementById('loginOverlay').style.display = 'none';
+                document.getElementById('mainContent').style.display = 'flex';
+
+                renderPortalData();
+                loadUsageLogs();
+                setupSseConnection();
+
+                showToast(
+                    currentLang === 'ar' ? `مرحباً بك ${clientInfo.username}` : `Welcome back ${clientInfo.username}`, 
+                    'success'
+                );
+
+            } catch (err) {
+                console.error(err);
+                showToast(err.message, 'error');
+                logout();
+            }
+        }
+
+        // Render Loaded Profile Data
+        function renderPortalData() {
+            if (!clientInfo) return;
+            document.getElementById('clientUsernameBadge').textContent = clientInfo.username;
+            document.getElementById('infoUsername').textContent = clientInfo.username;
+            document.getElementById('infoRole').textContent = clientInfo.role;
+            
+            // Mask or unmask key
+            updateKeyDisplay();
+
+            // Balance
+            document.getElementById('infoBalance').textContent = parseFloat(clientInfo.balance).toFixed(4);
+            document.getElementById('infoCurrency').textContent = clientInfo.currency || 'CREDITS';
+
+            // Allowed tools
+            const toolsContainer = document.getElementById('infoTools');
+            toolsContainer.innerHTML = '';
+            
+            let toolsArray = [];
+            try {
+                toolsArray = typeof clientInfo.allowed_tools === 'string' 
+                    ? JSON.parse(clientInfo.allowed_tools) 
+                    : clientInfo.allowed_tools;
+            } catch (e) {
+                toolsArray = clientInfo.allowed_tools || [];
+            }
+
+            if (toolsArray.includes('*')) {
+                const badge = document.createElement('span');
+                badge.className = 'tool-badge';
+                badge.style.background = 'rgba(16, 185, 129, 0.15)';
+                badge.style.color = '#34d399';
+                badge.style.borderColor = 'rgba(16, 185, 129, 0.3)';
+                badge.textContent = currentLang === 'ar' ? 'جميع الصلاحيات (*)' : 'All Sovereign Tools (*)';
+                toolsContainer.appendChild(badge);
+            } else {
+                toolsArray.forEach(tool => {
+                    const badge = document.createElement('span');
+                    badge.className = 'tool-badge';
+                    badge.textContent = tool;
+                    toolsContainer.appendChild(badge);
+                });
+            }
+            updateCodeSnippet();
+        }
+
+        function updateKeyDisplay() {
+            const keyEl = document.getElementById('infoApiKey');
+            const toggleIcon = document.querySelector('#toggleMaskBtn i') || document.querySelector('#toggleMaskBtn svg');
+            if (showRawKey) {
+                keyEl.textContent = clientApiKey;
+                keyEl.style.letterSpacing = 'normal';
+                if (toggleIcon) toggleIcon.setAttribute('data-lucide', 'eye-off');
+            } else {
+                keyEl.textContent = '••••••••••••••••' + clientApiKey.substring(clientApiKey.length - 6);
+                keyEl.style.letterSpacing = '2px';
+                if (toggleIcon) toggleIcon.setAttribute('data-lucide', 'eye');
+            }
+            lucide.createIcons();
+        }
+
+        function toggleKeyMasking() {
+            showRawKey = !showRawKey;
+            updateKeyDisplay();
+        }
+
+        function copyApiKeyToClipboard() {
+            navigator.clipboard.writeText(clientApiKey).then(() => {
+                showToast(
+                    currentLang === 'ar' ? 'تم نسخ المفتاح إلى الحافظة' : 'API Key copied to clipboard',
+                    'success'
+                );
+            });
+        }
+
+        // Fetch user consumption logs
+        async function loadUsageLogs() {
+            try {
+                const response = await fetch('/admin/api/client/logs', {
+                    headers: { 'Authorization': `Bearer ${clientApiKey}` }
+                });
+                if (!response.ok) return;
+                const logs = await response.json();
+                const tbody = document.getElementById('logsTableBody');
+                tbody.innerHTML = '';
+
+                if (logs.length === 0) {
+                    tbody.innerHTML = `<tr><td colspan="4" style="text-align: center;" class="lang-text" data-ar="لا توجد بيانات استهلاك حالياً" data-en="No consumption records found"></td></tr>`;
+                    applyLanguage(currentLang);
+                    return;
+                }
+
+                logs.forEach(log => {
+                    const tr = document.createElement('tr');
+                    const localTime = new Date(log.timestamp).toLocaleString(currentLang === 'ar' ? 'ar-YE' : 'en-US');
+                    tr.innerHTML = `
+                        <td style="font-family: 'Outfit', sans-serif;">${localTime}</td>
+                        <td style="font-family: 'Outfit', sans-serif; font-weight:600; color: var(--accent-primary);">${log.tool_name}</td>
+                        <td style="font-family: 'Outfit', sans-serif;">${(log.duration_ms / 1000).toFixed(2)}s</td>
+                        <td class="badge-cost">${parseFloat(log.cost).toFixed(5)}</td>
+                    `;
+                    tbody.appendChild(tr);
+                });
+
+            } catch (err) {
+                console.error(err);
+            }
+        }
+
+        // Redeem prepaid card
+        async function redeemVoucher() {
+            const codeInput = document.getElementById('voucherCodeInput');
+            const code = codeInput.value.trim().toUpperCase();
+
+            if (!code) {
+                showToast(currentLang === 'ar' ? 'يرجى إدخال كود الشحن أولاً' : 'Please enter voucher code first', 'warning');
+                return;
+            }
+
+            try {
+                const response = await fetch('/admin/api/client/redeem', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${clientApiKey}`
+                    },
+                    body: JSON.stringify({ code })
+                });
+
+                const data = await response.json();
+                if (!response.ok) {
+                    throw new Error(data.error || 'خطأ في عملية الشحن');
+                }
+
+                showToast(data.message, 'success');
+                codeInput.value = '';
+                
+                // Immediately refresh client state locally
+                refreshClientInfo();
+
+            } catch (err) {
+                showToast(err.message, 'error');
+            }
+        }
+
+        // Refresh client info object
+        async function refreshClientInfo() {
+            try {
+                const response = await fetch('/admin/api/client/info', {
+                    headers: { 'Authorization': `Bearer ${clientApiKey}` }
+                });
+                if (response.ok) {
+                    clientInfo = await response.json();
+                    renderPortalData();
+                    loadUsageLogs();
+                }
+            } catch (err) {
+                console.error(err);
+            }
+        }
+
+        // Setup Real-time SSE Connection
+        function setupSseConnection() {
+            if (eventSource) {
+                eventSource.close();
+            }
+
+            // Authenticate SSE client via query parameter
+            eventSource = new EventSource(`/admin/api/client/events?apikey=${encodeURIComponent(clientApiKey)}`);
+
+            eventSource.onmessage = (event) => {
+                try {
+                    const data = JSON.parse(event.data);
+                    if (data.type === 'refresh') {
+                        refreshClientInfo();
+                    }
+                } catch (err) {
+                    console.error(err);
+                }
+            };
+
+            eventSource.onerror = (err) => {
+                console.error('SSE Error:', err);
+                eventSource.close();
+                // Retry after 5 seconds
+                setTimeout(setupSseConnection, 5000);
+            };
+        }
+
+        // Toast Messages Helper
+        function showToast(message, type = 'info') {
+            const container = document.getElementById('toastContainer');
+            const toast = document.createElement('div');
+            toast.className = `toast ${type}`;
+            
+            let icon = 'info';
+            if (type === 'success') icon = 'check-circle';
+            if (type === 'error') icon = 'alert-triangle';
+            if (type === 'warning') icon = 'alert-circle';
+
+            toast.innerHTML = `
+                <i data-lucide="${icon}"></i>
+                <span>${message}</span>
+            `;
+            
+            container.appendChild(toast);
+            lucide.createIcons();
+
+            setTimeout(() => {
+                toast.style.opacity = '0';
+                toast.style.transform = 'translateY(-10px)';
+                setTimeout(() => toast.remove(), 300);
+            }, 4000);
+        }
+
+        // Logout from portal
+        function logout() {
+            clientApiKey = '';
+            clientInfo = null;
+            localStorage.removeItem('nexus_client_apikey');
+            if (eventSource) {
+                eventSource.close();
+                eventSource = null;
+            }
+            document.getElementById('apiKeyInput').value = '';
+            document.getElementById('loginOverlay').style.display = 'flex';
+            document.getElementById('mainContent').style.display = 'none';
+        }
+
+        // HMAC Code Snippets tab switcher and updater
+        let activeCodeTab = 'js';
+        
+        function switchCodeTab(tab) {
+            activeCodeTab = tab;
+            document.getElementById('btn-js-code').classList.toggle('active', tab === 'js');
+            document.getElementById('btn-py-code').classList.toggle('active', tab === 'py');
+            updateCodeSnippet();
+        }
+
+        function updateCodeSnippet() {
+            const pre = document.getElementById('code-snippet-pre');
+            if (!pre) return;
+            
+            const key = clientApiKey || 'YOUR_API_KEY_HERE';
+            
+            if (activeCodeTab === 'js') {
+                pre.textContent = `import { SSEClientTransport } from "@modelcontextprotocol/sdk/client/sse.js";
+import crypto from "crypto";
+
+const API_KEY = "${key}";
+const SERVER_URL = "http://195.94.24.180:3847/mcp";
+
+// Generate HMAC signature of the target path '/mcp'
+const signature = crypto.createHmac("sha256", API_KEY).update("/mcp").digest("hex");
+
+// Establish connection passing client identification and secure signatures
+const transport = new SSEClientTransport(new URL(SERVER_URL), {
+  headers: {
+    "x-mcp-apikey": API_KEY,
+    "x-mcp-hmac": signature
+  }
+});
+
+await transport.start();
+console.log("Sovereign Secure connection established successfully!");`;
+            } else {
+                pre.textContent = `import hmac
+import hashlib
+import requests
+
+API_KEY = "${key}"
+SERVER_URL = "http://195.94.24.180:3847/mcp"
+
+# Generate HMAC signature
+signature = hmac.new(
+    API_KEY.encode('utf-8'),
+    '/mcp'.encode('utf-8'),
+    hashlib.sha256
+).hexdigest()
+
+headers = {
+    "x-mcp-apikey": API_KEY,
+    "x-mcp-hmac": signature
+}
+
+# Connect to the SSE endpoint
+response = requests.get(SERVER_URL, headers=headers, stream=True)
+if response.status_code == 200:
+    print("Sovereign Secure connection established successfully!")`;
+            }
+        }
+
+        // Client self-registration switcher
+        let registeredApiKey = '';
+
+        function setPortalMode(mode) {
+            const loginBtn = document.getElementById('mode-login-btn');
+            const registerBtn = document.getElementById('mode-register-btn');
+            const loginForm = document.getElementById('login-form-content');
+            const registerForm = document.getElementById('register-form-content');
+            const successCard = document.getElementById('register-success-content');
+            const switcher = document.getElementById('mode-switcher-container');
+
+            if (mode === 'login') {
+                loginBtn.classList.add('active');
+                registerBtn.classList.remove('active');
+                loginForm.style.display = 'flex';
+                registerForm.style.display = 'none';
+                successCard.style.display = 'none';
+                switcher.style.display = 'flex';
+            } else if (mode === 'register') {
+                loginBtn.classList.remove('active');
+                registerBtn.classList.add('active');
+                loginForm.style.display = 'none';
+                registerForm.style.display = 'flex';
+                successCard.style.display = 'none';
+                switcher.style.display = 'flex';
+            } else if (mode === 'success') {
+                loginForm.style.display = 'none';
+                registerForm.style.display = 'none';
+                successCard.style.display = 'flex';
+                switcher.style.display = 'none';
+            }
+        }
+
+        async function handleRegisterClient() {
+            const usernameInput = document.getElementById('regUsername');
+            const projectInput = document.getElementById('regProject');
+            
+            const username = usernameInput.value.trim();
+            const projectName = projectInput.value.trim();
+
+            if (!username || !projectName) {
+                showToast(
+                    currentLang === 'ar' ? 'يرجى ملء جميع الحقول لتأسيس المساحة' : 'Please fill all fields to provision your workspace',
+                    'warning'
+                );
+                return;
+            }
+
+            try {
+                showToast(
+                    currentLang === 'ar' ? 'جاري تأسيس المساحة السحابية وتوليد مفاتيح الأمان...' : 'Provisioning cloud workspace and generating secure credentials...',
+                    'info'
+                );
+
+                const response = await fetch('/admin/api/client/register', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ username, projectName })
+                });
+
+                const data = await response.json();
+                if (!response.ok) {
+                    throw new Error(data.error || 'فشلت عملية التسجيل');
+                }
+
+                // Show success view
+                registeredApiKey = data.apiKey;
+                document.getElementById('success-api-key').textContent = data.apiKey;
+                document.getElementById('success-project-id').textContent = data.projectId;
+                document.getElementById('success-path').textContent = data.workspacePath;
+
+                setPortalMode('success');
+                lucide.createIcons();
+
+                showToast(
+                    currentLang === 'ar' ? 'تم تأسيس المساحة السحابية بنجاح!' : 'Cloud workspace provisioned successfully!',
+                    'success'
+                );
+
+                // clear fields
+                usernameInput.value = '';
+                projectInput.value = '';
+
+            } catch (err) {
+                showToast(err.message, 'error');
+            }
+        }
+
+        function autoLoginWithRegKey() {
+            if (!registeredApiKey) return;
+            navigator.clipboard.writeText(registeredApiKey).then(() => {
+                showToast(
+                    currentLang === 'ar' ? 'تم نسخ المفتاح وتلقائي تسجيل الدخول...' : 'Key copied! Logging in automatically...',
+                    'success'
+                );
+                attemptLogin(registeredApiKey);
+            });
+        }
+    </script>
+</body>
+</html>

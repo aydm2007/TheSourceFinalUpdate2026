@@ -1,0 +1,8 @@
+/* RTL stylesheet for Sigma Dashboard */
+html[dir="rtl"] body, html[dir="rtl"] #chat-container {
+  direction: rtl;
+  text-align: right;
+}
+/* Adjust layout for RTL */
+#input-row {flex-direction: row-reverse;}
+#send-btn, #audio-toggle {margin-left: 0; margin-right: 8px;}

@@ -1,0 +1,530 @@
+{
+  "listed": {
+    "success": true,
+    "projectAgnostic": true,
+    "resources": [
+      {
+        "uri": "mcp://tool-registry",
+        "name": "MCP Tool Registry",
+        "description": "Project-agnostic inventory of bridge tools, enforcement mode, and declared MCP capabilities.",
+        "mimeType": "application/json"
+      },
+      {
+        "uri": "mcp://latest-gates",
+        "name": "Latest Certification Gates",
+        "description": "Latest local MCP, production, 90-sweep, and SourceMap evidence pointers.",
+        "mimeType": "application/json"
+      },
+      {
+        "uri": "mcp://forensic-reports",
+        "name": "Forensic Reports Index",
+        "description": "Index of MCP tools 100% forensic evidence packs and report artifacts.",
+        "mimeType": "application/json"
+      },
+      {
+        "uri": "mcp://source-map",
+        "name": "SourceMap GPS Metadata",
+        "description": "Metadata-only proof for package/cli.js and package/cli.js.map without loading the map into model context.",
+        "mimeType": "application/json"
+      },
+      {
+        "uri": "mcp://shadow-ledger",
+        "name": "Shadow Ledger Tail",
+        "description": "Recent project telemetry entries for artifact and gate evidence.",
+        "mimeType": "application/json"
+      },
+      {
+        "uri": "agriasset://models",
+        "name": "Django Models Schema",
+        "description": "Database schema, class names, and fields for all core agricultural and financial models.",
+        "mimeType": "application/json"
+      },
+      {
+        "uri": "agriasset://engines",
+        "name": "Core Services Engines",
+        "description": "Core logic services: Posting Engine, Variance Detector, Clearance Engine, and Farm Policy Service.",
+        "mimeType": "application/json"
+      },
+      {
+        "uri": "agriasset://api-endpoints",
+        "name": "API Route Registry",
+        "description": "Registered API endpoints for SIMPLE and STRICT operations.",
+        "mimeType": "application/json"
+      },
+      {
+        "uri": "agriasset://uat-results",
+        "name": "UAT Execution Status",
+        "description": "Current status and logs of the Automated UAT Runner.",
+        "mimeType": "text/markdown"
+      }
+    ]
+  },
+  "genericUris": [
+    "mcp://tool-registry",
+    "mcp://latest-gates",
+    "mcp://forensic-reports",
+    "mcp://source-map",
+    "mcp://shadow-ledger"
+  ],
+  "genericPresent": true,
+  "reads": {
+    "mcp://tool-registry": {
+      "uri": "mcp://tool-registry",
+      "workspaceRoot": "C:\\tools\\workspace\\TheSource",
+      "bridgeVersion": "45.0.0-Apex",
+      "enforcementMode": "STRICT",
+      "remoteMcpEnabled": true,
+      "declaredAllowedTools": 129,
+      "tools": [
+        "FileRead",
+        "FileReadLines",
+        "FileWrite",
+        "FileEdit",
+        "SurgicalDiff",
+        "AstChunkPatch",
+        "ASTAutoPatch",
+        "ResolveConflict",
+        "UndoChanges",
+        "NotebookEdit",
+        "Glob",
+        "Grep",
+        "ViewCodeOutline",
+        "LSPTool",
+        "SemanticReference",
+        "SemanticSymbolLookup",
+        "Insight",
+        "ForensicAudit",
+        "AstIndexer",
+        "GraphMemorySync",
+        "Bash",
+        "PowerShell",
+        "InteractiveTerminal",
+        "ParallelTest",
+        "FullRepairLoop",
+        "ChaosTest",
+        "SandboxManager",
+        "SelfHealingImmunizer",
+        "ServerMode",
+        "VectorSearch",
+        "VectorSync",
+        "AutoDream",
+        "MemoryCompactor",
+        "MemoryGraphRefiner",
+        "MemoryLedgerForecaster",
+        "ContextIndexRefiner",
+        "QuantumTokenCompressor",
+        "SemanticContextCompressor",
+        "ShadowLedgerAudit",
+        "PredictiveForesight",
+        "CodeImpactSimulator",
+        "TodoWrite",
+        "RealtimeScan",
+        "ConsensusSecurityGuard",
+        "ConsensusSignatureAssurer",
+        "ConsensusSignatureValidator",
+        "ConsensusStructuralLinter",
+        "TelepathicSwarmConsensus",
+        "SelfEvolutionConsensusEngine",
+        "Agent",
+        "nexus_Agent",
+        "SwarmBroadcast",
+        "SwarmConsensusExecutor",
+        "SwarmPipelineOrchestrator",
+        "SwarmProcessBridge",
+        "SwarmRelocationAgent",
+        "SwarmTeleport",
+        "SendMessage",
+        "TeamManager",
+        "TaskManager",
+        "DeepCoordinatorTask",
+        "SelfEvolutionCompiler",
+        "AsyncSwarmTask",
+        "DynamicToolSynthesis",
+        "CognitiveRouter",
+        "SwarmHandoff",
+        "LoadSkill",
+        "Skill",
+        "Config",
+        "FeatureFlag",
+        "ZodSchema",
+        "AskUserQuestion",
+        "Sleep",
+        "TokenEstimation",
+        "ToolSearch",
+        "ReasoningEngine",
+        "ExitPlanMode",
+        "EnterPlanMode",
+        "ListMcpResources",
+        "OmegaDiagnostic",
+        "SystemDiagnostics",
+        "WebSearch",
+        "WebFetch",
+        "WebBrowse",
+        "MCPTool",
+        "McpCall",
+        "ReadMcpResource",
+        "ClaudeCLI",
+        "VoiceMode",
+        "VisualAuditReport",
+        "TaskCreate",
+        "TaskGet",
+        "TaskUpdate",
+        "TaskList",
+        "TaskStop",
+        "TaskOutput",
+        "SandboxImmuneShield",
+        "SandboxImmersionEmulator",
+        "SandboxEnvVisualizer",
+        "SandboxEnvImmunizer",
+        "SandboxResourceThrottle",
+        "SandboxNetworkLimiter",
+        "SandboxSessionLimiter",
+        "SandboxedRuntimeRunner",
+        "TeamCreate",
+        "TeamDelete",
+        "TeamSynthesize",
+        "RemoteMapDecoder",
+        "SandboxedChaos",
+        "SwarmTeleportation",
+        "CrossProjectHub",
+        "PredictiveImmunization",
+        "MapDrivenOptimizer",
+        "TimeTravelDebugger",
+        "V8FlamegraphProfiler",
+        "VectorAstMapper",
+        "QuantumHologram",
+        "VisualDomMapper",
+        "HardwareAstMapper",
+        "SwarmDNAExtractor",
+        "ZeroTrustMerkleLedger",
+        "EmpatheticModulator",
+        "PrecognitionAstMutator",
+        "TelepathicHiveMind",
+        "AstMutexLockManager",
+        "ParallelSwarmCoordinator",
+        "AsyncBackgroundJob",
+        "LedgerCompactor",
+        "VectorSearchEngine"
+      ],
+      "genericResources": [
+        "mcp://tool-registry",
+        "mcp://latest-gates",
+        "mcp://forensic-reports",
+        "mcp://source-map",
+        "mcp://shadow-ledger"
+      ],
+      "legacyResourcesRetained": true
+    },
+    "mcp://latest-gates": {
+      "uri": "mcp://latest-gates",
+      "generatedAt": "2026-06-03T18:39:48.316Z",
+      "reports": [
+        {
+          "path": "reports/sovereign_90_readiness_report_2026-06-02.md",
+          "exists": true,
+          "bytes": 10010,
+          "lastModified": "2026-06-03T18:39:47.678Z",
+          "sha256": "16179f8748b381b931eca7b829c2c4f9a3f93fb832ddb3cc315410854c29bba6",
+          "score": 98
+        },
+        {
+          "path": "reports/sovereign_global_production_readiness_2026-06-02.md",
+          "exists": true,
+          "bytes": 1423,
+          "lastModified": "2026-06-03T18:39:30.925Z",
+          "sha256": "404e6e2fda7ef49f0fe0dd6be5359021e49a62ab2485a97d474630de9ae33759",
+          "score": 100
+        }
+      ],
+      "cliMapVerifier": {
+        "path": "scripts/verify_cli_map.js",
+        "exists": true,
+        "bytes": 3519,
+        "lastModified": "2026-06-02T18:36:35.296Z",
+        "sha256": "e713bf00fd1de9daf8535d1f2152eaf970f21b7d8426d3766d58810dad41ca1b"
+      },
+      "nativeMcpVerifier": {
+        "path": "scripts/verify_native_mcp.js",
+        "exists": true,
+        "bytes": 16477,
+        "lastModified": "2026-06-02T22:40:58.123Z",
+        "sha256": "0287cacb057c73be92bf6a2437c3ba4c99a937b804061b6d70dabf6edcdc5f10"
+      },
+      "productionGate": {
+        "path": "scripts/sovereign_global_production_gate.js",
+        "exists": true,
+        "bytes": 14759,
+        "lastModified": "2026-06-02T22:43:49.341Z",
+        "sha256": "2ab50f3aeaae122f57bddbe0aef6cc8cd222fe1b7389866c825f820a47604dad"
+      },
+      "sovereign90Sweep": {
+        "path": "scripts/sovereign_90_sweep.js",
+        "exists": true,
+        "bytes": 17239,
+        "lastModified": "2026-06-02T22:41:03.467Z",
+        "sha256": "923334de47d4c8216e33b4bed3c2626f3d33af44ffd463f92c9863d3d1589c4e"
+      }
+    },
+    "mcp://forensic-reports": {
+      "uri": "mcp://forensic-reports",
+      "generatedAt": "2026-06-03T18:39:48.320Z",
+      "reports": [
+        {
+          "runId": "2026-06-03T18-39-10-435Z",
+          "summary": {
+            "path": "reports\\mcp-tools-100\\2026-06-03T18-39-10-435Z\\summary.json",
+            "exists": false
+          },
+          "scores": {
+            "path": "reports\\mcp-tools-100\\2026-06-03T18-39-10-435Z\\scores.json",
+            "exists": false
+          },
+          "report": {
+            "path": "reports\\mcp-tools-100\\2026-06-03T18-39-10-435Z\\forensic_report.md",
+            "exists": false
+          },
+          "hashes": {
+            "path": "reports\\mcp-tools-100\\2026-06-03T18-39-10-435Z\\artifact_hashes.json",
+            "exists": false
+          }
+        }
+      ]
+    },
+    "mcp://source-map": {
+      "uri": "mcp://source-map",
+      "generatedAt": "2026-06-03T18:39:48.321Z",
+      "sourceMap": {
+        "cli": {
+          "path": "package\\cli.js",
+          "exists": true,
+          "bytes": 13050081,
+          "lastModified": "2026-05-30T03:41:13.738Z"
+        },
+        "cliMap": {
+          "path": "package\\cli.js.map",
+          "exists": true,
+          "bytes": 59766257,
+          "lastModified": "2026-04-02T14:55:13.000Z"
+        },
+        "metadata": {
+          "version": 3,
+          "file": null,
+          "sourceCount": 4756,
+          "sourcesContentCount": 4756,
+          "firstSources": [
+            "../node_modules/lodash-es/_listCacheClear.js",
+            "../node_modules/lodash-es/eq.js",
+            "../node_modules/lodash-es/_assocIndexOf.js",
+            "../node_modules/lodash-es/_listCacheDelete.js",
+            "../node_modules/lodash-es/_listCacheGet.js"
+          ]
+        },
+        "status": "pass"
+      },
+      "limitation": "Static SourceMap metadata is not live UI proof. Runtime DOM/accessibility/screenshot evidence must be captured separately."
+    },
+    "mcp://shadow-ledger": {
+      "uri": "mcp://shadow-ledger",
+      "generatedAt": "2026-06-03T18:39:48.910Z",
+      "projectLedger": {
+        "path": ".nexus\\var\\telemetry\\shadow_ledger.jsonl",
+        "exists": true,
+        "bytes": 1061247,
+        "lastModified": "2026-06-03T18:39:48.277Z",
+        "sha256": "4742000507dc0630f014fb39a4929c05894c53a2b192cbbfef87b5ca62e68ba1",
+        "tail": [
+          {
+            "seq": "4030829b-2e55-4328-bc40-3bfe06a222ee",
+            "timestamp": "2026-06-03T18:39:31.528Z",
+            "pid": 420,
+            "sessionId": "local",
+            "type": "mcp_audit_event",
+            "action": "UNAUTHORIZED_ACCESS_ATTEMPT",
+            "status": "SUCCESS",
+            "source": "MCP_REMOTE_SERVER",
+            "bridgeVersion": "45.0.0-Apex",
+            "ip": "127.0.0.1",
+            "path": "/mcp"
+          },
+          {
+            "seq": "e57126fe-0c5c-49ce-95fd-5f07d70a90ab",
+            "timestamp": "2026-06-03T18:39:31.892Z",
+            "pid": 420,
+            "sessionId": "8e1f6ffa-ed0e-4349-8fdd-687a6fa5bf25",
+            "type": "mcp_streamable_session_initialized",
+            "action": "STREAMABLE_HTTP_SESSION_INITIALIZED",
+            "status": "SUCCESS",
+            "source": "MCP_REMOTE_SERVER",
+            "bridgeVersion": "45.0.0-Apex",
+            "user": "ibrahim_admin",
+            "project": "thesource"
+          },
+          {
+            "seq": "ee8a9b18-0e3b-4fab-ab24-5453130caba1",
+            "timestamp": "2026-06-03T18:39:31.929Z",
+            "pid": 420,
+            "sessionId": "local",
+            "type": "mcp_remote_list_tools",
+            "action": "mcp_remote_list_tools",
+            "status": "SUCCESS",
+            "source": "MCP_REMOTE_SERVER",
+            "bridgeVersion": "45.0.0-Apex",
+            "toolCount": 20,
+            "user": "ibrahim_admin",
+            "project": "thesource"
+          },
+          {
+            "seq": "16d3c46a-8f6c-4910-a892-32511a289b40",
+            "timestamp": "2026-06-03T18:39:31.941Z",
+            "pid": 420,
+            "sessionId": "local",
+            "type": "mcp_remote_access",
+            "action": "FileRead",
+            "status": "SUCCESS",
+            "source": "MCP_REMOTE_SERVER",
+            "bridgeVersion": "45.0.0-Apex",
+            "tool": "FileRead",
+            "allowed": true,
+            "enforcement": "SKILL_STRICT",
+            "skill": "gps-map-healer"
+          },
+          {
+            "timestamp": "2026-06-03T18:39:31.948Z",
+            "agent": "KAIROS v45.0-Omega-Nexus | The Sovereign Orchestrator",
+            "status": "SUCCESS",
+            "action": "FileRead",
+            "type": "TOOL_EXECUTION",
+            "params": {
+              "file_path": "C:\\tools\\workspace\\TheSource\\AGENTS.md",
+              "offset": 0,
+              "limit": 80
+            },
+            "duration_ms": 4,
+            "user": "ibrahim_admin",
+            "project": "thesource",
+            "sessionId": "ibrahim_admin_thesource"
+          },
+          {
+            "seq": "08bbf735-789a-4c34-838d-52319c58395e",
+            "timestamp": "2026-06-03T18:39:31.987Z",
+            "pid": 420,
+            "sessionId": "local",
+            "type": "mcp_remote_tool_execution",
+            "action": "FileRead",
+            "status": "SUCCESS",
+            "source": "MCP_REMOTE_SERVER",
+            "bridgeVersion": "45.0.0-Apex",
+            "tool": "FileRead",
+            "mcpName": "nexus_FileSystemManager",
+            "durationMs": 7,
+            "user": "ibrahim_admin",
+            "project": "thesource"
+          },
+          {
+            "timestamp": "2026-06-03T18:39:32.016Z",
+            "sessionId": "native_mcp_verify",
+            "type": "native_mcp_verification",
+            "action": "verify_native_mcp",
+            "status": "PASS_90_GATE",
+            "score": 100,
+            "httpServerReachable": true,
+            "level5Ok": true,
+            "swarmDryRunOk": true,
+            "bootstrapOk": true
+          },
+          {
+            "timestamp": "2026-06-03T18:39:48.276Z",
+            "type": "live_ui_runtime_proof",
+            "action": "verify_live_ui_runtime",
+            "status": "SUCCESS",
+            "ok": true,
+            "baseUrl": "http://127.0.0.1:3847",
+            "statusCode": 200,
+            "domSnapshotHash": "825fa152949108dd8faa41fcbfbb2483272f173a7a432b846183436f3ff01ac3",
+            "dom": {
+              "title": "Sovereign billing Dashboard | لوحة التحكم الإدارية للفوترة",
+              "elementCount": 357,
+              "scriptCount": 3,
+              "styleCount": 2
+            },
+            "sourceFile": "public/admin.html",
+            "sourceExists": true,
+            "screenshotHash": "4d1d2f21a55e8b8edd79cf94a581f9897a6e83bf0efb7bb1d2b2dcc7ce760dcf",
+            "accessibilityTreeHash": "3f489675b801b9876b4f5165905244935449b745c8819afd0a2356f48cb67dd8",
+            "cliMapSourceLink": "file:///c:/tools/workspace/TheSource/package/cli.js.map#L4750",
+            "limitation": "Proves live admin DOM delivery, screenshot rendering hash, and accessibility tree mapping to cli.js.map."
+          }
+        ]
+      },
+      "agentsLedger": {
+        "path": ".agents\\memory\\shadow_ledger.jsonl",
+        "exists": true,
+        "bytes": 171560,
+        "lastModified": "2026-06-03T18:30:02.858Z",
+        "sha256": "2572ce514b035f40885094499541d1cde31f6cd8559e8dcf66ffec03141b4f5e",
+        "tail": [
+          {
+            "timestamp": "2026-06-03T18:24:04.962047Z",
+            "type": "GRP_TX_SIGNED_update_sensitive_batch",
+            "status": "INFO",
+            "message": "Agent: sardoud.accountant | Data: {\"forensic\": true, \"category\": \"sensitive_mutation\", \"farm_id\": 1, \"source\": \"sensitive_audit\", \"mode\": null, \"reason\": \"STRICT material issue for ActivityItem 11; unit_cost=900.0000\", \"new_value\": {\"qty\": \"8320.0000\"}, \"context\": {\"batch_number\": \"OP2026-001\", \"movement_id\": 70}}",
+            "sovereign_version": "15.0-Apex"
+          },
+          {
+            "timestamp": "2026-06-03T18:24:04.970109Z",
+            "type": "GRP_TX_SIGNED_create_sensitive",
+            "status": "INFO",
+            "message": "Agent: None | Data: {\"forensic\": true, \"category\": \"sensitive_mutation\", \"farm_id\": 1, \"source\": \"sensitive_audit\", \"mode\": null, \"reason\": \"SIGNAL_REVERSAL\", \"new_value\": {\"farm_id\": 1, \"item_id\": 1, \"location_id\": 1, \"qty_delta\": \"140.0000\", \"ref_type\": \"SIGNAL_REVERSAL\", \"ref_id\": \"70\", \"batch_number\": \"OP2026-001\"}, \"context\": {\"source\": \"core.inventory.record_movement\"}}",
+            "sovereign_version": "15.0-Apex"
+          },
+          {
+            "timestamp": "2026-06-03T18:24:04.975110Z",
+            "type": "GRP_TX_SIGNED_update_sensitive",
+            "status": "INFO",
+            "message": "Agent: None | Data: {\"forensic\": true, \"category\": \"sensitive_mutation\", \"farm_id\": 1, \"source\": \"sensitive_audit\", \"mode\": null, \"reason\": \"SIGNAL_REVERSAL\", \"new_value\": {\"qty\": \"8460.0000\", \"farm_id\": 1, \"item_id\": 1, \"location_id\": 1}, \"context\": {\"movement_id\": 72, \"ref_type\": \"SIGNAL_REVERSAL\", \"ref_id\": \"70\"}}",
+            "sovereign_version": "15.0-Apex"
+          },
+          {
+            "timestamp": "2026-06-03T18:24:04.981107Z",
+            "type": "GRP_TX_SIGNED_create_sensitive",
+            "status": "INFO",
+            "message": "Agent: None | Data: {\"forensic\": true, \"category\": \"sensitive_mutation\", \"farm_id\": 1, \"source\": \"sensitive_audit\", \"mode\": null, \"reason\": \"SIGNAL_UPDATE\", \"new_value\": {\"farm_id\": 1, \"item_id\": 1, \"location_id\": 1, \"qty_delta\": \"-140.0000\", \"ref_type\": \"SIGNAL_UPDATE\", \"ref_id\": \"70\", \"batch_number\": \"OP2026-001\"}, \"context\": {\"source\": \"core.inventory.record_movement\"}}",
+            "sovereign_version": "15.0-Apex"
+          },
+          {
+            "timestamp": "2026-06-03T18:24:04.986766Z",
+            "type": "GRP_TX_SIGNED_update_sensitive",
+            "status": "INFO",
+            "message": "Agent: None | Data: {\"forensic\": true, \"category\": \"sensitive_mutation\", \"farm_id\": 1, \"source\": \"sensitive_audit\", \"mode\": null, \"reason\": \"SIGNAL_UPDATE\", \"new_value\": {\"qty\": \"8320.0000\", \"farm_id\": 1, \"item_id\": 1, \"location_id\": 1}, \"context\": {\"movement_id\": 73, \"ref_type\": \"SIGNAL_UPDATE\", \"ref_id\": \"70\"}}",
+            "sovereign_version": "15.0-Apex"
+          },
+          {
+            "timestamp": "2026-06-03T18:24:05.007846Z",
+            "type": "GRP_TX_SIGNED_create_sensitive",
+            "status": "INFO",
+            "message": "Agent: sardoud.accountant | Data: {\"forensic\": true, \"category\": \"sensitive_mutation\", \"farm_id\": 1, \"source\": \"sensitive_audit\", \"mode\": null, \"reason\": \"Material cost posted to crop/field for ActivityItem 11\", \"new_value\": {\"farm_id\": 1, \"activity_id\": 14, \"account_code\": \"2000-MATERIAL\", \"debit\": \"126000.0000\", \"credit\": \"0.0000\", \"currency\": \"YER\"}, \"context\": {\"source\": \"financial_ledger_save\"}}",
+            "sovereign_version": "15.0-Apex"
+          },
+          {
+            "timestamp": "2026-06-03T18:24:05.027416Z",
+            "type": "GRP_TX_SIGNED_create_sensitive",
+            "status": "INFO",
+            "message": "Agent: sardoud.accountant | Data: {\"forensic\": true, \"category\": \"sensitive_mutation\", \"farm_id\": 1, \"source\": \"sensitive_audit\", \"mode\": null, \"reason\": \"Inventory asset credited for ActivityItem 11\", \"new_value\": {\"farm_id\": 1, \"activity_id\": 14, \"account_code\": \"1300-INV-ASSET\", \"debit\": \"0.0000\", \"credit\": \"126000.0000\", \"currency\": \"YER\"}, \"context\": {\"source\": \"financial_ledger_save\"}}",
+            "sovereign_version": "15.0-Apex"
+          },
+          {
+            "timestamp": "2026-06-03T18:30:02.857Z",
+            "source": "MCP_REMOTE_SERVER",
+            "type": "mcp_remote_tool_execution",
+            "tool": "Bash",
+            "status": "REJECTED",
+            "error": "Policy violation – [Cognitive Lock] MANDATORY: You must call the 'ReasoningEngine' tool to analyze and deliberate before calling destructive tool 'Bash'.",
+            "user": "ibrahim_admin",
+            "project": "thesource",
+            "correlationId": "9ab99144-b817-43ba-888d-eedb832e2c6f"
+          }
+        ]
+      }
+    }
+  }
+}

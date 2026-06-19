@@ -1,0 +1,6 @@
+{
+  "name": "TheSource Chat Backend",
+  "description": "Provides devtools integration for Sovereign chat",
+  "version": "1.0.0",
+  "url": "http://localhost:4000"
+}

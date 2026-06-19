@@ -1,0 +1,100 @@
+[
+  {
+    "axis": "instruction_following",
+    "model": "local/unknown-model",
+    "provider": "openrouter",
+    "offline": true,
+    "policy": {
+      "axis": "artifact_discipline",
+      "providerHint": "openrouter",
+      "profile": {
+        "model": "local/unknown-model",
+        "explicit": true,
+        "likelyStrong": false,
+        "executionMode": "opus_challenger_deterministic",
+        "minimumReviewPasses": 4,
+        "challengerAxes": [
+          "deep_reasoning",
+          "code_review",
+          "long_context",
+          "agentic_persistence",
+          "natural_tool_calling"
+        ],
+        "requiresToolJsonGuard": true,
+        "requiresEvidenceGuard": true,
+        "preservesRequestedModel": true
+      },
+      "temperature": 0.3,
+      "maxReviewPasses": 4,
+      "opusChallengerTarget": 95,
+      "evidenceRequired": true
+    },
+    "challengerTarget": 95,
+    "score": 100,
+    "passed": 15,
+    "total": 15,
+    "checks": [
+      {
+        "name": "preserves_selected_model",
+        "pass": true
+      },
+      {
+        "name": "contract_mentions_deterministic_execution",
+        "pass": true
+      },
+      {
+        "name": "contract_mentions_opus_challenger",
+        "pass": true
+      },
+      {
+        "name": "requires_intent_to_risk_loop",
+        "pass": true
+      },
+      {
+        "name": "requires_self_review",
+        "pass": true
+      },
+      {
+        "name": "requires_evidence_guard",
+        "pass": true
+      },
+      {
+        "name": "guards_tool_json",
+        "pass": true
+      },
+      {
+        "name": "policy_matches_axis",
+        "pass": true
+      },
+      {
+        "name": "temperature_is_review_safe",
+        "pass": true
+      },
+      {
+        "name": "opus_challenger_target_declared",
+        "pass": true
+      },
+      {
+        "name": "review_passes_escalated_for_opus_axes",
+        "pass": true
+      },
+      {
+        "name": "axis_protocol_injected",
+        "pass": true
+      },
+      {
+        "name": "scenario_demands_structured_proof_json",
+        "pass": true
+      },
+      {
+        "name": "no_secret_material",
+        "pass": true
+      },
+      {
+        "name": "does_not_claim_unproven_victory",
+        "pass": true
+      }
+    ],
+    "contract": "# TheSource Deterministic Execution Contract\nModel: local/unknown-model | Provider: openrouter | Axis: instruction_following\nObjective: upgrade the selected model into an Opus-challenger deterministic executor through process, review, persistence, and evidence.\nAxis target: pass TheSource deterministic threshold with artifacts before claiming victory.\nRequired loop: intent extraction -> constraints -> minimal action plan -> execution/tool request -> self-review -> evidence -> residual risk.\nReview passes required before final answer: 4.\nInstruction following protocol: preserve user scope, obey output contracts, and state any unavoidable uncertainty.\nDo not redefine success around a smaller task.\nWhen tools are unavailable, produce an auditable plan and identify missing evidence instead of pretending execution happened.\nNever replace the user-selected model solely for convenience; adapt it first, then use provider fallback only when the selected provider cannot serve it.\nNever claim superiority, certification, or 100/100 without fresh artifacts, hashes, and validation output.\nFinal responses must separate findings, evidence, changes, verification, score, and remaining risk when certification is discussed."
+  }
+]

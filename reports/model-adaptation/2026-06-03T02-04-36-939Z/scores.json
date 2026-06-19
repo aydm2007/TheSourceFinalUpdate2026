@@ -1,0 +1,30 @@
+[
+  {
+    "axis": "tool_calling",
+    "model": "openai/gpt-oss-120b:free",
+    "provider": "openrouter",
+    "score": 100,
+    "failedChecks": []
+  },
+  {
+    "axis": "code_review",
+    "model": "openai/gpt-oss-120b:free",
+    "provider": "openrouter",
+    "score": 100,
+    "failedChecks": []
+  },
+  {
+    "axis": "security",
+    "model": "openai/gpt-oss-120b:free",
+    "provider": "openrouter",
+    "score": 100,
+    "failedChecks": []
+  },
+  {
+    "axis": "instruction_following",
+    "model": "local/unknown-model",
+    "provider": "openrouter",
+    "score": 100,
+    "failedChecks": []
+  }
+]

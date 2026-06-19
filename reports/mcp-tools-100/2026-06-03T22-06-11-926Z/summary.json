@@ -1,0 +1,26 @@
+{
+  "generatedAt": "2026-06-03T22:06:57.534Z",
+  "runId": "2026-06-03T22-06-11-926Z",
+  "status": "CERTIFIED_100",
+  "score": 100,
+  "matrix": {
+    "toolInventorySchema": 10,
+    "authRbacSkillFiltering": 15,
+    "streamableHttpSseMetricsAdmin": 15,
+    "mcpResourcesReadResources": 10,
+    "sourceMapGpsProof": 15,
+    "forensicAuditReporting": 15,
+    "swarmAgentProof": 10,
+    "artifactLedgerDiscipline": 10
+  },
+  "evidenceDir": "reports/mcp-tools-100/2026-06-03T22-06-11-926Z",
+  "ledgerProof": {
+    "allArtifactsLogged": true,
+    "hashesMatch": true,
+    "loggedArtifacts": 21,
+    "expectedArtifacts": 21,
+    "ledgerPath": ".nexus/var/telemetry/shadow_ledger.jsonl"
+  },
+  "artifactCount": 21,
+  "strict": false
+}

@@ -1,0 +1,9 @@
+[
+  {
+    "axis": "instruction_following",
+    "model": "openai/gpt-oss-120b:free",
+    "provider": "openrouter",
+    "score": 100,
+    "failedChecks": []
+  }
+]

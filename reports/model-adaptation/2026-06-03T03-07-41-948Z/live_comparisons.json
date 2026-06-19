@@ -1,0 +1,64 @@
+[
+  {
+    "axis": "instruction_following",
+    "selected": {
+      "status": "ok",
+      "provider": "aether-console",
+      "model": "openai/gpt-oss-120b:free",
+      "startedAt": "2026-06-03T03:07:42.015Z",
+      "endedAt": "2026-06-03T03:08:26.872Z",
+      "exitCode": 0,
+      "signal": null,
+      "outputHash": "a9df0542ea1dad1618b39f3be5f65cb5d9d2e6101d2027c1aeea58e2a54f92fc",
+      "outputBytes": 908,
+      "transcriptHash": "79d96a9ad87faaa8c8c6edf8ce56f3cf1ddd9b13b205008839f7b400abccc630",
+      "transcriptBytes": 4467,
+      "score": {
+        "score": 100,
+        "structured": {
+          "score": 100,
+          "proofValid": true,
+          "required": [
+            "scope",
+            "constraints",
+            "evidence",
+            "uncertainty",
+            "residualRisk"
+          ],
+          "present": [
+            "scope",
+            "constraints",
+            "evidence",
+            "uncertainty",
+            "residualRisk"
+          ],
+          "missing": [],
+          "axisMatches": true,
+          "proofHash": "a9df0542ea1dad1618b39f3be5f65cb5d9d2e6101d2027c1aeea58e2a54f92fc"
+        },
+        "keywordScore": 100,
+        "rubric": [
+          "scope",
+          "evidence",
+          "risk",
+          "uncertainty"
+        ],
+        "hits": [
+          "scope",
+          "evidence",
+          "risk",
+          "uncertainty"
+        ],
+        "missing": []
+      },
+      "output": "{\"axis\":\"instruction_following\",\"scope\":\"Adapt the selected console model into deterministic execution per TheSource protocol, applying constraints, generating evidence artifacts, and reporting uncertainty and residual risk.\",\"constraints\":[\"Use only authorized tools and follow CLAUDE.md directives\",\"No AST modifications without cli.js.map coordinates\",\"All actions must be logged and evidence hashes recorded\",\"Maintain zero-token omniscience via internal manager tools\"],\"evidence\":[\"Tool call logs with timestamps\",\"Generated artifact hash files in reports/model-adaptation/*/artifact_hashes.json\",\"Execution trace saved in .agents/runtime/mcp-native-runtime.json\"],\"uncertainty\":\"Low – deterministic steps executed with verified tool outputs and hash validation\",\"residualRisk\":\"Minimal risk of hidden state divergence; requires periodic re‑verification of cli.js.map alignment and hash integrity\"}",
+      "transcriptPreview": "Opening Sovereign Developer Console...\nModel: openai/gpt-oss-120b:free\nProvider: openrouter\nPlanner: openai/gpt-oss-120b:free via openrouter\nExecutor: openai/gpt-oss-120b:free via openrouter\nDefault Skill: mcp-developer\nBootstrap: MCP runtime + provider router + context engine\n🧠 [Aether-Memory] Initiating semantic index curation...\n🔄 Re-indexing vector memory scopes...\n[Indexer] Refreshing semantic index...\n[Indexer] Done. Updated C:\\tools\\workspace\\TheSource\\data\\vector_index.json\n✅ [Memory] Semantic curation cycle completed successfully.\n\u001b[32m[Relay-Bridge] Active Provider set to: OPENROUTER (https://openrouter.ai/api/v1)\u001b[0m\n[Aether-Bridge] Legacy SiliconFlowAdapter initialized via RelayBridge.\n\n🚀 [Sovereign-Kernel] Booting Aether-Zenith V44.0-Singularity...\n[DB-Manager] Persistence database initialized successfully.\n📍 [Sovereign-Kernel] Structural GPS locked: C:\\tools\\workspace\\TheSource\\package\\cli.js.map\n👁️‍🗨️ [Sovereign-Kernel] Dynamic forensic watching enabled via Chokidar.\n🔐 [Sovereign-Vault] Secrets redaction layer active.\n🕐 [HLC] Boot timestamp: 1780456063755:00000\n✅ [Sovereign-Kernel] System Sovereign & Active. V44.0-Singularity\n\n[Preload Interceptor] Intercepted Anthropic URL: https://api.anthropic.com Method: HEAD Headers: {} Body: none\n[Preload Interceptor] Intercepted Anthropic URL: https://api.anthropic.com/api/eval/sdk-zAZezfDKGoZuXXKe Method: POST Headers: {\"Content-Type\":\"application/json\",\"x-api-key\":\"[REDACTED]\"} Body: {\"attributes\":{\"id\":\"c04639",
+      "error": null
+    },
+    "claude": {
+      "status": "missing_key",
+      "env": "ANTHROPIC_API_KEY"
+    },
+    "directVictory": false
+  }
+]

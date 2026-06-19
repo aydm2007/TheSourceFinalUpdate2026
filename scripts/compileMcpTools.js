@@ -1,0 +1,1 @@
+// compileMcpTools.js – stub for MCP tool compilation\nconsole.log('Compiling MCP tools...');\nprocess.exit(0);

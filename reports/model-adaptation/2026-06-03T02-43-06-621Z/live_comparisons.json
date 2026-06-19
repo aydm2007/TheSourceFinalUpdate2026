@@ -1,0 +1,82 @@
+[
+  {
+    "axis": "deep_reasoning",
+    "selected": {
+      "status": "skipped"
+    },
+    "claude": {
+      "status": "skipped"
+    },
+    "directVictory": false
+  },
+  {
+    "axis": "tool_calling",
+    "selected": {
+      "status": "skipped"
+    },
+    "claude": {
+      "status": "skipped"
+    },
+    "directVictory": false
+  },
+  {
+    "axis": "natural_tool_calling",
+    "selected": {
+      "status": "skipped"
+    },
+    "claude": {
+      "status": "skipped"
+    },
+    "directVictory": false
+  },
+  {
+    "axis": "code_review",
+    "selected": {
+      "status": "skipped"
+    },
+    "claude": {
+      "status": "skipped"
+    },
+    "directVictory": false
+  },
+  {
+    "axis": "long_context",
+    "selected": {
+      "status": "skipped"
+    },
+    "claude": {
+      "status": "skipped"
+    },
+    "directVictory": false
+  },
+  {
+    "axis": "agentic_persistence",
+    "selected": {
+      "status": "skipped"
+    },
+    "claude": {
+      "status": "skipped"
+    },
+    "directVictory": false
+  },
+  {
+    "axis": "security",
+    "selected": {
+      "status": "skipped"
+    },
+    "claude": {
+      "status": "skipped"
+    },
+    "directVictory": false
+  },
+  {
+    "axis": "instruction_following",
+    "selected": {
+      "status": "skipped"
+    },
+    "claude": {
+      "status": "skipped"
+    },
+    "directVictory": false
+  }
+]

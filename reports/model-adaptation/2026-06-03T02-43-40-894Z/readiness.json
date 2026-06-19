@@ -1,0 +1,61 @@
+{
+  "generatedAt": "2026-06-03T02:43:41.965Z",
+  "selected": {
+    "model": "openai/gpt-oss-120b:free",
+    "inferredProvider": "openrouter",
+    "acceptedEnv": [
+      "OPENROUTER_API_KEY",
+      "OPENROUTER_KEYS",
+      "AETHER_OR_KEYS",
+      "AETHER_RELAY_KEY_ALPHA"
+    ],
+    "keyPresent": false
+  },
+  "claude": {
+    "model": "claude-opus-4-6",
+    "acceptedEnv": [
+      "ANTHROPIC_API_KEY"
+    ],
+    "keyPresent": false,
+    "ideCliAvailable": false
+  },
+  "ideCli": {
+    "requested": false,
+    "codexAvailable": true,
+    "codexLoggedIn": true,
+    "codexExecEnabled": false,
+    "codexUsable": false,
+    "claudeAvailable": true,
+    "claudeLoggedIn": false,
+    "claudeAuthMethod": "none",
+    "claudeUsable": false,
+    "geminiAvailable": false
+  },
+  "consoleApi": {
+    "requested": true,
+    "url": "http://localhost:3847/health",
+    "countsAsModelProof": false
+  },
+  "readyForLiveBattle": false,
+  "missing": [
+    {
+      "side": "selected",
+      "provider": "openrouter",
+      "env": [
+        "OPENROUTER_API_KEY",
+        "OPENROUTER_KEYS",
+        "AETHER_OR_KEYS",
+        "AETHER_RELAY_KEY_ALPHA"
+      ],
+      "ideCli": "codex_unavailable_or_not_requested"
+    },
+    {
+      "side": "claude",
+      "provider": "anthropic",
+      "env": [
+        "ANTHROPIC_API_KEY"
+      ],
+      "ideCli": "claude_unavailable_or_not_requested"
+    }
+  ]
+}

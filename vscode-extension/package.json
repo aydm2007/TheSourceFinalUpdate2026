@@ -1,0 +1,134 @@
+{
+  "name": "nexus-sovereign-agent",
+  "displayName": "Aether Sovereign Agent",
+  "description": "Sovereign AI Coder powered by AETHER-ZENITH V16.0-Apex (Sovereign Kernel & Map-Driven Healing)",
+  "version": "16.4.0",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aydm2007/TheSource.git"
+  },
+  "publisher": "HmeaAI",
+  "engines": {
+    "vscode": "^1.70.0"
+  },
+  "categories": [
+    "Programming Languages",
+    "AI",
+    "Other"
+  ],
+  "activationEvents": [
+    "onView:nexus-explorer",
+    "onView:nexus-chat",
+    "onCommand:nexus.switchModel",
+    "onCommand:nexus.atomicRepair",
+    "onCommand:nexus.selectProjectRoot"
+  ],
+  "main": "./extension.js",
+  "scripts": {
+    "test": "node run_tests.js",
+    "package": "npx vsce package",
+    "package:vsix": "npx vsce package",
+    "publish:marketplace": "node -e \"if(process.env.VSCE_PAT){require('child_process').execSync('npx vsce publish -p '+process.env.VSCE_PAT,{stdio:'inherit'})}else{console.log('Skipping publish (no VSCE_PAT)')}\""
+  },
+  "dependencies": {
+    "zod": "^3.22.4",
+    "dotenv": "^16.4.5"
+  },
+  "devDependencies": {
+    "vsce": "^2.0.0"
+  },
+  "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "nexus-sidebar",
+          "title": "Nexus Omega",
+          "icon": "$(shield)"
+        }
+      ]
+    },
+    "views": {
+      "nexus-sidebar": [
+        {
+          "id": "nexus-explorer",
+          "name": "Sovereign Dashboard",
+          "type": "webview"
+        },
+        {
+          "id": "nexus-chat",
+          "name": "Nexus Sovereign Chat",
+          "type": "webview"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "nexus.switchModel",
+        "title": "Nexus: Switch Model (SiliconFlow)",
+        "icon": "$(sync)"
+      },
+      {
+        "command": "nexus.selectProjectRoot",
+        "title": "Nexus: Select Project Root",
+        "icon": "$(folder-opened)"
+      },
+      {
+        "command": "nexus.atomicRepair",
+        "title": "Nexus: Atomic Repair (Self-Healing)",
+        "icon": "$(tools)"
+      },
+      {
+        "command": "nexus.explainCode",
+        "title": "Nexus: Explain Selected Code (Forensic)",
+        "icon": "$(info)"
+      },
+      {
+        "command": "nexus.configureProvider",
+        "title": "HmeaAI: Configure API Provider",
+        "icon": "$(gear)"
+      },
+      {
+        "command": "nexus.testConnection",
+        "title": "HmeaAI: Test API Connection",
+        "icon": "$(plug)"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "nexus.explainCode",
+          "group": "nexus@1"
+        }
+      ],
+      "view/title": [
+        {
+          "command": "nexus.switchModel",
+          "when": "view == nexus-explorer",
+          "group": "navigation"
+        }
+      ],
+      "editor/title": [
+        {
+          "command": "nexus.atomicRepair",
+          "group": "navigation"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "Aether Sovereign Agent Settings",
+      "properties": {
+        "nexus.serverHost": {
+          "type": "string",
+          "default": "127.0.0.1",
+          "description": "Sovereign Daemon host IP address (e.g. 127.0.0.1 or remote server IP)"
+        },
+        "nexus.serverPort": {
+          "type": "number",
+          "default": 15015,
+          "description": "Sovereign Daemon IPC port (default 15015)"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "generatedAt": "2026-06-03T18:49:17.333Z",
+  "source": "npm run native-mcp:verify",
+  "transcript": {
+    "ok": false,
+    "errorClass": "TypeError",
+    "reason": "fetch failed",
+    "transport": "streamable-http"
+  }
+}

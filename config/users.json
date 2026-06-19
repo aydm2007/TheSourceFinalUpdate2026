@@ -1,0 +1,18 @@
+{
+  "users": [
+    {
+      "id": "admin_user",
+      "username": "ibrahim_admin",
+      "apikey_env": "MCP_ADMIN_API_KEY",
+      "role": "Admin",
+      "allowed_tools": ["*"]
+    },
+    {
+      "id": "dev_user_ayman",
+      "username": "dev_ayman",
+      "apikey_env": "MCP_DEV_API_KEY",
+      "role": "Developer",
+      "allowed_tools": ["*"]
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "version": "1.1.0",
+  "name": "Sovereign-Global-Scrubbing-Policy",
+  "description": "Mandatory Semantic Firewall for scrubbing universal sensitive data (API Keys, JWTs, SSH Keys, Secrets) before it hits the 120B context window or shadow_ledger.jsonl.",
+  "rules": [
+    {
+      "id": "generic-api-key",
+      "pattern": "(?i)(api[_-]?key|access[_-]?token|auth[_-]?token)[\\s:=]+['\"]?([a-zA-Z0-9_\\-]{20,})['\"]?",
+      "replacement": "$1: '[REDACTED_API_KEY]'",
+      "severity": "CRITICAL"
+    },
+    {
+      "id": "jwt-token",
+      "pattern": "eyJ[a-zA-Z0-9_-]{10,}\\.[a-zA-Z0-9_-]{10,}\\.[a-zA-Z0-9_-]{10,}",
+      "replacement": "[REDACTED_JWT_TOKEN]",
+      "severity": "CRITICAL"
+    },
+    {
+      "id": "ssh-private-key",
+      "pattern": "-----BEGIN (RSA|OPENSSH|DSA|EC|PGP) PRIVATE KEY-----",
+      "replacement": "[REDACTED_PRIVATE_KEY]",
+      "severity": "CRITICAL"
+    },
+    {
+      "id": "cloud-provider-keys",
+      "pattern": "(?i)(AKIA[0-9A-Z]{16}|sq0csp-[0-9A-Za-z\\-_]{43}|gh[pousr]_[A-Za-z0-9_]{36}|sk_live_[0-9a-zA-Z]{24})",
+      "replacement": "[REDACTED_CLOUD_CREDENTIAL]",
+      "severity": "CRITICAL"
+    },
+    {
+      "id": "general-secret",
+      "pattern": "(?i)(password|secret|pass|db[_-]?pass)[\\s:=]+['\"]?([^'\"\\s]{8,})['\"]?",
+      "replacement": "$1: '[REDACTED_SECRET]'",
+      "severity": "HIGH"
+    }
+  ],
+  "enforcement": {
+    "block_on_critical": true,
+    "log_to_shadow_ledger": true,
+    "auto_compact_trigger": true
+  }
+}

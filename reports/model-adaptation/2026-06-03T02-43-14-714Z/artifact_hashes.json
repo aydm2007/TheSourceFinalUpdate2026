@@ -1,0 +1,42 @@
+[
+  {
+    "path": "C:\\tools\\workspace\\TheSource\\reports\\model-adaptation\\2026-06-03T02-43-14-714Z\\summary.json",
+    "sha256": "a0edd419246dc40300254e90c0749e438040c97720de657c8904dcb261a53025",
+    "bytes": 2856
+  },
+  {
+    "path": "C:\\tools\\workspace\\TheSource\\reports\\model-adaptation\\2026-06-03T02-43-14-714Z\\scores.json",
+    "sha256": "b7e8a88595230b83d7f14631623013f6cbab58996c35595dbe0d038256c098d1",
+    "bytes": 1210
+  },
+  {
+    "path": "C:\\tools\\workspace\\TheSource\\reports\\model-adaptation\\2026-06-03T02-43-14-714Z\\transcripts.json",
+    "sha256": "ad440d43269743f69d1da7f9ab91a359a83db774e860b9d2ab7dbb5d48ff1a89",
+    "bytes": 28851
+  },
+  {
+    "path": "C:\\tools\\workspace\\TheSource\\reports\\model-adaptation\\2026-06-03T02-43-14-714Z\\readiness.json",
+    "sha256": "2beb69172dcca3218bbc720d80158f899189535ff50c86bbb5e8c839d3ad59a3",
+    "bytes": 1376
+  },
+  {
+    "path": "C:\\tools\\workspace\\TheSource\\reports\\model-adaptation\\2026-06-03T02-43-14-714Z\\console_api_transport.json",
+    "sha256": "30e5541b206a587aee9ff178ebae62da5d24d616f986dc467cd2dc9004c96e62",
+    "bytes": 362
+  },
+  {
+    "path": "C:\\tools\\workspace\\TheSource\\reports\\model-adaptation\\2026-06-03T02-43-14-714Z\\live_comparisons.json",
+    "sha256": "a86f89a7ad2a8c13c029b8a4a7dbe89d5714b7a8727c12d64173a5d12bbce0d5",
+    "bytes": 3394
+  },
+  {
+    "path": "C:\\tools\\workspace\\TheSource\\reports\\model-adaptation\\2026-06-03T02-43-14-714Z\\comparison_matrix.json",
+    "sha256": "53020a0fe5badc860366c511ea312477a1faa3282bcf079108cbd1de6d4a5e40",
+    "bytes": 4015
+  },
+  {
+    "path": "C:\\tools\\workspace\\TheSource\\reports\\model-adaptation\\2026-06-03T02-43-14-714Z\\comparison_report.md",
+    "sha256": "d882e32464c5ac70e4b2ce412640e39bca222fbd0d5dd3e03a0f77f398804c2e",
+    "bytes": 2684
+  }
+]

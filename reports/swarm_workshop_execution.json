@@ -1,0 +1,73 @@
+{
+  "status": "SUCCESS",
+  "duration_ms": 785742,
+  "timestamp": "2026-06-14T01:08:42.549Z",
+  "swarm_result": {
+    "status": "launched",
+    "total_agents": 30,
+    "wave_size": 5,
+    "waves": 6,
+    "tasks": [
+      {
+        "wave": 1,
+        "launched": [
+          "[AGENT-COMPLETED] Task ID: agent_1781398536815_5acc3d5f-04c7-4399-ad3b-99921dd95d53. Status: completed",
+          "[AGENT-COMPLETED] Task ID: agent_1781398536823_cfcb3b07-c34f-44b1-8da6-26a7454689ee. Status: completed",
+          "[AGENT-COMPLETED] Task ID: agent_1781398536827_81846450-3185-42df-a75f-953a474b6729. Status: completed",
+          "[AGENT-COMPLETED] Task ID: agent_1781398536834_dd64178a-fc1c-4635-8f56-2986447586c0. Status: completed",
+          "[AGENT-COMPLETED] Task ID: agent_1781398536838_1f1ac5e6-4897-4b76-b118-a2b69367f1f7. Status: completed"
+        ]
+      },
+      {
+        "wave": 2,
+        "launched": [
+          "[AGENT-COMPLETED] Task ID: agent_1781398636951_c4f5c4d4-af02-449e-8bd3-7a44525fdd65. Status: completed",
+          "[AGENT-COMPLETED] Task ID: agent_1781398636955_972acc75-4343-4efe-a30b-834bfa24994f. Status: completed",
+          "[AGENT-COMPLETED] Task ID: agent_1781398636959_1bdfbc33-d0ac-4c9d-9701-f88e48322bf0. Status: completed",
+          "[AGENT-COMPLETED] Task ID: agent_1781398636964_354d13c1-f7a3-4c51-a373-e70e5ff95643. Status: completed",
+          "[AGENT-COMPLETED] Task ID: agent_1781398636970_f0a8c21d-a17f-49a3-9527-bddf58bd2c3b. Status: completed"
+        ]
+      },
+      {
+        "wave": 3,
+        "launched": [
+          "[AGENT-COMPLETED] Task ID: agent_1781398720309_5ab6cd21-287f-430f-8b9b-dd5b648835ea. Status: completed",
+          "[AGENT-COMPLETED] Task ID: agent_1781398720313_cb45bab2-8134-432f-aeda-ec563ad5a265. Status: completed",
+          "[AGENT-COMPLETED] Task ID: agent_1781398720317_c5f9881d-b2da-4bfa-a3c6-fd487e56232d. Status: completed",
+          "[AGENT-COMPLETED] Task ID: agent_1781398720321_b61040a4-4cfd-4e75-986d-4c53566272f9. Status: completed",
+          "[AGENT-COMPLETED] Task ID: agent_1781398720325_f0230934-3aab-4d0c-8983-8a3118ca0166. Status: completed"
+        ]
+      },
+      {
+        "wave": 4,
+        "launched": [
+          "[AGENT-COMPLETED] Task ID: agent_1781398810398_4870f7c7-ef96-4b0f-97c8-18c63d9de1d6. Status: completed",
+          "[AGENT-COMPLETED] Task ID: agent_1781398810403_4373a169-531e-49f0-8211-168c1e99aca0. Status: completed",
+          "[AGENT-COMPLETED] Task ID: agent_1781398810408_9a9fb9c8-ba8e-4eff-9101-bab009a786a2. Status: completed",
+          "[AGENT-COMPLETED] Task ID: agent_1781398810420_e8b8c887-51ef-4deb-a269-19902613c09f. Status: completed",
+          "[AGENT-COMPLETED] Task ID: agent_1781398810434_34246082-3450-4977-82be-9e94f3108f11. Status: completed"
+        ]
+      },
+      {
+        "wave": 5,
+        "launched": [
+          "[AGENT-COMPLETED] Task ID: agent_1781398862489_2aaa9820-2c19-4b12-ba51-b88393fa8702. Status: completed",
+          "[AGENT-COMPLETED] Task ID: agent_1781398862493_b8cf3f0b-65b7-4087-97b7-d55f4b4f8f17. Status: completed",
+          "[AGENT-COMPLETED] Task ID: agent_1781398862497_a6799518-7549-4d24-bb6e-5f6758bd5efa. Status: completed",
+          "[AGENT-COMPLETED] Task ID: agent_1781398862502_c1539912-8cff-4894-bc3f-fdacdb1f26dd. Status: completed",
+          "[AGENT-COMPLETED] Task ID: agent_1781398862506_5a4dea77-8547-49da-a4a4-dfd603fbea93. Status: completed"
+        ]
+      },
+      {
+        "wave": 6,
+        "launched": [
+          "[AGENT-COMPLETED] Task ID: agent_1781399295564_5fd957bc-72a4-4bfa-9c85-a5f622c82c72. Status: completed",
+          "[AGENT-COMPLETED] Task ID: agent_1781399295569_5182ed8a-0656-4a69-94c4-d84fdf7714a9. Status: completed",
+          "[AGENT-COMPLETED] Task ID: agent_1781399295576_8443ef61-47c5-45de-958a-9817d4862541. Status: completed",
+          "[AGENT-COMPLETED] Task ID: agent_1781399295580_c37a96ed-c018-4dbb-a01a-4de7165be63a. Status: completed",
+          "[AGENT-COMPLETED] Task ID: agent_1781399295584_e179d56b-1b3d-4edb-a604-dc9adec878af. Status: completed"
+        ]
+      }
+    ]
+  }
+}

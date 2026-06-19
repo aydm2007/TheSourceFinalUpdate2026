@@ -1,0 +1,589 @@
+============================= test session starts =============================
+platform win32 -- Python 3.11.0, pytest-9.0.2, pluggy-1.6.0
+django: version: 5.0.6, settings: smart_agri.settings (from ini)
+rootdir: C:\tools\workspace\AgriAsset_YECO_Enterprise_Final2\backend
+configfile: pytest.ini
+plugins: anyio-4.11.0, locust-2.43.1, cov-7.0.0, django-4.11.1
+collected 698 items
+
+scripts\test_dailylog_integration.py .                                   [  0%]
+scripts\test_field_bulk_sync.py .                                        [  0%]
+scripts\test_mango_sync.py .                                             [  0%]
+smart_agri\accounts\tests\test_memberships_api.py .......                [  1%]
+smart_agri\accounts\tests\test_role_delegation.py ..................     [  4%]
+smart_agri\core\tests\forensic\test_forensic_verification.py ..          [  4%]
+smart_agri\core\tests\forensic\test_tree_logic.py ........               [  5%]
+smart_agri\core\tests\integration\test_farm_extension_scenarios.py ....  [  6%]
+smart_agri\core\tests\test_activity_cost_snapshot_integrity.py .         [  6%]
+smart_agri\core\tests\test_activity_labor_utils.py ..                    [  6%]
+smart_agri\core\tests\test_activity_requirements.py ........             [  7%]
+smart_agri\core\tests\test_al_husseiniya_uat.py .                        [  7%]
+smart_agri\core\tests\test_attachment_full_lifecycle.py ....             [  8%]
+smart_agri\core\tests\test_attachment_lifecycle_v21.py ............      [ 10%]
+smart_agri\core\tests\test_attachment_policy_service.py ........         [ 11%]
+smart_agri\core\tests\test_bio_validator.py .....                        [ 11%]
+smart_agri\core\tests\test_biological_asset_impairment.py ....           [ 12%]
+smart_agri\core\tests\test_contract_operations_dashboard_api.py ...      [ 12%]
+smart_agri\core\tests\test_crop_task_viewsets.py ..                      [ 13%]
+smart_agri\core\tests\test_custody_transfer_service.py ...               [ 13%]
+smart_agri\core\tests\test_dailylog_improvements.py .................... [ 16%]
+..                                                                       [ 16%]
+smart_agri\core\tests\test_diesel_monitoring.py ...........              [ 18%]
+smart_agri\core\tests\test_diesel_monitoring_reconciliation.py .         [ 18%]
+smart_agri\core\tests\test_dummy.py ...                                  [ 18%]
+smart_agri\core\tests\test_farm_scope_guard_middleware.py ..             [ 19%]
+smart_agri\core\tests\test_farm_size_governance.py FF.                   [ 19%]
+smart_agri\core\tests\test_financial_governance.py ..................... [ 22%]
+                                                                         [ 22%]
+smart_agri\core\tests\test_fiscal_close_e2e.py ..........                [ 24%]
+smart_agri\core\tests\test_fixed_assets_dashboard_api.py .....           [ 24%]
+smart_agri\core\tests\test_fuel_reconciliation_dashboard_api.py ......   [ 25%]
+smart_agri\core\tests\test_governance_maintenance_cycle_command.py .     [ 25%]
+smart_agri\core\tests\test_harvest_products.py ..                        [ 26%]
+smart_agri\core\tests\test_hr_services.py .............                  [ 27%]
+smart_agri\core\tests\test_idempotency_middleware.py ................    [ 30%]
+smart_agri\core\tests\test_integration_hub_contracts.py ....             [ 30%]
+smart_agri\core\tests\test_integration_hub_registry.py .                 [ 30%]
+smart_agri\core\tests\test_integration_outbox_domain_bridge.py .         [ 31%]
+smart_agri\core\tests\test_inventory_deep.py ..                          [ 31%]
+smart_agri\core\tests\test_inventory_triggers.py ..                      [ 31%]
+smart_agri\core\tests\test_irrigation_solar.py ........                  [ 32%]
+smart_agri\core\tests\test_khameesiya_uat.py .                           [ 32%]
+smart_agri\core\tests\test_mode_policy_api.py ................           [ 35%]
+smart_agri\core\tests\test_operational_contracts.py .....                [ 35%]
+smart_agri\core\tests\test_ops_alert_service.py ....                     [ 36%]
+smart_agri\core\tests\test_ops_remediation_service.py ...                [ 36%]
+smart_agri\core\tests\test_outbox_readiness_filter_commands.py ...       [ 37%]
+smart_agri\core\tests\test_permissions_contract_regressions.py .         [ 37%]
+smart_agri\core\tests\test_phase6_zakat_solar.py ...                     [ 37%]
+smart_agri\core\tests\test_phase7_audit_append_only.py ..                [ 38%]
+smart_agri\core\tests\test_platform_metrics.py ...                       [ 38%]
+smart_agri\core\tests\test_policy_engine_service.py ..............       [ 40%]
+smart_agri\core\tests\test_prepare_e2e_auth_command.py ....              [ 41%]
+smart_agri\core\tests\test_production99_budget_sync.py ..                [ 41%]
+smart_agri\core\tests\test_rabouia_sarima_uat.py .                       [ 41%]
+smart_agri\core\tests\test_release_verification_service.py .......       [ 42%]
+smart_agri\core\tests\test_reporting_orchestration_service.py ...        [ 43%]
+smart_agri\core\tests\test_request_observability_middleware.py ....      [ 43%]
+smart_agri\core\tests\test_rls_authorization.py .......                  [ 44%]
+smart_agri\core\tests\test_rls_middleware.py ....                        [ 45%]
+smart_agri\core\tests\test_route_breach_middleware.py ...                [ 45%]
+smart_agri\core\tests\test_sardood_scenarios.py EEEEEEEEEE               [ 47%]
+smart_agri\core\tests\test_schedule_variance.py ...FFFF.....             [ 48%]
+smart_agri\core\tests\test_seasonal_settlement.py ........               [ 50%]
+smart_agri\core\tests\test_sector_chain_governance.py ............       [ 51%]
+smart_agri\core\tests\test_seed_reference_bootstrap.py ..                [ 52%]
+smart_agri\core\tests\test_service_cards.py ......                       [ 52%]
+smart_agri\core\tests\test_services_inventory.py ..                      [ 53%]
+smart_agri\core\tests\test_shadow_accounting_strict.py .............     [ 55%]
+smart_agri\core\tests\test_shadow_variance_integration.py .              [ 55%]
+smart_agri\core\tests\test_sharecropping_posting_service.py ...          [ 55%]
+smart_agri\core\tests\test_simple_strict_separation.py .............     [ 57%]
+smart_agri\core\tests\test_small_farm_compensating_controls.py ..        [ 57%]
+smart_agri\core\tests\test_smart_context.py ..                           [ 58%]
+smart_agri\core\tests\test_stock_adjustment.py ..                        [ 58%]
+smart_agri\core\tests\test_strict_coverage.py ....                       [ 58%]
+smart_agri\core\tests\test_task_serializer.py ....                       [ 59%]
+smart_agri\core\tests\test_tasks_import_contract.py .                    [ 59%]
+smart_agri\core\tests\test_tree_census_improvements.py ................. [ 62%]
+.......                                                                  [ 63%]
+smart_agri\core\tests\test_tree_census_service.py ..                     [ 63%]
+smart_agri\core\tests\test_tree_inventory.py ......................      [ 66%]
+smart_agri\core\tests\test_tree_inventory_concurrency.py .               [ 66%]
+smart_agri\core\tests\test_tree_inventory_legacy_fields.py ............. [ 68%]
+..                                                                       [ 68%]
+smart_agri\core\tests\test_tree_inventory_reverse.py .                   [ 68%]
+smart_agri\core\tests\test_tree_inventory_service.py .....               [ 69%]
+smart_agri\core\tests\test_tree_inventory_sync.py .....                  [ 70%]
+smart_agri\core\tests\test_tree_service_coverages.py ...                 [ 70%]
+smart_agri\core\tests\test_tree_variance.py .                            [ 70%]
+smart_agri\core\tests\test_v18_attachment_hardening.py ..                [ 71%]
+smart_agri\core\tests\test_v18_remote_review_reporting.py ..             [ 71%]
+smart_agri\core\tests\test_v19_attachment_filename_guard.py ..           [ 71%]
+smart_agri\core\tests\test_v19_remote_review_snapshot.py .               [ 71%]
+smart_agri\core\tests\test_v20_attachment_lifecycle.py .                 [ 72%]
+smart_agri\core\tests\test_v20_remote_review_escalations.py .            [ 72%]
+smart_agri\core\tests\test_v21_attachment_runtime_contract.py .          [ 72%]
+smart_agri\core\tests\test_v21_e2e_cycle.py ..                           [ 72%]
+smart_agri\core\tests\test_v21_governance_comprehensive.py ............. [ 74%]
+......                                                                   [ 75%]
+smart_agri\core\tests\test_variance_engine_v97_baseline.py .             [ 75%]
+smart_agri\core\tests\test_zakat_policy_v2.py ......ss                   [ 76%]
+smart_agri\crop_planning\tests\test_crop_planning_engine.py ..           [ 76%]
+smart_agri\crop_planning\tests\test_structural_coverage_100_contract.py . [ 77%]
+                                                                         [ 77%]
+smart_agri\field_simple\tests\test_daily_achievement_bridge_contract.py . [ 77%]
+                                                                         [ 77%]
+smart_agri\field_simple\tests\test_field_simple_contract.py .            [ 77%]
+smart_agri\field_simple\tests\test_runtime_hardening_contract.py ..      [ 77%]
+smart_agri\finance\tests\test_api_ledger_support.py ..                   [ 77%]
+smart_agri\finance\tests\test_approval_chain_collapse.py .               [ 78%]
+smart_agri\finance\tests\test_approval_override_and_reopen.py .....      [ 78%]
+smart_agri\finance\tests\test_approval_state_transitions.py .            [ 78%]
+smart_agri\finance\tests\test_approval_workflow_api.py ................. [ 81%]
+..                                                                       [ 81%]
+smart_agri\finance\tests\test_db_constraints.py ..                       [ 81%]
+smart_agri\finance\tests\test_financial_integrity_governance.py ........ [ 83%]
+.........                                                                [ 84%]
+smart_agri\finance\tests\test_financial_integrity_qa.py ....             [ 84%]
+smart_agri\finance\tests\test_fiscal_close_governance.py ............... [ 87%]
+                                                                         [ 87%]
+smart_agri\finance\tests\test_fiscal_lifecycle.py .....                  [ 87%]
+smart_agri\finance\tests\test_fiscal_year_rollover_idempotency.py ..     [ 88%]
+smart_agri\finance\tests\test_petty_cash_service.py ....                 [ 88%]
+smart_agri\finance\tests\test_petty_cash_settlement.py .....             [ 89%]
+smart_agri\finance\tests\test_profiled_posting.py ..                     [ 89%]
+smart_agri\finance\tests\test_receipts_deposit_dual_mode.py ...          [ 90%]
+smart_agri\finance\tests\test_supplier_settlement_api.py ....            [ 90%]
+smart_agri\finance\tests\test_tenant_isolation.py ...                    [ 91%]
+smart_agri\finance\tests\test_v15_profiled_posting_authority.py ........ [ 92%]
+....                                                                     [ 92%]
+smart_agri\finance\tests\test_v16_governance_maintenance.py ..           [ 93%]
+smart_agri\finance\tests\test_v18_role_workbench.py .                    [ 93%]
+smart_agri\finance\tests\test_v21_role_workbench.py ........             [ 94%]
+smart_agri\inventory\tests\test_material_type.py ...                     [ 94%]
+smart_agri\sales\tests\test_sale_service.py ................             [ 97%]
+smart_agri\tests\test_settings_test_db_name.py ...                       [ 97%]
+test_audit.py .                                                          [ 97%]
+test_hardened_logic.py .                                                 [ 97%]
+tests\crops\test_harvest_prediction.py ..                                [ 98%]
+tests\payment\test_high_value.py ..                                      [ 98%]
+tests\stress\test_inventory.py .                                         [ 98%]
+tests\test_db_ping.py .                                                  [ 98%]
+tests\test_zombies.py .                                                  [ 98%]
+smart_agri\core\tests\forensic\test_concurrency.py ..                    [ 99%]
+smart_agri\core\tests\forensic\test_forensic_verification.py ..          [ 99%]
+smart_agri\core\tests\test_atomic_events.py ..                           [ 99%]
+smart_agri\core\tests\test_named_event_bus.py ..                         [100%]
+
+=================================== ERRORS ====================================
+____ ERROR at setup of TestSardoodScenarios.test_01_dailylog_approval_flow ____
+C:\Users\ibrahim\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\management\__init__.py:110: in call_command
+    app_name = get_commands()[command_name]
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   KeyError: 'seed_sardood_farm'
+
+During handling of the above exception, another exception occurred:
+smart_agri\core\tests\test_sardood_scenarios.py:32: in django_db_setup
+    call_command('seed_sardood_farm', clean=True, verbose=False)
+C:\Users\ibrahim\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\management\__init__.py:112: in call_command
+    raise CommandError("Unknown command: %r" % command_name)
+E   django.core.management.base.CommandError: Unknown command: 'seed_sardood_farm'
+__ ERROR at setup of TestSardoodScenarios.test_02_variance_alert_generation ___
+C:\Users\ibrahim\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\management\__init__.py:110: in call_command
+    app_name = get_commands()[command_name]
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   KeyError: 'seed_sardood_farm'
+
+During handling of the above exception, another exception occurred:
+smart_agri\core\tests\test_sardood_scenarios.py:32: in django_db_setup
+    call_command('seed_sardood_farm', clean=True, verbose=False)
+C:\Users\ibrahim\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\management\__init__.py:112: in call_command
+    raise CommandError("Unknown command: %r" % command_name)
+E   django.core.management.base.CommandError: Unknown command: 'seed_sardood_farm'
+______ ERROR at setup of TestSardoodScenarios.test_03_harvest_and_zakat _______
+C:\Users\ibrahim\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\management\__init__.py:110: in call_command
+    app_name = get_commands()[command_name]
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   KeyError: 'seed_sardood_farm'
+
+During handling of the above exception, another exception occurred:
+smart_agri\core\tests\test_sardood_scenarios.py:32: in django_db_setup
+    call_command('seed_sardood_farm', clean=True, verbose=False)
+C:\Users\ibrahim\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\management\__init__.py:112: in call_command
+    raise CommandError("Unknown command: %r" % command_name)
+E   django.core.management.base.CommandError: Unknown command: 'seed_sardood_farm'
+_____ ERROR at setup of TestSardoodScenarios.test_04_seasonal_settlement ______
+C:\Users\ibrahim\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\management\__init__.py:110: in call_command
+    app_name = get_commands()[command_name]
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   KeyError: 'seed_sardood_farm'
+
+During handling of the above exception, another exception occurred:
+smart_agri\core\tests\test_sardood_scenarios.py:32: in django_db_setup
+    call_command('seed_sardood_farm', clean=True, verbose=False)
+C:\Users\ibrahim\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\management\__init__.py:112: in call_command
+    raise CommandError("Unknown command: %r" % command_name)
+E   django.core.management.base.CommandError: Unknown command: 'seed_sardood_farm'
+____ ERROR at setup of TestSardoodScenarios.test_05_mass_casualty_writeoff ____
+C:\Users\ibrahim\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\management\__init__.py:110: in call_command
+    app_name = get_commands()[command_name]
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   KeyError: 'seed_sardood_farm'
+
+During handling of the above exception, another exception occurred:
+smart_agri\core\tests\test_sardood_scenarios.py:32: in django_db_setup
+    call_command('seed_sardood_farm', clean=True, verbose=False)
+C:\Users\ibrahim\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\management\__init__.py:112: in call_command
+    raise CommandError("Unknown command: %r" % command_name)
+E   django.core.management.base.CommandError: Unknown command: 'seed_sardood_farm'
+_ ERROR at setup of TestSardoodScenarios.test_mass_casualty_separate_from_daily_log _
+C:\Users\ibrahim\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\management\__init__.py:110: in call_command
+    app_name = get_commands()[command_name]
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   KeyError: 'seed_sardood_farm'
+
+During handling of the above exception, another exception occurred:
+smart_agri\core\tests\test_sardood_scenarios.py:32: in django_db_setup
+    call_command('seed_sardood_farm', clean=True, verbose=False)
+C:\Users\ibrahim\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\management\__init__.py:112: in call_command
+    raise CommandError("Unknown command: %r" % command_name)
+E   django.core.management.base.CommandError: Unknown command: 'seed_sardood_farm'
+_ ERROR at setup of TestSardoodScenarios.test_routine_death_stays_in_daily_log _
+C:\Users\ibrahim\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\management\__init__.py:110: in call_command
+    app_name = get_commands()[command_name]
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   KeyError: 'seed_sardood_farm'
+
+During handling of the above exception, another exception occurred:
+smart_agri\core\tests\test_sardood_scenarios.py:32: in django_db_setup
+    call_command('seed_sardood_farm', clean=True, verbose=False)
+C:\Users\ibrahim\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\management\__init__.py:112: in call_command
+    raise CommandError("Unknown command: %r" % command_name)
+E   django.core.management.base.CommandError: Unknown command: 'seed_sardood_farm'
+_______ ERROR at setup of TestSardoodScenarios.test_06_petty_cash_flow ________
+C:\Users\ibrahim\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\management\__init__.py:110: in call_command
+    app_name = get_commands()[command_name]
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   KeyError: 'seed_sardood_farm'
+
+During handling of the above exception, another exception occurred:
+smart_agri\core\tests\test_sardood_scenarios.py:32: in django_db_setup
+    call_command('seed_sardood_farm', clean=True, verbose=False)
+C:\Users\ibrahim\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\management\__init__.py:112: in call_command
+    raise CommandError("Unknown command: %r" % command_name)
+E   django.core.management.base.CommandError: Unknown command: 'seed_sardood_farm'
+____ ERROR at setup of TestSardoodScenarios.test_07_sharecropping_physical ____
+C:\Users\ibrahim\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\management\__init__.py:110: in call_command
+    app_name = get_commands()[command_name]
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   KeyError: 'seed_sardood_farm'
+
+During handling of the above exception, another exception occurred:
+smart_agri\core\tests\test_sardood_scenarios.py:32: in django_db_setup
+    call_command('seed_sardood_farm', clean=True, verbose=False)
+C:\Users\ibrahim\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\management\__init__.py:112: in call_command
+    raise CommandError("Unknown command: %r" % command_name)
+E   django.core.management.base.CommandError: Unknown command: 'seed_sardood_farm'
+______ ERROR at setup of TestSardoodScenarios.test_08_idempotency_guard _______
+C:\Users\ibrahim\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\management\__init__.py:110: in call_command
+    app_name = get_commands()[command_name]
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   KeyError: 'seed_sardood_farm'
+
+During handling of the above exception, another exception occurred:
+smart_agri\core\tests\test_sardood_scenarios.py:32: in django_db_setup
+    call_command('seed_sardood_farm', clean=True, verbose=False)
+C:\Users\ibrahim\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\management\__init__.py:112: in call_command
+    raise CommandError("Unknown command: %r" % command_name)
+E   django.core.management.base.CommandError: Unknown command: 'seed_sardood_farm'
+================================== FAILURES ===================================
+________________ test_medium_farm_creation_blocked_without_ffm ________________
+smart_agri\core\tests\test_farm_size_governance.py:33: in test_medium_farm_creation_blocked_without_ffm
+    assert "المدير المالي للمزرعة" in str(excinfo.value)
+E   assert 'المدير المالي للمزرعة' in '{\'__all__\': ["🔴 [GOVERNANCE BLOCK] المزارع من الفئة (متوسط/كبير) في المود الصارم تُلزم بوجود \'مدير مالي للمزرعة\'."]}'
+E    +  where '{\'__all__\': ["🔴 [GOVERNANCE BLOCK] المزارع من الفئة (متوسط/كبير) في المود الصارم تُلزم بوجود \'مدير مالي للمزرعة\'."]}' = str(ValidationError({'__all__': ["🔴 [GOVERNANCE BLOCK] المزارع من الفئة (متوسط/كبير) في المود الصارم تُلزم بوجود 'مدير مالي للمزرعة'."]}))
+E    +    where ValidationError({'__all__': ["🔴 [GOVERNANCE BLOCK] المزارع من الفئة (متوسط/كبير) في المود الصارم تُلزم بوجود 'مدير مالي للمزرعة'."]}) = <ExceptionInfo ValidationError({'__all__': ["🔴 [GOVERNANCE BLOCK] المزارع من الفئة (متوسط/كبير) في المود الصارم تُلزم بوجود 'مدير مالي للمزرعة'."]}) tblen=2>.value
+________________ test_large_farm_creation_blocked_without_ffm _________________
+smart_agri\core\tests\test_farm_size_governance.py:46: in test_large_farm_creation_blocked_without_ffm
+    assert "المدير المالي للمزرعة" in str(excinfo.value)
+E   assert 'المدير المالي للمزرعة' in '{\'__all__\': ["🔴 [GOVERNANCE BLOCK] المزارع من الفئة (متوسط/كبير) في المود الصارم تُلزم بوجود \'مدير مالي للمزرعة\'."]}'
+E    +  where '{\'__all__\': ["🔴 [GOVERNANCE BLOCK] المزارع من الفئة (متوسط/كبير) في المود الصارم تُلزم بوجود \'مدير مالي للمزرعة\'."]}' = str(ValidationError({'__all__': ["🔴 [GOVERNANCE BLOCK] المزارع من الفئة (متوسط/كبير) في المود الصارم تُلزم بوجود 'مدير مالي للمزرعة'."]}))
+E    +    where ValidationError({'__all__': ["🔴 [GOVERNANCE BLOCK] المزارع من الفئة (متوسط/كبير) في المود الصارم تُلزم بوجود 'مدير مالي للمزرعة'."]}) = <ExceptionInfo ValidationError({'__all__': ["🔴 [GOVERNANCE BLOCK] المزارع من الفئة (متوسط/كبير) في المود الصارم تُلزم بوجود 'مدير مالي للمزرعة'."]}) tblen=2>.value
+___________ TestScheduleVarianceService.test_late_activity_detected ___________
+C:\Users\ibrahim\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\contrib\contenttypes\models.py:52: in get_for_model
+    ct = self.get(app_label=opts.app_label, model=opts.model_name)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\ibrahim\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\manager.py:87: in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\ibrahim\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\query.py:649: in get
+    raise self.model.DoesNotExist(
+E   django.contrib.contenttypes.models.ContentType.DoesNotExist: ContentType matching query does not exist.
+
+During handling of the above exception, another exception occurred:
+C:\Users\ibrahim\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\query.py:948: in get_or_create
+    return self.get(**kwargs), False
+           ^^^^^^^^^^^^^^^^^^
+C:\Users\ibrahim\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\query.py:649: in get
+    raise self.model.DoesNotExist(
+E   django.contrib.contenttypes.models.ContentType.DoesNotExist: ContentType matching query does not exist.
+
+During handling of the above exception, another exception occurred:
+smart_agri\core\tests\test_schedule_variance.py:84: in test_late_activity_detected
+    result = ScheduleVarianceService.check_schedule_variance(activity=activity)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+smart_agri\core\services\schedule_variance_service.py:117: in check_schedule_variance
+    activity_ct = ContentType.objects.get_for_model(activity)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\ibrahim\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\contrib\contenttypes\models.py:56: in get_for_model
+    ct, created = self.get_or_create(
+C:\Users\ibrahim\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\manager.py:87: in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\ibrahim\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\query.py:955: in get_or_create
+    return self.create(**params), True
+           ^^^^^^^^^^^^^^^^^^^^^
+C:\Users\ibrahim\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\query.py:679: in create
+    obj.save(force_insert=True, using=self.db)
+C:\Users\ibrahim\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\base.py:822: in save
+    self.save_base(
+C:\Users\ibrahim\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\base.py:909: in save_base
+    updated = self._save_table(
+C:\Users\ibrahim\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\base.py:1071: in _save_table
+    results = self._do_insert(
+C:\Users\ibrahim\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\base.py:1112: in _do_insert
+    return manager._insert(
+C:\Users\ibrahim\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\manager.py:87: in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\ibrahim\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\query.py:1847: in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\ibrahim\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\sql\compiler.py:1822: in execute_sql
+    for sql, params in self.as_sql():
+                       ^^^^^^^^^^^^^
+C:\Users\ibrahim\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\sql\compiler.py:1745: in as_sql
+    value_rows = [
+C:\Users\ibrahim\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\sql\compiler.py:1746: in <listcomp>
+    [
+C:\Users\ibrahim\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\sql\compiler.py:1747: in <listcomp>
+    self.prepare_value(field, self.pre_save_val(field, obj))
+C:\Users\ibrahim\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\sql\compiler.py:1672: in prepare_value
+    raise ValueError(
+E   ValueError: Failed to insert expression "<MagicMock name='mock._meta.concrete_model._meta.app_label().resolve_expression()' id='1883313699856'>" on contenttypes.ContentType.app_label. F() expressions can only be used to update, not to insert.
+__________ TestScheduleVarianceService.test_early_activity_detected ___________
+C:\Users\ibrahim\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\contrib\contenttypes\models.py:52: in get_for_model
+    ct = self.get(app_label=opts.app_label, model=opts.model_name)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\ibrahim\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\manager.py:87: in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\ibrahim\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\query.py:649: in get
+    raise self.model.DoesNotExist(
+E   django.contrib.contenttypes.models.ContentType.DoesNotExist: ContentType matching query does not exist.
+
+During handling of the above exception, another exception occurred:
+C:\Users\ibrahim\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\query.py:948: in get_or_create
+    return self.get(**kwargs), False
+           ^^^^^^^^^^^^^^^^^^
+C:\Users\ibrahim\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\query.py:649: in get
+    raise self.model.DoesNotExist(
+E   django.contrib.contenttypes.models.ContentType.DoesNotExist: ContentType matching query does not exist.
+
+During handling of the above exception, another exception occurred:
+smart_agri\core\tests\test_schedule_variance.py:101: in test_early_activity_detected
+    result = ScheduleVarianceService.check_schedule_variance(activity=activity)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+smart_agri\core\services\schedule_variance_service.py:117: in check_schedule_variance
+    activity_ct = ContentType.objects.get_for_model(activity)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\ibrahim\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\contrib\contenttypes\models.py:56: in get_for_model
+    ct, created = self.get_or_create(
+C:\Users\ibrahim\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\manager.py:87: in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\ibrahim\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\query.py:955: in get_or_create
+    return self.create(**params), True
+           ^^^^^^^^^^^^^^^^^^^^^
+C:\Users\ibrahim\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\query.py:679: in create
+    obj.save(force_insert=True, using=self.db)
+C:\Users\ibrahim\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\base.py:822: in save
+    self.save_base(
+C:\Users\ibrahim\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\base.py:909: in save_base
+    updated = self._save_table(
+C:\Users\ibrahim\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\base.py:1071: in _save_table
+    results = self._do_insert(
+C:\Users\ibrahim\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\base.py:1112: in _do_insert
+    return manager._insert(
+C:\Users\ibrahim\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\manager.py:87: in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\ibrahim\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\query.py:1847: in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\ibrahim\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\sql\compiler.py:1822: in execute_sql
+    for sql, params in self.as_sql():
+                       ^^^^^^^^^^^^^
+C:\Users\ibrahim\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\sql\compiler.py:1745: in as_sql
+    value_rows = [
+C:\Users\ibrahim\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\sql\compiler.py:1746: in <listcomp>
+    [
+C:\Users\ibrahim\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\sql\compiler.py:1747: in <listcomp>
+    self.prepare_value(field, self.pre_save_val(field, obj))
+C:\Users\ibrahim\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\sql\compiler.py:1672: in prepare_value
+    raise ValueError(
+E   ValueError: Failed to insert expression "<MagicMock name='mock._meta.concrete_model._meta.app_label().resolve_expression()' id='1883205063120'>" on contenttypes.ContentType.app_label. F() expressions can only be used to update, not to insert.
+_______ TestScheduleVarianceService.test_severity_warning_under_14_days _______
+C:\Users\ibrahim\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\contrib\contenttypes\models.py:52: in get_for_model
+    ct = self.get(app_label=opts.app_label, model=opts.model_name)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\ibrahim\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\manager.py:87: in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\ibrahim\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\query.py:649: in get
+    raise self.model.DoesNotExist(
+E   django.contrib.contenttypes.models.ContentType.DoesNotExist: ContentType matching query does not exist.
+
+During handling of the above exception, another exception occurred:
+C:\Users\ibrahim\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\query.py:948: in get_or_create
+    return self.get(**kwargs), False
+           ^^^^^^^^^^^^^^^^^^
+C:\Users\ibrahim\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\query.py:649: in get
+    raise self.model.DoesNotExist(
+E   django.contrib.contenttypes.models.ContentType.DoesNotExist: ContentType matching query does not exist.
+
+During handling of the above exception, another exception occurred:
+smart_agri\core\tests\test_schedule_variance.py:117: in test_severity_warning_under_14_days
+    result = ScheduleVarianceService.check_schedule_variance(activity=activity)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+smart_agri\core\services\schedule_variance_service.py:117: in check_schedule_variance
+    activity_ct = ContentType.objects.get_for_model(activity)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\ibrahim\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\contrib\contenttypes\models.py:56: in get_for_model
+    ct, created = self.get_or_create(
+C:\Users\ibrahim\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\manager.py:87: in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\ibrahim\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\query.py:955: in get_or_create
+    return self.create(**params), True
+           ^^^^^^^^^^^^^^^^^^^^^
+C:\Users\ibrahim\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\query.py:679: in create
+    obj.save(force_insert=True, using=self.db)
+C:\Users\ibrahim\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\base.py:822: in save
+    self.save_base(
+C:\Users\ibrahim\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\base.py:909: in save_base
+    updated = self._save_table(
+C:\Users\ibrahim\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\base.py:1071: in _save_table
+    results = self._do_insert(
+C:\Users\ibrahim\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\base.py:1112: in _do_insert
+    return manager._insert(
+C:\Users\ibrahim\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\manager.py:87: in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\ibrahim\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\query.py:1847: in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\ibrahim\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\sql\compiler.py:1822: in execute_sql
+    for sql, params in self.as_sql():
+                       ^^^^^^^^^^^^^
+C:\Users\ibrahim\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\sql\compiler.py:1745: in as_sql
+    value_rows = [
+C:\Users\ibrahim\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\sql\compiler.py:1746: in <listcomp>
+    [
+C:\Users\ibrahim\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\sql\compiler.py:1747: in <listcomp>
+    self.prepare_value(field, self.pre_save_val(field, obj))
+C:\Users\ibrahim\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\sql\compiler.py:1672: in prepare_value
+    raise ValueError(
+E   ValueError: Failed to insert expression "<MagicMock name='mock._meta.concrete_model._meta.app_label().resolve_expression()' id='1883207182672'>" on contenttypes.ContentType.app_label. F() expressions can only be used to update, not to insert.
+_______ TestScheduleVarianceService.test_severity_critical_over_14_days _______
+C:\Users\ibrahim\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\contrib\contenttypes\models.py:52: in get_for_model
+    ct = self.get(app_label=opts.app_label, model=opts.model_name)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\ibrahim\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\manager.py:87: in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\ibrahim\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\query.py:649: in get
+    raise self.model.DoesNotExist(
+E   django.contrib.contenttypes.models.ContentType.DoesNotExist: ContentType matching query does not exist.
+
+During handling of the above exception, another exception occurred:
+C:\Users\ibrahim\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\query.py:948: in get_or_create
+    return self.get(**kwargs), False
+           ^^^^^^^^^^^^^^^^^^
+C:\Users\ibrahim\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\query.py:649: in get
+    raise self.model.DoesNotExist(
+E   django.contrib.contenttypes.models.ContentType.DoesNotExist: ContentType matching query does not exist.
+
+During handling of the above exception, another exception occurred:
+smart_agri\core\tests\test_schedule_variance.py:132: in test_severity_critical_over_14_days
+    result = ScheduleVarianceService.check_schedule_variance(activity=activity)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+smart_agri\core\services\schedule_variance_service.py:117: in check_schedule_variance
+    activity_ct = ContentType.objects.get_for_model(activity)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\ibrahim\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\contrib\contenttypes\models.py:56: in get_for_model
+    ct, created = self.get_or_create(
+C:\Users\ibrahim\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\manager.py:87: in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\ibrahim\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\query.py:955: in get_or_create
+    return self.create(**params), True
+           ^^^^^^^^^^^^^^^^^^^^^
+C:\Users\ibrahim\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\query.py:679: in create
+    obj.save(force_insert=True, using=self.db)
+C:\Users\ibrahim\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\base.py:822: in save
+    self.save_base(
+C:\Users\ibrahim\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\base.py:909: in save_base
+    updated = self._save_table(
+C:\Users\ibrahim\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\base.py:1071: in _save_table
+    results = self._do_insert(
+C:\Users\ibrahim\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\base.py:1112: in _do_insert
+    return manager._insert(
+C:\Users\ibrahim\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\manager.py:87: in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\ibrahim\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\query.py:1847: in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\ibrahim\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\sql\compiler.py:1822: in execute_sql
+    for sql, params in self.as_sql():
+                       ^^^^^^^^^^^^^
+C:\Users\ibrahim\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\sql\compiler.py:1745: in as_sql
+    value_rows = [
+C:\Users\ibrahim\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\sql\compiler.py:1746: in <listcomp>
+    [
+C:\Users\ibrahim\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\sql\compiler.py:1747: in <listcomp>
+    self.prepare_value(field, self.pre_save_val(field, obj))
+C:\Users\ibrahim\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\sql\compiler.py:1672: in prepare_value
+    raise ValueError(
+E   ValueError: Failed to insert expression "<MagicMock name='mock._meta.concrete_model._meta.app_label().resolve_expression()' id='1883312075024'>" on contenttypes.ContentType.app_label. F() expressions can only be used to update, not to insert.
+============================== warnings summary ===============================
+..\..\..\..\Users\ibrahim\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\conf\__init__.py:251
+  C:\Users\ibrahim\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\conf\__init__.py:251: RemovedInDjango51Warning: The STATICFILES_STORAGE setting is deprecated. Use STORAGES instead.
+    warnings.warn(STATICFILES_STORAGE_DEPRECATED_MSG, RemovedInDjango51Warning)
+
+smart_agri\core\tests\test_atomic_events.py:11
+  C:\tools\workspace\AgriAsset_YECO_Enterprise_Final2\backend\smart_agri\core\tests\test_atomic_events.py:11: PytestCollectionWarning: cannot collect test class 'TestEvent' because it has a __init__ constructor (from: smart_agri/core/tests/test_atomic_events.py)
+    class TestEvent(DomainEvent):
+
+smart_agri/accounts/tests/test_memberships_api.py: 7 warnings
+smart_agri/core/tests/test_activity_requirements.py: 8 warnings
+smart_agri/core/tests/test_contract_operations_dashboard_api.py: 3 warnings
+smart_agri/core/tests/test_fixed_assets_dashboard_api.py: 5 warnings
+smart_agri/core/tests/test_fuel_reconciliation_dashboard_api.py: 6 warnings
+smart_agri/core/tests/test_mode_policy_api.py: 16 warnings
+smart_agri/core/tests/test_prepare_e2e_auth_command.py: 2 warnings
+smart_agri/core/tests/test_rls_authorization.py: 1 warning
+smart_agri/core/tests/test_service_cards.py: 6 warnings
+smart_agri/core/tests/test_tree_inventory.py: 18 warnings
+smart_agri/core/tests/test_v21_e2e_cycle.py: 1 warning
+smart_agri/finance/tests/test_approval_override_and_reopen.py: 5 warnings
+smart_agri/finance/tests/test_approval_workflow_api.py: 18 warnings
+smart_agri/finance/tests/test_fiscal_year_rollover_idempotency.py: 2 warnings
+smart_agri/finance/tests/test_supplier_settlement_api.py: 4 warnings
+smart_agri/finance/tests/test_tenant_isolation.py: 3 warnings
+  C:\Users\ibrahim\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\base.py:61: UserWarning: No directory at: C:\tools\workspace\AgriAsset_YECO_Enterprise_Final2\backend\staticfiles\
+    mw_instance = middleware(adapted_handler)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+SKIPPED [1] smart_agri\core\tests\test_zakat_policy_v2.py:175: FarmSettings.zakat_enabled not available in this schema version.
+SKIPPED [1] smart_agri\core\tests\test_zakat_policy_v2.py:229: FarmSettings not attached to farm in this schema version.
+ERROR smart_agri/core/tests/test_sardood_scenarios.py::TestSardoodScenarios::test_01_dailylog_approval_flow
+ERROR smart_agri/core/tests/test_sardood_scenarios.py::TestSardoodScenarios::test_02_variance_alert_generation
+ERROR smart_agri/core/tests/test_sardood_scenarios.py::TestSardoodScenarios::test_03_harvest_and_zakat
+ERROR smart_agri/core/tests/test_sardood_scenarios.py::TestSardoodScenarios::test_04_seasonal_settlement
+ERROR smart_agri/core/tests/test_sardood_scenarios.py::TestSardoodScenarios::test_05_mass_casualty_writeoff
+ERROR smart_agri/core/tests/test_sardood_scenarios.py::TestSardoodScenarios::test_mass_casualty_separate_from_daily_log
+ERROR smart_agri/core/tests/test_sardood_scenarios.py::TestSardoodScenarios::test_routine_death_stays_in_daily_log
+ERROR smart_agri/core/tests/test_sardood_scenarios.py::TestSardoodScenarios::test_06_petty_cash_flow
+ERROR smart_agri/core/tests/test_sardood_scenarios.py::TestSardoodScenarios::test_07_sharecropping_physical
+ERROR smart_agri/core/tests/test_sardood_scenarios.py::TestSardoodScenarios::test_08_idempotency_guard
+FAILED smart_agri/core/tests/test_farm_size_governance.py::test_medium_farm_creation_blocked_without_ffm
+FAILED smart_agri/core/tests/test_farm_size_governance.py::test_large_farm_creation_blocked_without_ffm
+FAILED smart_agri/core/tests/test_schedule_variance.py::TestScheduleVarianceService::test_late_activity_detected
+FAILED smart_agri/core/tests/test_schedule_variance.py::TestScheduleVarianceService::test_early_activity_detected
+FAILED smart_agri/core/tests/test_schedule_variance.py::TestScheduleVarianceService::test_severity_warning_under_14_days
+FAILED smart_agri/core/tests/test_schedule_variance.py::TestScheduleVarianceService::test_severity_critical_over_14_days
+= 6 failed, 680 passed, 2 skipped, 107 warnings, 10 errors in 483.44s (0:08:03) =

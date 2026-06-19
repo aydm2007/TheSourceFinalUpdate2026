@@ -1,0 +1,15 @@
+# Exclude development and test files from VSIX
+# node_modules
+.github
+.vscode
+run_tests.js
+*.log
+*.vsix
+/.git
+/.github
+/.vscode
+package-lock.json
+**/test
+**/tests
+*.map
+*.ts

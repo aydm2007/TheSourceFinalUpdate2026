@@ -1,0 +1,5 @@
+{
+  "default": "allow",
+  "restrictedTools": [],
+  "environments": ["development", "testing"]
+}

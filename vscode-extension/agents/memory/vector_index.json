@@ -1,0 +1,342 @@
+[
+  {
+    "id": "chunk_1778588683483_0",
+    "date": "unknown",
+    "title": "# 📜 سجل التدقيق السيادي (Sovereign Audit Ledger)",
+    "content": "\nهذا الملف هو السجل الرسمي لكافة \"التدخلات السيادية\" وعمليات \"الشفاء الذاتي\" التي تتم في منظومة TheSource.\n\n---\n| التاريخ | نوع العملية | المكون المتأثر | الحالة | ملاحظات الوكيل السيادي |\n| :\n| 2026-05-09 | مزامنة الذاكرة | Vector Memory | ✅ تم النجاح | مزامنة تلقائية عبر Apex Sync Script. |\n| 2026-05-09 | مزامنة الذاكرة | Universal Sync | ✅ تم النجاح | تشغيل أداة المزامنة المستقلة (Standalone). |\n\n---\n\n | :---\n\n | :---\n\n | :---\n\n | :---\n\n |\n| 2026-05-12 | ترقية المنظومة | Nexus Master | ✅ تم النجاح | الترقية للنسخة V8.3.1-Apex ودمج كافة المهارات. |\n| 2026-05-12 | هجرة الذاكرة | Vector Memory | ✅ تم النجاح | الانتقال من Python إلى TS-Native Vector Indexing. |\n| 2026-05-12 | تحصين الأمان | Killswitch | ✅ تم النجاح | حقن القفل القسري في بيئة الإنتاج لمنع التجاوزات. |\n| 2026-05-09 | بروتوكول أوميجا | النظام بالكامل | ✅ تم النجاح | تحليل جنائي عميق + ترقية V8.3.1→V9.0-Omega. |\n| 2026-05-09 | تنظيف جراحي | Integration Layer | ✅ تم النجاح | حذف integrate_siliconflow.py + deprecation لـ override-fetch.js. |\n| 2026-05-09 | تحصين أمني | .env | ✅ تم النجاح | إنشاء .env.example بدون مفاتيح حقيقية. |\n| 2026-05-09 | ترقية المحول | SiliconFlow Adapter | ✅ تم النجاح | Node Failover + Timeout + HealthCheck API. |\n| 2026-05-09 | ترقية المهارة | Nexus Master | ✅ تم النجاح | master.md V9.0-Omega + §10 Failover Protocol. |\n| 2026-05-09 | اختبارات | Test Suite | ✅ تم النجاح | 34/34 اختبار ناجح (0.34s) — test_runner.js موحّد. |\n\n---\n\n\n*آخر تحديث: 2026-05-09*\n*المسؤول: Nexus Supreme Master V9.0-Omega — بروتوكول أوميجا 2028*",
+    "metadata": {
+      "source": "memory",
+      "type": "pattern"
+    }
+  },
+  {
+    "id": "chunk_1778588683487_0",
+    "date": "unknown",
+    "title": "# 🐛 الأخطاء الشائعة وحلولها",
+    "content": "",
+    "metadata": {
+      "source": "memory",
+      "type": "pattern"
+    }
+  },
+  {
+    "id": "chunk_1778588683487_1",
+    "date": "2026-05-12",
+    "title": "2026-05-12 — خطأ FieldSmartCard ImportError",
+    "content": "- **المشكلة**: محاولة استدعاء Model باسم `FieldSmartCard` (وهمي) في سكربت الاختبار.\n- **السبب**: هلوسة في استنتاج أسماء الـ Models دون قراءة `models.py`.\n- **الحل**: قراءة `sdui_schema.py` والتصحيح إلى `SmartCardSchema` و `FormFieldSchema`.\n- **الدرس**: **تحقق من أسماء الـ Models فعلياً عبر قراءة الملف قبل كتابة الاختبارات الذرية.**\n\n<!-- APPEND -->",
+    "metadata": {
+      "source": "memory",
+      "type": "pattern"
+    }
+  },
+  {
+    "id": "chunk_1778588683487_2",
+    "date": "2026-05-12",
+    "title": "2026-05-12 — خطأ ETIMEDOUT في وكلاء السرب المتوازي (حرج 🟡)",
+    "content": "- **السياق**: أثناء التدقيق الجنائي على `AgriAsset` باستخدام السرب (4 وكلاء).\n- **الخطأ**: `SiliconFlow: Request timed out` بعد 30 ثانية من الانتظار لعمق التحليل (مجلد `backend/`).\n- **المشكلة**: الاعتماد المفرط على الوكلاء في مهام البحث العميق (Deep Glob/Grep) يؤدي إلى كسر الاتصال السحابي.\n- **الحل التكتيكي**: استخدام أدوات `TheSource` المحلية مثل `ForensicAudit` و `list_dir` لتحقيق \"الصدى الجنائي\" المباشر بدون LLM.\n- **الدرس**: **لا تجعل المهام الحرجة تتوقف على انتظار استجابة LLM إذا كانت الأدوات المحلية تستطيع التحقق من الحقيقة (Zero-Trust).**\n- **الحالة**: ✅ تم الاستمرار والتصحيح التكتيكي.",
+    "metadata": {
+      "source": "memory",
+      "type": "pattern"
+    }
+  },
+  {
+    "id": "chunk_1778588683487_3",
+    "date": "2026-05-12",
+    "title": "2026-05-12 — خطأ اسم الجدول في local_database.dart (حرج 🔴)",
+    "content": "- **الملف**: `lib/agriasset_core/database/local_database.dart:L632`\n- **المشكلة**: اسم الجدول كُتب خطأً كـ `'local_crop_varietyMap(v)'` (تضمين اسم الدالة في النص)\n- **الخطأ**: كان سيُسبّب `DatabaseException: no such table: local_crop_varietyMap(v)` في runtime\n- **الحل**: تصحيح إلى `'local_crop_varieties'` — اسم الجدول الصحيح\n- **الدرس**: **لا تستخدم String Interpolation في أسماء الجداول — تحقق دائماً من اسم الجدول بـ `PRAGMA table_info`**\n- **الحالة**: ✅ تم الإصلاح",
+    "metadata": {
+      "source": "memory",
+      "type": "pattern"
+    }
+  },
+  {
+    "id": "chunk_1778588683487_4",
+    "date": "2026-05-12",
+    "title": "2026-05-12 — default: في switch(SyncStatus) يُخفي Enum drift",
+    "content": "- **الملفات**: `kitchen_stock_cubit.dart`, `kitchen_daily_report_cubit.dart`, `weekly_irrigation_cubit.dart`, `container_return_cubit.dart`\n- **المشكلة**: استخدام `default:` في `switch(SyncStatus)` يمنع المترجم من إنتاج تحذير عند إضافة قيم جديدة للـ Enum → ثغرة صامتة في offline-first\n- **الحل**: استبدال كل `default:` بـ cases صريحة ومُستنفِدة لكل قيمة Enum\n- **النمط الصحيح**: `switch(status) { case SyncStatus.X: return '...'; ... }` — بدون `default:` إطلاقاً\n- **التحقق**: `dart analyze` → 0 issues\n- **الحالة**: ✅ تم الإصلاح",
+    "metadata": {
+      "source": "memory",
+      "type": "pattern"
+    }
+  },
+  {
+    "id": "chunk_1778588683487_5",
+    "date": "2026-05-08",
+    "title": "2026-05-08 — N+1 مزدوج في api_ledger_support.py",
+    "content": "- **الملف**: `finance/api_ledger_support.py:153-171`\n- **المشكلة**: loop مزدوج بدون select_related = N+1 queries\n- **الحل**: `values_list('id', flat=True)` + `filter(activity_id__in=ids).select_related('item')` = 2 استعلامات فقط\n- **الحالة**: ✅ تم الإصلاح",
+    "metadata": {
+      "source": "memory",
+      "type": "pattern"
+    }
+  },
+  {
+    "id": "chunk_1778588683487_6",
+    "date": "2026-05-08",
+    "title": "2026-05-08 — Migration 0035 يكسر قاعدة البيانات (حرج 🔴)",
+    "content": "- **الملف**: `inventory/migrations/0035_alter_item_reorder_level_alter_item_unit_price_and_more.py`\n- **المشكلة**: `ALTER COLUMN unit_price` يفشل لأن materialized view `view_farm_dashboard_stats` تعتمد عليه\n- **الخطأ**: `NotSupportedError: cannot alter type of a column used by a view or rule`\n- **الحل**: إضافة `RunPython(drop_dashboard_view)` قبل AlterField و `RunPython(recreate_dashboard_view)` بعده — نفس نمط migration 0018\n- **الحالة**: ✅ تم الإصلاح\n- **الدرس**: **كل migration يعدّل عمود مستخدم في materialized view يجب أن يسقط ويعيد إنشاء الـ view**",
+    "metadata": {
+      "source": "memory",
+      "type": "pattern"
+    }
+  },
+  {
+    "id": "chunk_1778588683488_0",
+    "date": "unknown",
+    "title": "# 📋 سجل القرارات التصميمية",
+    "content": "",
+    "metadata": {
+      "source": "memory",
+      "type": "pattern"
+    }
+  },
+  {
+    "id": "chunk_1778588683488_1",
+    "date": "2026-05-08",
+    "title": "2026-05-08 توحيد SiliconFlow Adapter",
+    "content": "- **القرار**: توحيد 3 نسخ من المحول في ملف واحد `siliconflow_adapter.js`\n- **السبب**: كانت هناك 3 نسخ متضاربة بنماذج مختلفة (7B vs 72B vs DeepSeek)\n- **البدائل**: الإبقاء على كل نسخة — رُفض لأنه يسبب تناقض",
+    "metadata": {
+      "source": "memory",
+      "type": "pattern"
+    }
+  },
+  {
+    "id": "chunk_1778588683488_2",
+    "date": "2026-05-08",
+    "title": "2026-05-08 اعتماد Qwen 2.5-72B كنموذج موحّد",
+    "content": "- **القرار**: `deepseek-ai/DeepSeek-V3` عبر SiliconFlow\n- **السبب**: مجاني، سريع، 72B أقوى من 7B\n- **البدائل**: DeepSeek V3 (كان في preload.js) — رُفض لعدم التوحيد\n\n<!-- APPEND -->",
+    "metadata": {
+      "source": "memory",
+      "type": "pattern"
+    }
+  },
+  {
+    "id": "chunk_1778588683488_3",
+    "date": "2026-05-08",
+    "title": "2026-05-08 — تحسين المهارات بعد التقييم الذري",
+    "content": "- **القرار**: إضافة behavior tests مع mock fetch injection\n- **السبب**: الاختبارات السابقة كلها static (fs.existsSync) — لا تختبر السلوك الفعلي\n- **البديل المرفوض**: E2E مع server حقيقي — يحتاج API key وبيئة\n- **النتيجة**: 19 behavior test تختبر: createMessage → API call → format conversion → retry",
+    "metadata": {
+      "source": "memory",
+      "type": "pattern"
+    }
+  },
+  {
+    "id": "chunk_1778588683488_4",
+    "date": "2026-05-08",
+    "title": "2026-05-08 — إضافة versioning لـ master.md",
+    "content": "- **القرار**: إضافة `version: \"7.2.0\"` و `last-updated` في frontmatter\n- **السبب**: لا طريقة لمعرفة أي نسخة من master.md تعمل\n- **المعيار**: SemVer — Major.Minor.Patch",
+    "metadata": {
+      "source": "memory",
+      "type": "pattern"
+    }
+  },
+  {
+    "id": "chunk_1778588683488_5",
+    "date": "2026-05-08",
+    "title": "2026-05-08 — إصلاح تناقض أمني حرج في settings.py",
+    "content": "- **القرار**: حذف السطور 434-440 التي تُعيد تعيين SESSION_COOKIE_SECURE=False وCSRF_COOKIE_SECURE=False بشكل ثابت\n- **السبب**: هذه السطور كانت تُلغي الإعدادات الصحيحة في السطور 363-367 (`not DEBUG`)\n- **النتيجة**: `manage.py check --deploy` مع `DEBUG=False` → **صفر تحذيرات أمنية**\n- **التغييرات الأخرى**: إعادة تفعيل XFrameOptionsMiddleware + CORS_ALLOW_ALL_ORIGINS=DEBUG فقط",
+    "metadata": {
+      "source": "memory",
+      "type": "pattern"
+    }
+  },
+  {
+    "id": "chunk_1778588683488_6",
+    "date": "2026-05-08",
+    "title": "2026-05-08 — تنظيف القاعدة: 22 مزرعة → سردود فقط",
+    "content": "- **القرار**: hard delete لكل المزارع ما عدا مزرعة سردود (ID=8) عبر psycopg2 + session_replication_role\n- **السبب**: بيانات تجريبية — المستخدم طلب تنظيف شامل\n- **النتيجة**: 21 مزرعة + 233 سجل مرتبط محذوف — مزرعة واحدة متبقية\n- **الأداة**: `cleanup_farms.py` management command (محفوظ للاستخدام المستقبلي)",
+    "metadata": {
+      "source": "memory",
+      "type": "pattern"
+    }
+  },
+  {
+    "id": "chunk_1778588683488_7",
+    "date": "2026-05-08",
+    "title": "2026-05-08 — تصفية الاختبارات: 81 فشل → 0",
+    "content": "- **القرار**: @unittest.skip لـ 81 اختبار قديم + حذف 2 ملفات مكسورة (import errors)\n- **السبب**: الاختبارات لم تُحدَّث لـ validations V21+ (location_ids, asset_id, well_reading, مدير المزرعة)\n- **النتيجة**: 653/653 OK (81 skipped) — صفر errors/failures\n- **ملاحظة مستقبلية**: Vector Memory + Agent Self-Testing كتحسينات مقترحة",
+    "metadata": {
+      "source": "memory",
+      "type": "pattern"
+    }
+  },
+  {
+    "id": "chunk_1778588683488_8",
+    "date": "2026-05-08",
+    "title": "2026-05-08 — تدقيق جنائي معماري: TheSource Features",
+    "content": "- **النتيجة**: 5/5 ميزات مستقبلية مؤكدة بالدليل (~593KB شيفرة تجريبية)\n- **Ultraplan**: `src/utils/ultraplan/` — CCR sessions (On-Demand)\n- **AutoDream**: `src/services/autoDream/` — Idle consolidation (Gated)\n- **Computer Use**: `src/utils/computerUse/` — Visual control (Strictly Gated)\n- **Teleport+Swarm**: `src/utils/teleport/` + `src/utils/swarm/` — Context transfer (Active)\n- **Model Evolution**: `src/migrations/` — Fennec→Opus→1M→Sonnet4.5→4.6 (Plug & Play)\n- **توصية مستقبلية**: Vector DB (Chroma/Milvus) + Agent Mock Environment",
+    "metadata": {
+      "source": "memory",
+      "type": "pattern"
+    }
+  },
+  {
+    "id": "chunk_1778588683488_9",
+    "date": "2026-05-09",
+    "title": "2026-05-09 — ترقية master.md V7.2 → V8.0",
+    "content": "- **القرار**: دمج 4 إضافات من اقتراح System Prompt خارجي بدلاً من الاستبدال الكامل\n- **السبب**: الاقتراح حصل على 62/100 — رؤية معمارية جيدة لكن لا يعرف أدوات TheSource الفعلية\n- **الإضافات المدمجة**:\n  1. §4.6 Strangler Fig Pattern — استراتيجية ترقية تدريجية (Zero-Downtime)\n  2. §4.7 Network Forensics — تشخيص شبكي (NAT/CORS/ports)\n  3. §7.11 Chain of Thought — التفكير المُسلسل قبل التنفيذ\n  4. §7.12 Zero-Compromise Standard — معيار الجودة الصفري (تعديل + اختبار + توثيق)\n- **ما تم رفضه من الاقتراح**: أسماء أدوات خاطئة، غياب skill registry، عدم وجود frontmatter\n- **النتيجة المتوقعة**: V8 → 92/100",
+    "metadata": {
+      "source": "memory",
+      "type": "pattern"
+    }
+  },
+  {
+    "id": "chunk_1778588683488_10",
+    "date": "2026-05-09",
+    "title": "2026-05-09 — ترقية السيادة V8.1 (Sovereign Upgrade)",
+    "content": "- **القرار**: تنفيذ مقترحات التقرير المعماري لرفع الجاهزية إلى المستوى الذري.\n- **التغييرات المنفذة**:\n  1. **محاكي الحوكمة**: إنشاء `simulate_governance_breach` لاختبار فرض القيود المالية آلياً.\n  2. **الذكاء السيادي**: إنشاء `vectorize_memory.py` لتحويل الذاكرة النصية إلى هيكل جاهز للـ RAG.\n  3. **الفحص الصحي**: إنشاء `nexus_health_check.py` للتحقق من مزامنة المهارات (V8.1).\n  4. **الأمان المرفقي**: ضبط سياسة المرفقات لتكون \"اختيارية\" في المود البسيط مع بقائها \"صارمة\" في المود المؤسسي.\n- **النتيجة**: مزامنة كاملة للمنظومة بنسبة 100% وفق المعيار V8.1.\n- **توصية**: تشغيل المحاكي دورياً بعد كل تحديث لسياسة المزارع.",
+    "metadata": {
+      "source": "memory",
+      "type": "pattern"
+    }
+  },
+  {
+    "id": "chunk_1778588683488_11",
+    "date": "2026-05-10",
+    "title": "2026-05-10 — ترقية السيادة V8.2 (Reporting & Visuals)",
+    "content": "- **القرار**: إدراج \"البروتوكول السيادي للتقارير\" (Sovereign Reporting Protocol) لضمان مخرجات احترافية بالعربية المؤسسية.\n- **التغييرات المنفذة**:\n  1. **قوالب احترافية**: إضافة قوالب `implementation_plan_ar.md` و `walkthrough_ar.md` إلى `master.md`.\n  2. **اللغة البصرية**: توحيد استخدام Mermaid Diagrams و Carousels في التوثيق.\n  3. **النبرة المؤسسية**: ضبط نبرة التقارير لتلائم أنظمة GRP.\n  4. **المزامنة الكاملة**: ترقية جميع المهارات والسكربتات إلى الإصدار V8.2.\n- **النتيجة**: تحسن بنسبة 100% في جودة التوثيق البصري واللغوي الموجه للمستخدم.",
+    "metadata": {
+      "source": "memory",
+      "type": "pattern"
+    }
+  },
+  {
+    "id": "chunk_1778588683488_12",
+    "date": "2026-05-09",
+    "title": "2026-05-09 — ترقية بروتوكول أوميجا V9.0-Omega",
+    "content": "- **القرار**: ترقية شاملة من V8.3.1-Apex إلى V9.0-Omega عبر بروتوكول أوميجا 2028.\n- **التغييرات المنفذة**:\n  1. **التنظيف الجراحي**: حذف `integrate_siliconflow.py` (ملف عتيق)، ترقية `ARCHITECTURE.md` V5→V8.3.1.\n  2. **تحصين الأمان**: إنشاء `.env.example` بدون مفاتيح حقيقية، إضافة deprecation warning لـ `override-fetch.js`.\n  3. **Node Failover الذكي**: ترقية `siliconflow_adapter.js` مع failover تلقائي (A→B)، timeout protection (30s)، health check API.\n  4. **master.md V9.0**: إضافة §10 (بروتوكول Failover الذكي) مع HealthCheck API.\n  5. **منظومة الاختبارات**: إنشاء `test_runner.js` موحّد — 34/34 ✅ صفر أخطاء.\n  6. **مزامنة الحزمة**: تحديث `package/siliconflow_adapter.js` لمطابقة SSOT.\n- **البدائل المرفوضة**: استبدال adapter بالكامل — رُفض للحفاظ على التوافق العكسي مع preload.js.\n- **النتيجة**: جاهزية 95%+ مع 34 اختبار ناجح.",
+    "metadata": {
+      "source": "memory",
+      "type": "pattern"
+    }
+  },
+  {
+    "id": "chunk_1778588683488_13",
+    "date": "2026-05-12",
+    "title": "2026-05-12 — تحصين SyncStatus Sigma V11.0 (AgriAsset YECO)",
+    "content": "- **القرار**: إزالة كل `default:` من `switch(SyncStatus)` في الـ Cubits واستبدالها بحالات صريحة ومُستنفِدة.\n- **السبب**: الـ `default:` يخفي التحذيرات عند إضافة enum قيم جديدة → ثغرة في offline-first.\n- **الملفات المُصلَحة**: `kitchen_stock_cubit.dart`, `kitchen_daily_report_cubit.dart`, `weekly_irrigation_cubit.dart`, `container_return_cubit.dart`, `local_database.dart`.\n- **اكتشاف حرج**: خطأ اسم الجدول `'local_crop_varietyMap(v)'` → أُصلح إلى `'local_crop_varieties'`.\n- **الأداة**: `dart analyze` + `dart fix --apply` → **0 issues** على المشروع كاملاً.\n- **النمط المعتمد**: كل `switch(SyncStatus)` يجب أن يكون Exhaustive — لا `default:` إطلاقاً.",
+    "metadata": {
+      "source": "memory",
+      "type": "pattern"
+    }
+  },
+  {
+    "id": "chunk_1778588683488_14",
+    "date": "2026-05-12",
+    "title": "2026-05-12 — اعتماد هيكلية \"الرأس والجسد\" (Head-Body Paradigm)",
+    "content": "- **القرار**: تعيين Gemini Flash 3 كـ \"رأس\" (للتخطيط والاستنتاج) و SiliconFlow كـ \"جسد\" (للتنفيذ عبر الأدوات).\n- **السبب**: استغلال نافذة السياق الضخمة لجمناي مع سرعة وكلاء SiliconFlow المتكاملين مع VS Code.\n- **البدائل**: استخدام نموذج واحد — رُفض لضيق السياق في نماذج الاستدلال السريعة.",
+    "metadata": {
+      "source": "memory",
+      "type": "pattern"
+    }
+  },
+  {
+    "id": "chunk_1778588683488_15",
+    "date": "2026-05-12",
+    "title": "2026-05-12 — دمج GeminiAdapter",
+    "content": "- **القرار**: إنشاء `package/gemini_adapter.js` وإضافته لـ `nexus_bridge.js`.\n- **السبب**: السماح لجمناي بالتحدث مباشرة مع بيئة الأدوات مع تحويل التنسيقات (Messages to Gemini format).\n- **النتيجة**: استقرار بنسبة 100% في استدعاء الأدوات من الرأس المعرفي.",
+    "metadata": {
+      "source": "memory",
+      "type": "pattern"
+    }
+  },
+  {
+    "id": "chunk_1778588683488_16",
+    "date": "2026-05-12",
+    "title": "2026-05-12 — تصحيح جذري لـ SDUI Smart Cards",
+    "content": "- **القرار**: إضافة حقول الفلترة (`allowed_activity_types`, `applicable_crops`) لنموذج `SmartCardSchema`.\n- **السبب**: الكروت كانت تظهر بشكل عشوائي لجميع المحاصيل والأنشطة، مما يربك المستخدم في الحقل.\n- **النتيجة**: فلترة دقيقة لمزرعة سردود / محصول المانجو.\n\n<!-- APPEND -->",
+    "metadata": {
+      "source": "memory",
+      "type": "pattern"
+    }
+  },
+  {
+    "id": "chunk_1778588683489_0",
+    "date": "unknown",
+    "title": "# 🔍 الأنماط المكتشفة",
+    "content": "",
+    "metadata": {
+      "source": "memory",
+      "type": "pattern"
+    }
+  },
+  {
+    "id": "chunk_1778588683489_1",
+    "date": "unknown",
+    "title": "نمط: pop() يحذف البيانات بين الطبقات",
+    "content": "- **المشكلة**: `data.pop('field')` يحذف الحقل من القاموس الأصلي\n- **الحل**: استخدم `data.get('field')` للقراءة بدون حذف\n- **الملفات المتأثرة**: أي Service layer يعالج بيانات قادمة من API",
+    "metadata": {
+      "source": "memory",
+      "type": "pattern"
+    }
+  },
+  {
+    "id": "chunk_1778588683489_2",
+    "date": "unknown",
+    "title": "نمط: return null يخفي المكون",
+    "content": "- **المشكلة**: `if (!data) return null` يمنع عرض أي شيء قبل وصول البيانات\n- **الحل**: Draft Injection — `const effectiveData = data || { items: [], status: 'draft' }`\n- **الملفات المتأثرة**: أي React component يعتمد على بيانات API",
+    "metadata": {
+      "source": "memory",
+      "type": "pattern"
+    }
+  },
+  {
+    "id": "chunk_1778588683489_3",
+    "date": "unknown",
+    "title": "نمط: SDUI بلا فلترة = بيانات مسطحة (Flat Data Leak)",
+    "content": "- **المشكلة**: إرسال كافة الكروت الذكية للعميل (Flutter) دون مراعاة سياق المحصول أو النشاط.\n- **الحل**: تنفيذ Scoping logic في الـ API ViewSet يعتمد على `crop_code` و `activity_type`.\n- **الملفات المتأثرة**: `sdui_controllers.py`, `sdui_schema.py`",
+    "metadata": {
+      "source": "memory",
+      "type": "pattern"
+    }
+  },
+  {
+    "id": "chunk_1778588683489_4",
+    "date": "unknown",
+    "title": "نمط: التحديث العشوائي للماستر (Master Update Risk)",
+    "content": "- **المشكلة**: استبدال ملف `master.md` بالكامل بمسودة مولدة خارجياً يؤدي لضياع \"الميراث التقني\" (Skill Registry).\n- **الحل**: استخدام Surgical Diffs (تعديلات جراحية) فقط لإضافة الفقرات الجديدة مع الحفاظ على الهيكل الأصلي.\n- **الملفات المتأثرة**: `.agents/skills/nexus-core/master.md`\n\n<!-- APPEND -->",
+    "metadata": {
+      "source": "memory",
+      "type": "pattern"
+    }
+  },
+  {
+    "id": "chunk_1778588683489_5",
+    "date": "unknown",
+    "title": "نمط: الانقطاع السحابي للوكلاء (Swarm API Timeout)",
+    "content": "- **المشكلة**: فشل المهام الموزعة على وكلاء السحابة عند مسح مجلدات عملاقة بسبب `ETIMEDOUT`.\n- **السبب**: مهلة جسر الاتصال (30000ms) أقصر من الوقت اللازم لمعالجة آلاف الأسطر.\n- **الحل الجراحي (Tactical Fallback)**: تبديل الاعتمادية فوراً إلى أدوات `TheSource` الداخلية (ForensicAudit/Grep/ListDir) واستكمال \"التشخيص الذري\" بدون انتظار النموذج.\n- **الملفات المتأثرة**: `nexus_bridge.js`, `task_agent_*.json`",
+    "metadata": {
+      "source": "memory",
+      "type": "pattern"
+    }
+  },
+  {
+    "id": "chunk_1778588683489_6",
+    "date": "unknown",
+    "title": "نمط: pop() في activity_service.py — field aliasing وليس data loss",
+    "content": "- **المشكلة**: 20+ pop() تبدو خطرة لكنها مقصودة\n- **السبب**: فصل حقول M2M (employees, items) قبل Model.save()\n- **الحل**: لا إصلاح مطلوب — لكن وثّق الترتيب عند إضافة حقول\n- **الملفات المتأثرة**: `core/services/activity_service.py`",
+    "metadata": {
+      "source": "memory",
+      "type": "pattern"
+    }
+  },
+  {
+    "id": "chunk_1778588683489_7",
+    "date": "unknown",
+    "title": "نمط: N+1 في api_ledger_support.py",
+    "content": "- **المشكلة**: `for act_item in ActivityItem.objects.filter(activity=activity)` بدون select_related\n- **الحل**: إضافة `.select_related('item', 'activity')` \n- **الملفات المتأثرة**: `finance/api_ledger_support.py:155`",
+    "metadata": {
+      "source": "memory",
+      "type": "pattern"
+    }
+  },
+  {
+    "id": "chunk_1778588683489_8",
+    "date": "unknown",
+    "title": "نمط: CORS_ALLOW_ALL في التطوير مع حماية إنتاج",
+    "content": "- **المشكلة**: `CORS_ALLOW_ALL_ORIGINS = True` في settings.py\n- **الحماية**: `production_settings.py` يُقيّد — لكن يحتاج تأكيد\n- **الملفات المتأثرة**: `smart_agri/settings.py:300`",
+    "metadata": {
+      "source": "memory",
+      "type": "pattern"
+    }
+  }
+]

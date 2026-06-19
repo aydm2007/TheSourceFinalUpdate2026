@@ -1,0 +1,33 @@
+receivers:
+  prometheus:
+    config:
+      scrape_configs:
+        - job_name: thesource-mcp
+          metrics_path: /metrics
+          scheme: http
+          authorization:
+            credentials_file: /etc/otel/secrets/mcp_api_key
+          static_configs:
+            - targets:
+                - thesource-mcp.thesource.svc.cluster.local:3847
+
+processors:
+  batch: {}
+  memory_limiter:
+    check_interval: 5s
+    limit_mib: 256
+
+exporters:
+  logging:
+    verbosity: basic
+  otlp:
+    endpoint: ${env:OTEL_EXPORTER_OTLP_ENDPOINT}
+    headers:
+      Authorization: ${env:OTEL_EXPORTER_OTLP_AUTH_HEADER}
+
+service:
+  pipelines:
+    metrics:
+      receivers: [prometheus]
+      processors: [memory_limiter, batch]
+      exporters: [logging, otlp]

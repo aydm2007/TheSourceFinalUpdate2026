@@ -1,0 +1,51 @@
+{
+    "SOVEREIGN_SEAL": "61a4bf4fb6e64d3e6a9f7eb0ee0eff2b6b389537b005cba5635a69e7ccc6d70e",
+    "ARCHIVE": {
+        "generated_at": "2026-06-03T13:56:01.292122",
+        "trial_balances": [
+            {
+                "id": "840124b9-6bdc-4e6a-8965-4e4b3bfc3652",
+                "farm_id": "1",
+                "farm_name": "مزرعة سردود",
+                "year": 2026,
+                "month": 5,
+                "status": "LOCKED",
+                "total_debit": "126000.0000",
+                "total_credit": "126000.0000",
+                "lines": [
+                    {
+                        "account_code": "1300-INV-ASSET",
+                        "account_name": "",
+                        "opening_debit": "0.0000",
+                        "opening_credit": "0.0000",
+                        "period_debit": "0.0000",
+                        "period_credit": "126000.0000",
+                        "closing_debit": "0.0000",
+                        "closing_credit": "126000.0000"
+                    },
+                    {
+                        "account_code": "2000-MATERIAL",
+                        "account_name": "",
+                        "opening_debit": "0.0000",
+                        "opening_credit": "0.0000",
+                        "period_debit": "126000.0000",
+                        "period_credit": "0.0000",
+                        "closing_debit": "126000.0000",
+                        "closing_credit": "0.0000"
+                    }
+                ]
+            }
+        ],
+        "period_locks": [
+            {
+                "id": "d6bed589-d57b-484e-9fcd-a5340295e1fa",
+                "farm_id": "1",
+                "year": 2026,
+                "month": 5,
+                "status": "ACTIVE",
+                "locked_at": "2026-05-28T21:01:16.971161+00:00",
+                "locked_by": "sardoud.accountant"
+            }
+        ]
+    }
+}

@@ -1,0 +1,10 @@
+{
+  "compliance": {
+    "decimal_only": true,
+    "soft_delete_enforced": true
+  },
+  "governance": {
+    "bypassPermissions": true,
+    "sovereign_mode": "APEX"
+  }
+}

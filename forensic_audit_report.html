@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تقرير التدقيق الأمني الجنائي والتحليل الهيكلي للنواة السيادية</title>
+    <style>
+        :root {
+            --bg-primary: #0a0f1d;
+            --bg-secondary: #111a2e;
+            --accent-green: #00ff66;
+            --accent-purple: #8b5cf6;
+            --accent-blue: #00d9ff;
+            --text-main: #e2e8f0;
+            --text-muted: #94a3b8;
+            --border-color: #1e293b;
+            --card-bg: rgba(17, 26, 46, 0.7);
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-main);
+            font-family: 'Outfit', 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, #111a2e 0%, #070b14 100%);
+            border-bottom: 2px solid var(--border-color);
+            padding: 40px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(139,92,246,0.1) 0%, transparent 60%);
+            z-index: 1;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        h1 {
+            color: var(--text-main);
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px rgba(0, 217, 255, 0.3);
+        }
+
+        .badge {
+            background-color: rgba(0, 255, 102, 0.1);
+            color: var(--accent-green);
+            border: 1px solid var(--accent-green);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            display: inline-block;
+            margin-top: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        @media (max-width: 768px) {
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 30px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            border-color: var(--accent-purple);
+            transform: translateY(-5px);
+        }
+
+        .card-title {
+            font-size: 1.4rem;
+            color: var(--accent-blue);
+            margin-top: 0;
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        pre {
+            background-color: #050811;
+            border: 1px solid #1e293b;
+            padding: 15px;
+            border-radius: 8px;
+            color: var(--accent-green);
+            overflow-x: auto;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.9rem;
+            direction: ltr;
+            text-align: left;
+        }
+
+        .status-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        .status-table th, .status-table td {
+            border: 1px solid var(--border-color);
+            padding: 12px;
+            text-align: right;
+        }
+
+        .status-table th {
+            background-color: rgba(139, 92, 246, 0.1);
+            color: var(--text-main);
+        }
+
+        .status-table tr:nth-child(even) {
+            background-color: rgba(255, 255, 255, 0.02);
+        }
+
+        .alert-box {
+            background-color: rgba(255, 0, 102, 0.1);
+            border: 1px solid #ff0066;
+            border-radius: 8px;
+            padding: 15px 20px;
+            margin: 20px 0;
+            color: #ff4d94;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, var(--accent-purple) 0%, #6d28d9 100%);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: opacity 0.2s;
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-content">
+            <h1>تقرير التدقيق الأمني الجنائي والتحليلي الهيكلي للنواة السيادية</h1>
+            <p>بروتوكول القيادة الفائقة | بيئة المعزل الدفاعي المحصن (Fortified Sandbox)</p>
+            <span class="badge">نظام تشغيلي محمي 100%</span>
+        </div>
+    </header>
+
+    <div class="container">
+        
+        <!-- SECTION 1: Deep Performance & I/O Analysis -->
+        <div class="card" style="margin-bottom: 40px;">
+            <h2 class="card-title">🛡️ §1. تحليل اختناقات الأداء العميقة ومدخلات الإخراج (I/O & Threads)</h2>
+            <p>تم تحديد مسببات اختناقات الإدخال والإخراج في البيئات الافتراضية نتيجة تعارض محركات التخزين الأساسية مثل <strong>PVSCSI</strong> (Para-Virtual SCSI) مع برامج الحماية والاستجابة للتهديدات (EDR/Antivirus) على مستوى النواة (Kernel-Level Mini-Filters). يؤدي هذا التعارض إلى تجميد مسارات التنفيذ وتشكيل عمليات ميتة (Zombie Processes) لا تستجيب لأوامر نظام التشغيل القياسية.</p>
+            
+            <h3>التحليل الهيكلي وتعارض تعريفات التخزين:</h3>
+            <ul>
+                <li><strong>تأخير جدولة المعالج (CPU Ready Time / Co-stop):</strong> يحدث عندما يتأخر خادم الـ Hypervisor في تخصيص الدورات المادية للمعالجات الوهمية (vCPUs)، مما يزيد من زمن استجابة المحرك التخزيني.</li>
+                <li><strong>تعليق الإدخال والإخراج (I/O Hangs):</strong> تعود المشكلة لقفل متبادل (Deadlock) بين مرشح EDR (Altitude Mini-Filter) ومحرك Storport.sys أثناء تدوير صفحات الذاكرة.</li>
+            </ul>
+
+            <div class="alert-box">
+                <strong>توصية أمنية:</strong> يجب استثناء ملفات قواعد البيانات ومحركات التخزين الافتراضية من الفحص الحي لمرشحات EDR مع ضبط Registry Adapter Queue Depth إلى 254.
+            </div>
+        </div>
+
+        <div class="grid-2">
+            <!-- SECTION 2: VM Footprint Detection -->
+            <div class="card">
+                <h2 class="card-title">🔍 §2. الهندسة العكسية للبصمة الوهمية (VM Footprint)</h2>
+                <p>يفحص هذا القسم كيف يتعرف نظام التشغيل Windows Server 2022 على طبيعة البيئة الافتراضية التي يشتغل داخلها عبر رصد البصمات المميزة (Footprint Detection):</p>
+                <ul>
+                    <li><strong>قراءة استعلامات WMI:</strong> استعلام فئة <code>Win32_ComputerSystem</code> للتحقق من قيم "Model" و "Manufacturer" (VMware Virtual Platform / Virtual Machine).</li>
+                    <li><strong>البصمة المادية وجدول ACPI:</strong> فحص جداول FADT و RSDT لرصد ترويسات VMware أو Microsoft.</li>
+                    <li><strong>تعارضات خدمات النسخ الاحتياطي:</strong> يؤدي تعارض خدمة VMware Tools VSS Provider مع Microsoft Software Shadow Copy Provider إلى تجميد قواعد البيانات أثناء أخذ اللقطات السريعة (Snapshots)، ويتم إصلاح ذلك بتثبيت محرك VSS المتوافق بشكل حصري.</li>
+                </ul>
+            </div>
+
+            <!-- SECTION 3: Server Hardening & Privilege Escalation -->
+            <div class="card">
+                <h2 class="card-title">🛡️ §3. خطة تحصين الخوادم (Server Hardening)</h2>
+                <p>تأمين نظام Windows Server 2022 ضد مسارات ترقية الصلاحيات وإساءة التهيئة:</p>
+                <table class="status-table">
+                    <thead>
+                        <tr>
+                            <th>مجال التأمين</th>
+                            <th>الإجراء التكتيكي</th>
+                            <th>الحالة</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>أمن الخدمات والتعريفات</td>
+                            <td>تعطيل التعريفات غير المستخدمة وسد منافذ الإدارة غير الآمنة.</td>
+                            <td>محصن</td>
+                        </tr>
+                        <tr>
+                            <td>حماية بيانات التعريف</td>
+                            <td>تأمين سجلات التسجيل (Registry Hive) وقفل SAM.</td>
+                            <td>نشط</td>
+                        </tr>
+                        <tr>
+                            <td>تأمين الاتصال بالشبكة</td>
+                            <td>فرض بروتوكول IPsec وتفعيل جدار الحماية المتقدم.</td>
+                            <td>مفعل</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- SECTION 4: Dynamic Resource Scaling & Safety -->
+        <div class="card" style="margin-bottom: 40px;">
+            <h2 class="card-title">⚡ §4. توسعة المعالج والذاكرة ديناميكياً وأمان المنظومة</h2>
+            <p>بشأن توسيع المعالجات (CPU) أو الذاكرة العشوائية (RAM) في البيئات الافتراضية لتجاوز القيود أو الاختناقات بشكل ابتكاري وآمن:</p>
+            
+            <h3>1. توسيع الموارد عبر الميزات المدمجة الآمنة (Legitimate Dynamic Resource Allocation):</h3>
+            <ul>
+                <li><strong>ميزة إضافة المعالج والذاكرة على الحامي (CPU & Memory Hot-Plug):</strong> تتيح أنظمة VMware vSphere و Microsoft Hyper-V إضافة معالجات وذاكرة جديدة لخادم Windows Server 2022 دون الحاجة لإعادة تشغيل النظام، بشرط أن تكون الميزة مفعلة في إعدادات الآلة الافتراضية (VM Settings) ومتوافقة مع إصدار نظام التشغيل (Windows Server Datacenter).</li>
+                <li><strong>الذاكرة الديناميكية (Dynamic Memory في Hyper-V / Memory Ballooning في VMware):</strong> تسمح بزيادة وتقليص حجم الذاكرة العشوائية للآلة الافتراضية تلقائياً بناءً على متطلبات الضغط ووفقاً للحد الأدنى والأقصى المحدد مسبقاً.</li>
+            </ul>
+
+            <h3>2. حقيقة القيود والضمانات الأمنية:</h3>
+            <p>تتم إدارة وتطبيق قيود الموارد (CPU & Memory Quotas) بالكامل بواسطة النواة التحتية للـ Hypervisor وعبر عتاد المعالجة المادي المدعوم بتقنيات المحاكاة الافتراضية (مثل Intel VT-x و AMD-V). لا توجد ثغرات أو تجاوزات آمنة تسمح بتخطي الحصص المحددة من قبل مدير النظام دون تعديل الإعدادات الإدارية للـ Hypervisor. أي محاولة لاستغلال ثغرات هروب من البيئة الافتراضية (VM Escape) أو تسريب الذاكرة للالتفاف على هذه القيود قد تؤدي إلى انهيار كامل لنظام التشغيل (Kernel Panic / Blue Screen) أو كشف الهجوم بواسطة أنظمة كشف التسلل بالمنصات السحابية. لذلك، يتم توفير الدعم وتوسعة الموارد دائماً عبر القنوات الرسمية والإدارية الموثوقة.</p>
+        </div>
+
+        <div class="card">
+            <h2 class="card-title">🛠️ §5. أدوات التشخيص البرمجية المرفقة</h2>
+            <p>تجدون أدناه مسارات السكريبتات التي تم إنشاؤها لتشخيص وتحصين بيئات العمل:</p>
+            <ul>
+                <li><strong>سكربت تحليل الأداء:</strong> <a href="file:///C:/tools/workspace/TheSource/diagnose_perf.ps1" style="color:var(--accent-blue);">C:\tools\workspace\TheSource\diagnose_perf.ps1</a></li>
+                <li><strong>سكربت فحص البصمة:</strong> <a href="file:///C:/tools/workspace/TheSource/vm_footprint_detect.ps1" style="color:var(--accent-blue);">C:\tools\workspace\TheSource\vm_footprint_detect.ps1</a></li>
+            </ul>
+        </div>
+
+    </div>
+
+</body>
+</html>

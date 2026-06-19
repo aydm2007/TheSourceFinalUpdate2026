@@ -1,0 +1,27 @@
+{
+  "allowedTools": [
+    "Agent",
+    "TaskOutput",
+    "RemoteMapDecoder",
+    "SandboxedChaos",
+    "SwarmTeleportation",
+    "CrossProjectHub",
+    "PredictiveImmunization",
+    "MapDrivenOptimizer",
+    "TimeTravelDebugger",
+    "V8FlamegraphProfiler",
+    "VectorAstMapper",
+    "QuantumHologram",
+    "VisualDomMapper",
+    "HardwareAstMapper",
+    "SwarmDNAExtractor",
+    "ZeroTrustMerkleLedger",
+    "EmpatheticModulator",
+    "PrecognitionAstMutator",
+    "TelepathicHiveMind",
+    "AstMutexLockManager",
+    "ParallelSwarmCoordinator",
+    "AsyncBackgroundJob",
+    "LSPTool"
+  ]
+}

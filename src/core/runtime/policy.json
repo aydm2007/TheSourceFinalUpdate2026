@@ -1,0 +1,22 @@
+{
+  "allowedTools": [
+    "FileRead", "FileWrite", "FileEdit", "ViewCodeOutline", "Bash", "PowerShell",
+    "VectorSearch", "SwarmBroadcast", "DeepCoordinatorTask", "ParallelTest", "ChaosTest"
+  ],
+  "forbiddenCapabilities": [
+    "ROOT_SHELL", "UNRESTRICTED_NETWORK", "EVAL", "DIRECT_DB_DROP"
+  ],
+  "networkPolicies": [
+    "localhost", "api.agriasset.local"
+  ],
+  "executionBudgets": {
+    "cpuMs": 5000,
+    "memoryMB": 512,
+    "maxSteps": 50
+  },
+  "admissionControl": {
+    "maxQueueLength": 1000,
+    "bucketCapacity": 100,
+    "tokenRefillRateMs": 100
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "matrix": {
+    "toolInventorySchema": 10,
+    "authRbacSkillFiltering": 0,
+    "streamableHttpSseMetricsAdmin": 0,
+    "mcpResourcesReadResources": 10,
+    "sourceMapGpsProof": 15,
+    "forensicAuditReporting": 15,
+    "swarmAgentProof": 3,
+    "artifactLedgerDiscipline": 10
+  },
+  "total": 63
+}

@@ -1,0 +1,63 @@
+[
+  {
+    "axis": "instruction_following",
+    "selected": {
+      "status": "console_error",
+      "provider": "aether-console",
+      "model": "openai/gpt-oss-120b:free",
+      "startedAt": "2026-06-03T03:05:09.163Z",
+      "endedAt": "2026-06-03T03:05:53.801Z",
+      "exitCode": 0,
+      "signal": null,
+      "outputHash": "a14e43f47928ad70826119c6cc93b3ad40e38c550c8a8143d4bd420c2d73992f",
+      "outputBytes": 4028,
+      "transcriptHash": "4b43e994079ea26dc9a9e48c1d744439d679fa45e9c29249145b27b26cb16c23",
+      "transcriptBytes": 4219,
+      "score": {
+        "score": 60,
+        "structured": {
+          "score": 0,
+          "proofValid": false,
+          "required": [
+            "scope",
+            "constraints",
+            "evidence",
+            "uncertainty",
+            "residualRisk"
+          ],
+          "present": [],
+          "missing": [
+            "scope",
+            "constraints",
+            "evidence",
+            "uncertainty",
+            "residualRisk"
+          ],
+          "axisMatches": false
+        },
+        "keywordScore": 100,
+        "rubric": [
+          "scope",
+          "evidence",
+          "risk",
+          "uncertainty"
+        ],
+        "hits": [
+          "scope",
+          "evidence",
+          "risk",
+          "uncertainty"
+        ],
+        "missing": []
+      },
+      "output": "Default Skill: mcp-developer\nBootstrap: MCP runtime + provider router + context engine\n🧠 [Aether-Memory] Initiating semantic index curation...\n🔄 Re-indexing vector memory scopes...\n[Indexer] Refreshing semantic index...\n[Indexer] Done. Updated C:\\tools\\workspace\\TheSource\\data\\vector_index.json\n✅ [Memory] Semantic curation cycle completed successfully.\n\u001b[32m[Relay-Bridge] Active Provider set to: OPENROUTER (https://openrouter.ai/api/v1)\u001b[0m\n[Aether-Bridge] Legacy SiliconFlowAdapter initialized via RelayBridge.\n\n🚀 [Sovereign-Kernel] Booting Aether-Zenith V44.0-Singularity...\n[DB-Manager] Persistence database initialized successfully.\n📍 [Sovereign-Kernel] Structural GPS locked: C:\\tools\\workspace\\TheSource\\package\\cli.js.map\n👁️‍🗨️ [Sovereign-Kernel] Dynamic forensic watching enabled via Chokidar.\n🔐 [Sovereign-Vault] Secrets redaction layer active.\n🕐 [HLC] Boot timestamp: 1780455910885:00000\n✅ [Sovereign-Kernel] System Sovereign & Active. V44.0-Singularity\n\n[Preload Interceptor] Intercepted Anthropic URL: https://api.anthropic.com Method: HEAD Headers: {} Body: none\n[Preload Interceptor] Intercepted Anthropic URL: https://api.anthropic.com/api/eval/sdk-zAZezfDKGoZuXXKe Method: POST Headers: {\"Content-Type\":\"application/json\",\"x-api-key\":\"[REDACTED]\"} Body: {\"attributes\":{\"id\":\"c04639458b79339758a87a45b4f17c457dc17fd3b3dd65cf533c6677cc5cc9bf\",\"sessionId\":\"dcfbdc21-cef9-4337-bb1d-5cb0a8458ed5\",\"deviceID\":\"\n[Preload Interceptor] Intercepted Anthropic URL: https://api.anthropic.com/v1/messages?beta=true Method: POST Headers: {} Body: {\"model\":\"openai/gpt-oss-120b:free\",\"messages\":[{\"role\":\"user\",\"content\":[{\"type\":\"text\",\"text\":\"<system-reminder>\\nAs you answer the user's questions\n[Preload Interceptor] Intercepted Anthropic URL: https://api.anthropic.com/v1/messages?beta=true Method: POST Headers: {} Body: {\"model\":\"openai/gpt-oss-120b:free\",\"messages\":[{\"role\":\"user\",\"content\":[{\"type\":\"text\",\"text\":\"<system-reminder>\\nAs you answer the user's questions\n{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"duration_ms\":10858,\"duration_api_ms\":10573,\"num_turns\":1,\"result\":\"{\\\"axis\\\":\\\"instruction_following\\\",\\\"scope\\\":\\\"Adapting the selected console model into deterministic execution per TheSource protocol\\\",\\\"constraints\\\":[\\\"Follow CLAUDE.md directives\\\",\\\"Use GPS Anchor mapping for any code edits\\\",\\\"No AST modifications without cli.js.map\\\",\\\"Include artifact hashes and evidence in response\\\"],\\\"evidence\\\":[\\\"Tool call logs showing authentication initiation\\\",\\\"File read/write operations with timestamps\\\",\\\"Generated artifact hash: sha256-a46a2cf392e1\\\"],\\\"uncertainty\\\":\\\"Low – all required tools invoked and responses captured\\\",\\\"residualRisk\\\":\\\"Potential missing map coordinates for future edits; requires verification of cli.js.map availability\\\"}\",\"stop_reason\":\"end_turn\",\"session_id\":\"dcfbdc21-cef9-4337-bb1d-5cb0a8458ed5\",\"total_cost_usd\":0.029148,\"usage\":{\"input_tokens\":0,\"cache_creation_input_tokens\":0,\"cache_read_input_tokens\":0,\"output_tokens\":0,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":0,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[],\"speed\":\"standard\"},\"modelUsage\":{\"openai/gpt-oss-120b:free\":{\"inputTokens\":8851,\"outputTokens\":173,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":0,\"costUSD\":0.029148,\"contextWindow\":200000,\"maxOutputTokens\":32000}},\"permission_denials\":[],\"fast_mode_state\":\"off\",\"uuid\":\"c032230b-e5b3-40f9-a0e7-f9e820d1e22d\"}\n\n(node:7912) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/tools/workspace/TheSource/package/cli.js is not specified and it doesn't parse as CommonJS.\nReparsing as ES module because module syntax was detected. This incurs a performance overhead.\nTo eliminate this warning, add \"type\": \"module\" to C:\\tools\\workspace\\TheSource\\package\\package.json.\n(Use `node --trace-warnings ...` to show where the warning was created)",
+      "transcriptPreview": "Opening Sovereign Developer Console...\nModel: openai/gpt-oss-120b:free\nProvider: openrouter\nPlanner: openai/gpt-oss-120b:free via openrouter\nExecutor: openai/gpt-oss-120b:free via openrouter\nDefault Skill: mcp-developer\nBootstrap: MCP runtime + provider router + context engine\n🧠 [Aether-Memory] Initiating semantic index curation...\n🔄 Re-indexing vector memory scopes...\n[Indexer] Refreshing semantic index...\n[Indexer] Done. Updated C:\\tools\\workspace\\TheSource\\data\\vector_index.json\n✅ [Memory] Semantic curation cycle completed successfully.\n\u001b[32m[Relay-Bridge] Active Provider set to: OPENROUTER (https://openrouter.ai/api/v1)\u001b[0m\n[Aether-Bridge] Legacy SiliconFlowAdapter initialized via RelayBridge.\n\n🚀 [Sovereign-Kernel] Booting Aether-Zenith V44.0-Singularity...\n[DB-Manager] Persistence database initialized successfully.\n📍 [Sovereign-Kernel] Structural GPS locked: C:\\tools\\workspace\\TheSource\\package\\cli.js.map\n👁️‍🗨️ [Sovereign-Kernel] Dynamic forensic watching enabled via Chokidar.\n🔐 [Sovereign-Vault] Secrets redaction layer active.\n🕐 [HLC] Boot timestamp: 1780455910885:00000\n✅ [Sovereign-Kernel] System Sovereign & Active. V44.0-Singularity\n\n[Preload Interceptor] Intercepted Anthropic URL: https://api.anthropic.com Method: HEAD Headers: {} Body: none\n[Preload Interceptor] Intercepted Anthropic URL: https://api.anthropic.com/api/eval/sdk-zAZezfDKGoZuXXKe Method: POST Headers: {\"Content-Type\":\"application/json\",\"x-api-key\":\"[REDACTED]\"} Body: {\"attributes\":{\"id\":\"c04639",
+      "error": null
+    },
+    "claude": {
+      "status": "missing_key",
+      "env": "ANTHROPIC_API_KEY"
+    },
+    "directVictory": false
+  }
+]

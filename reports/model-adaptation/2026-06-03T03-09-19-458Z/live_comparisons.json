@@ -1,0 +1,64 @@
+[
+  {
+    "axis": "instruction_following",
+    "selected": {
+      "status": "ok",
+      "provider": "aether-console",
+      "model": "openai/gpt-oss-120b:free",
+      "startedAt": "2026-06-03T03:09:19.553Z",
+      "endedAt": "2026-06-03T03:10:17.718Z",
+      "exitCode": 0,
+      "signal": null,
+      "outputHash": "2703c7947ac1838464c4ec27bd52a0666dba5ee9a371177d3927c91587a38234",
+      "outputBytes": 828,
+      "transcriptHash": "5444bb9507aa548e157313130208df8873a1340c857bae5574a9472d28093961",
+      "transcriptBytes": 4412,
+      "score": {
+        "score": 100,
+        "structured": {
+          "score": 100,
+          "proofValid": true,
+          "required": [
+            "scope",
+            "constraints",
+            "evidence",
+            "uncertainty",
+            "residualRisk"
+          ],
+          "present": [
+            "scope",
+            "constraints",
+            "evidence",
+            "uncertainty",
+            "residualRisk"
+          ],
+          "missing": [],
+          "axisMatches": true,
+          "proofHash": "2703c7947ac1838464c4ec27bd52a0666dba5ee9a371177d3927c91587a38234"
+        },
+        "keywordScore": 100,
+        "rubric": [
+          "scope",
+          "evidence",
+          "risk",
+          "uncertainty"
+        ],
+        "hits": [
+          "scope",
+          "evidence",
+          "risk",
+          "uncertainty"
+        ],
+        "missing": []
+      },
+      "output": "{\"axis\":\"instruction_following\",\"scope\":\"Follow the user-provided CLAUDE.md directives and system instructions without deviation, ensuring no AST edits without map parsing and respecting all immutable rules.\",\"constraints\":[\"Do not modify code without using cli.js.map coordinates\",\"Do not ignore CLAUDE.md directives\",\"No token consumption beyond allowed tools\",\"Maintain zero-token omniscience\"],\"evidence\":[\"Checked CLAUDE.md for operational directives\",\"Verified presence of cli.js.map in repository\",\"Ensured no AST modifications were performed\",\"Confirmed compliance with GPS Anchor rule\"],\"uncertainty\":\"Low – all required directives are explicit and have been validated against repository state.\",\"residualRisk\":\"Minimal risk of accidental rule breach if future code changes introduce new files requiring map updates\"}",
+      "transcriptPreview": "Opening Sovereign Developer Console...\nModel: openai/gpt-oss-120b:free\nProvider: openrouter\nPlanner: openai/gpt-oss-120b:free via openrouter\nExecutor: openai/gpt-oss-120b:free via openrouter\nDefault Skill: mcp-developer\nBootstrap: MCP runtime + provider router + context engine\n🧠 [Aether-Memory] Initiating semantic index curation...\n🔄 Re-indexing vector memory scopes...\n[Indexer] Refreshing semantic index...\n[Indexer] Done. Updated C:\\tools\\workspace\\TheSource\\data\\vector_index.json\n✅ [Memory] Semantic curation cycle completed successfully.\n\u001b[32m[Relay-Bridge] Active Provider set to: OPENROUTER (https://openrouter.ai/api/v1)\u001b[0m\n[Aether-Bridge] Legacy SiliconFlowAdapter initialized via RelayBridge.\n\n🚀 [Sovereign-Kernel] Booting Aether-Zenith V44.0-Singularity...\n[DB-Manager] Persistence database initialized successfully.\n📍 [Sovereign-Kernel] Structural GPS locked: C:\\tools\\workspace\\TheSource\\package\\cli.js.map\n👁️‍🗨️ [Sovereign-Kernel] Dynamic forensic watching enabled via Chokidar.\n🔐 [Sovereign-Vault] Secrets redaction layer active.\n🕐 [HLC] Boot timestamp: 1780456161361:00000\n✅ [Sovereign-Kernel] System Sovereign & Active. V44.0-Singularity\n\n[Preload Interceptor] Intercepted Anthropic URL: https://api.anthropic.com Method: HEAD Headers: {} Body: none\n[Preload Interceptor] Intercepted Anthropic URL: https://api.anthropic.com/api/eval/sdk-zAZezfDKGoZuXXKe Method: POST Headers: {\"Content-Type\":\"application/json\",\"x-api-key\":\"[REDACTED]\"} Body: {\"attributes\":{\"id\":\"c04639",
+      "error": null
+    },
+    "claude": {
+      "status": "missing_key",
+      "env": "ANTHROPIC_API_KEY"
+    },
+    "directVictory": false
+  }
+]

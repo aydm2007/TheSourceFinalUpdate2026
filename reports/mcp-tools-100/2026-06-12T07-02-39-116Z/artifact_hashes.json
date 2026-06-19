@@ -1,0 +1,133 @@
+{
+  "generatedAt": "2026-06-12T07:03:48.539Z",
+  "runId": "2026-06-12T07-02-39-116Z",
+  "note": "Hashes for current artifacts except artifact_hashes.json itself. The self-hash is recorded in Shadow Ledger.",
+  "artifacts": [
+    {
+      "path": "reports/mcp-tools-100/2026-06-12T07-02-39-116Z/environment.json",
+      "kind": "environment",
+      "bytes": 917,
+      "sha256": "28784506dd16006b1a8a374f2954f0146ba4b0bded380460240427c048c36c87"
+    },
+    {
+      "path": "reports/mcp-tools-100/2026-06-12T07-02-39-116Z/test_mcp_integration.log",
+      "kind": "command-log",
+      "bytes": 1835,
+      "sha256": "f86c3ddc6e0e44fd485ab9dca5612def523ba7fd34371345db8d8380d91e9523"
+    },
+    {
+      "path": "reports/mcp-tools-100/2026-06-12T07-02-39-116Z/cli_map_verify.log",
+      "kind": "command-log",
+      "bytes": 1860,
+      "sha256": "252c87c7c8d122e22340a69f116f53ed9eb526ae59e0f97cfdb6ddccc4d43dff"
+    },
+    {
+      "path": "reports/mcp-tools-100/2026-06-12T07-02-39-116Z/tool_source_alignment.log",
+      "kind": "command-log",
+      "bytes": 13288,
+      "sha256": "5777ed1a38370693e332cc8f0765bdf24d61b11190b18ab57cfc26eb6cdc27da"
+    },
+    {
+      "path": "reports/mcp-tools-100/2026-06-12T07-02-39-116Z/agent_swarm_alignment.log",
+      "kind": "command-log",
+      "bytes": 29898,
+      "sha256": "e38a560d193d0fab3251fa330cc0de43f6f89f0a4c853d599ae130d223873152"
+    },
+    {
+      "path": "reports/mcp-tools-100/2026-06-12T07-02-39-116Z/native_mcp_verify.log",
+      "kind": "command-log",
+      "bytes": 3864,
+      "sha256": "13f9be952e1cb88cac2983625119e2307e23729206391c636d96ee2e0c4378fb"
+    },
+    {
+      "path": "reports/mcp-tools-100/2026-06-12T07-02-39-116Z/global_production_gate.log",
+      "kind": "command-log",
+      "bytes": 802,
+      "sha256": "4b62ac4f6f2bc49f2192a46382d07942b370270b54eb0b4ce41073c9a2c34e8f"
+    },
+    {
+      "path": "reports/mcp-tools-100/2026-06-12T07-02-39-116Z/sovereign_90_sweep.log",
+      "kind": "command-log",
+      "bytes": 1744,
+      "sha256": "5134617d38bf2008897b0adf79176fcef670d6ddc0a7ead4e652a9213ba715a5"
+    },
+    {
+      "path": "reports/mcp-tools-100/2026-06-12T07-02-39-116Z/live_ui_verify.log",
+      "kind": "command-log",
+      "bytes": 1223,
+      "sha256": "91183794c6d7d0f69bcdb931585a64d2100364834daaae753878504d08ff15c3"
+    },
+    {
+      "path": "reports/mcp-tools-100/2026-06-12T07-02-39-116Z/vitest_after.log",
+      "kind": "command-log",
+      "bytes": 14129,
+      "sha256": "df4404ca638cdf182b574c517352783e717b802b0aab253ef9d67071b04674a3"
+    },
+    {
+      "path": "reports/mcp-tools-100/2026-06-12T07-02-39-116Z/mcp_resources.json",
+      "kind": "mcp-resources",
+      "bytes": 34623,
+      "sha256": "bc8f3224bca9af0af2f084c3c9de4b08e68f434943ccdcee60a4a0c0f066de54"
+    },
+    {
+      "path": "reports/mcp-tools-100/2026-06-12T07-02-39-116Z/streamable_http_transcript.json",
+      "kind": "transport-proof",
+      "bytes": 247,
+      "sha256": "dd423408138a423020376ba75ad84a32660cd74b7445f95ed89e269b54a8b94d"
+    },
+    {
+      "path": "reports/mcp-tools-100/2026-06-12T07-02-39-116Z/native_mcp_evidence.json",
+      "kind": "native-mcp-proof",
+      "bytes": 1939,
+      "sha256": "d32a2811d1ce6d1349de8bbd8ce3cf70511f430b827fa63f0d2706f5340dae41"
+    },
+    {
+      "path": "reports/mcp-tools-100/2026-06-12T07-02-39-116Z/source_map_tool_proofs.json",
+      "kind": "source-map-proof",
+      "bytes": 3052,
+      "sha256": "bf3a8ad99d856524d6523c7584c77d11557b0a1a1893bef6bfd5a74b94bba793"
+    },
+    {
+      "path": "reports/mcp-tools-100/2026-06-12T07-02-39-116Z/tool_source_alignment.json",
+      "kind": "tool-source-alignment",
+      "bytes": 11615,
+      "sha256": "aa6e38cc7a2ef8c9bdeb4ad27b8009a8170aeb7ad34381d6d679f50f5387f801"
+    },
+    {
+      "path": "reports/mcp-tools-100/2026-06-12T07-02-39-116Z/agent_swarm_alignment.json",
+      "kind": "agent-swarm-alignment",
+      "bytes": 26896,
+      "sha256": "761e792e54afe7ed3c5d832ac84a121fb55df006bdc63d5cd3f9df13d34506d0"
+    },
+    {
+      "path": "reports/mcp-tools-100/2026-06-12T07-02-39-116Z/gate_extracts.json",
+      "kind": "gate-proof",
+      "bytes": 57898,
+      "sha256": "a419b631141819f5ce5c2ba6a5b1a9cb332e2b2adf4f921ee3b2ddca94c937a8"
+    },
+    {
+      "path": "reports/mcp-tools-100/2026-06-12T07-02-39-116Z/summary.json",
+      "kind": "summary",
+      "bytes": 724,
+      "sha256": "89d93b0ecd4687876bf567fc9a4021492e7f999ebc39fcbe3907e05875b4bafd"
+    },
+    {
+      "path": "reports/mcp-tools-100/2026-06-12T07-02-39-116Z/scores.json",
+      "kind": "scores",
+      "bytes": 305,
+      "sha256": "9b06ae9a8d37838892b9c6f6a3245b53815f22e8d0f8094822e6960b213aa433"
+    },
+    {
+      "path": "reports/mcp-tools-100/2026-06-12T07-02-39-116Z/forensic_report.md",
+      "kind": "forensic-report-md",
+      "bytes": 6452,
+      "sha256": "63b25dfc6d27e773f0ed039d89455c2bdf127c569382485d1534c39bcb634150"
+    },
+    {
+      "path": "reports/mcp-tools-100/2026-06-12T07-02-39-116Z/forensic_report.html",
+      "kind": "forensic-report-html",
+      "bytes": 6828,
+      "sha256": "856dd43b66e333ea891cb7aa024e8d62ce49a04f9a98f708609bf74ff8ccf1f2"
+    }
+  ]
+}

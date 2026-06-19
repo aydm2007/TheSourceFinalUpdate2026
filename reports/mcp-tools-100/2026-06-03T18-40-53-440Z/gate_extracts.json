@@ -1,0 +1,373 @@
+{
+  "generatedAt": "2026-06-03T18:41:35.525Z",
+  "gates": {
+    "testMcpIntegration": {
+      "status": "pass",
+      "parsed": null,
+      "exitCode": 0
+    },
+    "cliMap": {
+      "status": "pass",
+      "parsed": {
+        "status": "pass",
+        "timestamp": "2026-06-03T18:41:01.678Z",
+        "workspaceRoot": "C:\\tools\\workspace\\TheSource",
+        "cli": {
+          "exists": true,
+          "bytes": 13050081,
+          "lastModified": "2026-05-30T03:41:13.738Z"
+        },
+        "cliMap": {
+          "exists": true,
+          "bytes": 59766257,
+          "lastModified": "2026-04-02T14:55:13.000Z"
+        },
+        "metadata": {
+          "version": 3,
+          "file": null,
+          "sourceCount": 4756,
+          "sourcesContentCount": 4756,
+          "firstSources": [
+            "../node_modules/lodash-es/_listCacheClear.js",
+            "../node_modules/lodash-es/eq.js",
+            "../node_modules/lodash-es/_assocIndexOf.js",
+            "../node_modules/lodash-es/_listCacheDelete.js",
+            "../node_modules/lodash-es/_listCacheGet.js"
+          ],
+          "lastSources": [
+            "../src/cli/handlers/agents.ts",
+            "../src/cli/handlers/autoMode.ts",
+            "../src/cli/update.ts",
+            "../src/main.tsx",
+            "../src/entrypoints/cli.tsx"
+          ]
+        },
+        "visualDom": {
+          "status": "dom_mapped",
+          "components": 1504,
+          "hooks": 50,
+          "pages": 1,
+          "stores": 1,
+          "contentAnalyzed": 1906,
+          "mode": "static_sourcemap_topology"
+        },
+        "liveUiMonitoring": {
+          "status": "not_proven",
+          "reason": "This verifier reads SourceMap topology only; it does not capture runtime DOM, accessibility tree, or screenshots."
+        }
+      },
+      "exitCode": 0
+    },
+    "nativeMcp": {
+      "status": "pass",
+      "parsed": {
+        "generatedAt": "2026-06-03T18:41:03.035Z",
+        "workspace": "C:\\tools\\workspace\\TheSource",
+        "nativeMcpLauncher": "C:\\tools\\workspace\\TheSource\\launch_native_mcp.cmd",
+        "bridge": {
+          "enforcementMode": "STRICT",
+          "remoteMcpEnabled": true,
+          "declaredAllowedTools": 129,
+          "exposedMcpTools": 38
+        },
+        "http": {
+          "baseUrl": "http://127.0.0.1:3847",
+          "apiKeySource": "MCP_API_KEY",
+          "unauthMetricsDenied": true,
+          "unauthMcpDenied": true,
+          "serverReachable": true,
+          "authenticated": {
+            "metrics": {
+              "ok": true,
+              "statusCode": 200
+            },
+            "mcpSse": {
+              "ok": true,
+              "statusCode": 200,
+              "contentType": "text/event-stream"
+            },
+            "streamableHttp": {
+              "ok": true,
+              "toolCount": 20,
+              "fileManagerExposed": true,
+              "readOnlyToolCallOk": true,
+              "transport": "streamable-http"
+            },
+            "allTools": {
+              "ok": true,
+              "statusCode": 200,
+              "toolCount": 37
+            },
+            "toolSmoke": {
+              "ok": true,
+              "via": "streamable-http",
+              "readOnlyToolCallOk": true
+            }
+          }
+        },
+        "toolFiltering": {
+          "bootstrap": {
+            "expected": [
+              "nexus_AskUserQuestion",
+              "nexus_CognitiveRouter",
+              "nexus_LoadSkill",
+              "nexus_SwarmHandoff"
+            ],
+            "actual": [
+              "nexus_AskUserQuestion",
+              "nexus_CognitiveRouter",
+              "nexus_LoadSkill",
+              "nexus_SwarmHandoff"
+            ],
+            "ok": true
+          },
+          "skills": {
+            "mcpDeveloperToolCount": 20,
+            "cloudOpusMentorToolCount": 22,
+            "swarmToolCount": 23,
+            "swarmManagerActions": [
+              "Agent",
+              "SwarmPipelineOrchestrator",
+              "ParallelSwarmCoordinator"
+            ],
+            "swarmCoordinatorExposed": true,
+            "agentExposed": true,
+            "mcpDeveloperFileActions": [
+              "FileRead",
+              "FileReadLines",
+              "Glob",
+              "Grep",
+              "ViewCodeOutline"
+            ],
+            "securityFileActions": [
+              "FileRead",
+              "FileReadLines",
+              "Glob",
+              "Grep",
+              "ViewCodeOutline"
+            ]
+          },
+          "authorization": {
+            "fileReadUnderMcpDeveloper": true,
+            "fileWriteDeniedUnderSecurityAudit": true,
+            "denialReasonClass": "SKILL_STRICT_DENIAL"
+          }
+        },
+        "level5": {
+          "localSensitiveRoute": "LOCAL_KAIROS_MCP",
+          "localSensitiveReason": "Security Directive: Core AST, Security, and Database edits must remain sovereignly local.",
+          "cloudAbstractRoute": "ANONYMOUS_CLOUD_OPUS",
+          "cloudAbstractReason": "Complex abstract reasoning routed to Cloud Opus with active Privacy Shield.",
+          "redactionApplied": true,
+          "cloudOpusRole": "planner_mentor_only",
+          "ok": true
+        },
+        "swarmDryRun": {
+          "ok": true,
+          "plan": {
+            "status": "planned",
+            "total_agents": 3,
+            "wave_size": 6,
+            "waves": 1,
+            "tasks": []
+          },
+          "ledgerEventTypes": [
+            "SWARM_WAVE_PLAN"
+          ]
+        },
+        "score": 100,
+        "status": "PASS_90_GATE"
+      },
+      "exitCode": 0
+    },
+    "globalProductionGate": {
+      "status": "pass",
+      "parsed": {
+        "generatedAt": "2026-06-03T18:41:04.299Z",
+        "score": 100,
+        "reportPath": "C:\\tools\\workspace\\TheSource\\reports\\sovereign_global_production_readiness_2026-06-02.md",
+        "nativeScore": 100,
+        "secretFindings": 0,
+        "streamableHttpProven": true,
+        "liveUiProof": 10,
+        "runtimeSwarm": 10
+      },
+      "exitCode": 0
+    },
+    "sovereign90Sweep": {
+      "status": "pass",
+      "parsed": {
+        "generatedAt": "2026-06-03T18:41:25.059Z",
+        "score": 98,
+        "reportPath": "C:\\tools\\workspace\\TheSource\\reports\\sovereign_90_readiness_report_2026-06-02.md",
+        "nativeScore": 100,
+        "cliMapStatus": "pass",
+        "docsAuditPassed": true,
+        "vitestIncluded": false,
+        "commandStatuses": [
+          {
+            "label": "native-mcp",
+            "status": "pass",
+            "exitCode": 0
+          },
+          {
+            "label": "cli-map",
+            "status": "pass",
+            "exitCode": 0
+          },
+          {
+            "label": "docs-audit",
+            "status": "pass",
+            "exitCode": 0
+          },
+          {
+            "label": "health-check",
+            "status": "pass",
+            "exitCode": 0
+          },
+          {
+            "label": "validate-fixes",
+            "status": "pass",
+            "exitCode": 0
+          },
+          {
+            "label": "test-runner",
+            "status": "pass",
+            "exitCode": 0
+          },
+          {
+            "label": "npm-audit",
+            "status": "pass",
+            "exitCode": 0
+          },
+          {
+            "label": "vitest",
+            "status": "fail",
+            "exitCode": null
+          }
+        ],
+        "npmAuditSummary": {
+          "info": 0,
+          "low": 0,
+          "moderate": 0,
+          "high": 0,
+          "critical": 0,
+          "total": 0
+        }
+      },
+      "exitCode": 0
+    },
+    "liveUi": {
+      "status": "pass",
+      "parsed": {
+        "ok": true,
+        "baseUrl": "http://127.0.0.1:3847",
+        "statusCode": 200,
+        "domSnapshotHash": "825fa152949108dd8faa41fcbfbb2483272f173a7a432b846183436f3ff01ac3",
+        "dom": {
+          "title": "Sovereign billing Dashboard | لوحة التحكم الإدارية للفوترة",
+          "elementCount": 357,
+          "scriptCount": 3,
+          "styleCount": 2
+        },
+        "sourceFile": "public/admin.html",
+        "sourceExists": true,
+        "screenshotHash": "4d1d2f21a55e8b8edd79cf94a581f9897a6e83bf0efb7bb1d2b2dcc7ce760dcf",
+        "accessibilityTreeHash": "3f489675b801b9876b4f5165905244935449b745c8819afd0a2356f48cb67dd8",
+        "cliMapSourceLink": "file:///c:/tools/workspace/TheSource/package/cli.js.map#L4750",
+        "limitation": "Proves live admin DOM delivery, screenshot rendering hash, and accessibility tree mapping to cli.js.map."
+      },
+      "exitCode": 0
+    },
+    "vitest": {
+      "status": "skipped"
+    }
+  },
+  "productionGate": {
+    "generatedAt": "2026-06-03T18:41:04.299Z",
+    "score": 100,
+    "reportPath": "C:\\tools\\workspace\\TheSource\\reports\\sovereign_global_production_readiness_2026-06-02.md",
+    "nativeScore": 100,
+    "secretFindings": 0,
+    "streamableHttpProven": true,
+    "liveUiProof": 10,
+    "runtimeSwarm": 10
+  },
+  "sovereign90Sweep": {
+    "generatedAt": "2026-06-03T18:41:25.059Z",
+    "score": 98,
+    "reportPath": "C:\\tools\\workspace\\TheSource\\reports\\sovereign_90_readiness_report_2026-06-02.md",
+    "nativeScore": 100,
+    "cliMapStatus": "pass",
+    "docsAuditPassed": true,
+    "vitestIncluded": false,
+    "commandStatuses": [
+      {
+        "label": "native-mcp",
+        "status": "pass",
+        "exitCode": 0
+      },
+      {
+        "label": "cli-map",
+        "status": "pass",
+        "exitCode": 0
+      },
+      {
+        "label": "docs-audit",
+        "status": "pass",
+        "exitCode": 0
+      },
+      {
+        "label": "health-check",
+        "status": "pass",
+        "exitCode": 0
+      },
+      {
+        "label": "validate-fixes",
+        "status": "pass",
+        "exitCode": 0
+      },
+      {
+        "label": "test-runner",
+        "status": "pass",
+        "exitCode": 0
+      },
+      {
+        "label": "npm-audit",
+        "status": "pass",
+        "exitCode": 0
+      },
+      {
+        "label": "vitest",
+        "status": "fail",
+        "exitCode": null
+      }
+    ],
+    "npmAuditSummary": {
+      "info": 0,
+      "low": 0,
+      "moderate": 0,
+      "high": 0,
+      "critical": 0,
+      "total": 0
+    }
+  },
+  "liveUi": {
+    "ok": true,
+    "baseUrl": "http://127.0.0.1:3847",
+    "statusCode": 200,
+    "domSnapshotHash": "825fa152949108dd8faa41fcbfbb2483272f173a7a432b846183436f3ff01ac3",
+    "dom": {
+      "title": "Sovereign billing Dashboard | لوحة التحكم الإدارية للفوترة",
+      "elementCount": 357,
+      "scriptCount": 3,
+      "styleCount": 2
+    },
+    "sourceFile": "public/admin.html",
+    "sourceExists": true,
+    "screenshotHash": "4d1d2f21a55e8b8edd79cf94a581f9897a6e83bf0efb7bb1d2b2dcc7ce760dcf",
+    "accessibilityTreeHash": "3f489675b801b9876b4f5165905244935449b745c8819afd0a2356f48cb67dd8",
+    "cliMapSourceLink": "file:///c:/tools/workspace/TheSource/package/cli.js.map#L4750",
+    "limitation": "Proves live admin DOM delivery, screenshot rendering hash, and accessibility tree mapping to cli.js.map."
+  }
+}

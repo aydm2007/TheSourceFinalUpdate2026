@@ -1,0 +1,31 @@
+{
+  "generatedAt": "2026-06-03T02:13:34.613Z",
+  "mode": "offline-contract-validation",
+  "selectedModel": "openai/gpt-oss-120b:free",
+  "threshold": 98,
+  "opusChallengerTargets": {
+    "deep_reasoning": 98,
+    "code_review": 98,
+    "long_context": 98,
+    "agentic_persistence": 97,
+    "natural_tool_calling": 97
+  },
+  "minimumScore": 93,
+  "passed": false,
+  "claim": "threshold-validation-only: do not claim direct Claude Opus victory without fresh baseline artifacts",
+  "axes": [
+    "deep_reasoning",
+    "tool_calling",
+    "natural_tool_calling",
+    "mcp_compliance",
+    "repo_debugging",
+    "code_review",
+    "long_context",
+    "agentic_persistence",
+    "security",
+    "ui_proof",
+    "artifact_discipline",
+    "retry_failover",
+    "instruction_following"
+  ]
+}

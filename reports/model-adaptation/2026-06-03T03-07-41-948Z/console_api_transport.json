@@ -1,0 +1,8 @@
+{
+  "requested": true,
+  "status": "error",
+  "url": "http://localhost:3847/health",
+  "startedAt": "2026-06-03T03:07:41.951Z",
+  "endedAt": "2026-06-03T03:07:42.012Z",
+  "error": "fetch failed"
+}

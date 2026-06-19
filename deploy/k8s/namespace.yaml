@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: thesource
+  labels:
+    app.kubernetes.io/name: thesource
+    app.kubernetes.io/part-of: sovereign-mcp-platform

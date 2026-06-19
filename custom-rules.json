@@ -1,0 +1,25 @@
+{
+  "rules": [
+    {
+      "id": "R001",
+      "description": "Disallow use of eval() in JavaScript files",
+      "severity": "warning",
+      "pattern": "eval\\s*\\(",
+      "message": "Avoid using eval() as it can lead to security vulnerabilities."
+    },
+    {
+      "id": "R002",
+      "description": "Prevent committing large binary files (>5MB)",
+      "severity": "warning",
+      "fileSizeLimitMB": 5,
+      "message": "Large binary files should be stored outside the repository or managed via LFS."
+    },
+    {
+      "id": "R003",
+      "description": "Enforce strict mode in all JS modules",
+      "severity": "warning",
+      "pattern": "^\\s*['\"]use strict['\"];",
+      "message": "Add 'use strict' at the top of each JavaScript file to enable strict mode."
+    }
+  ]
+}

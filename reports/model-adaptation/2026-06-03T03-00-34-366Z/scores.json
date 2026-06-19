@@ -1,0 +1,58 @@
+[
+  {
+    "axis": "deep_reasoning",
+    "model": "openai/gpt-oss-120b:free",
+    "provider": "openrouter",
+    "score": 100,
+    "failedChecks": []
+  },
+  {
+    "axis": "tool_calling",
+    "model": "openai/gpt-oss-120b:free",
+    "provider": "openrouter",
+    "score": 100,
+    "failedChecks": []
+  },
+  {
+    "axis": "natural_tool_calling",
+    "model": "openai/gpt-oss-120b:free",
+    "provider": "openrouter",
+    "score": 100,
+    "failedChecks": []
+  },
+  {
+    "axis": "code_review",
+    "model": "openai/gpt-oss-120b:free",
+    "provider": "openrouter",
+    "score": 100,
+    "failedChecks": []
+  },
+  {
+    "axis": "long_context",
+    "model": "openai/gpt-oss-120b:free",
+    "provider": "openrouter",
+    "score": 100,
+    "failedChecks": []
+  },
+  {
+    "axis": "agentic_persistence",
+    "model": "openai/gpt-oss-120b:free",
+    "provider": "openrouter",
+    "score": 100,
+    "failedChecks": []
+  },
+  {
+    "axis": "security",
+    "model": "openai/gpt-oss-120b:free",
+    "provider": "openrouter",
+    "score": 100,
+    "failedChecks": []
+  },
+  {
+    "axis": "instruction_following",
+    "model": "openai/gpt-oss-120b:free",
+    "provider": "openrouter",
+    "score": 100,
+    "failedChecks": []
+  }
+]

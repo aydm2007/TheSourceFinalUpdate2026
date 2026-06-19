@@ -1,0 +1,52 @@
+[
+  {
+    "path": "C:\\tools\\workspace\\TheSource\\reports\\model-adaptation\\2026-06-03T03-10-40-057Z\\summary.json",
+    "sha256": "bd98ce3bfc57373f26ea504ac450a5ec5d3aaca6a7876c414f6044f54e643359",
+    "bytes": 2572
+  },
+  {
+    "path": "C:\\tools\\workspace\\TheSource\\reports\\model-adaptation\\2026-06-03T03-10-40-057Z\\scores.json",
+    "sha256": "44e07d2493e622ec06a8c12d66d8b8eb31fb8ed1f68baf086da4081f99e4d6bf",
+    "bytes": 1215
+  },
+  {
+    "path": "C:\\tools\\workspace\\TheSource\\reports\\model-adaptation\\2026-06-03T03-10-40-057Z\\transcripts.json",
+    "sha256": "b2e18ed12c2fb103d1f44d2647f90ac132344e3454163363c69c643ab554d6b7",
+    "bytes": 28857
+  },
+  {
+    "path": "C:\\tools\\workspace\\TheSource\\reports\\model-adaptation\\2026-06-03T03-10-40-057Z\\readiness.json",
+    "sha256": "df830e74c00488234b902f684d2a7a011e8e01b0a1141432a87f58c48b09a4d8",
+    "bytes": 1190
+  },
+  {
+    "path": "C:\\tools\\workspace\\TheSource\\reports\\model-adaptation\\2026-06-03T03-10-40-057Z\\console_api_transport.json",
+    "sha256": "e43ec61852df56b7d87e5f76beb69337f7d554e2595cca3936a6331e935415ee",
+    "bytes": 94
+  },
+  {
+    "path": "C:\\tools\\workspace\\TheSource\\reports\\model-adaptation\\2026-06-03T03-10-40-057Z\\live_comparisons.json",
+    "sha256": "9dd8a9b0d0a3c11934fa3f44d3f5dfa60024fe1ca21a3581b2b41138cc5c7feb",
+    "bytes": 1335
+  },
+  {
+    "path": "C:\\tools\\workspace\\TheSource\\reports\\model-adaptation\\2026-06-03T03-10-40-057Z\\comparison_matrix.json",
+    "sha256": "951d85f4bd73a371964a1c2612b92dc32d45e9817f118443b783651d7157fc78",
+    "bytes": 3719
+  },
+  {
+    "path": "C:\\tools\\workspace\\TheSource\\reports\\model-adaptation\\2026-06-03T03-10-40-057Z\\before_after_method_matrix.json",
+    "sha256": "fd70d711c12888b8861c9379c1727630f76660bda6ca6bc103f5b8183201fa0a",
+    "bytes": 4692
+  },
+  {
+    "path": "C:\\tools\\workspace\\TheSource\\reports\\model-adaptation\\2026-06-03T03-10-40-057Z\\comparison_report.md",
+    "sha256": "2eb9d0f0dc97b1a8cbfdbf4461b052dcdfcbd73cb520030bbabc4b4d6914a6f4",
+    "bytes": 2494
+  },
+  {
+    "path": "C:\\tools\\workspace\\TheSource\\reports\\model-adaptation\\2026-06-03T03-10-40-057Z\\before_after_method_report.md",
+    "sha256": "4c1de3e7491d21b9bf6de58c2bb214966eec8d8d6eef1e2578c323e6fed4a79e",
+    "bytes": 3018
+  }
+]

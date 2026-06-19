@@ -1,0 +1,64 @@
+# MCP Server Tools 100 Certification Report
+
+Generated: 2026-06-03T18:49:33.578Z
+Run ID: 2026-06-03T18-48-39-059Z
+
+## Final Score: 81/100
+
+Result: provisional. One or more lanes are missing fresh proof or matching artifacts.
+
+## Atomic Score Matrix
+
+| Lane | Points |
+| --- | ---: |
+| Tool inventory/schema | 10/10 |
+| Auth/RBAC/skill filtering | 11/15 |
+| Streamable HTTP/SSE/metrics/admin | 0/15 |
+| MCP resources/read resources | 10/10 |
+| SourceMap/GPS proof | 15/15 |
+| Forensic audit/reporting | 15/15 |
+| Swarm/agent proof | 10/10 |
+| Artifact + Shadow Ledger discipline | 10/10 |
+
+## Evidence
+
+SHA-256 source of truth: `artifact_hashes.json` for regular artifacts, and Shadow Ledger for `artifact_hashes.json` itself.
+
+- `reports/mcp-tools-100/2026-06-03T18-48-39-059Z/environment.json` - environment
+- `reports/mcp-tools-100/2026-06-03T18-48-39-059Z/test_mcp_integration.log` - command-log
+- `reports/mcp-tools-100/2026-06-03T18-48-39-059Z/cli_map_verify.log` - command-log
+- `reports/mcp-tools-100/2026-06-03T18-48-39-059Z/native_mcp_verify.log` - command-log
+- `reports/mcp-tools-100/2026-06-03T18-48-39-059Z/global_production_gate.log` - command-log
+- `reports/mcp-tools-100/2026-06-03T18-48-39-059Z/sovereign_90_sweep.log` - command-log
+- `reports/mcp-tools-100/2026-06-03T18-48-39-059Z/live_ui_verify.log` - command-log
+- `reports/mcp-tools-100/2026-06-03T18-48-39-059Z/vitest_after.log` - command-log
+- `reports/mcp-tools-100/2026-06-03T18-48-39-059Z/mcp_resources.json` - mcp-resources
+- `reports/mcp-tools-100/2026-06-03T18-48-39-059Z/streamable_http_transcript.json` - transport-proof
+- `reports/mcp-tools-100/2026-06-03T18-48-39-059Z/native_mcp_evidence.json` - native-mcp-proof
+- `reports/mcp-tools-100/2026-06-03T18-48-39-059Z/source_map_tool_proofs.json` - source-map-proof
+- `reports/mcp-tools-100/2026-06-03T18-48-39-059Z/gate_extracts.json` - gate-proof
+- `reports/mcp-tools-100/2026-06-03T18-48-39-059Z/summary.json` - summary
+- `reports/mcp-tools-100/2026-06-03T18-48-39-059Z/scores.json` - scores
+- `reports/mcp-tools-100/2026-06-03T18-48-39-059Z/artifact_hashes.json` - artifact-hashes
+- `reports/mcp-tools-100/2026-06-03T18-48-39-059Z/forensic_report.md` - forensic-report-md
+- `reports/mcp-tools-100/2026-06-03T18-48-39-059Z/forensic_report.html` - forensic-report-html
+
+## Map Anchors
+
+- Generated: {"file":"package/cli.js","line":8,"column":1924}
+- Original: {"source":"../node_modules/lodash-es/_listCacheClear.js","line":8,"column":0,"name":"sample"}
+
+## Gate Status
+
+- testMcpIntegration: pass
+- cliMap: pass
+- nativeMcp: pass
+- globalProductionGate: pass
+- sovereign90Sweep: pass
+- liveUi: pass
+- vitest: pass
+
+## Remaining Risk
+
+- Do not claim 100/100 until every lane reaches full points with fresh artifacts.
+- Streamable HTTP/SSE/metrics/admin proof is incomplete, usually because admin API key/server evidence is missing.

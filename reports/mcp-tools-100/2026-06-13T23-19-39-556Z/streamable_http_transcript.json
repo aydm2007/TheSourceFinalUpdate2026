@@ -1,0 +1,11 @@
+{
+  "generatedAt": "2026-06-13T23:20:50.189Z",
+  "source": "npm run native-mcp:verify",
+  "transcript": {
+    "ok": true,
+    "toolCount": 20,
+    "fileManagerExposed": true,
+    "readOnlyToolCallOk": true,
+    "transport": "streamable-http"
+  }
+}

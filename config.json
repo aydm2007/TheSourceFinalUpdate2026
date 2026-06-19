@@ -1,0 +1,10 @@
+{
+  "consensusWeights": {
+    "Security_Guard": 0.4,
+    "Architect_Node": 0.3,
+    "Performance_Oracle": 0.2,
+    "QA_Sovereign": 0.25
+  },
+  "autoApprovePatterns": ["^ls", "^git status", "^node --version"],
+    "supportedLanguages": ["js","ts","json","py","dart"]
+}

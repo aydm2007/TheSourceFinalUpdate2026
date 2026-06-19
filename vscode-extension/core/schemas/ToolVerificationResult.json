@@ -1,0 +1,20 @@
+{
+  "tool_name": {
+    "type": "string",
+    "required": true
+  },
+  "status": {
+    "type": "enum",
+    "values": [
+      "PASS",
+      "FAIL",
+      "DEGRADED"
+    ]
+  },
+  "latency_ms": {
+    "type": "number"
+  },
+  "notes": {
+    "type": "string"
+  }
+}

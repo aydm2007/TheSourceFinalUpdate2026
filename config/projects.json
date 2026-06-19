@@ -1,0 +1,16 @@
+{
+  "projects": [
+    {
+      "id": "thesource",
+      "name": "The Source Engine",
+      "path": "C:\\tools\\workspace\\TheSource",
+      "description": "Primary repository for AgriAsset/TheSource environment"
+    },
+    {
+      "id": "examples",
+      "name": "Example Playground",
+      "path": "C:\\tools\\workspace\\TheSource\\examples",
+      "description": "Isolated sandbox examples for testing tools"
+    }
+  ]
+}

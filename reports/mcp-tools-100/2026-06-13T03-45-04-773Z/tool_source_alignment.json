@@ -1,0 +1,445 @@
+{
+  "status": "pass",
+  "generatedAt": "2026-06-13T03:45:16.109Z",
+  "workspaceRoot": "C:\\tools\\workspace\\TheSource",
+  "bridge": {
+    "path": "bridge.json",
+    "bridgeVersion": "45.1.0-Apex-ConsensusGate",
+    "enforcementMode": "AUDIT",
+    "remoteMcpEnabled": true,
+    "declaredAllowedTools": 130,
+    "sha256": "348c4d6a14273aa44be4937496b3dc4064f89290e7305d1be074618914e2f780"
+  },
+  "cli": {
+    "path": "package/cli.js",
+    "exists": true,
+    "sha256": "f506541f5220a7ee15964127dd18417dce846aced562e9a130969e2667001b8d"
+  },
+  "cliMap": {
+    "path": "package/cli.js.map",
+    "exists": true,
+    "sha256": "7965012b7a5fc9e09d8d747a04c5c32b94696924536e217f686bb1e7ee70a657",
+    "metadata": {
+      "version": 3,
+      "sourceCount": 4756,
+      "sourcesContentCount": 4756
+    }
+  },
+  "coverage": {
+    "scannedFiles": 418,
+    "bridgeTools": 130,
+    "projectAnchoredTools": 130,
+    "runtimeAnchoredTools": 130,
+    "sourceMapAnchoredTools": 33,
+    "sourceMapFirstPartyAnchoredTools": 32,
+    "missingProjectAnchors": [],
+    "missingRuntimeAnchors": []
+  },
+  "interpretation": {
+    "projectAnchors": "Every bridge tool must appear in governed project source or skill/test/verifier files.",
+    "runtimeAnchors": "Runtime anchors are preferred, but some tools may be governed through skill or verifier surfaces.",
+    "sourceMapAnchors": "Direct cli.js.map anchors are recorded when the compiled CLI bundle contains the tool name; MCP-only tools remain anchored through bridge/source files."
+  },
+  "samples": [
+    {
+      "tool": "FileRead",
+      "projectAnchor": {
+        "file": "nexus_bridge.js",
+        "line": 199,
+        "column": 14,
+        "kind": "runtime"
+      },
+      "sourceMapAnchor": {
+        "source": "../src/tools/PowerShellTool/PowerShellTool.tsx",
+        "line": 589,
+        "column": 56,
+        "kind": "first-party"
+      },
+      "projectAnchored": true,
+      "runtimeAnchored": true,
+      "sourceMapAnchored": true,
+      "sourceMapFirstPartyAnchored": true
+    },
+    {
+      "tool": "FileReadLines",
+      "projectAnchor": {
+        "file": "nexus_bridge.js",
+        "line": 409,
+        "column": 14,
+        "kind": "runtime"
+      },
+      "sourceMapAnchor": null,
+      "projectAnchored": true,
+      "runtimeAnchored": true,
+      "sourceMapAnchored": false,
+      "sourceMapFirstPartyAnchored": false
+    },
+    {
+      "tool": "FileWrite",
+      "projectAnchor": {
+        "file": "nexus_bridge.js",
+        "line": 656,
+        "column": 14,
+        "kind": "runtime"
+      },
+      "sourceMapAnchor": {
+        "source": "../src/components/permissions/FilePermissionDialog/FilePermissionDialog.tsx",
+        "line": 117,
+        "column": 7,
+        "kind": "first-party"
+      },
+      "projectAnchored": true,
+      "runtimeAnchored": true,
+      "sourceMapAnchored": true,
+      "sourceMapFirstPartyAnchored": true
+    },
+    {
+      "tool": "FileEdit",
+      "projectAnchor": {
+        "file": "nexus_bridge.js",
+        "line": 215,
+        "column": 14,
+        "kind": "runtime"
+      },
+      "sourceMapAnchor": {
+        "source": "../src/utils/diff.ts",
+        "line": 5,
+        "column": 15,
+        "kind": "first-party"
+      },
+      "projectAnchored": true,
+      "runtimeAnchored": true,
+      "sourceMapAnchored": true,
+      "sourceMapFirstPartyAnchored": true
+    },
+    {
+      "tool": "SurgicalDiff",
+      "projectAnchor": {
+        "file": "nexus_bridge.js",
+        "line": 391,
+        "column": 14,
+        "kind": "runtime"
+      },
+      "sourceMapAnchor": null,
+      "projectAnchored": true,
+      "runtimeAnchored": true,
+      "sourceMapAnchored": false,
+      "sourceMapFirstPartyAnchored": false
+    },
+    {
+      "tool": "AstChunkPatch",
+      "projectAnchor": {
+        "file": "nexus_bridge.js",
+        "line": 1064,
+        "column": 14,
+        "kind": "runtime"
+      },
+      "sourceMapAnchor": null,
+      "projectAnchored": true,
+      "runtimeAnchored": true,
+      "sourceMapAnchored": false,
+      "sourceMapFirstPartyAnchored": false
+    },
+    {
+      "tool": "ASTAutoPatch",
+      "projectAnchor": {
+        "file": "nexus_bridge.js",
+        "line": 6,
+        "column": 7,
+        "kind": "runtime"
+      },
+      "sourceMapAnchor": null,
+      "projectAnchored": true,
+      "runtimeAnchored": true,
+      "sourceMapAnchored": false,
+      "sourceMapFirstPartyAnchored": false
+    },
+    {
+      "tool": "ResolveConflict",
+      "projectAnchor": {
+        "file": "nexus_bridge.js",
+        "line": 1622,
+        "column": 14,
+        "kind": "runtime"
+      },
+      "sourceMapAnchor": null,
+      "projectAnchored": true,
+      "runtimeAnchored": true,
+      "sourceMapAnchored": false,
+      "sourceMapFirstPartyAnchored": false
+    },
+    {
+      "tool": "UndoChanges",
+      "projectAnchor": {
+        "file": "nexus_bridge.js",
+        "line": 1578,
+        "column": 14,
+        "kind": "runtime"
+      },
+      "sourceMapAnchor": null,
+      "projectAnchored": true,
+      "runtimeAnchored": true,
+      "sourceMapAnchored": false,
+      "sourceMapFirstPartyAnchored": false
+    },
+    {
+      "tool": "NotebookEdit",
+      "projectAnchor": {
+        "file": "nexus_bridge.js",
+        "line": 456,
+        "column": 14,
+        "kind": "runtime"
+      },
+      "sourceMapAnchor": {
+        "source": "../src/bootstrap/state.ts",
+        "line": 980,
+        "column": 95,
+        "kind": "first-party"
+      },
+      "projectAnchored": true,
+      "runtimeAnchored": true,
+      "sourceMapAnchored": true,
+      "sourceMapFirstPartyAnchored": true
+    },
+    {
+      "tool": "Glob",
+      "projectAnchor": {
+        "file": "nexus_bridge.js",
+        "line": 524,
+        "column": 14,
+        "kind": "runtime"
+      },
+      "sourceMapAnchor": {
+        "source": "../src/utils/settings/toolValidationConfig.ts",
+        "line": 32,
+        "column": 6,
+        "kind": "first-party"
+      },
+      "projectAnchored": true,
+      "runtimeAnchored": true,
+      "sourceMapAnchored": true,
+      "sourceMapFirstPartyAnchored": true
+    },
+    {
+      "tool": "Grep",
+      "projectAnchor": {
+        "file": "nexus_bridge.js",
+        "line": 554,
+        "column": 14,
+        "kind": "runtime"
+      },
+      "sourceMapAnchor": {
+        "source": "../src/Tool.ts",
+        "line": 420,
+        "column": 22,
+        "kind": "first-party"
+      },
+      "projectAnchored": true,
+      "runtimeAnchored": true,
+      "sourceMapAnchored": true,
+      "sourceMapFirstPartyAnchored": true
+    },
+    {
+      "tool": "ViewCodeOutline",
+      "projectAnchor": {
+        "file": "nexus_bridge.js",
+        "line": 1536,
+        "column": 14,
+        "kind": "runtime"
+      },
+      "sourceMapAnchor": null,
+      "projectAnchored": true,
+      "runtimeAnchored": true,
+      "sourceMapAnchored": false,
+      "sourceMapFirstPartyAnchored": false
+    },
+    {
+      "tool": "LSPTool",
+      "projectAnchor": {
+        "file": "nexus_bridge.js",
+        "line": 425,
+        "column": 14,
+        "kind": "runtime"
+      },
+      "sourceMapAnchor": {
+        "source": "../src/services/lsp/manager.ts",
+        "line": 98,
+        "column": 10,
+        "kind": "first-party"
+      },
+      "projectAnchored": true,
+      "runtimeAnchored": true,
+      "sourceMapAnchored": true,
+      "sourceMapFirstPartyAnchored": true
+    },
+    {
+      "tool": "SemanticReference",
+      "projectAnchor": {
+        "file": "nexus_bridge.js",
+        "line": 828,
+        "column": 14,
+        "kind": "runtime"
+      },
+      "sourceMapAnchor": null,
+      "projectAnchored": true,
+      "runtimeAnchored": true,
+      "sourceMapAnchored": false,
+      "sourceMapFirstPartyAnchored": false
+    },
+    {
+      "tool": "SemanticSymbolLookup",
+      "projectAnchor": {
+        "file": "nexus_bridge.js",
+        "line": 1636,
+        "column": 14,
+        "kind": "runtime"
+      },
+      "sourceMapAnchor": null,
+      "projectAnchored": true,
+      "runtimeAnchored": true,
+      "sourceMapAnchored": false,
+      "sourceMapFirstPartyAnchored": false
+    },
+    {
+      "tool": "Insight",
+      "projectAnchor": {
+        "file": "nexus_bridge.js",
+        "line": 716,
+        "column": 14,
+        "kind": "runtime"
+      },
+      "sourceMapAnchor": {
+        "source": "../src/constants/outputStyles.ts",
+        "line": 33,
+        "column": 20,
+        "kind": "first-party"
+      },
+      "projectAnchored": true,
+      "runtimeAnchored": true,
+      "sourceMapAnchored": true,
+      "sourceMapFirstPartyAnchored": true
+    },
+    {
+      "tool": "ForensicAudit",
+      "projectAnchor": {
+        "file": "nexus_bridge.js",
+        "line": 501,
+        "column": 14,
+        "kind": "runtime"
+      },
+      "sourceMapAnchor": null,
+      "projectAnchored": true,
+      "runtimeAnchored": true,
+      "sourceMapAnchored": false,
+      "sourceMapFirstPartyAnchored": false
+    },
+    {
+      "tool": "AstIndexer",
+      "projectAnchor": {
+        "file": "nexus_bridge.js",
+        "line": 1760,
+        "column": 14,
+        "kind": "runtime"
+      },
+      "sourceMapAnchor": null,
+      "projectAnchored": true,
+      "runtimeAnchored": true,
+      "sourceMapAnchored": false,
+      "sourceMapFirstPartyAnchored": false
+    },
+    {
+      "tool": "GraphMemorySync",
+      "projectAnchor": {
+        "file": "nexus_bridge.js",
+        "line": 1650,
+        "column": 14,
+        "kind": "runtime"
+      },
+      "sourceMapAnchor": null,
+      "projectAnchored": true,
+      "runtimeAnchored": true,
+      "sourceMapAnchored": false,
+      "sourceMapFirstPartyAnchored": false
+    },
+    {
+      "tool": "Bash",
+      "projectAnchor": {
+        "file": "nexus_bridge.js",
+        "line": 231,
+        "column": 14,
+        "kind": "runtime"
+      },
+      "sourceMapAnchor": {
+        "source": "../src/utils/windowsPaths.ts",
+        "line": 161,
+        "column": 40,
+        "kind": "first-party"
+      },
+      "projectAnchored": true,
+      "runtimeAnchored": true,
+      "sourceMapAnchored": true,
+      "sourceMapFirstPartyAnchored": true
+    },
+    {
+      "tool": "PowerShell",
+      "projectAnchor": {
+        "file": "nexus_bridge.js",
+        "line": 970,
+        "column": 14,
+        "kind": "runtime"
+      },
+      "sourceMapAnchor": {
+        "source": "../src/utils/jsonRead.ts",
+        "line": 7,
+        "column": 24,
+        "kind": "first-party"
+      },
+      "projectAnchored": true,
+      "runtimeAnchored": true,
+      "sourceMapAnchored": true,
+      "sourceMapFirstPartyAnchored": true
+    },
+    {
+      "tool": "InteractiveTerminal",
+      "projectAnchor": {
+        "file": "nexus_bridge.js",
+        "line": 1592,
+        "column": 14,
+        "kind": "runtime"
+      },
+      "sourceMapAnchor": null,
+      "projectAnchored": true,
+      "runtimeAnchored": true,
+      "sourceMapAnchored": false,
+      "sourceMapFirstPartyAnchored": false
+    },
+    {
+      "tool": "ParallelTest",
+      "projectAnchor": {
+        "file": "nexus_bridge.js",
+        "line": 1746,
+        "column": 14,
+        "kind": "runtime"
+      },
+      "sourceMapAnchor": null,
+      "projectAnchored": true,
+      "runtimeAnchored": true,
+      "sourceMapAnchored": false,
+      "sourceMapFirstPartyAnchored": false
+    },
+    {
+      "tool": "FullRepairLoop",
+      "projectAnchor": {
+        "file": "nexus_bridge.js",
+        "line": 1705,
+        "column": 14,
+        "kind": "runtime"
+      },
+      "sourceMapAnchor": null,
+      "projectAnchored": true,
+      "runtimeAnchored": true,
+      "sourceMapAnchored": false,
+      "sourceMapFirstPartyAnchored": false
+    }
+  ]
+}

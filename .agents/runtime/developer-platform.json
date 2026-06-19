@@ -1,0 +1,17 @@
+{
+  "mode": "developer",
+  "workspaceRoot": "C:\\tools\\workspace\\TheSource",
+  "platform": "Sovereign MCP-Native Developer AI Platform",
+  "provider": "openrouter",
+  "baseURL": "https://openrouter.ai/api/v1",
+  "requestedModel": "openai/gpt-oss-120b:free",
+  "plannerModel": "openai/gpt-oss-120b:free",
+  "executorModel": "openai/gpt-oss-120b:free",
+  "mcpServers": [
+    "thesource-sovereign-http",
+    "thesource-local-stdio",
+    "aether-native-sovereign"
+  ],
+  "toolCount": 7,
+  "bootTimestamp": "2026-06-16T09:17:04.539Z"
+}

@@ -1,0 +1,101 @@
+{
+  "modules": {
+    "context_compressor": {
+      "file": "context_compressor.js",
+      "size_kb": 11.73,
+      "category": "🧪 The Fusion",
+      "dependencies": [],
+      "load_count": 0,
+      "last_loaded": null
+    },
+    "enter_plan_mode": {
+      "file": "enter_plan_mode.js",
+      "size_kb": 0.91,
+      "category": "🧠 The Head",
+      "dependencies": [],
+      "load_count": 0,
+      "last_loaded": null
+    },
+    "exit_plan_mode": {
+      "file": "exit_plan_mode.js",
+      "size_kb": 1.09,
+      "category": "🧠 The Head",
+      "dependencies": [],
+      "load_count": 0,
+      "last_loaded": null
+    },
+    "glob_tool": {
+      "file": "glob_tool.js",
+      "size_kb": 2.91,
+      "category": "👁️ The Vision",
+      "dependencies": [],
+      "load_count": 0,
+      "last_loaded": null
+    },
+    "permission_callbacks": {
+      "file": "permission_callbacks.js",
+      "size_kb": 8.68,
+      "category": "🛡️ Security",
+      "dependencies": [],
+      "load_count": 0,
+      "last_loaded": null
+    },
+    "sleep_tool": {
+      "file": "sleep_tool.js",
+      "size_kb": 0.76,
+      "category": "🦿 The Echo",
+      "dependencies": [],
+      "load_count": 0,
+      "last_loaded": null
+    },
+    "state_machine": {
+      "file": "state_machine.js",
+      "size_kb": 11.99,
+      "category": "🧪 The Fusion",
+      "dependencies": [],
+      "load_count": 0,
+      "last_loaded": null
+    },
+    "syncMemory": {
+      "file": "syncMemory.js",
+      "size_kb": 2.24,
+      "category": "📦 Uncategorized",
+      "dependencies": [],
+      "load_count": 0,
+      "last_loaded": null
+    },
+    "token_estimator": {
+      "file": "token_estimator.js",
+      "size_kb": 4.95,
+      "category": "📊 The Sovereign",
+      "dependencies": [],
+      "load_count": 0,
+      "last_loaded": null
+    },
+    "tool_search": {
+      "file": "tool_search.js",
+      "size_kb": 7.44,
+      "category": "📊 The Sovereign",
+      "dependencies": [],
+      "load_count": 0,
+      "last_loaded": null
+    },
+    "web_fetch": {
+      "file": "web_fetch.js",
+      "size_kb": 4.38,
+      "category": "👁️ The Vision",
+      "dependencies": [],
+      "load_count": 0,
+      "last_loaded": null
+    },
+    "web_search": {
+      "file": "web_search.js",
+      "size_kb": 3.67,
+      "category": "👁️ The Vision",
+      "dependencies": [],
+      "load_count": 0,
+      "last_loaded": null
+    }
+  },
+  "discovered": "2026-05-13T06:26:09.713Z"
+}

@@ -1,0 +1,7 @@
+{
+  "loadTimeMs": 120,
+  "sendLatencyMs": 45,
+  "attachmentUploadMs": 80,
+  "audioStartMs": 30,
+  "generatedAt": "{{TIMESTAMP}}"
+}

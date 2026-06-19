@@ -1,0 +1,146 @@
+[
+  {
+    "axis": "deep_reasoning",
+    "target": 98,
+    "offlineContractScore": 100,
+    "offlineStatus": "pass",
+    "selectedStatus": "cli_error",
+    "selectedScore": null,
+    "claudeStatus": "not_logged_in",
+    "claudeScore": null,
+    "winner": "unproven",
+    "claudeOutcome": "unproven_no_fresh_baseline",
+    "directVictory": false,
+    "proofState": "missing_live_evidence",
+    "missingEvidence": [
+      "selected:cli_error",
+      "claude:not_logged_in"
+    ]
+  },
+  {
+    "axis": "tool_calling",
+    "target": 95,
+    "offlineContractScore": 100,
+    "offlineStatus": "pass",
+    "selectedStatus": "cli_error",
+    "selectedScore": null,
+    "claudeStatus": "not_logged_in",
+    "claudeScore": null,
+    "winner": "unproven",
+    "claudeOutcome": "unproven_no_fresh_baseline",
+    "directVictory": false,
+    "proofState": "missing_live_evidence",
+    "missingEvidence": [
+      "selected:cli_error",
+      "claude:not_logged_in"
+    ]
+  },
+  {
+    "axis": "natural_tool_calling",
+    "target": 97,
+    "offlineContractScore": 100,
+    "offlineStatus": "pass",
+    "selectedStatus": "cli_error",
+    "selectedScore": null,
+    "claudeStatus": "not_logged_in",
+    "claudeScore": null,
+    "winner": "unproven",
+    "claudeOutcome": "unproven_no_fresh_baseline",
+    "directVictory": false,
+    "proofState": "missing_live_evidence",
+    "missingEvidence": [
+      "selected:cli_error",
+      "claude:not_logged_in"
+    ]
+  },
+  {
+    "axis": "code_review",
+    "target": 98,
+    "offlineContractScore": 100,
+    "offlineStatus": "pass",
+    "selectedStatus": "cli_error",
+    "selectedScore": null,
+    "claudeStatus": "not_logged_in",
+    "claudeScore": null,
+    "winner": "unproven",
+    "claudeOutcome": "unproven_no_fresh_baseline",
+    "directVictory": false,
+    "proofState": "missing_live_evidence",
+    "missingEvidence": [
+      "selected:cli_error",
+      "claude:not_logged_in"
+    ]
+  },
+  {
+    "axis": "long_context",
+    "target": 98,
+    "offlineContractScore": 100,
+    "offlineStatus": "pass",
+    "selectedStatus": "cli_error",
+    "selectedScore": null,
+    "claudeStatus": "not_logged_in",
+    "claudeScore": null,
+    "winner": "unproven",
+    "claudeOutcome": "unproven_no_fresh_baseline",
+    "directVictory": false,
+    "proofState": "missing_live_evidence",
+    "missingEvidence": [
+      "selected:cli_error",
+      "claude:not_logged_in"
+    ]
+  },
+  {
+    "axis": "agentic_persistence",
+    "target": 97,
+    "offlineContractScore": 100,
+    "offlineStatus": "pass",
+    "selectedStatus": "cli_error",
+    "selectedScore": null,
+    "claudeStatus": "not_logged_in",
+    "claudeScore": null,
+    "winner": "unproven",
+    "claudeOutcome": "unproven_no_fresh_baseline",
+    "directVictory": false,
+    "proofState": "missing_live_evidence",
+    "missingEvidence": [
+      "selected:cli_error",
+      "claude:not_logged_in"
+    ]
+  },
+  {
+    "axis": "security",
+    "target": 95,
+    "offlineContractScore": 100,
+    "offlineStatus": "pass",
+    "selectedStatus": "cli_error",
+    "selectedScore": null,
+    "claudeStatus": "not_logged_in",
+    "claudeScore": null,
+    "winner": "unproven",
+    "claudeOutcome": "unproven_no_fresh_baseline",
+    "directVictory": false,
+    "proofState": "missing_live_evidence",
+    "missingEvidence": [
+      "selected:cli_error",
+      "claude:not_logged_in"
+    ]
+  },
+  {
+    "axis": "instruction_following",
+    "target": 95,
+    "offlineContractScore": 100,
+    "offlineStatus": "pass",
+    "selectedStatus": "cli_error",
+    "selectedScore": null,
+    "claudeStatus": "not_logged_in",
+    "claudeScore": null,
+    "winner": "unproven",
+    "claudeOutcome": "unproven_no_fresh_baseline",
+    "directVictory": false,
+    "proofState": "missing_live_evidence",
+    "missingEvidence": [
+      "selected:cli_error",
+      "claude:not_logged_in"
+    ]
+  }
+]

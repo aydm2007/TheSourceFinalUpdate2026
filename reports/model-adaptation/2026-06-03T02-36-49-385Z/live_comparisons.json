@@ -1,0 +1,859 @@
+[
+  {
+    "axis": "deep_reasoning",
+    "selected": {
+      "status": "cli_error",
+      "provider": "codex-cli",
+      "model": "openai/gpt-oss-120b:free",
+      "startedAt": "2026-06-03T02:36:49.730Z",
+      "endedAt": "2026-06-03T02:37:09.731Z",
+      "exitCode": 1,
+      "signal": null,
+      "outputHash": "544f858dd3592db1681a80a9c4c45b446799fe73a0a46a4a121f31f2ab35a26f",
+      "outputBytes": 4352,
+      "score": {
+        "score": 60,
+        "structured": {
+          "score": 0,
+          "proofValid": false,
+          "required": [
+            "hypotheses",
+            "disconfirmingEvidence",
+            "counterexamples",
+            "secondOrderEffects",
+            "decision",
+            "residualRisk"
+          ],
+          "present": [],
+          "missing": [
+            "hypotheses",
+            "disconfirmingEvidence",
+            "counterexamples",
+            "secondOrderEffects",
+            "decision",
+            "residualRisk"
+          ],
+          "axisMatches": false
+        },
+        "keywordScore": 75,
+        "rubric": [
+          "hypothesis",
+          "counterexample",
+          "decision",
+          "risk"
+        ],
+        "hits": [
+          "counterexample",
+          "decision",
+          "risk"
+        ],
+        "missing": [
+          "hypothesis"
+        ]
+      },
+      "output": "2026-06-03T02:36:49.892877Z ERROR codex_core::codex: failed to load skill C:\\tools\\workspace\\TheSource\\.agents\\skills\\admin-governor\\SKILL.md: missing YAML frontmatter delimited by ---\n2026-06-03T02:36:49.892933Z ERROR codex_core::codex: failed to load skill C:\\tools\\workspace\\TheSource\\.agents\\skills\\agri-specialist\\SKILL.md: missing YAML frontmatter delimited by ---\n2026-06-03T02:36:49.892937Z ERROR codex_core::codex: failed to load skill C:\\tools\\workspace\\TheSource\\.agents\\skills\\enterprise-integrator\\SKILL.md: missing YAML frontmatter delimited by ---\n2026-06-03T02:36:49.892941Z ERROR codex_core::codex: failed to load skill C:\\tools\\workspace\\TheSource\\.agents\\skills\\flutter-fixer\\SKILL.md: missing YAML frontmatter delimited by ---\n2026-06-03T02:36:49.895935Z  WARN codex_protocol::openai_models: Model personality requested but model_messages is missing, falling back to base instructions. model=gpt-5.5 personality=pragmatic\n2026-06-03T02:36:49.907250Z  WARN codex_core::shell_snapshot: Failed to create shell snapshot for powershell: Shell snapshot not supported yet for PowerShell\nOpenAI Codex v0.120.0 (research preview)\n--------\nworkdir: C:\\tools\\workspace\\TheSource\nmodel: gpt-5.5\nprovider: openai\napproval: never\nsandbox: read-only\nreasoning effort: medium\nreasoning summaries: none\nsession id: 019e8b57-3968-7a02-8879-8c8110594706\n--------\nuser\n# TheSource Deterministic Execution Contract\nModel: openai/gpt-oss-120b:free | Provider: openrouter | Axis: deep_reasoning\nObjective: upgrade the selected model into an Opus-challenger deterministic executor through process, review, persistence, and evidence.\nAxis target: meet or exceed Opus-class threshold 98/100 with artifacts before claiming victory.\nRequired loop: intent extraction -> constraints -> minimal action plan -> execution/tool request -> self-review -> evidence -> residual risk.\nReview passes required before final answer: 3.\nDeep reasoning protocol: produce a concise decision record, not hidden chain-of-thought.\nEnumerate at least three hypotheses, disconfirming evidence, counterexamples, and second-order effects before deciding.\nState the strongest opposing interpretation and why the final decision survives it.\nWhen tools are unavailable, produce an auditable plan and identify missing evidence instead of pretending execution happened.\nNever replace the user-selected model solely for convenience; adapt it first, then use provider fallback only when the selected provider cannot serve it.\nNever claim superiority, certification, or 100/100 without fresh artifacts, hashes, and validation output.\nFinal responses must separate findings, evidence, changes, verification, score, and remaining risk when certification is discussed.\n\nReason deeply about a conflicting architecture decision with hypotheses, counterexamples, and second-order effects.\n\nReturn ONLY valid compact JSON. Do not include markdown, prose outside JSON, or hidden reasoning. Required top-level keys: axis, hypotheses, disconfirmingEvidence, counterexamples, secondOrderEffects, decision, residualRisk. Set axis exactly to \"deep_reasoning\". Arrays must contain concrete items, not placeholders.\n2026-06-03T02:36:50.859087Z  WARN codex_core::plugins::startup_sync: git sync failed for curated plugin sync; falling back to GitHub HTTP error=git clone curated plugins repo failed with status exit code: 128: Cloning into '\\\\?\\C:\\tools\\workspace\\VBCode_users\\VSCode-user1\\CodexData\\.tmp\\plugins-clone-IgIE8V'...\nfatal: could not open '\\\\?\\C:\\tools\\workspace\\VBCode_users\\VSCode-user1\\CodexData\\.tmp\\plugins-clone-IgIE8V/.git/HEAD' for writing: No such file or directory git_binary=\"git\"\n2026-06-03T02:36:52.941285Z  WARN codex_core::session_startup_prewarm: startup websocket prewarm setup failed: {\"type\":\"error\",\"status\":400,\"error\":{\"type\":\"invalid_request_error\",\"message\":\"The 'gpt-5.5' model requires a newer version of Codex. Please upgrade to the latest app or CLI and try again.\"}}\nERROR: {\"type\":\"error\",\"status\":400,\"error\":{\"t",
+      "error": "spawnSync C:\\Windows\\system32\\cmd.exe ETIMEDOUT"
+    },
+    "claude": {
+      "status": "not_logged_in",
+      "provider": "claude-cli",
+      "model": "claude-opus-4-6",
+      "startedAt": "2026-06-03T02:37:09.827Z",
+      "endedAt": "2026-06-03T02:37:11.890Z",
+      "exitCode": 1,
+      "signal": null,
+      "outputHash": "ddcf5c1f4a3b398837003d800ea793d0a3ebb7ec0a1304b3186393460a7d5bd6",
+      "outputBytes": 34,
+      "score": {
+        "score": 0,
+        "structured": {
+          "score": 0,
+          "proofValid": false,
+          "required": [
+            "hypotheses",
+            "disconfirmingEvidence",
+            "counterexamples",
+            "secondOrderEffects",
+            "decision",
+            "residualRisk"
+          ],
+          "present": [],
+          "missing": [
+            "hypotheses",
+            "disconfirmingEvidence",
+            "counterexamples",
+            "secondOrderEffects",
+            "decision",
+            "residualRisk"
+          ],
+          "axisMatches": false
+        },
+        "keywordScore": 0,
+        "rubric": [
+          "hypothesis",
+          "counterexample",
+          "decision",
+          "risk"
+        ],
+        "hits": [],
+        "missing": [
+          "hypothesis",
+          "counterexample",
+          "decision",
+          "risk"
+        ]
+      },
+      "output": "Not logged in · Please run /login",
+      "error": null
+    },
+    "directVictory": false
+  },
+  {
+    "axis": "tool_calling",
+    "selected": {
+      "status": "cli_error",
+      "provider": "codex-cli",
+      "model": "openai/gpt-oss-120b:free",
+      "startedAt": "2026-06-03T02:37:12.018Z",
+      "endedAt": "2026-06-03T02:37:32.019Z",
+      "exitCode": 1,
+      "signal": null,
+      "outputHash": "57850815ab5a6bbfa61498989fcbb736d81e2238a26e0b8176426781f916b666",
+      "outputBytes": 4196,
+      "score": {
+        "score": 60,
+        "structured": {
+          "score": 0,
+          "proofValid": false,
+          "required": [
+            "toolIntent",
+            "selectedTool",
+            "schemaValidation",
+            "arguments",
+            "evidence",
+            "residualRisk"
+          ],
+          "present": [],
+          "missing": [
+            "toolIntent",
+            "selectedTool",
+            "schemaValidation",
+            "arguments",
+            "evidence",
+            "residualRisk"
+          ],
+          "axisMatches": false
+        },
+        "keywordScore": 100,
+        "rubric": [
+          "tool",
+          "json",
+          "evidence",
+          "result"
+        ],
+        "hits": [
+          "tool",
+          "json",
+          "evidence",
+          "result"
+        ],
+        "missing": []
+      },
+      "output": "2026-06-03T02:37:12.178692Z ERROR codex_core::codex: failed to load skill C:\\tools\\workspace\\TheSource\\.agents\\skills\\admin-governor\\SKILL.md: missing YAML frontmatter delimited by ---\n2026-06-03T02:37:12.178759Z ERROR codex_core::codex: failed to load skill C:\\tools\\workspace\\TheSource\\.agents\\skills\\agri-specialist\\SKILL.md: missing YAML frontmatter delimited by ---\n2026-06-03T02:37:12.178764Z ERROR codex_core::codex: failed to load skill C:\\tools\\workspace\\TheSource\\.agents\\skills\\enterprise-integrator\\SKILL.md: missing YAML frontmatter delimited by ---\n2026-06-03T02:37:12.178768Z ERROR codex_core::codex: failed to load skill C:\\tools\\workspace\\TheSource\\.agents\\skills\\flutter-fixer\\SKILL.md: missing YAML frontmatter delimited by ---\n2026-06-03T02:37:12.181892Z  WARN codex_protocol::openai_models: Model personality requested but model_messages is missing, falling back to base instructions. model=gpt-5.5 personality=pragmatic\n2026-06-03T02:37:12.193889Z  WARN codex_core::shell_snapshot: Failed to create shell snapshot for powershell: Shell snapshot not supported yet for PowerShell\nOpenAI Codex v0.120.0 (research preview)\n--------\nworkdir: C:\\tools\\workspace\\TheSource\nmodel: gpt-5.5\nprovider: openai\napproval: never\nsandbox: read-only\nreasoning effort: medium\nreasoning summaries: none\nsession id: 019e8b57-9075-79a3-889c-f9fbca2b22fe\n--------\nuser\n# TheSource Deterministic Execution Contract\nModel: openai/gpt-oss-120b:free | Provider: openrouter | Axis: tool_calling\nObjective: upgrade the selected model into an Opus-challenger deterministic executor through process, review, persistence, and evidence.\nAxis target: pass TheSource deterministic threshold with artifacts before claiming victory.\nRequired loop: intent extraction -> constraints -> minimal action plan -> execution/tool request -> self-review -> evidence -> residual risk.\nReview passes required before final answer: 3.\nTool calling protocol: prefer dedicated MCP/file/search tools over shell bypasses and preserve exact tool evidence.\nValidate JSON arguments before calling tools and reconcile every tool result before the final answer.\nTool calls must be valid JSON matching the provided schema; never invent tool names or bypass dedicated tools.\nNever replace the user-selected model solely for convenience; adapt it first, then use provider fallback only when the selected provider cannot serve it.\nNever claim superiority, certification, or 100/100 without fresh artifacts, hashes, and validation output.\nFinal responses must separate findings, evidence, changes, verification, score, and remaining risk when certification is discussed.\n\nUse MCP tools to inspect a patch, then provide evidence and residual risk.\n\nReturn ONLY valid compact JSON. Do not include markdown, prose outside JSON, or hidden reasoning. Required top-level keys: axis, toolIntent, selectedTool, schemaValidation, arguments, evidence, residualRisk. Set axis exactly to \"tool_calling\". Arrays must contain concrete items, not placeholders.\n2026-06-03T02:37:13.225883Z  WARN codex_core::plugins::startup_sync: git sync failed for curated plugin sync; falling back to GitHub HTTP error=git clone curated plugins repo failed with status exit code: 128: Cloning into '\\\\?\\C:\\tools\\workspace\\VBCode_users\\VSCode-user1\\CodexData\\.tmp\\plugins-clone-G0jt1R'...\nfatal: could not open '\\\\?\\C:\\tools\\workspace\\VBCode_users\\VSCode-user1\\CodexData\\.tmp\\plugins-clone-G0jt1R/.git/HEAD' for writing: No such file or directory git_binary=\"git\"\n2026-06-03T02:37:15.413818Z  WARN codex_core::session_startup_prewarm: startup websocket prewarm setup failed: {\"type\":\"error\",\"status\":400,\"error\":{\"type\":\"invalid_request_error\",\"message\":\"The 'gpt-5.5' model requires a newer version of Codex. Please upgrade to the latest app or CLI and try again.\"}}\nERROR: {\"type\":\"error\",\"status\":400,\"error\":{\"type\":\"invalid_request_error\",\"message\":\"The 'gpt-5.5' model requires a newer version of Codex. Please upgrade to the latest app or CLI and try again.\"}}\nERR",
+      "error": "spawnSync C:\\Windows\\system32\\cmd.exe ETIMEDOUT"
+    },
+    "claude": {
+      "status": "not_logged_in",
+      "provider": "claude-cli",
+      "model": "claude-opus-4-6",
+      "startedAt": "2026-06-03T02:37:32.120Z",
+      "endedAt": "2026-06-03T02:37:34.648Z",
+      "exitCode": 1,
+      "signal": null,
+      "outputHash": "ddcf5c1f4a3b398837003d800ea793d0a3ebb7ec0a1304b3186393460a7d5bd6",
+      "outputBytes": 34,
+      "score": {
+        "score": 0,
+        "structured": {
+          "score": 0,
+          "proofValid": false,
+          "required": [
+            "toolIntent",
+            "selectedTool",
+            "schemaValidation",
+            "arguments",
+            "evidence",
+            "residualRisk"
+          ],
+          "present": [],
+          "missing": [
+            "toolIntent",
+            "selectedTool",
+            "schemaValidation",
+            "arguments",
+            "evidence",
+            "residualRisk"
+          ],
+          "axisMatches": false
+        },
+        "keywordScore": 0,
+        "rubric": [
+          "tool",
+          "json",
+          "evidence",
+          "result"
+        ],
+        "hits": [],
+        "missing": [
+          "tool",
+          "json",
+          "evidence",
+          "result"
+        ]
+      },
+      "output": "Not logged in · Please run /login",
+      "error": null
+    },
+    "directVictory": false
+  },
+  {
+    "axis": "natural_tool_calling",
+    "selected": {
+      "status": "cli_error",
+      "provider": "codex-cli",
+      "model": "openai/gpt-oss-120b:free",
+      "startedAt": "2026-06-03T02:37:34.742Z",
+      "endedAt": "2026-06-03T02:37:54.744Z",
+      "exitCode": 1,
+      "signal": null,
+      "outputHash": "be21f5f87af92d74dcbcec20e0488903a7fe23c532f0ae53105884568d40eb51",
+      "outputBytes": 3887,
+      "score": {
+        "score": 60,
+        "structured": {
+          "score": 0,
+          "proofValid": false,
+          "required": [
+            "toolIntent",
+            "selectedTool",
+            "schemaValidation",
+            "arguments",
+            "reconciliation",
+            "residualRisk"
+          ],
+          "present": [],
+          "missing": [
+            "toolIntent",
+            "selectedTool",
+            "schemaValidation",
+            "arguments",
+            "reconciliation",
+            "residualRisk"
+          ],
+          "axisMatches": false
+        },
+        "keywordScore": 100,
+        "rubric": [
+          "tool",
+          "schema",
+          "argument",
+          "result"
+        ],
+        "hits": [
+          "tool",
+          "schema",
+          "argument",
+          "result"
+        ],
+        "missing": []
+      },
+      "output": "2026-06-03T02:37:34.922947Z ERROR codex_core::codex: failed to load skill C:\\tools\\workspace\\TheSource\\.agents\\skills\\admin-governor\\SKILL.md: missing YAML frontmatter delimited by ---\n2026-06-03T02:37:34.923004Z ERROR codex_core::codex: failed to load skill C:\\tools\\workspace\\TheSource\\.agents\\skills\\agri-specialist\\SKILL.md: missing YAML frontmatter delimited by ---\n2026-06-03T02:37:34.923009Z ERROR codex_core::codex: failed to load skill C:\\tools\\workspace\\TheSource\\.agents\\skills\\enterprise-integrator\\SKILL.md: missing YAML frontmatter delimited by ---\n2026-06-03T02:37:34.923013Z ERROR codex_core::codex: failed to load skill C:\\tools\\workspace\\TheSource\\.agents\\skills\\flutter-fixer\\SKILL.md: missing YAML frontmatter delimited by ---\n2026-06-03T02:37:35.506087Z  WARN codex_protocol::openai_models: Model personality requested but model_messages is missing, falling back to base instructions. model=gpt-5.5 personality=pragmatic\n2026-06-03T02:37:35.519945Z  WARN codex_core::shell_snapshot: Failed to create shell snapshot for powershell: Shell snapshot not supported yet for PowerShell\nOpenAI Codex v0.120.0 (research preview)\n--------\nworkdir: C:\\tools\\workspace\\TheSource\nmodel: gpt-5.5\nprovider: openai\napproval: never\nsandbox: read-only\nreasoning effort: medium\nreasoning summaries: none\nsession id: 019e8b57-eb92-7831-920c-8c20c70e04da\n--------\nuser\n# TheSource Deterministic Execution Contract\nModel: openai/gpt-oss-120b:free | Provider: openrouter | Axis: natural_tool_calling\nObjective: upgrade the selected model into an Opus-challenger deterministic executor through process, review, persistence, and evidence.\nAxis target: meet or exceed Opus-class threshold 97/100 with artifacts before claiming victory.\nRequired loop: intent extraction -> constraints -> minimal action plan -> execution/tool request -> self-review -> evidence -> residual risk.\nReview passes required before final answer: 3.\nNatural tool-calling protocol: translate user intent into the minimal valid tool call, validate schema, execute, then reconcile tool output.\nNever invent tools, parameters, files, command results, or artifact hashes.\nIf a tool is denied or unavailable, report the exact denial and choose the next compliant tool path.\nTool calls must be valid JSON matching the provided schema; never invent tool names or bypass dedicated tools.\nNever replace the user-selected model solely for convenience; adapt it first, then use provider fallback only when the selected provider cannot serve it.\nNever claim superiority, certification, or 100/100 without fresh artifacts, hashes, and validation output.\nFinal responses must separate findings, evidence, changes, verification, score, and remaining risk when certification is discussed.\n\nConvert this natural request into the minimal MCP tool call, validate JSON schema arguments, execute, and reconcile the output.\n\nReturn ONLY valid compact JSON. Do not include markdown, prose outside JSON, or hidden reasoning. Required top-level keys: axis, toolIntent, selectedTool, schemaValidation, arguments, reconciliation, residualRisk. Set axis exactly to \"natural_tool_calling\". Arrays must contain concrete items, not placeholders.\n2026-06-03T02:37:42.030169Z  WARN codex_core::session_startup_prewarm: startup websocket prewarm setup failed: {\"type\":\"error\",\"status\":400,\"error\":{\"type\":\"invalid_request_error\",\"message\":\"The 'gpt-5.5' model requires a newer version of Codex. Please upgrade to the latest app or CLI and try again.\"}}\nERROR: {\"type\":\"error\",\"status\":400,\"error\":{\"type\":\"invalid_request_error\",\"message\":\"The 'gpt-5.5' model requires a newer version of Codex. Please upgrade to the latest app or CLI and try again.\"}}\nERROR: {\"type\":\"error\",\"status\":400,\"error\":{\"type\":\"invalid_request_error\",\"message\":\"The 'gpt-5.5' model requires a newer version of Codex. Please upgrade to the latest app or CLI and try again.\"}}",
+      "error": "spawnSync C:\\Windows\\system32\\cmd.exe ETIMEDOUT"
+    },
+    "claude": {
+      "status": "not_logged_in",
+      "provider": "claude-cli",
+      "model": "claude-opus-4-6",
+      "startedAt": "2026-06-03T02:37:54.833Z",
+      "endedAt": "2026-06-03T02:37:57.006Z",
+      "exitCode": 1,
+      "signal": null,
+      "outputHash": "ddcf5c1f4a3b398837003d800ea793d0a3ebb7ec0a1304b3186393460a7d5bd6",
+      "outputBytes": 34,
+      "score": {
+        "score": 0,
+        "structured": {
+          "score": 0,
+          "proofValid": false,
+          "required": [
+            "toolIntent",
+            "selectedTool",
+            "schemaValidation",
+            "arguments",
+            "reconciliation",
+            "residualRisk"
+          ],
+          "present": [],
+          "missing": [
+            "toolIntent",
+            "selectedTool",
+            "schemaValidation",
+            "arguments",
+            "reconciliation",
+            "residualRisk"
+          ],
+          "axisMatches": false
+        },
+        "keywordScore": 0,
+        "rubric": [
+          "tool",
+          "schema",
+          "argument",
+          "result"
+        ],
+        "hits": [],
+        "missing": [
+          "tool",
+          "schema",
+          "argument",
+          "result"
+        ]
+      },
+      "output": "Not logged in · Please run /login",
+      "error": null
+    },
+    "directVictory": false
+  },
+  {
+    "axis": "code_review",
+    "selected": {
+      "status": "cli_error",
+      "provider": "codex-cli",
+      "model": "openai/gpt-oss-120b:free",
+      "startedAt": "2026-06-03T02:37:57.089Z",
+      "endedAt": "2026-06-03T02:38:17.112Z",
+      "exitCode": 1,
+      "signal": null,
+      "outputHash": "11f17e55e27c014c7b2f67fbe1774cccf242a9ee195e5711fecc05810ee1f7fe",
+      "outputBytes": 4280,
+      "score": {
+        "score": 60,
+        "structured": {
+          "score": 0,
+          "proofValid": false,
+          "required": [
+            "findings",
+            "severities",
+            "regressions",
+            "tests",
+            "evidence",
+            "residualRisk"
+          ],
+          "present": [],
+          "missing": [
+            "findings",
+            "severities",
+            "regressions",
+            "tests",
+            "evidence",
+            "residualRisk"
+          ],
+          "axisMatches": false
+        },
+        "keywordScore": 100,
+        "rubric": [
+          "finding",
+          "severity",
+          "regression",
+          "test"
+        ],
+        "hits": [
+          "finding",
+          "severity",
+          "regression",
+          "test"
+        ],
+        "missing": []
+      },
+      "output": "2026-06-03T02:37:57.234079Z ERROR codex_core::codex: failed to load skill C:\\tools\\workspace\\TheSource\\.agents\\skills\\admin-governor\\SKILL.md: missing YAML frontmatter delimited by ---\n2026-06-03T02:37:57.234138Z ERROR codex_core::codex: failed to load skill C:\\tools\\workspace\\TheSource\\.agents\\skills\\agri-specialist\\SKILL.md: missing YAML frontmatter delimited by ---\n2026-06-03T02:37:57.234143Z ERROR codex_core::codex: failed to load skill C:\\tools\\workspace\\TheSource\\.agents\\skills\\enterprise-integrator\\SKILL.md: missing YAML frontmatter delimited by ---\n2026-06-03T02:37:57.234146Z ERROR codex_core::codex: failed to load skill C:\\tools\\workspace\\TheSource\\.agents\\skills\\flutter-fixer\\SKILL.md: missing YAML frontmatter delimited by ---\n2026-06-03T02:37:57.237078Z  WARN codex_protocol::openai_models: Model personality requested but model_messages is missing, falling back to base instructions. model=gpt-5.5 personality=pragmatic\n2026-06-03T02:37:57.248575Z  WARN codex_core::shell_snapshot: Failed to create shell snapshot for powershell: Shell snapshot not supported yet for PowerShell\nOpenAI Codex v0.120.0 (research preview)\n--------\nworkdir: C:\\tools\\workspace\\TheSource\nmodel: gpt-5.5\nprovider: openai\napproval: never\nsandbox: read-only\nreasoning effort: medium\nreasoning summaries: none\nsession id: 019e8b58-4075-77d3-b42c-a579476cc6bd\n--------\nuser\n# TheSource Deterministic Execution Contract\nModel: openai/gpt-oss-120b:free | Provider: openrouter | Axis: code_review\nObjective: upgrade the selected model into an Opus-challenger deterministic executor through process, review, persistence, and evidence.\nAxis target: meet or exceed Opus-class threshold 98/100 with artifacts before claiming victory.\nRequired loop: intent extraction -> constraints -> minimal action plan -> execution/tool request -> self-review -> evidence -> residual risk.\nReview passes required before final answer: 3.\nCode review protocol: run two passes, first for correctness bugs and regressions, second for tests, edge cases, and behavioral drift.\nRank findings by severity and tie each finding to evidence, expected behavior, and the smallest proving test.\nDo not summarize before findings when asked for review.\nWhen tools are unavailable, produce an auditable plan and identify missing evidence instead of pretending execution happened.\nNever replace the user-selected model solely for convenience; adapt it first, then use provider fallback only when the selected provider cannot serve it.\nNever claim superiority, certification, or 100/100 without fresh artifacts, hashes, and validation output.\nFinal responses must separate findings, evidence, changes, verification, score, and remaining risk when certification is discussed.\n\nReview this relay change for regressions, edge cases, and missing tests.\n\nReturn ONLY valid compact JSON. Do not include markdown, prose outside JSON, or hidden reasoning. Required top-level keys: axis, findings, severities, regressions, tests, evidence, residualRisk. Set axis exactly to \"code_review\". Arrays must contain concrete items, not placeholders.\n2026-06-03T02:37:58.255152Z  WARN codex_core::plugins::startup_sync: git sync failed for curated plugin sync; falling back to GitHub HTTP error=git clone curated plugins repo failed with status exit code: 128: Cloning into '\\\\?\\C:\\tools\\workspace\\VBCode_users\\VSCode-user1\\CodexData\\.tmp\\plugins-clone-jvkwK9'...\nfatal: could not open '\\\\?\\C:\\tools\\workspace\\VBCode_users\\VSCode-user1\\CodexData\\.tmp\\plugins-clone-jvkwK9/.git/HEAD' for writing: No such file or directory git_binary=\"git\"\n2026-06-03T02:38:00.247684Z  WARN codex_core::session_startup_prewarm: startup websocket prewarm setup failed: {\"type\":\"error\",\"status\":400,\"error\":{\"type\":\"invalid_request_error\",\"message\":\"The 'gpt-5.5' model requires a newer version of Codex. Please upgrade to the latest app or CLI and try again.\"}}\nERROR: {\"type\":\"error\",\"status\":400,\"error\":{\"type\":\"invalid_request_error\",\"message\":\"The 'gpt-5.5' model requires a n",
+      "error": "spawnSync C:\\Windows\\system32\\cmd.exe ETIMEDOUT"
+    },
+    "claude": {
+      "status": "not_logged_in",
+      "provider": "claude-cli",
+      "model": "claude-opus-4-6",
+      "startedAt": "2026-06-03T02:38:17.295Z",
+      "endedAt": "2026-06-03T02:38:19.633Z",
+      "exitCode": 1,
+      "signal": null,
+      "outputHash": "ddcf5c1f4a3b398837003d800ea793d0a3ebb7ec0a1304b3186393460a7d5bd6",
+      "outputBytes": 34,
+      "score": {
+        "score": 0,
+        "structured": {
+          "score": 0,
+          "proofValid": false,
+          "required": [
+            "findings",
+            "severities",
+            "regressions",
+            "tests",
+            "evidence",
+            "residualRisk"
+          ],
+          "present": [],
+          "missing": [
+            "findings",
+            "severities",
+            "regressions",
+            "tests",
+            "evidence",
+            "residualRisk"
+          ],
+          "axisMatches": false
+        },
+        "keywordScore": 0,
+        "rubric": [
+          "finding",
+          "severity",
+          "regression",
+          "test"
+        ],
+        "hits": [],
+        "missing": [
+          "finding",
+          "severity",
+          "regression",
+          "test"
+        ]
+      },
+      "output": "Not logged in · Please run /login",
+      "error": null
+    },
+    "directVictory": false
+  },
+  {
+    "axis": "long_context",
+    "selected": {
+      "status": "cli_error",
+      "provider": "codex-cli",
+      "model": "openai/gpt-oss-120b:free",
+      "startedAt": "2026-06-03T02:38:19.740Z",
+      "endedAt": "2026-06-03T02:38:39.741Z",
+      "exitCode": 1,
+      "signal": null,
+      "outputHash": "f3721c0e398ec7801cbe28ddbf57d9393f31eb54fe77e7839ba7202effb8a914",
+      "outputBytes": 4365,
+      "score": {
+        "score": 60,
+        "structured": {
+          "score": 0,
+          "proofValid": false,
+          "required": [
+            "contextMap",
+            "sourceAnchors",
+            "assumptionsRefreshed",
+            "checkpoints",
+            "residualRisk"
+          ],
+          "present": [],
+          "missing": [
+            "contextMap",
+            "sourceAnchors",
+            "assumptionsRefreshed",
+            "checkpoints",
+            "residualRisk"
+          ],
+          "axisMatches": false
+        },
+        "keywordScore": 100,
+        "rubric": [
+          "source",
+          "anchor",
+          "assumption",
+          "checkpoint"
+        ],
+        "hits": [
+          "source",
+          "anchor",
+          "assumption",
+          "checkpoint"
+        ],
+        "missing": []
+      },
+      "output": "2026-06-03T02:38:19.927346Z ERROR codex_core::codex: failed to load skill C:\\tools\\workspace\\TheSource\\.agents\\skills\\admin-governor\\SKILL.md: missing YAML frontmatter delimited by ---\n2026-06-03T02:38:19.927426Z ERROR codex_core::codex: failed to load skill C:\\tools\\workspace\\TheSource\\.agents\\skills\\agri-specialist\\SKILL.md: missing YAML frontmatter delimited by ---\n2026-06-03T02:38:19.927433Z ERROR codex_core::codex: failed to load skill C:\\tools\\workspace\\TheSource\\.agents\\skills\\enterprise-integrator\\SKILL.md: missing YAML frontmatter delimited by ---\n2026-06-03T02:38:19.927440Z ERROR codex_core::codex: failed to load skill C:\\tools\\workspace\\TheSource\\.agents\\skills\\flutter-fixer\\SKILL.md: missing YAML frontmatter delimited by ---\n2026-06-03T02:38:19.930953Z  WARN codex_protocol::openai_models: Model personality requested but model_messages is missing, falling back to base instructions. model=gpt-5.5 personality=pragmatic\n2026-06-03T02:38:19.949306Z  WARN codex_core::shell_snapshot: Failed to create shell snapshot for powershell: Shell snapshot not supported yet for PowerShell\nOpenAI Codex v0.120.0 (research preview)\n--------\nworkdir: C:\\tools\\workspace\\TheSource\nmodel: gpt-5.5\nprovider: openai\napproval: never\nsandbox: read-only\nreasoning effort: medium\nreasoning summaries: none\nsession id: 019e8b58-991b-7713-bbce-bac35f7c3b4b\n--------\nuser\n# TheSource Deterministic Execution Contract\nModel: openai/gpt-oss-120b:free | Provider: openrouter | Axis: long_context\nObjective: upgrade the selected model into an Opus-challenger deterministic executor through process, review, persistence, and evidence.\nAxis target: meet or exceed Opus-class threshold 98/100 with artifacts before claiming victory.\nRequired loop: intent extraction -> constraints -> minimal action plan -> execution/tool request -> self-review -> evidence -> residual risk.\nReview passes required before final answer: 3.\nLong-context protocol: build a source map of relevant files, preserve anchors, and refresh assumptions when context may be stale.\nPrefer cited local evidence over memory; mark missing context explicitly and avoid broad claims from narrow reads.\nUse compaction checkpoints that preserve decisions, blockers, artifacts, and validation status.\nWhen tools are unavailable, produce an auditable plan and identify missing evidence instead of pretending execution happened.\nNever replace the user-selected model solely for convenience; adapt it first, then use provider fallback only when the selected provider cannot serve it.\nNever claim superiority, certification, or 100/100 without fresh artifacts, hashes, and validation output.\nFinal responses must separate findings, evidence, changes, verification, score, and remaining risk when certification is discussed.\n\nHandle a large repo with cli.js.map, source map anchors, context checkpoints, and refreshed assumptions.\n\nReturn ONLY valid compact JSON. Do not include markdown, prose outside JSON, or hidden reasoning. Required top-level keys: axis, contextMap, sourceAnchors, assumptionsRefreshed, checkpoints, residualRisk. Set axis exactly to \"long_context\". Arrays must contain concrete items, not placeholders.\n2026-06-03T02:38:20.813821Z  WARN codex_core::plugins::startup_sync: git sync failed for curated plugin sync; falling back to GitHub HTTP error=git clone curated plugins repo failed with status exit code: 128: Cloning into '\\\\?\\C:\\tools\\workspace\\VBCode_users\\VSCode-user1\\CodexData\\.tmp\\plugins-clone-5BUTgi'...\nfatal: could not open '\\\\?\\C:\\tools\\workspace\\VBCode_users\\VSCode-user1\\CodexData\\.tmp\\plugins-clone-5BUTgi/.git/HEAD' for writing: No such file or directory git_binary=\"git\"\n2026-06-03T02:38:23.082657Z  WARN codex_core::session_startup_prewarm: startup websocket prewarm setup failed: {\"type\":\"error\",\"status\":400,\"error\":{\"type\":\"invalid_request_error\",\"message\":\"The 'gpt-5.5' model requires a newer version of Codex. Please upgrade to the latest app or CLI and try again.\"}}\nERROR: {\"type\":\"error\",\"status\":40",
+      "error": "spawnSync C:\\Windows\\system32\\cmd.exe ETIMEDOUT"
+    },
+    "claude": {
+      "status": "not_logged_in",
+      "provider": "claude-cli",
+      "model": "claude-opus-4-6",
+      "startedAt": "2026-06-03T02:38:39.828Z",
+      "endedAt": "2026-06-03T02:38:41.641Z",
+      "exitCode": 1,
+      "signal": null,
+      "outputHash": "ddcf5c1f4a3b398837003d800ea793d0a3ebb7ec0a1304b3186393460a7d5bd6",
+      "outputBytes": 34,
+      "score": {
+        "score": 0,
+        "structured": {
+          "score": 0,
+          "proofValid": false,
+          "required": [
+            "contextMap",
+            "sourceAnchors",
+            "assumptionsRefreshed",
+            "checkpoints",
+            "residualRisk"
+          ],
+          "present": [],
+          "missing": [
+            "contextMap",
+            "sourceAnchors",
+            "assumptionsRefreshed",
+            "checkpoints",
+            "residualRisk"
+          ],
+          "axisMatches": false
+        },
+        "keywordScore": 0,
+        "rubric": [
+          "source",
+          "anchor",
+          "assumption",
+          "checkpoint"
+        ],
+        "hits": [],
+        "missing": [
+          "source",
+          "anchor",
+          "assumption",
+          "checkpoint"
+        ]
+      },
+      "output": "Not logged in · Please run /login",
+      "error": null
+    },
+    "directVictory": false
+  },
+  {
+    "axis": "agentic_persistence",
+    "selected": {
+      "status": "cli_error",
+      "provider": "codex-cli",
+      "model": "openai/gpt-oss-120b:free",
+      "startedAt": "2026-06-03T02:38:41.727Z",
+      "endedAt": "2026-06-03T02:39:01.729Z",
+      "exitCode": 1,
+      "signal": null,
+      "outputHash": "6cf20da48f7face7fc96b26a6bd5dedb9ae3b81eba64454b59217bc596750418",
+      "outputBytes": 4387,
+      "score": {
+        "score": 60,
+        "structured": {
+          "score": 0,
+          "proofValid": false,
+          "required": [
+            "checkpoints",
+            "retryBudget",
+            "blockerAudit",
+            "changedTactics",
+            "nextActions",
+            "residualRisk"
+          ],
+          "present": [],
+          "missing": [
+            "checkpoints",
+            "retryBudget",
+            "blockerAudit",
+            "changedTactics",
+            "nextActions",
+            "residualRisk"
+          ],
+          "axisMatches": false
+        },
+        "keywordScore": 100,
+        "rubric": [
+          "checkpoint",
+          "retry",
+          "blocker",
+          "next"
+        ],
+        "hits": [
+          "checkpoint",
+          "retry",
+          "blocker",
+          "next"
+        ],
+        "missing": []
+      },
+      "output": "2026-06-03T02:38:41.894648Z ERROR codex_core::codex: failed to load skill C:\\tools\\workspace\\TheSource\\.agents\\skills\\admin-governor\\SKILL.md: missing YAML frontmatter delimited by ---\n2026-06-03T02:38:41.894726Z ERROR codex_core::codex: failed to load skill C:\\tools\\workspace\\TheSource\\.agents\\skills\\agri-specialist\\SKILL.md: missing YAML frontmatter delimited by ---\n2026-06-03T02:38:41.894733Z ERROR codex_core::codex: failed to load skill C:\\tools\\workspace\\TheSource\\.agents\\skills\\enterprise-integrator\\SKILL.md: missing YAML frontmatter delimited by ---\n2026-06-03T02:38:41.894739Z ERROR codex_core::codex: failed to load skill C:\\tools\\workspace\\TheSource\\.agents\\skills\\flutter-fixer\\SKILL.md: missing YAML frontmatter delimited by ---\n2026-06-03T02:38:41.898355Z  WARN codex_protocol::openai_models: Model personality requested but model_messages is missing, falling back to base instructions. model=gpt-5.5 personality=pragmatic\n2026-06-03T02:38:41.911257Z  WARN codex_core::shell_snapshot: Failed to create shell snapshot for powershell: Shell snapshot not supported yet for PowerShell\nOpenAI Codex v0.120.0 (research preview)\n--------\nworkdir: C:\\tools\\workspace\\TheSource\nmodel: gpt-5.5\nprovider: openai\napproval: never\nsandbox: read-only\nreasoning effort: medium\nreasoning summaries: none\nsession id: 019e8b58-eeea-7b11-a14b-347ef24524f4\n--------\nuser\n# TheSource Deterministic Execution Contract\nModel: openai/gpt-oss-120b:free | Provider: openrouter | Axis: agentic_persistence\nObjective: upgrade the selected model into an Opus-challenger deterministic executor through process, review, persistence, and evidence.\nAxis target: meet or exceed Opus-class threshold 97/100 with artifacts before claiming victory.\nRequired loop: intent extraction -> constraints -> minimal action plan -> execution/tool request -> self-review -> evidence -> residual risk.\nReview passes required before final answer: 3.\nAgentic persistence protocol: maintain a bounded work loop with checkpoints, retry budget, next action, and blocker audit.\nContinue through implementation and verification when tools are available; stop only for real blockers or completed proof.\nAfter each failed attempt, change the tactic and record what evidence changed.\nWhen tools are unavailable, produce an auditable plan and identify missing evidence instead of pretending execution happened.\nNever replace the user-selected model solely for convenience; adapt it first, then use provider fallback only when the selected provider cannot serve it.\nNever claim superiority, certification, or 100/100 without fresh artifacts, hashes, and validation output.\nFinal responses must separate findings, evidence, changes, verification, score, and remaining risk when certification is discussed.\n\nPersist through a long-running MCP task with checkpoint, retry budget, blocker audit, and changed tactics after failures.\n\nReturn ONLY valid compact JSON. Do not include markdown, prose outside JSON, or hidden reasoning. Required top-level keys: axis, checkpoints, retryBudget, blockerAudit, changedTactics, nextActions, residualRisk. Set axis exactly to \"agentic_persistence\". Arrays must contain concrete items, not placeholders.\n2026-06-03T02:38:42.821733Z  WARN codex_core::plugins::startup_sync: git sync failed for curated plugin sync; falling back to GitHub HTTP error=git clone curated plugins repo failed with status exit code: 128: Cloning into '\\\\?\\C:\\tools\\workspace\\VBCode_users\\VSCode-user1\\CodexData\\.tmp\\plugins-clone-TcPIBz'...\nfatal: could not open '\\\\?\\C:\\tools\\workspace\\VBCode_users\\VSCode-user1\\CodexData\\.tmp\\plugins-clone-TcPIBz/.git/HEAD' for writing: No such file or directory git_binary=\"git\"\n2026-06-03T02:38:45.115414Z  WARN codex_core::session_startup_prewarm: startup websocket prewarm setup failed: {\"type\":\"error\",\"status\":400,\"error\":{\"type\":\"invalid_request_error\",\"message\":\"The 'gpt-5.5' model requires a newer version of Codex. Please upgrade to the latest app or CLI and try again.\"}}\nERROR: {\"typ",
+      "error": "spawnSync C:\\Windows\\system32\\cmd.exe ETIMEDOUT"
+    },
+    "claude": {
+      "status": "not_logged_in",
+      "provider": "claude-cli",
+      "model": "claude-opus-4-6",
+      "startedAt": "2026-06-03T02:39:01.831Z",
+      "endedAt": "2026-06-03T02:39:03.884Z",
+      "exitCode": 1,
+      "signal": null,
+      "outputHash": "ddcf5c1f4a3b398837003d800ea793d0a3ebb7ec0a1304b3186393460a7d5bd6",
+      "outputBytes": 34,
+      "score": {
+        "score": 0,
+        "structured": {
+          "score": 0,
+          "proofValid": false,
+          "required": [
+            "checkpoints",
+            "retryBudget",
+            "blockerAudit",
+            "changedTactics",
+            "nextActions",
+            "residualRisk"
+          ],
+          "present": [],
+          "missing": [
+            "checkpoints",
+            "retryBudget",
+            "blockerAudit",
+            "changedTactics",
+            "nextActions",
+            "residualRisk"
+          ],
+          "axisMatches": false
+        },
+        "keywordScore": 0,
+        "rubric": [
+          "checkpoint",
+          "retry",
+          "blocker",
+          "next"
+        ],
+        "hits": [],
+        "missing": [
+          "checkpoint",
+          "retry",
+          "blocker",
+          "next"
+        ]
+      },
+      "output": "Not logged in · Please run /login",
+      "error": null
+    },
+    "directVictory": false
+  },
+  {
+    "axis": "security",
+    "selected": {
+      "status": "cli_error",
+      "provider": "codex-cli",
+      "model": "openai/gpt-oss-120b:free",
+      "startedAt": "2026-06-03T02:39:03.972Z",
+      "endedAt": "2026-06-03T02:39:23.974Z",
+      "exitCode": 1,
+      "signal": null,
+      "outputHash": "7dfe2afebbdd51fd7b541ea2168a69282dc42ff159615fbb66b0730b26090ce5",
+      "outputBytes": 4211,
+      "score": {
+        "score": 60,
+        "structured": {
+          "score": 0,
+          "proofValid": false,
+          "required": [
+            "risks",
+            "secretHandling",
+            "authProof",
+            "blastRadius",
+            "minimumFix",
+            "residualRisk"
+          ],
+          "present": [],
+          "missing": [
+            "risks",
+            "secretHandling",
+            "authProof",
+            "blastRadius",
+            "minimumFix",
+            "residualRisk"
+          ],
+          "axisMatches": false
+        },
+        "keywordScore": 100,
+        "rubric": [
+          "secret",
+          "risk",
+          "auth",
+          "redact"
+        ],
+        "hits": [
+          "secret",
+          "risk",
+          "auth",
+          "redact"
+        ],
+        "missing": []
+      },
+      "output": "2026-06-03T02:39:04.129389Z ERROR codex_core::codex: failed to load skill C:\\tools\\workspace\\TheSource\\.agents\\skills\\admin-governor\\SKILL.md: missing YAML frontmatter delimited by ---\n2026-06-03T02:39:04.129451Z ERROR codex_core::codex: failed to load skill C:\\tools\\workspace\\TheSource\\.agents\\skills\\agri-specialist\\SKILL.md: missing YAML frontmatter delimited by ---\n2026-06-03T02:39:04.129456Z ERROR codex_core::codex: failed to load skill C:\\tools\\workspace\\TheSource\\.agents\\skills\\enterprise-integrator\\SKILL.md: missing YAML frontmatter delimited by ---\n2026-06-03T02:39:04.129460Z ERROR codex_core::codex: failed to load skill C:\\tools\\workspace\\TheSource\\.agents\\skills\\flutter-fixer\\SKILL.md: missing YAML frontmatter delimited by ---\n2026-06-03T02:39:04.132245Z  WARN codex_protocol::openai_models: Model personality requested but model_messages is missing, falling back to base instructions. model=gpt-5.5 personality=pragmatic\n2026-06-03T02:39:04.144918Z  WARN codex_core::shell_snapshot: Failed to create shell snapshot for powershell: Shell snapshot not supported yet for PowerShell\nOpenAI Codex v0.120.0 (research preview)\n--------\nworkdir: C:\\tools\\workspace\\TheSource\nmodel: gpt-5.5\nprovider: openai\napproval: never\nsandbox: read-only\nreasoning effort: medium\nreasoning summaries: none\nsession id: 019e8b59-45c4-7be3-8df7-9ca557bf538d\n--------\nuser\n# TheSource Deterministic Execution Contract\nModel: openai/gpt-oss-120b:free | Provider: openrouter | Axis: security\nObjective: upgrade the selected model into an Opus-challenger deterministic executor through process, review, persistence, and evidence.\nAxis target: pass TheSource deterministic threshold with artifacts before claiming victory.\nRequired loop: intent extraction -> constraints -> minimal action plan -> execution/tool request -> self-review -> evidence -> residual risk.\nReview passes required before final answer: 3.\nSecurity protocol: redact secrets, distinguish auth proof from secret value, and require fresh evidence for certification claims.\nIdentify exploitability, blast radius, and minimum fix without printing sensitive material.\nWhen tools are unavailable, produce an auditable plan and identify missing evidence instead of pretending execution happened.\nNever replace the user-selected model solely for convenience; adapt it first, then use provider fallback only when the selected provider cannot serve it.\nNever claim superiority, certification, or 100/100 without fresh artifacts, hashes, and validation output.\nFinal responses must separate findings, evidence, changes, verification, score, and remaining risk when certification is discussed.\n\nAudit provider routing for secret leaks, auth risks, and false certification claims.\n\nReturn ONLY valid compact JSON. Do not include markdown, prose outside JSON, or hidden reasoning. Required top-level keys: axis, risks, secretHandling, authProof, blastRadius, minimumFix, residualRisk. Set axis exactly to \"security\". Arrays must contain concrete items, not placeholders.\n2026-06-03T02:39:05.589855Z  WARN codex_core::plugins::startup_sync: git sync failed for curated plugin sync; falling back to GitHub HTTP error=git clone curated plugins repo failed with status exit code: 128: Cloning into '\\\\?\\C:\\tools\\workspace\\VBCode_users\\VSCode-user1\\CodexData\\.tmp\\plugins-clone-sePgxr'...\nfatal: could not open '\\\\?\\C:\\tools\\workspace\\VBCode_users\\VSCode-user1\\CodexData\\.tmp\\plugins-clone-sePgxr/.git/HEAD' for writing: No such file or directory git_binary=\"git\"\n2026-06-03T02:39:07.312814Z  WARN codex_core::session_startup_prewarm: startup websocket prewarm setup failed: {\"type\":\"error\",\"status\":400,\"error\":{\"type\":\"invalid_request_error\",\"message\":\"The 'gpt-5.5' model requires a newer version of Codex. Please upgrade to the latest app or CLI and try again.\"}}\nERROR: {\"type\":\"error\",\"status\":400,\"error\":{\"type\":\"invalid_request_error\",\"message\":\"The 'gpt-5.5' model requires a newer version of Codex. Please upgrade to the latest app or CLI and tr",
+      "error": "spawnSync C:\\Windows\\system32\\cmd.exe ETIMEDOUT"
+    },
+    "claude": {
+      "status": "not_logged_in",
+      "provider": "claude-cli",
+      "model": "claude-opus-4-6",
+      "startedAt": "2026-06-03T02:39:24.075Z",
+      "endedAt": "2026-06-03T02:39:26.582Z",
+      "exitCode": 1,
+      "signal": null,
+      "outputHash": "ddcf5c1f4a3b398837003d800ea793d0a3ebb7ec0a1304b3186393460a7d5bd6",
+      "outputBytes": 34,
+      "score": {
+        "score": 0,
+        "structured": {
+          "score": 0,
+          "proofValid": false,
+          "required": [
+            "risks",
+            "secretHandling",
+            "authProof",
+            "blastRadius",
+            "minimumFix",
+            "residualRisk"
+          ],
+          "present": [],
+          "missing": [
+            "risks",
+            "secretHandling",
+            "authProof",
+            "blastRadius",
+            "minimumFix",
+            "residualRisk"
+          ],
+          "axisMatches": false
+        },
+        "keywordScore": 0,
+        "rubric": [
+          "secret",
+          "risk",
+          "auth",
+          "redact"
+        ],
+        "hits": [],
+        "missing": [
+          "secret",
+          "risk",
+          "auth",
+          "redact"
+        ]
+      },
+      "output": "Not logged in · Please run /login",
+      "error": null
+    },
+    "directVictory": false
+  },
+  {
+    "axis": "instruction_following",
+    "selected": {
+      "status": "cli_error",
+      "provider": "codex-cli",
+      "model": "openai/gpt-oss-120b:free",
+      "startedAt": "2026-06-03T02:39:26.683Z",
+      "endedAt": "2026-06-03T02:39:46.683Z",
+      "exitCode": 1,
+      "signal": null,
+      "outputHash": "df14a1f99524d9a82190d679698d2c1c2622396dbd285edb53c482549cf7cca3",
+      "outputBytes": 3660,
+      "score": {
+        "score": 60,
+        "structured": {
+          "score": 0,
+          "proofValid": false,
+          "required": [
+            "scope",
+            "constraints",
+            "evidence",
+            "uncertainty",
+            "residualRisk"
+          ],
+          "present": [],
+          "missing": [
+            "scope",
+            "constraints",
+            "evidence",
+            "uncertainty",
+            "residualRisk"
+          ],
+          "axisMatches": false
+        },
+        "keywordScore": 100,
+        "rubric": [
+          "scope",
+          "evidence",
+          "risk",
+          "uncertainty"
+        ],
+        "hits": [
+          "scope",
+          "evidence",
+          "risk",
+          "uncertainty"
+        ],
+        "missing": []
+      },
+      "output": "2026-06-03T02:39:26.862499Z ERROR codex_core::codex: failed to load skill C:\\tools\\workspace\\TheSource\\.agents\\skills\\admin-governor\\SKILL.md: missing YAML frontmatter delimited by ---\n2026-06-03T02:39:26.862554Z ERROR codex_core::codex: failed to load skill C:\\tools\\workspace\\TheSource\\.agents\\skills\\agri-specialist\\SKILL.md: missing YAML frontmatter delimited by ---\n2026-06-03T02:39:26.862559Z ERROR codex_core::codex: failed to load skill C:\\tools\\workspace\\TheSource\\.agents\\skills\\enterprise-integrator\\SKILL.md: missing YAML frontmatter delimited by ---\n2026-06-03T02:39:26.862563Z ERROR codex_core::codex: failed to load skill C:\\tools\\workspace\\TheSource\\.agents\\skills\\flutter-fixer\\SKILL.md: missing YAML frontmatter delimited by ---\n2026-06-03T02:39:26.865166Z  WARN codex_protocol::openai_models: Model personality requested but model_messages is missing, falling back to base instructions. model=gpt-5.5 personality=pragmatic\n2026-06-03T02:39:26.880389Z  WARN codex_core::shell_snapshot: Failed to create shell snapshot for powershell: Shell snapshot not supported yet for PowerShell\nOpenAI Codex v0.120.0 (research preview)\n--------\nworkdir: C:\\tools\\workspace\\TheSource\nmodel: gpt-5.5\nprovider: openai\napproval: never\nsandbox: read-only\nreasoning effort: medium\nreasoning summaries: none\nsession id: 019e8b59-9e91-7e52-a55c-959d4a51992e\n--------\nuser\n# TheSource Deterministic Execution Contract\nModel: local/unknown-model | Provider: openrouter | Axis: instruction_following\nObjective: upgrade the selected model into an Opus-challenger deterministic executor through process, review, persistence, and evidence.\nAxis target: pass TheSource deterministic threshold with artifacts before claiming victory.\nRequired loop: intent extraction -> constraints -> minimal action plan -> execution/tool request -> self-review -> evidence -> residual risk.\nReview passes required before final answer: 4.\nInstruction following protocol: preserve user scope, obey output contracts, and state any unavoidable uncertainty.\nDo not redefine success around a smaller task.\nWhen tools are unavailable, produce an auditable plan and identify missing evidence instead of pretending execution happened.\nNever replace the user-selected model solely for convenience; adapt it first, then use provider fallback only when the selected provider cannot serve it.\nNever claim superiority, certification, or 100/100 without fresh artifacts, hashes, and validation output.\nFinal responses must separate findings, evidence, changes, verification, score, and remaining risk when certification is discussed.\n\nFollow the exact output contract and do not claim success without artifacts.\n\nReturn ONLY valid compact JSON. Do not include markdown, prose outside JSON, or hidden reasoning. Required top-level keys: axis, scope, constraints, evidence, uncertainty, residualRisk. Set axis exactly to \"instruction_following\". Arrays must contain concrete items, not placeholders.\n2026-06-03T02:39:29.963699Z  WARN codex_core::session_startup_prewarm: startup websocket prewarm setup failed: {\"type\":\"error\",\"status\":400,\"error\":{\"type\":\"invalid_request_error\",\"message\":\"The 'gpt-5.5' model requires a newer version of Codex. Please upgrade to the latest app or CLI and try again.\"}}\nERROR: {\"type\":\"error\",\"status\":400,\"error\":{\"type\":\"invalid_request_error\",\"message\":\"The 'gpt-5.5' model requires a newer version of Codex. Please upgrade to the latest app or CLI and try again.\"}}\nERROR: {\"type\":\"error\",\"status\":400,\"error\":{\"type\":\"invalid_request_error\",\"message\":\"The 'gpt-5.5' model requires a newer version of Codex. Please upgrade to the latest app or CLI and try again.\"}}",
+      "error": "spawnSync C:\\Windows\\system32\\cmd.exe ETIMEDOUT"
+    },
+    "claude": {
+      "status": "not_logged_in",
+      "provider": "claude-cli",
+      "model": "claude-opus-4-6",
+      "startedAt": "2026-06-03T02:39:46.776Z",
+      "endedAt": "2026-06-03T02:39:48.994Z",
+      "exitCode": 1,
+      "signal": null,
+      "outputHash": "ddcf5c1f4a3b398837003d800ea793d0a3ebb7ec0a1304b3186393460a7d5bd6",
+      "outputBytes": 34,
+      "score": {
+        "score": 0,
+        "structured": {
+          "score": 0,
+          "proofValid": false,
+          "required": [
+            "scope",
+            "constraints",
+            "evidence",
+            "uncertainty",
+            "residualRisk"
+          ],
+          "present": [],
+          "missing": [
+            "scope",
+            "constraints",
+            "evidence",
+            "uncertainty",
+            "residualRisk"
+          ],
+          "axisMatches": false
+        },
+        "keywordScore": 0,
+        "rubric": [
+          "scope",
+          "evidence",
+          "risk",
+          "uncertainty"
+        ],
+        "hits": [],
+        "missing": [
+          "scope",
+          "evidence",
+          "risk",
+          "uncertainty"
+        ]
+      },
+      "output": "Not logged in · Please run /login",
+      "error": null
+    },
+    "directVictory": false
+  }
+]

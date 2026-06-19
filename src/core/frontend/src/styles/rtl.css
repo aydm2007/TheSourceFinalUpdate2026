@@ -1,0 +1,9 @@
+/* RTL overrides */
+[dir='rtl'] .dashboard-container {
+  direction: rtl;
+  text-align: right;
+}
+[dir='rtl'] .dashboard-item {
+  margin-inline-start: 0;
+  margin-inline-end: 1rem;
+}

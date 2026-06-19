@@ -1,0 +1,71 @@
+# FIX-4: .dockerignore — prevents large/sensitive files from Docker build context
+# Before: missing entirely → Docker sent node_modules (200MB+), reports, secrets
+# After: build context reduced to essential runtime files only
+
+# Node dependencies (200MB+, installed fresh inside image)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+bun.lockb
+
+# Build artifacts (regenerated in image)
+dist/
+build/
+*.tsbuildinfo
+tsconfig.tsbuildinfo
+
+# Certification & audit reports (large, not needed in image)
+reports/
+coverage/
+test-results/
+artifacts/
+
+# Shadow ledger backup (can be 7MB+, never needed in image)
+shadow_ledger.jsonl.bak
+shadow_ledger_compact.jsonl
+.nexus/var/telemetry/*.bak
+
+# Environment files (secrets — must never enter image)
+.env
+.env.local
+.env.*.local
+!.env.example
+
+# Git history & metadata
+.git/
+.gitattributes
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS generated files
+.DS_Store
+Thumbs.db
+._*
+
+# Scratch and temp files
+scratch/
+*.log
+logs/
+crash_report*.log
+output_grep.txt
+
+# Dev/build scripts not needed at runtime
+patch-cli.js
+cli_patcher.js
+build_*.bat
+install_*.ps1
+build_vsix_packages.bat
+
+# Worktree (large compiled VS Code extension artifact)
+worktree/
+vsix/
+
+# Test files (not needed in production image)
+tests/
+test-results/
+test_*.js
+vitest.test.config.ts

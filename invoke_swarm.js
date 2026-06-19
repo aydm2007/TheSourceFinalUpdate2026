@@ -1,0 +1,3 @@
+const { spawnSync } = require('child_process');
+const payload = JSON.stringify({"workspace_root": "C:\\tools\\workspace\\calc\\Chess_Engine", "task_goal": "Act as an expert game developer swarm. Build a complete, bug-free Sudoku game using React and Tailwind. Features: Automated board generation with a guaranteed valid unique solution, 3 difficulty levels, cell conflict highlighting, move history (Undo/Redo), and an automated solver using backtracking. Ensure strict state segregation between the immutable board solution and the user's current input state."});
+spawnSync('node', ['nexus_bridge.js', 'FullRepairLoop', payload], { stdio: 'inherit' });

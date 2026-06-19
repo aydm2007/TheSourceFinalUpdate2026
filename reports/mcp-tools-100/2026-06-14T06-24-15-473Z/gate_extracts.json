@@ -1,0 +1,1786 @@
+{
+  "generatedAt": "2026-06-14T06:29:27.380Z",
+  "gates": {
+    "testMcpIntegration": {
+      "status": "pass",
+      "parsed": null,
+      "exitCode": 0
+    },
+    "cliMap": {
+      "status": "pass",
+      "parsed": {
+        "status": "pass",
+        "timestamp": "2026-06-14T06:24:54.133Z",
+        "workspaceRoot": "C:\\tools\\workspace\\TheSource",
+        "cli": {
+          "exists": true,
+          "bytes": 13066790,
+          "lastModified": "2026-06-12T12:14:23.700Z"
+        },
+        "cliMap": {
+          "exists": true,
+          "bytes": 59766257,
+          "lastModified": "2026-04-02T14:55:13.000Z"
+        },
+        "metadata": {
+          "version": 3,
+          "file": null,
+          "sourceCount": 4756,
+          "sourcesContentCount": 4756,
+          "firstSources": [
+            "../node_modules/lodash-es/_listCacheClear.js",
+            "../node_modules/lodash-es/eq.js",
+            "../node_modules/lodash-es/_assocIndexOf.js",
+            "../node_modules/lodash-es/_listCacheDelete.js",
+            "../node_modules/lodash-es/_listCacheGet.js"
+          ],
+          "lastSources": [
+            "../src/cli/handlers/agents.ts",
+            "../src/cli/handlers/autoMode.ts",
+            "../src/cli/update.ts",
+            "../src/main.tsx",
+            "../src/entrypoints/cli.tsx"
+          ]
+        },
+        "visualDom": {
+          "status": "dom_mapped",
+          "components": 1504,
+          "hooks": 50,
+          "pages": 1,
+          "stores": 1,
+          "contentAnalyzed": 1906,
+          "mode": "static_sourcemap_topology"
+        },
+        "liveUiMonitoring": {
+          "status": "not_proven",
+          "reason": "This verifier reads SourceMap topology only; it does not capture runtime DOM, accessibility tree, or screenshots."
+        }
+      },
+      "exitCode": 0
+    },
+    "toolSourceAlignment": {
+      "status": "pass",
+      "parsed": {
+        "status": "pass",
+        "generatedAt": "2026-06-14T06:25:11.681Z",
+        "workspaceRoot": "C:\\tools\\workspace\\TheSource",
+        "bridge": {
+          "path": "bridge.json",
+          "bridgeVersion": "45.1.0-Apex-ConsensusGate",
+          "enforcementMode": "AUDIT",
+          "remoteMcpEnabled": true,
+          "declaredAllowedTools": 130,
+          "sha256": "348c4d6a14273aa44be4937496b3dc4064f89290e7305d1be074618914e2f780"
+        },
+        "cli": {
+          "path": "package/cli.js",
+          "exists": true,
+          "sha256": "f506541f5220a7ee15964127dd18417dce846aced562e9a130969e2667001b8d"
+        },
+        "cliMap": {
+          "path": "package/cli.js.map",
+          "exists": true,
+          "sha256": "7965012b7a5fc9e09d8d747a04c5c32b94696924536e217f686bb1e7ee70a657",
+          "metadata": {
+            "version": 3,
+            "sourceCount": 4756,
+            "sourcesContentCount": 4756
+          }
+        },
+        "coverage": {
+          "scannedFiles": 829,
+          "bridgeTools": 130,
+          "projectAnchoredTools": 130,
+          "runtimeAnchoredTools": 130,
+          "sourceMapAnchoredTools": 33,
+          "sourceMapFirstPartyAnchoredTools": 32,
+          "missingProjectAnchors": [],
+          "missingRuntimeAnchors": []
+        },
+        "interpretation": {
+          "projectAnchors": "Every bridge tool must appear in governed project source or skill/test/verifier files.",
+          "runtimeAnchors": "Runtime anchors are preferred, but some tools may be governed through skill or verifier surfaces.",
+          "sourceMapAnchors": "Direct cli.js.map anchors are recorded when the compiled CLI bundle contains the tool name; MCP-only tools remain anchored through bridge/source files."
+        },
+        "samples": [
+          {
+            "tool": "FileRead",
+            "projectAnchor": {
+              "file": "nexus_bridge.js",
+              "line": 199,
+              "column": 14,
+              "kind": "runtime"
+            },
+            "sourceMapAnchor": {
+              "source": "../src/tools/PowerShellTool/PowerShellTool.tsx",
+              "line": 589,
+              "column": 56,
+              "kind": "first-party"
+            },
+            "projectAnchored": true,
+            "runtimeAnchored": true,
+            "sourceMapAnchored": true,
+            "sourceMapFirstPartyAnchored": true
+          },
+          {
+            "tool": "FileReadLines",
+            "projectAnchor": {
+              "file": "nexus_bridge.js",
+              "line": 409,
+              "column": 14,
+              "kind": "runtime"
+            },
+            "sourceMapAnchor": null,
+            "projectAnchored": true,
+            "runtimeAnchored": true,
+            "sourceMapAnchored": false,
+            "sourceMapFirstPartyAnchored": false
+          },
+          {
+            "tool": "FileWrite",
+            "projectAnchor": {
+              "file": "nexus_bridge.js",
+              "line": 656,
+              "column": 14,
+              "kind": "runtime"
+            },
+            "sourceMapAnchor": {
+              "source": "../src/components/permissions/FilePermissionDialog/FilePermissionDialog.tsx",
+              "line": 117,
+              "column": 7,
+              "kind": "first-party"
+            },
+            "projectAnchored": true,
+            "runtimeAnchored": true,
+            "sourceMapAnchored": true,
+            "sourceMapFirstPartyAnchored": true
+          },
+          {
+            "tool": "FileEdit",
+            "projectAnchor": {
+              "file": "nexus_bridge.js",
+              "line": 215,
+              "column": 14,
+              "kind": "runtime"
+            },
+            "sourceMapAnchor": {
+              "source": "../src/utils/diff.ts",
+              "line": 5,
+              "column": 15,
+              "kind": "first-party"
+            },
+            "projectAnchored": true,
+            "runtimeAnchored": true,
+            "sourceMapAnchored": true,
+            "sourceMapFirstPartyAnchored": true
+          },
+          {
+            "tool": "SurgicalDiff",
+            "projectAnchor": {
+              "file": "nexus_bridge.js",
+              "line": 391,
+              "column": 14,
+              "kind": "runtime"
+            },
+            "sourceMapAnchor": null,
+            "projectAnchored": true,
+            "runtimeAnchored": true,
+            "sourceMapAnchored": false,
+            "sourceMapFirstPartyAnchored": false
+          },
+          {
+            "tool": "AstChunkPatch",
+            "projectAnchor": {
+              "file": "nexus_bridge.js",
+              "line": 1064,
+              "column": 14,
+              "kind": "runtime"
+            },
+            "sourceMapAnchor": null,
+            "projectAnchored": true,
+            "runtimeAnchored": true,
+            "sourceMapAnchored": false,
+            "sourceMapFirstPartyAnchored": false
+          },
+          {
+            "tool": "ASTAutoPatch",
+            "projectAnchor": {
+              "file": "nexus_bridge.js",
+              "line": 6,
+              "column": 7,
+              "kind": "runtime"
+            },
+            "sourceMapAnchor": null,
+            "projectAnchored": true,
+            "runtimeAnchored": true,
+            "sourceMapAnchored": false,
+            "sourceMapFirstPartyAnchored": false
+          },
+          {
+            "tool": "ResolveConflict",
+            "projectAnchor": {
+              "file": "nexus_bridge.js",
+              "line": 1622,
+              "column": 14,
+              "kind": "runtime"
+            },
+            "sourceMapAnchor": null,
+            "projectAnchored": true,
+            "runtimeAnchored": true,
+            "sourceMapAnchored": false,
+            "sourceMapFirstPartyAnchored": false
+          },
+          {
+            "tool": "UndoChanges",
+            "projectAnchor": {
+              "file": "nexus_bridge.js",
+              "line": 1578,
+              "column": 14,
+              "kind": "runtime"
+            },
+            "sourceMapAnchor": null,
+            "projectAnchored": true,
+            "runtimeAnchored": true,
+            "sourceMapAnchored": false,
+            "sourceMapFirstPartyAnchored": false
+          },
+          {
+            "tool": "NotebookEdit",
+            "projectAnchor": {
+              "file": "nexus_bridge.js",
+              "line": 456,
+              "column": 14,
+              "kind": "runtime"
+            },
+            "sourceMapAnchor": {
+              "source": "../src/bootstrap/state.ts",
+              "line": 980,
+              "column": 95,
+              "kind": "first-party"
+            },
+            "projectAnchored": true,
+            "runtimeAnchored": true,
+            "sourceMapAnchored": true,
+            "sourceMapFirstPartyAnchored": true
+          },
+          {
+            "tool": "Glob",
+            "projectAnchor": {
+              "file": "nexus_bridge.js",
+              "line": 524,
+              "column": 14,
+              "kind": "runtime"
+            },
+            "sourceMapAnchor": {
+              "source": "../src/utils/settings/toolValidationConfig.ts",
+              "line": 32,
+              "column": 6,
+              "kind": "first-party"
+            },
+            "projectAnchored": true,
+            "runtimeAnchored": true,
+            "sourceMapAnchored": true,
+            "sourceMapFirstPartyAnchored": true
+          },
+          {
+            "tool": "Grep",
+            "projectAnchor": {
+              "file": "nexus_bridge.js",
+              "line": 554,
+              "column": 14,
+              "kind": "runtime"
+            },
+            "sourceMapAnchor": {
+              "source": "../src/Tool.ts",
+              "line": 420,
+              "column": 22,
+              "kind": "first-party"
+            },
+            "projectAnchored": true,
+            "runtimeAnchored": true,
+            "sourceMapAnchored": true,
+            "sourceMapFirstPartyAnchored": true
+          },
+          {
+            "tool": "ViewCodeOutline",
+            "projectAnchor": {
+              "file": "nexus_bridge.js",
+              "line": 1536,
+              "column": 14,
+              "kind": "runtime"
+            },
+            "sourceMapAnchor": null,
+            "projectAnchored": true,
+            "runtimeAnchored": true,
+            "sourceMapAnchored": false,
+            "sourceMapFirstPartyAnchored": false
+          },
+          {
+            "tool": "LSPTool",
+            "projectAnchor": {
+              "file": "nexus_bridge.js",
+              "line": 425,
+              "column": 14,
+              "kind": "runtime"
+            },
+            "sourceMapAnchor": {
+              "source": "../src/services/lsp/manager.ts",
+              "line": 98,
+              "column": 10,
+              "kind": "first-party"
+            },
+            "projectAnchored": true,
+            "runtimeAnchored": true,
+            "sourceMapAnchored": true,
+            "sourceMapFirstPartyAnchored": true
+          },
+          {
+            "tool": "SemanticReference",
+            "projectAnchor": {
+              "file": "nexus_bridge.js",
+              "line": 828,
+              "column": 14,
+              "kind": "runtime"
+            },
+            "sourceMapAnchor": null,
+            "projectAnchored": true,
+            "runtimeAnchored": true,
+            "sourceMapAnchored": false,
+            "sourceMapFirstPartyAnchored": false
+          },
+          {
+            "tool": "SemanticSymbolLookup",
+            "projectAnchor": {
+              "file": "nexus_bridge.js",
+              "line": 1636,
+              "column": 14,
+              "kind": "runtime"
+            },
+            "sourceMapAnchor": null,
+            "projectAnchored": true,
+            "runtimeAnchored": true,
+            "sourceMapAnchored": false,
+            "sourceMapFirstPartyAnchored": false
+          },
+          {
+            "tool": "Insight",
+            "projectAnchor": {
+              "file": "nexus_bridge.js",
+              "line": 716,
+              "column": 14,
+              "kind": "runtime"
+            },
+            "sourceMapAnchor": {
+              "source": "../src/constants/outputStyles.ts",
+              "line": 33,
+              "column": 20,
+              "kind": "first-party"
+            },
+            "projectAnchored": true,
+            "runtimeAnchored": true,
+            "sourceMapAnchored": true,
+            "sourceMapFirstPartyAnchored": true
+          },
+          {
+            "tool": "ForensicAudit",
+            "projectAnchor": {
+              "file": "nexus_bridge.js",
+              "line": 501,
+              "column": 14,
+              "kind": "runtime"
+            },
+            "sourceMapAnchor": null,
+            "projectAnchored": true,
+            "runtimeAnchored": true,
+            "sourceMapAnchored": false,
+            "sourceMapFirstPartyAnchored": false
+          },
+          {
+            "tool": "AstIndexer",
+            "projectAnchor": {
+              "file": "nexus_bridge.js",
+              "line": 1760,
+              "column": 14,
+              "kind": "runtime"
+            },
+            "sourceMapAnchor": null,
+            "projectAnchored": true,
+            "runtimeAnchored": true,
+            "sourceMapAnchored": false,
+            "sourceMapFirstPartyAnchored": false
+          },
+          {
+            "tool": "GraphMemorySync",
+            "projectAnchor": {
+              "file": "nexus_bridge.js",
+              "line": 1650,
+              "column": 14,
+              "kind": "runtime"
+            },
+            "sourceMapAnchor": null,
+            "projectAnchored": true,
+            "runtimeAnchored": true,
+            "sourceMapAnchored": false,
+            "sourceMapFirstPartyAnchored": false
+          },
+          {
+            "tool": "Bash",
+            "projectAnchor": {
+              "file": "nexus_bridge.js",
+              "line": 231,
+              "column": 14,
+              "kind": "runtime"
+            },
+            "sourceMapAnchor": {
+              "source": "../src/utils/windowsPaths.ts",
+              "line": 161,
+              "column": 40,
+              "kind": "first-party"
+            },
+            "projectAnchored": true,
+            "runtimeAnchored": true,
+            "sourceMapAnchored": true,
+            "sourceMapFirstPartyAnchored": true
+          },
+          {
+            "tool": "PowerShell",
+            "projectAnchor": {
+              "file": "nexus_bridge.js",
+              "line": 970,
+              "column": 14,
+              "kind": "runtime"
+            },
+            "sourceMapAnchor": {
+              "source": "../src/utils/jsonRead.ts",
+              "line": 7,
+              "column": 24,
+              "kind": "first-party"
+            },
+            "projectAnchored": true,
+            "runtimeAnchored": true,
+            "sourceMapAnchored": true,
+            "sourceMapFirstPartyAnchored": true
+          },
+          {
+            "tool": "InteractiveTerminal",
+            "projectAnchor": {
+              "file": "nexus_bridge.js",
+              "line": 1592,
+              "column": 14,
+              "kind": "runtime"
+            },
+            "sourceMapAnchor": null,
+            "projectAnchored": true,
+            "runtimeAnchored": true,
+            "sourceMapAnchored": false,
+            "sourceMapFirstPartyAnchored": false
+          },
+          {
+            "tool": "ParallelTest",
+            "projectAnchor": {
+              "file": "nexus_bridge.js",
+              "line": 1746,
+              "column": 14,
+              "kind": "runtime"
+            },
+            "sourceMapAnchor": null,
+            "projectAnchored": true,
+            "runtimeAnchored": true,
+            "sourceMapAnchored": false,
+            "sourceMapFirstPartyAnchored": false
+          },
+          {
+            "tool": "FullRepairLoop",
+            "projectAnchor": {
+              "file": "nexus_bridge.js",
+              "line": 1705,
+              "column": 14,
+              "kind": "runtime"
+            },
+            "sourceMapAnchor": null,
+            "projectAnchored": true,
+            "runtimeAnchored": true,
+            "sourceMapAnchored": false,
+            "sourceMapFirstPartyAnchored": false
+          }
+        ]
+      },
+      "exitCode": 0
+    },
+    "agentSwarmAlignment": {
+      "status": "pass",
+      "parsed": {
+        "status": "pass",
+        "generatedAt": "2026-06-14T06:25:40.698Z",
+        "workspaceRoot": "C:\\tools\\workspace\\TheSource",
+        "bridge": {
+          "path": "bridge.json",
+          "declaredAllowedTools": 130,
+          "sha256": "348c4d6a14273aa44be4937496b3dc4064f89290e7305d1be074618914e2f780"
+        },
+        "cliMap": {
+          "path": "package/cli.js.map",
+          "sha256": "7965012b7a5fc9e09d8d747a04c5c32b94696924536e217f686bb1e7ee70a657",
+          "metadata": {
+            "version": 3,
+            "sourceCount": 4756,
+            "sourcesContentCount": 4756
+          }
+        },
+        "coverage": {
+          "skillCount": 32,
+          "skillsWithAllowedTools": 32,
+          "skillsWithCentralDependency": 32,
+          "skillsWithGpsProtocol": 32,
+          "skillsWithExecutionProtocol": 32,
+          "skillsWithSwarmProtocol": 30,
+          "requiredSwarmTools": 9,
+          "swarmToolsAnchored": 9
+        },
+        "gaps": {
+          "unknownAllowedTools": [],
+          "missingAllowedTools": [],
+          "missingCentralDependency": [],
+          "missingGpsProtocol": [],
+          "missingExecutionProtocol": [],
+          "missingSwarmToolAnchors": []
+        },
+        "swarmTools": [
+          {
+            "tool": "Agent",
+            "inBridge": true,
+            "runtimeAnchor": {
+              "file": "nexus_bridge.js",
+              "kind": "runtime",
+              "line": null,
+              "column": null
+            },
+            "mentionedInSkills": [
+              "gpt-swarm-commander",
+              "admin-governor",
+              "agri-specialist",
+              "api-negotiator",
+              "architectural-constitution",
+              "auto-dream",
+              "cloud-opus-mentor",
+              "db-forensics",
+              "django-doctor",
+              "documentation-governor",
+              "enterprise-integrator",
+              "evolution-replicator",
+              "finance-auditor",
+              "flutter-fixer",
+              "gps-map-healer",
+              "infrastructure-titan",
+              "mcp-developer",
+              "nexus-core",
+              "nexus-memory",
+              "oracle-intuition",
+              "quantum-debugger",
+              "react-surgeon",
+              "security-audit",
+              "shadow-memory",
+              "sigma-coordinator",
+              "swarm-gps-coordinator",
+              "ui-synthesizer",
+              "ux-hypnotist",
+              "vector-memory-architect",
+              "zenith-nexus"
+            ]
+          },
+          {
+            "tool": "ParallelSwarmCoordinator",
+            "inBridge": true,
+            "runtimeAnchor": {
+              "file": "nexus_bridge.js",
+              "kind": "runtime",
+              "line": null,
+              "column": null
+            },
+            "mentionedInSkills": [
+              "gpt-swarm-commander",
+              "agri-specialist",
+              "swarm-gps-coordinator"
+            ]
+          },
+          {
+            "tool": "SwarmPipelineOrchestrator",
+            "inBridge": true,
+            "runtimeAnchor": {
+              "file": "nexus_bridge.js",
+              "kind": "runtime",
+              "line": null,
+              "column": null
+            },
+            "mentionedInSkills": [
+              "gpt-swarm-commander",
+              "swarm-gps-coordinator"
+            ]
+          },
+          {
+            "tool": "TaskOutput",
+            "inBridge": true,
+            "runtimeAnchor": {
+              "file": "nexus_bridge.js",
+              "kind": "runtime",
+              "line": null,
+              "column": null
+            },
+            "mentionedInSkills": []
+          },
+          {
+            "tool": "TeamCreate",
+            "inBridge": true,
+            "runtimeAnchor": {
+              "file": "nexus_bridge.js",
+              "kind": "runtime",
+              "line": null,
+              "column": null
+            },
+            "mentionedInSkills": [
+              "admin-governor"
+            ]
+          },
+          {
+            "tool": "TeamSynthesize",
+            "inBridge": true,
+            "runtimeAnchor": {
+              "file": "nexus_bridge.js",
+              "kind": "runtime",
+              "line": null,
+              "column": null
+            },
+            "mentionedInSkills": [
+              "admin-governor"
+            ]
+          },
+          {
+            "tool": "SendMessage",
+            "inBridge": true,
+            "runtimeAnchor": {
+              "file": "nexus_bridge.js",
+              "kind": "runtime",
+              "line": null,
+              "column": null
+            },
+            "mentionedInSkills": [
+              "admin-governor"
+            ]
+          },
+          {
+            "tool": "SwarmBroadcast",
+            "inBridge": true,
+            "runtimeAnchor": {
+              "file": "nexus_bridge.js",
+              "kind": "runtime",
+              "line": null,
+              "column": null
+            },
+            "mentionedInSkills": [
+              "gpt-swarm-commander",
+              "admin-governor",
+              "agri-specialist",
+              "finance-auditor",
+              "swarm-gps-coordinator",
+              "ui-synthesizer"
+            ]
+          },
+          {
+            "tool": "AsyncSwarmTask",
+            "inBridge": true,
+            "runtimeAnchor": {
+              "file": "nexus_bridge.js",
+              "kind": "runtime",
+              "line": null,
+              "column": null
+            },
+            "mentionedInSkills": [
+              "swarm-gps-coordinator"
+            ]
+          }
+        ],
+        "skills": [
+          {
+            "name": "gpt-swarm-commander",
+            "path": ".agents/skills/Acommander_swap_OSS3/SKILL.md",
+            "version": "1.0-Sovereign",
+            "description": "مهارة القيادة السيادية الكاملة لنموذج GPT-OSS 120B — تُمكّن النموذج من التكامل 100% مع أدوات MCP Server وقيادة الأسراب والوكلاء المتخصصين بكفاءة مطلقة",
+            "allowedTools": [
+              "FileRead",
+              "FileReadLines",
+              "FileWrite",
+              "FileEdit",
+              "Glob",
+              "Grep",
+              "ViewCodeOutline",
+              "SurgicalDiff",
+              "AstChunkPatch",
+              "ASTAutoPatch",
+              "PowerShell",
+              "Bash",
+              "Agent",
+              "SwarmPipelineOrchestrator",
+              "ParallelSwarmCoordinator",
+              "SwarmBroadcast",
+              "SwarmHandoff",
+              "DeepCoordinatorTask",
+              "LoadSkill",
+              "McpCall",
+              "ListMcpResources",
+              "ReadMcpResource",
+              "SystemDiagnostics",
+              "VectorSearch",
+              "TodoWrite",
+              "ForensicAudit",
+              "Insight",
+              "SemanticSymbolLookup",
+              "ReasoningEngine",
+              "EnterPlanMode",
+              "ExitPlanMode",
+              "AskUserQuestion",
+              "CognitiveRouter",
+              "TokenEstimation",
+              "ToolSearch",
+              "ZodSchema",
+              "FeatureFlag",
+              "Config",
+              "Sleep",
+              "MemoryCompactor",
+              "Skill"
+            ],
+            "unknownAllowedTools": [],
+            "hasAllowedTools": true,
+            "hasCentralDependency": true,
+            "hasGpsProtocol": true,
+            "hasExecutionProtocol": true,
+            "hasSwarmProtocol": true
+          },
+          {
+            "name": "admin-governor",
+            "path": ".agents/skills/admin-governor/SKILL.md",
+            "version": "51.0-Singularity",
+            "description": "Administrative Governor Agent - المدير التنفيذي للنظام وإدارة الصلاحيات",
+            "allowedTools": [
+              "FeatureFlag",
+              "TeamSynthesize",
+              "TeamCreate",
+              "Config",
+              "ShadowLedgerAudit",
+              "SendMessage",
+              "SwarmBroadcast",
+              "FileRead",
+              "Grep"
+            ],
+            "unknownAllowedTools": [],
+            "hasAllowedTools": true,
+            "hasCentralDependency": true,
+            "hasGpsProtocol": true,
+            "hasExecutionProtocol": true,
+            "hasSwarmProtocol": true
+          },
+          {
+            "name": "agri-specialist",
+            "path": ".agents/skills/agri-specialist/SKILL.md",
+            "version": "51.0-Singularity",
+            "description": "Agricultural Domain Agent - خبير القطاع الزراعي، مسؤول عن تقييم الأصول الحيوية والطقس والمواسم",
+            "allowedTools": [
+              "ParallelSwarmCoordinator",
+              "WebFetch",
+              "WebSearch",
+              "VectorSearch",
+              "PredictiveForesight",
+              "SwarmBroadcast",
+              "FileRead",
+              "Grep"
+            ],
+            "unknownAllowedTools": [],
+            "hasAllowedTools": true,
+            "hasCentralDependency": true,
+            "hasGpsProtocol": true,
+            "hasExecutionProtocol": true,
+            "hasSwarmProtocol": true
+          },
+          {
+            "name": "api-negotiator",
+            "path": ".agents/skills/api-negotiator/SKILL.md",
+            "version": "51.0-Singularity",
+            "description": "API Negotiator — الوكيل الدبلوماسي المتخصص في دمج الـ APIs الخارجية بأمان",
+            "allowedTools": [
+              "WebFetch",
+              "WebSearch",
+              "ZodSchema",
+              "FileWrite",
+              "FileEdit"
+            ],
+            "unknownAllowedTools": [],
+            "hasAllowedTools": true,
+            "hasCentralDependency": true,
+            "hasGpsProtocol": true,
+            "hasExecutionProtocol": true,
+            "hasSwarmProtocol": true
+          },
+          {
+            "name": "architectural-constitution",
+            "path": ".agents/skills/architectural-constitution/SKILL.md",
+            "version": "51.0-Singularity",
+            "description": "مهارة قالب الدستور المعماري (Project Constitution) — لتأسيس معايير المشروع للوكلاء",
+            "allowedTools": [
+              "FileRead",
+              "FileWrite",
+              "FileEdit",
+              "Grep",
+              "Glob",
+              "Bash",
+              "TodoWrite"
+            ],
+            "unknownAllowedTools": [],
+            "hasAllowedTools": true,
+            "hasCentralDependency": true,
+            "hasGpsProtocol": true,
+            "hasExecutionProtocol": true,
+            "hasSwarmProtocol": true
+          },
+          {
+            "name": "auto-dream",
+            "path": ".agents/skills/auto-dream/SKILL.md",
+            "version": "51.0-Singularity",
+            "description": "Distills session outcomes into durable project memory without storing secrets or temporary noise.",
+            "allowedTools": [
+              "FileRead",
+              "FileEdit",
+              "FileWrite",
+              "Grep",
+              "TodoWrite",
+              "ShadowLedgerAudit"
+            ],
+            "unknownAllowedTools": [],
+            "hasAllowedTools": true,
+            "hasCentralDependency": true,
+            "hasGpsProtocol": true,
+            "hasExecutionProtocol": true,
+            "hasSwarmProtocol": true
+          },
+          {
+            "name": "cloud-opus-mentor",
+            "path": ".agents/skills/cloud-opus-mentor/SKILL.md",
+            "version": "52.0-Delegation",
+            "description": "Cloud Opus 4.8 (Omniscient Mentor) - العقل المدبر الكلي، يصدر القرارات للنائب (Sigma Coordinator) ويتولى الاعتماد النهائي بعيداً عن ضجيج التنفيذ.",
+            "allowedTools": [
+              "EnterPlanMode",
+              "ExitPlanMode",
+              "PredictiveForesight",
+              "SelfEvolutionCompiler",
+              "SurgicalDiff"
+            ],
+            "unknownAllowedTools": [],
+            "hasAllowedTools": true,
+            "hasCentralDependency": true,
+            "hasGpsProtocol": true,
+            "hasExecutionProtocol": true,
+            "hasSwarmProtocol": true
+          },
+          {
+            "name": "cloudops-critic",
+            "path": ".agents/skills/cloudops-critic/SKILL.md",
+            "version": "63.0-Omega-Absolute",
+            "description": "وكيل النقد المعماري لكشف ثغرات البنية التحتية، الأمان السحابي، وتكامل CloudOps 4.7",
+            "allowedTools": [
+              "Grep",
+              "FileRead",
+              "Glob"
+            ],
+            "unknownAllowedTools": [],
+            "hasAllowedTools": true,
+            "hasCentralDependency": true,
+            "hasGpsProtocol": true,
+            "hasExecutionProtocol": true,
+            "hasSwarmProtocol": false
+          },
+          {
+            "name": "db-forensics",
+            "path": ".agents/skills/db-forensics/SKILL.md",
+            "version": "51.0-Singularity",
+            "description": "تحليل جنائي لقواعد البيانات — كشف التناقضات، فحص الأداء، وتتبع البيانات المفقودة",
+            "allowedTools": [
+              "Grep",
+              "FileRead",
+              "FileReadLines",
+              "Glob",
+              "Bash",
+              "ViewCodeOutline",
+              "TodoWrite",
+              "ForensicAudit",
+              "ShadowLedgerAudit",
+              "VectorSearch"
+            ],
+            "unknownAllowedTools": [],
+            "hasAllowedTools": true,
+            "hasCentralDependency": true,
+            "hasGpsProtocol": true,
+            "hasExecutionProtocol": true,
+            "hasSwarmProtocol": true
+          },
+          {
+            "name": "django-doctor",
+            "path": ".agents/skills/django-doctor/SKILL.md",
+            "version": "51.0-Singularity",
+            "description": "تشخيص وإصلاح مشاكل Django — ORM, Views, Migrations, Signals, وأداء الاستعلامات",
+            "allowedTools": [
+              "Grep",
+              "FileRead",
+              "FileReadLines",
+              "FileEdit",
+              "FileWrite",
+              "SurgicalDiff",
+              "Glob",
+              "Bash",
+              "ViewCodeOutline",
+              "ForensicAudit",
+              "TodoWrite"
+            ],
+            "unknownAllowedTools": [],
+            "hasAllowedTools": true,
+            "hasCentralDependency": true,
+            "hasGpsProtocol": true,
+            "hasExecutionProtocol": true,
+            "hasSwarmProtocol": true
+          },
+          {
+            "name": "documentation-governor",
+            "path": ".agents/skills/documentation-governor/SKILL.md",
+            "version": "51.1-Singularity",
+            "description": "Governs TheSource documentation and skill maturity through repeatable evidence, score gates, and drift control.",
+            "allowedTools": [
+              "FileRead",
+              "FileReadLines",
+              "FileEdit",
+              "FileWrite",
+              "Grep",
+              "Glob",
+              "Bash",
+              "TodoWrite",
+              "ShadowLedgerAudit",
+              "SemanticReference",
+              "TokenEstimation"
+            ],
+            "unknownAllowedTools": [],
+            "hasAllowedTools": true,
+            "hasCentralDependency": true,
+            "hasGpsProtocol": true,
+            "hasExecutionProtocol": true,
+            "hasSwarmProtocol": true
+          },
+          {
+            "name": "enterprise-integrator",
+            "path": ".agents/skills/enterprise-integrator/SKILL.md",
+            "version": "51.0-Singularity",
+            "description": "بروتوكول التكامل السيادي والمواءمة المعمارية للمشاريع الكبرى (V63.0-Singularity) — إدارة وتطبيق الطبقات الـ 11 والتحقق المزدوج عبر المشاريع",
+            "allowedTools": [
+              "Grep",
+              "FileRead",
+              "FileReadLines",
+              "FileEdit",
+              "FileWrite",
+              "Glob",
+              "Bash",
+              "PowerShell",
+              "Agent",
+              "TodoWrite",
+              "InteractiveTerminal",
+              "McpCall",
+              "SystemDiagnostics",
+              "ZodSchema"
+            ],
+            "unknownAllowedTools": [],
+            "hasAllowedTools": true,
+            "hasCentralDependency": true,
+            "hasGpsProtocol": true,
+            "hasExecutionProtocol": true,
+            "hasSwarmProtocol": true
+          },
+          {
+            "name": "evolution-replicator",
+            "path": ".agents/skills/evolution-replicator/SKILL.md",
+            "version": "8.0.0",
+            "description": "الوكيل السيادي المسئول عن التكاثر الذاتي وبناء مهارات ووكلاء جدد آلياً عند الحاجة.",
+            "allowedTools": [
+              "FileRead",
+              "FileWrite",
+              "FileEdit",
+              "Glob",
+              "Grep",
+              "VectorSearch",
+              "TodoWrite",
+              "WebSearch",
+              "WebFetch",
+              "WebBrowse",
+              "DynamicToolSynthesis",
+              "SelfEvolutionCompiler"
+            ],
+            "unknownAllowedTools": [],
+            "hasAllowedTools": true,
+            "hasCentralDependency": true,
+            "hasGpsProtocol": true,
+            "hasExecutionProtocol": true,
+            "hasSwarmProtocol": true
+          },
+          {
+            "name": "finance-auditor",
+            "path": ".agents/skills/finance-auditor/SKILL.md",
+            "version": "51.0-Singularity",
+            "description": "Financial Compliance Agent - مسؤول عن التدقيق المالي ومحاسبة الأصول ومنع الاحتيال",
+            "allowedTools": [
+              "ForensicAudit",
+              "ShadowLedgerAudit",
+              "DeepCoordinatorTask",
+              "SwarmBroadcast",
+              "FileRead",
+              "Grep",
+              "Bash"
+            ],
+            "unknownAllowedTools": [],
+            "hasAllowedTools": true,
+            "hasCentralDependency": true,
+            "hasGpsProtocol": true,
+            "hasExecutionProtocol": true,
+            "hasSwarmProtocol": true
+          },
+          {
+            "name": "flutter-fixer",
+            "path": ".agents/skills/flutter-fixer/SKILL.md",
+            "version": "51.0-Singularity",
+            "description": "تشخيص وإصلاح مشاكل Flutter/Dart — Widgets, State Management, Navigation, وأداء التطبيقات",
+            "allowedTools": [
+              "Grep",
+              "FileRead",
+              "FileEdit",
+              "FileWrite",
+              "Glob",
+              "Bash",
+              "TodoWrite"
+            ],
+            "unknownAllowedTools": [],
+            "hasAllowedTools": true,
+            "hasCentralDependency": true,
+            "hasGpsProtocol": true,
+            "hasExecutionProtocol": true,
+            "hasSwarmProtocol": true
+          },
+          {
+            "name": "gps-map-healer",
+            "path": ".agents/skills/gps-map-healer/SKILL.md",
+            "version": "51.1-Singularity",
+            "description": "GPS Source-Map Healing Agent — تحليل وإصلاح الأخطاء باستخدام cli.js.map كمصدر حقيقة وحيد، مع فهرسة 4756 مصدر TypeScript في VectorDB للبحث الدلالي الفوري",
+            "allowedTools": [
+              "RemoteMapDecoder",
+              "VectorAstMapper",
+              "SelfHealingImmunizer",
+              "ForensicAudit",
+              "Bash",
+              "FileRead",
+              "FileEdit",
+              "Grep",
+              "Glob"
+            ],
+            "unknownAllowedTools": [],
+            "hasAllowedTools": true,
+            "hasCentralDependency": true,
+            "hasGpsProtocol": true,
+            "hasExecutionProtocol": true,
+            "hasSwarmProtocol": true
+          },
+          {
+            "name": "infrastructure-titan",
+            "path": ".agents/skills/infrastructure-titan/SKILL.md",
+            "version": "52.0-AntiHallucination",
+            "description": "Infrastructure Titan — عملاق البنية التحتية: PM2، المنافذ، Docker، والنشر الآمن",
+            "allowedTools": [
+              "Bash",
+              "PowerShell",
+              "FileWrite",
+              "FileRead",
+              "FileReadLines",
+              "ShadowLedgerAudit"
+            ],
+            "unknownAllowedTools": [],
+            "hasAllowedTools": true,
+            "hasCentralDependency": true,
+            "hasGpsProtocol": true,
+            "hasExecutionProtocol": true,
+            "hasSwarmProtocol": true
+          },
+          {
+            "name": "mcp-developer",
+            "path": ".agents/skills/mcp-developer/SKILL.md",
+            "version": "64.1-Commander",
+            "description": "Console Commander proxy skill to enforce actual Swarm Execution instead of theoretical chatting.",
+            "allowedTools": [
+              "FileRead",
+              "Bash",
+              "LoadSkill",
+              "CognitiveRouter",
+              "AskUserQuestion"
+            ],
+            "unknownAllowedTools": [],
+            "hasAllowedTools": true,
+            "hasCentralDependency": true,
+            "hasGpsProtocol": true,
+            "hasExecutionProtocol": true,
+            "hasSwarmProtocol": true
+          },
+          {
+            "name": "nexus-core",
+            "path": ".agents/skills/nexus-core/SKILL.md",
+            "version": "52.0-Sovereign",
+            "description": "النواة السيادية المركزية — الدستور الإلزامي لجميع المهارات والوكلاء في منظومة TheSource",
+            "allowedTools": [
+              "FileRead",
+              "FileEdit",
+              "FileWrite",
+              "Bash",
+              "TodoWrite",
+              "Grep",
+              "Glob"
+            ],
+            "unknownAllowedTools": [],
+            "hasAllowedTools": true,
+            "hasCentralDependency": true,
+            "hasGpsProtocol": true,
+            "hasExecutionProtocol": true,
+            "hasSwarmProtocol": true
+          },
+          {
+            "name": "nexus-memory",
+            "path": ".agents/skills/nexus-memory/SKILL.md",
+            "version": "51.0-Singularity",
+            "description": "ذاكرة سيادية طويلة المدى (V63.0-Singularity) — حفظ واسترجاع السياق والقرارات والأنماط المكتشفة",
+            "allowedTools": [
+              "Grep",
+              "FileRead",
+              "FileEdit",
+              "FileWrite",
+              "Glob",
+              "Bash",
+              "TodoWrite",
+              "VectorSearch",
+              "SemanticContextCompressor",
+              "ShadowLedgerAudit"
+            ],
+            "unknownAllowedTools": [],
+            "hasAllowedTools": true,
+            "hasCentralDependency": true,
+            "hasGpsProtocol": true,
+            "hasExecutionProtocol": true,
+            "hasSwarmProtocol": true
+          },
+          {
+            "name": "oracle-intuition",
+            "path": ".agents/skills/oracle-intuition/SKILL.md",
+            "version": "51.0-Singularity",
+            "description": "Holistic Oracle Protocol — العراف الكلي صاحب البصيرة الحدسية لربط السياق الكبير",
+            "allowedTools": [
+              "FileRead",
+              "Glob",
+              "Grep"
+            ],
+            "unknownAllowedTools": [],
+            "hasAllowedTools": true,
+            "hasCentralDependency": true,
+            "hasGpsProtocol": true,
+            "hasExecutionProtocol": true,
+            "hasSwarmProtocol": true
+          },
+          {
+            "name": "quantum-debugger",
+            "path": ".agents/skills/quantum-debugger/SKILL.md",
+            "version": "52.0-AntiHallucination",
+            "description": "Quantum Debugger — وكيل تتبع الذاكرة والأداء وصائد الثغرات المعقدة",
+            "allowedTools": [
+              "SystemDiagnostics",
+              "RealtimeScan",
+              "FileRead",
+              "FileReadLines",
+              "Grep",
+              "Bash",
+              "LSPTool",
+              "ShadowLedgerAudit"
+            ],
+            "unknownAllowedTools": [],
+            "hasAllowedTools": true,
+            "hasCentralDependency": true,
+            "hasGpsProtocol": true,
+            "hasExecutionProtocol": true,
+            "hasSwarmProtocol": true
+          },
+          {
+            "name": "react-surgeon",
+            "path": ".agents/skills/react-surgeon/SKILL.md",
+            "version": "51.0-Singularity",
+            "description": "تشخيص وإصلاح مشاكل React/Vite — Components, State, Props, Hooks, وأداء الواجهة",
+            "allowedTools": [
+              "Grep",
+              "FileRead",
+              "FileReadLines",
+              "FileEdit",
+              "FileWrite",
+              "SurgicalDiff",
+              "AstChunkPatch",
+              "UndoChanges",
+              "Glob",
+              "Bash",
+              "ViewCodeOutline",
+              "TodoWrite"
+            ],
+            "unknownAllowedTools": [],
+            "hasAllowedTools": true,
+            "hasCentralDependency": true,
+            "hasGpsProtocol": true,
+            "hasExecutionProtocol": true,
+            "hasSwarmProtocol": true
+          },
+          {
+            "name": "security-audit",
+            "path": ".agents/skills/security-audit/SKILL.md",
+            "version": "52.0-AntiHallucination",
+            "description": "فحص أمني شامل للمشروع — مفاتيح مكشوفة، ثغرات، وأفضل ممارسات الأمان",
+            "allowedTools": [
+              "Grep",
+              "FileRead",
+              "FileReadLines",
+              "Glob",
+              "Bash",
+              "TodoWrite",
+              "RealtimeScan",
+              "ForensicAudit",
+              "ShadowLedgerAudit",
+              "VectorSearch"
+            ],
+            "unknownAllowedTools": [],
+            "hasAllowedTools": true,
+            "hasCentralDependency": true,
+            "hasGpsProtocol": true,
+            "hasExecutionProtocol": true,
+            "hasSwarmProtocol": true
+          },
+          {
+            "name": "shadow-memory",
+            "path": ".agents/skills/shadow-memory/SKILL.md",
+            "version": "51.0-Singularity",
+            "description": "ShadowMemory (Sigma V63.0 - Sovereign Sentinel) — Forensic Monitoring & Recursive Improvement",
+            "allowedTools": [
+              "Grep",
+              "FileRead",
+              "FileEdit",
+              "FileWrite",
+              "Glob",
+              "Bash",
+              "Agent",
+              "TodoWrite",
+              "PredictiveForesight",
+              "ShadowLedgerAudit",
+              "MemoryGraphRefiner",
+              "AutoDream"
+            ],
+            "unknownAllowedTools": [],
+            "hasAllowedTools": true,
+            "hasCentralDependency": true,
+            "hasGpsProtocol": true,
+            "hasExecutionProtocol": true,
+            "hasSwarmProtocol": true
+          },
+          {
+            "name": "sigma-coordinator",
+            "path": ".agents/skills/sigma-coordinator/SKILL.md",
+            "version": "1.0-Sigma",
+            "description": "النائب التنفيذي (Sigma Coordinator) المعتمد على gpt-oss-120b. حلقة الوصل بين الماستر (Cloud Opus) وجيش الأسراب لتنفيذ المهام بتكلفة توكن منخفضة.",
+            "allowedTools": [
+              "TaskCreate",
+              "TaskUpdate",
+              "TelepathicSwarmConsensus",
+              "Bash",
+              "AstMutexLockManager",
+              "ConsensusStructuralLinter",
+              "VectorSync",
+              "Glob",
+              "Grep",
+              "WebSearch",
+              "VisualDomMapper",
+              "SandboxedChaos",
+              "RealtimeScan"
+            ],
+            "unknownAllowedTools": [],
+            "hasAllowedTools": true,
+            "hasCentralDependency": true,
+            "hasGpsProtocol": true,
+            "hasExecutionProtocol": true,
+            "hasSwarmProtocol": true
+          },
+          {
+            "name": "sovereign-features",
+            "path": ".agents/skills/sovereign-features/SKILL.md",
+            "version": "1.0-Sovereign",
+            "description": "مهارة إدارة الميزات السيادية — تتبع حالة الخصائص عبر Feature Flags",
+            "allowedTools": [
+              "FileRead",
+              "Grep",
+              "Bash"
+            ],
+            "unknownAllowedTools": [],
+            "hasAllowedTools": true,
+            "hasCentralDependency": true,
+            "hasGpsProtocol": true,
+            "hasExecutionProtocol": true,
+            "hasSwarmProtocol": false
+          },
+          {
+            "name": "swarm-gps-coordinator",
+            "path": ".agents/skills/swarm-gps-coordinator/SKILL.md",
+            "version": "51.1-Singularity",
+            "description": "Swarm GPS Coordinator — تنسيق الأسراب المتوازية مع وعي بإحداثيات cli.js.map، وضمان تزامن الوكلاء عبر shadow_ledger.jsonl",
+            "allowedTools": [
+              "SwarmPipelineOrchestrator",
+              "ParallelSwarmCoordinator",
+              "SwarmBroadcast",
+              "DeepCoordinatorTask",
+              "AsyncSwarmTask",
+              "LedgerCompactor",
+              "MemoryGraphRefiner",
+              "ZeroTrustMerkleLedger",
+              "ConsensusStructuralLinter",
+              "TaskManager",
+              "Agent",
+              "ShadowLedgerAudit",
+              "FileRead",
+              "FileWrite",
+              "Grep",
+              "Glob"
+            ],
+            "unknownAllowedTools": [],
+            "hasAllowedTools": true,
+            "hasCentralDependency": true,
+            "hasGpsProtocol": true,
+            "hasExecutionProtocol": true,
+            "hasSwarmProtocol": true
+          },
+          {
+            "name": "ui-synthesizer",
+            "path": ".agents/skills/ui-synthesizer/SKILL.md",
+            "version": "51.0-Singularity",
+            "description": "UI/UX Synthesis Agent - مهندس واجهات أوتوماتيكي يقوم بقراءة الـ AST وتوليد مكونات React",
+            "allowedTools": [
+              "AstIndexer",
+              "ASTAutoPatch",
+              "ViewCodeOutline",
+              "FileRead",
+              "FileWrite",
+              "FileEdit",
+              "SwarmBroadcast",
+              "Grep",
+              "VisualDomMapper",
+              "VisualAuditReport"
+            ],
+            "unknownAllowedTools": [],
+            "hasAllowedTools": true,
+            "hasCentralDependency": true,
+            "hasGpsProtocol": true,
+            "hasExecutionProtocol": true,
+            "hasSwarmProtocol": true
+          },
+          {
+            "name": "ux-hypnotist",
+            "path": ".agents/skills/ux-hypnotist/SKILL.md",
+            "version": "51.0-Singularity",
+            "description": "UX Hypnotist — مهندس الجماليات والتنويم البصري (Glassmorphism & Micro-animations)",
+            "allowedTools": [
+              "FileEdit",
+              "FileWrite",
+              "AstChunkPatch",
+              "SurgicalDiff",
+              "VisualDomMapper"
+            ],
+            "unknownAllowedTools": [],
+            "hasAllowedTools": true,
+            "hasCentralDependency": true,
+            "hasGpsProtocol": true,
+            "hasExecutionProtocol": true,
+            "hasSwarmProtocol": true
+          },
+          {
+            "name": "vector-memory-architect",
+            "path": ".agents/skills/vector-memory-architect/SKILL.md",
+            "version": "51.0-Singularity",
+            "description": "Vector Memory Architect — تحويل shadow_ledger.jsonl من ملف نصي ثقيل (7.4MB) إلى قاعدة بيانات متجهات دلالية قابلة للاستعلام في 0-token، مع بناء شبكة معرفية تتعلم من الأخطاء السابقة",
+            "allowedTools": [
+              "VectorAstMapper",
+              "VectorSync",
+              "VectorSearch",
+              "LedgerCompactor",
+              "MemoryGraphRefiner",
+              "MemoryLedgerForecaster",
+              "QuantumHologram",
+              "FileRead",
+              "Grep",
+              "Glob"
+            ],
+            "unknownAllowedTools": [],
+            "hasAllowedTools": true,
+            "hasCentralDependency": true,
+            "hasGpsProtocol": true,
+            "hasExecutionProtocol": true,
+            "hasSwarmProtocol": true
+          },
+          {
+            "name": "zenith-nexus",
+            "path": ".agents/skills/zenith-nexus/SKILL.md",
+            "version": "51.0-Singularity",
+            "description": "The Supreme Sovereign Core V45.0: 0-Token Orchestration & Telepathy Bridge — The Master Root for Aether Engine",
+            "allowedTools": [
+              "Grep",
+              "FileRead",
+              "FileEdit",
+              "FileWrite",
+              "Glob",
+              "Bash",
+              "Agent",
+              "TodoWrite",
+              "WebFetch",
+              "WebSearch",
+              "McpCall",
+              "MCPTool",
+              "ListMcpResources",
+              "ReadMcpResource"
+            ],
+            "unknownAllowedTools": [],
+            "hasAllowedTools": true,
+            "hasCentralDependency": true,
+            "hasGpsProtocol": true,
+            "hasExecutionProtocol": true,
+            "hasSwarmProtocol": true
+          }
+        ],
+        "interpretation": {
+          "modelIndependence": "Skills and swarms are certified against bridge.json, runtime anchors, and cli.js.map metadata instead of trusting a model name.",
+          "gpsAlignment": "Every skill must carry SourceMap/GPS governance so agents can reason through cli.js.map without bulk-loading the bundle.",
+          "swarmBoundary": "Swarm strength is certified by exposed tools, runtime anchors, dry-run/live transcripts, and Shadow Ledger entries."
+        }
+      },
+      "exitCode": 0
+    },
+    "nativeMcp": {
+      "status": "pass",
+      "parsed": {
+        "generatedAt": "2026-06-14T06:25:48.820Z",
+        "workspace": "C:\\tools\\workspace\\TheSource",
+        "nativeMcpLauncher": "C:\\tools\\workspace\\TheSource\\launch_native_mcp.cmd",
+        "bridge": {
+          "enforcementMode": "AUDIT",
+          "remoteMcpEnabled": true,
+          "declaredAllowedTools": 130,
+          "exposedMcpTools": 41
+        },
+        "http": {
+          "baseUrl": "http://127.0.0.1:3847",
+          "apiKeySource": "MCP_API_KEY",
+          "unauthMetricsDenied": true,
+          "unauthMcpDenied": true,
+          "serverReachable": true,
+          "authenticated": {
+            "metrics": {
+              "ok": true,
+              "statusCode": 200
+            },
+            "mcpSse": {
+              "ok": true,
+              "statusCode": 200,
+              "contentType": "text/event-stream"
+            },
+            "streamableHttp": {
+              "ok": true,
+              "toolCount": 25,
+              "fileManagerExposed": true,
+              "readOnlyToolCallOk": true,
+              "transport": "streamable-http"
+            },
+            "allTools": {
+              "ok": true,
+              "statusCode": 200,
+              "toolCount": 40
+            },
+            "toolSmoke": {
+              "ok": true,
+              "via": "streamable-http",
+              "readOnlyToolCallOk": true
+            }
+          }
+        },
+        "toolFiltering": {
+          "bootstrap": {
+            "expected": [
+              "nexus_AskUserQuestion",
+              "nexus_CognitiveRouter",
+              "nexus_LoadSkill",
+              "nexus_SwarmHandoff"
+            ],
+            "actual": [
+              "nexus_AskUserQuestion",
+              "nexus_CognitiveRouter",
+              "nexus_LoadSkill",
+              "nexus_SwarmHandoff"
+            ],
+            "ok": true
+          },
+          "skills": {
+            "mcpDeveloperToolCount": 21,
+            "cloudOpusMentorToolCount": 23,
+            "swarmToolCount": 25,
+            "swarmManagerActions": [
+              "Agent",
+              "SwarmBroadcast",
+              "SwarmPipelineOrchestrator",
+              "DeepCoordinatorTask",
+              "AsyncSwarmTask",
+              "ParallelSwarmCoordinator"
+            ],
+            "swarmCoordinatorExposed": true,
+            "agentExposed": true,
+            "mcpDeveloperFileActions": [
+              "FileRead",
+              "FileReadLines",
+              "Glob",
+              "Grep",
+              "ViewCodeOutline"
+            ],
+            "securityFileActions": [
+              "FileRead",
+              "FileReadLines",
+              "Glob",
+              "Grep",
+              "ViewCodeOutline"
+            ]
+          },
+          "authorization": {
+            "fileReadUnderMcpDeveloper": true,
+            "fileWriteDeniedUnderSecurityAudit": true,
+            "denialReasonClass": "SKILL_STRICT_DENIAL"
+          }
+        },
+        "level5": {
+          "localSensitiveRoute": "LOCAL_KAIROS_MCP",
+          "localSensitiveReason": "Security Directive: Core AST, Security, and Database edits must remain sovereignly local.",
+          "cloudAbstractRoute": "ANONYMOUS_CLOUD_OPUS",
+          "cloudAbstractReason": "Complex abstract reasoning routed to Cloud Opus with active Privacy Shield.",
+          "redactionApplied": true,
+          "cloudOpusRole": "planner_mentor_only",
+          "ok": true
+        },
+        "swarmDryRun": {
+          "ok": true,
+          "plan": {
+            "status": "planned",
+            "total_agents": 3,
+            "wave_size": 6,
+            "waves": 1,
+            "tasks": []
+          },
+          "ledgerEventTypes": [
+            "SWARM_WAVE_PLAN"
+          ]
+        },
+        "score": 100,
+        "status": "PASS_90_GATE"
+      },
+      "exitCode": 0
+    },
+    "globalProductionGate": {
+      "status": "pass",
+      "parsed": {
+        "generatedAt": "2026-06-14T06:25:58.992Z",
+        "score": 100,
+        "reportPath": "C:\\tools\\workspace\\TheSource\\reports\\sovereign_global_production_readiness_2026-06-02.md",
+        "nativeScore": 100,
+        "secretFindings": 0,
+        "streamableHttpProven": true,
+        "liveUiProof": 10,
+        "runtimeSwarm": 10
+      },
+      "exitCode": 0
+    },
+    "sovereign90Sweep": {
+      "status": "pass",
+      "parsed": {
+        "generatedAt": "2026-06-14T06:27:16.529Z",
+        "score": 98,
+        "reportPath": "C:\\tools\\workspace\\TheSource\\reports\\sovereign_90_readiness_report_2026-06-02.md",
+        "nativeScore": 100,
+        "cliMapStatus": "pass",
+        "docsAuditPassed": true,
+        "vitestIncluded": false,
+        "commandStatuses": [
+          {
+            "label": "native-mcp",
+            "status": "pass",
+            "exitCode": 0
+          },
+          {
+            "label": "cli-map",
+            "status": "pass",
+            "exitCode": 0
+          },
+          {
+            "label": "docs-audit",
+            "status": "pass",
+            "exitCode": 0
+          },
+          {
+            "label": "health-check",
+            "status": "pass",
+            "exitCode": 0
+          },
+          {
+            "label": "validate-fixes",
+            "status": "pass",
+            "exitCode": 0
+          },
+          {
+            "label": "test-runner",
+            "status": "pass",
+            "exitCode": 0
+          },
+          {
+            "label": "npm-audit",
+            "status": "pass",
+            "exitCode": 0
+          },
+          {
+            "label": "vitest",
+            "status": "fail",
+            "exitCode": null
+          }
+        ],
+        "npmAuditSummary": {
+          "info": 0,
+          "low": 0,
+          "moderate": 0,
+          "high": 0,
+          "critical": 0,
+          "total": 0
+        }
+      },
+      "exitCode": 0
+    },
+    "liveUi": {
+      "status": "pass",
+      "parsed": {
+        "ok": true,
+        "baseUrl": "http://127.0.0.1:3847",
+        "statusCode": 200,
+        "domSnapshotHash": "825fa152949108dd8faa41fcbfbb2483272f173a7a432b846183436f3ff01ac3",
+        "dom": {
+          "title": "Sovereign billing Dashboard | لوحة التحكم الإدارية للفوترة",
+          "elementCount": 357,
+          "scriptCount": 3,
+          "styleCount": 2
+        },
+        "sourceFile": "public/admin.html",
+        "sourceExists": true,
+        "screenshotHash": "4d1d2f21a55e8b8edd79cf94a581f9897a6e83bf0efb7bb1d2b2dcc7ce760dcf",
+        "accessibilityTreeHash": "3f489675b801b9876b4f5165905244935449b745c8819afd0a2356f48cb67dd8",
+        "cliMapSourceLink": "file:///c:/tools/workspace/TheSource/package/cli.js.map#L4750",
+        "limitation": "Proves live admin DOM delivery, screenshot rendering hash, and accessibility tree mapping to cli.js.map."
+      },
+      "exitCode": 0
+    },
+    "vitest": {
+      "status": "pass",
+      "parsed": null,
+      "exitCode": 0
+    }
+  },
+  "productionGate": {
+    "generatedAt": "2026-06-14T06:25:58.992Z",
+    "score": 100,
+    "reportPath": "C:\\tools\\workspace\\TheSource\\reports\\sovereign_global_production_readiness_2026-06-02.md",
+    "nativeScore": 100,
+    "secretFindings": 0,
+    "streamableHttpProven": true,
+    "liveUiProof": 10,
+    "runtimeSwarm": 10
+  },
+  "sovereign90Sweep": {
+    "generatedAt": "2026-06-14T06:27:16.529Z",
+    "score": 98,
+    "reportPath": "C:\\tools\\workspace\\TheSource\\reports\\sovereign_90_readiness_report_2026-06-02.md",
+    "nativeScore": 100,
+    "cliMapStatus": "pass",
+    "docsAuditPassed": true,
+    "vitestIncluded": false,
+    "commandStatuses": [
+      {
+        "label": "native-mcp",
+        "status": "pass",
+        "exitCode": 0
+      },
+      {
+        "label": "cli-map",
+        "status": "pass",
+        "exitCode": 0
+      },
+      {
+        "label": "docs-audit",
+        "status": "pass",
+        "exitCode": 0
+      },
+      {
+        "label": "health-check",
+        "status": "pass",
+        "exitCode": 0
+      },
+      {
+        "label": "validate-fixes",
+        "status": "pass",
+        "exitCode": 0
+      },
+      {
+        "label": "test-runner",
+        "status": "pass",
+        "exitCode": 0
+      },
+      {
+        "label": "npm-audit",
+        "status": "pass",
+        "exitCode": 0
+      },
+      {
+        "label": "vitest",
+        "status": "fail",
+        "exitCode": null
+      }
+    ],
+    "npmAuditSummary": {
+      "info": 0,
+      "low": 0,
+      "moderate": 0,
+      "high": 0,
+      "critical": 0,
+      "total": 0
+    }
+  },
+  "liveUi": {
+    "ok": true,
+    "baseUrl": "http://127.0.0.1:3847",
+    "statusCode": 200,
+    "domSnapshotHash": "825fa152949108dd8faa41fcbfbb2483272f173a7a432b846183436f3ff01ac3",
+    "dom": {
+      "title": "Sovereign billing Dashboard | لوحة التحكم الإدارية للفوترة",
+      "elementCount": 357,
+      "scriptCount": 3,
+      "styleCount": 2
+    },
+    "sourceFile": "public/admin.html",
+    "sourceExists": true,
+    "screenshotHash": "4d1d2f21a55e8b8edd79cf94a581f9897a6e83bf0efb7bb1d2b2dcc7ce760dcf",
+    "accessibilityTreeHash": "3f489675b801b9876b4f5165905244935449b745c8819afd0a2356f48cb67dd8",
+    "cliMapSourceLink": "file:///c:/tools/workspace/TheSource/package/cli.js.map#L4750",
+    "limitation": "Proves live admin DOM delivery, screenshot rendering hash, and accessibility tree mapping to cli.js.map."
+  }
+}

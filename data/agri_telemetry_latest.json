@@ -1,0 +1,13 @@
+{
+  "timestamp": "2026-06-03T13:34:33.954Z",
+  "metrics": {
+    "diagnosticHealthScore": 75,
+    "tripleMatchRate": 66.7,
+    "uatCyclePassed": true
+  },
+  "rawOutputs": {
+    "diagnostics": "\r\n======================================================================\r\n🔬 AGRI-GUARDIAN: System Diagnostics\r\n======================================================================\r\nTime: 2026-06-03 13:34:26.944796+00:00\r\nFix Mode: Disabled\r\n======================================================================\r\n\r\n✅ Database Connection\r\n--------------------------------------------------\r\n   ℹ️  Database connection: OK\r\n   ℹ️  PostgreSQL: PostgreSQL 16.10, compiled by Visual C++ build 194...\r\n ...",
+    "tripleMatch": "\r\n================================================================================\r\n🔗 AGRI-GUARDIAN: Triple Match Reconciliation Report\r\n================================================================================\r\nReport Date: 2026-06-03\r\nTolerance: 100.00 YER\r\n================================================================================\r\n\r\n📋 Farm: سردود المزرعة الشاملة - SIMPLE\r\n------------------------------------------------------------\r\n  📦 Inventory Qty:              0.00\r\n  📊 O...",
+    "uat": "  ✓ Users seeded\r\n  ✓ Units seeded\r\n  ✓ Farm memberships seeded\r\n  ✓ Farm: مزرعة سردود (id=1)\r\n  ✓ Locations seeded\r\n  ✓ Land parcels seeded\r\n  ✓ Crops seeded: موز, مانجو, قمح, ذرة, ذرة بيضاء, ذرة حمراء\r\n  ✓ Tasks seeded: 43 total\r\n  ✓ Items seeded: 14\r\n  ✓ Assets seeded\r\n  ✓ Location wells seeded\r\n  ✓ Employees seeded\r\n  ✓ Season: موسم 2026\r\n  ✓ Crop plans seeded\r\n  ✓ Crop products seeded\r\n  ✓ Cost centers seeded\r\n  ✓ Opening stock and ledger seeded\r\n  ✓ All 4 dynamic SDUI Schemas seeded\r\nPASS ..."
+  }
+}

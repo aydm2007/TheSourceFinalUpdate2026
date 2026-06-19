@@ -1,0 +1,146 @@
+{
+  "timestamp": "2026-06-01T02:38:51.259Z",
+  "totalAgents": 23,
+  "successfulAgents": 23,
+  "readinessScore": "100.00%",
+  "details": [
+    {
+      "name": "The project is a Sovereign MCP-Native Developer Platform with a local MCP",
+      "result": {
+        "error": "Unauthorized: Invalid API Key"
+      }
+    },
+    {
+      "name": "The console model split is:",
+      "result": {
+        "error": "Unauthorized: Invalid API Key"
+      }
+    },
+    {
+      "name": "Planner:",
+      "result": {
+        "error": "Unauthorized: Invalid API Key"
+      }
+    },
+    {
+      "name": "Executor:",
+      "result": {
+        "error": "Unauthorized: Invalid API Key"
+      }
+    },
+    {
+      "name": "Real edits are controlled by active skill filtering. If the active skill is",
+      "result": {
+        "error": "Unauthorized: Invalid API Key"
+      }
+    },
+    {
+      "name": "The default edit-capable skill for the console is",
+      "result": {
+        "error": "Unauthorized: Invalid API Key"
+      }
+    },
+    {
+      "name": "The",
+      "result": {
+        "error": "Unauthorized: Invalid API Key"
+      }
+    },
+    {
+      "name": "Always use MCP bridge tools for file reads, edits, tests, and audits.",
+      "result": {
+        "error": "Unauthorized: Invalid API Key"
+      }
+    },
+    {
+      "name": "Do not use shell redirection or ad hoc scripts to bypass MCP file tools.",
+      "result": {
+        "error": "Unauthorized: Invalid API Key"
+      }
+    },
+    {
+      "name": "Use",
+      "result": {
+        "error": "Unauthorized: Invalid API Key"
+      }
+    },
+    {
+      "name": "Use",
+      "result": {
+        "error": "Unauthorized: Invalid API Key"
+      }
+    },
+    {
+      "name": "The active MCP skill is read from",
+      "result": {
+        "error": "Unauthorized: Invalid API Key"
+      }
+    },
+    {
+      "name": "Do not claim the platform is 100% complete without live validation evidence.",
+      "result": {
+        "error": "Unauthorized: Invalid API Key"
+      }
+    },
+    {
+      "name": "The swarm may be executed in waves when runtime limits prevent 40 concurrent",
+      "result": {
+        "error": "Unauthorized: Invalid API Key"
+      }
+    },
+    {
+      "name": "The remote MCP bridge now provides",
+      "result": {
+        "error": "Unauthorized: Invalid API Key"
+      }
+    },
+    {
+      "name": "Secrets must stay in",
+      "result": {
+        "error": "Unauthorized: Invalid API Key"
+      }
+    },
+    {
+      "name": "Console wrapper:",
+      "result": {
+        "error": "Unauthorized: Invalid API Key"
+      }
+    },
+    {
+      "name": "MCP stdio server:",
+      "result": {
+        "error": "Unauthorized: Invalid API Key"
+      }
+    },
+    {
+      "name": "MCP shared filtering:",
+      "result": {
+        "error": "Unauthorized: Invalid API Key"
+      }
+    },
+    {
+      "name": "Skill activation:",
+      "result": {
+        "error": "Unauthorized: Invalid API Key"
+      }
+    },
+    {
+      "name": "Console model relay:",
+      "result": {
+        "error": "Unauthorized: Invalid API Key"
+      }
+    },
+    {
+      "name": "Edit-capable console skill:",
+      "result": {
+        "error": "Unauthorized: Invalid API Key"
+      }
+    },
+    {
+      "name": "Health checks:",
+      "result": {
+        "error": "Unauthorized: Invalid API Key"
+      }
+    }
+  ]
+}

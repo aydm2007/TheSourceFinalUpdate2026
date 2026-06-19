@@ -1,0 +1,6 @@
+{
+  "mcp": {
+    "server": "nexus-bridge"
+  },
+  "enableAllProjectMcpServers": true
+}

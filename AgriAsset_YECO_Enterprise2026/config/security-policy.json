@@ -1,0 +1,5 @@
+{
+  "blacklist_paths": ["**/*.env","**/*.key","**/*.pem","**/shadow_ledger.jsonl"],
+  "redact_variables": ["API_KEY","SECRET","TOKEN"],
+  "mask": "******"
+}

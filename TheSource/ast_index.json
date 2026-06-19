@@ -1,0 +1,188 @@
+{
+  "mcts_optimize.js": {
+    "classes": [],
+    "functions": [
+      "function generateVariants",
+      "function scoreVariant",
+      "for (const variant of candidates)",
+      "if (s > bestScore)",
+      "if (bestCode !== originalCode)"
+    ]
+  },
+  "public\\main.js": {
+    "classes": [],
+    "functions": [
+      "function start",
+      "function animate",
+      "if (sound.isPlaying)",
+      "if (timeEl)",
+      "if (document.readyState === 'complete' || document.readyState === 'interactive')"
+    ]
+  },
+  "src\\AdvancedRenderer.js": {
+    "classes": [
+      "class AdvancedRenderer"
+    ],
+    "functions": [
+      "constructor(options = {})",
+      "init()",
+      "if (contact.bi.id === this.boxBody.id || contact.bj.id === this.boxBody.id)",
+      "_onResize()",
+      "_animate()",
+      "start()",
+      "stop()",
+      "if (this.renderer && this.renderer.domElement)"
+    ]
+  },
+  "src\\CarSounds.js": {
+    "classes": [
+      "class CarSounds"
+    ],
+    "functions": [
+      "constructor()",
+      "init()",
+      "_loadSound(key, url)",
+      "setVolume(key, volume)",
+      "if (this.sounds[key])",
+      "update(speedRatio)"
+    ]
+  },
+  "src\\EngineSound.js": {
+    "classes": [
+      "class EngineSound"
+    ],
+    "functions": [
+      "constructor()",
+      "init()",
+      "update(speed)",
+      "if (typeof module !== 'undefined' && module.exports)",
+      "if (typeof window !== 'undefined')"
+    ]
+  },
+  "src\\GameEngine.js": {
+    "classes": [
+      "class GameEngine"
+    ],
+    "functions": [
+      "constructor()",
+      "init(containerId)",
+      "if (this.camera && this.renderer)",
+      "_setupInput()",
+      "update(touchInputs)",
+      "if (force !== 0)",
+      "if (steering !== 0)",
+      "if (this.camera)",
+      "render()",
+      "if (this.renderer && this.scene && this.camera)",
+      "if (typeof module !== 'undefined' && module.exports)",
+      "if (typeof window !== 'undefined')"
+    ]
+  },
+  "src\\GameLoop.js": {
+    "classes": [],
+    "functions": [
+      "constructor(containerId)",
+      "init()",
+      "_tick(timestamp)",
+      "_bindTouchControls()"
+    ]
+  },
+  "src\\LevelSystem.js": {
+    "classes": [
+      "class LevelSystem"
+    ],
+    "functions": [
+      "constructor()",
+      "addExp(amount)",
+      "while (this.exp >= this.expToNext)",
+      "onLevelUp()",
+      "spendCoins(amount)",
+      "if (this.coins >= amount)",
+      "addCoins(amount)",
+      "getStatus()"
+    ]
+  },
+  "src\\Renderer.js": {
+    "classes": [
+      "class Renderer"
+    ],
+    "functions": [
+      "constructor(containerId)",
+      "_setupLights()",
+      "_setupPhysicsGround()",
+      "addObject(threeMesh, cannonBody)",
+      "_handleResize()",
+      "_updatePhysics(delta)",
+      "if (obj.isMesh && obj.userData.physicsBody)",
+      "_detectCollisions()",
+      "start()"
+    ]
+  },
+  "src\\RobustRenderer.js": {
+    "classes": [
+      "class RobustRenderer"
+    ],
+    "functions": [
+      "constructor({ container, width = window.innerWidth, height = window.innerHeight } = {})",
+      "if (!this.container)",
+      "if (!shape)",
+      "_animate()",
+      "for (const { mesh, body } of this.bodies)",
+      "resize(width, height)"
+    ]
+  },
+  "src\\SceneManager.js": {
+    "classes": [],
+    "functions": [
+      "constructor(containerId)",
+      "registerScene(name, initCallback)",
+      "loadScene(name)",
+      "if (!this.scenes[name])",
+      "update(touchInputs)",
+      "render()"
+    ]
+  },
+  "src\\Server.js": {
+    "classes": [],
+    "functions": [
+      "if (players[socket.id])"
+    ]
+  },
+  "src\\TireFriction.js": {
+    "classes": [
+      "class TireFriction"
+    ],
+    "functions": [
+      "switch (surfaceType)"
+    ]
+  },
+  "src\\TouchControls.js": {
+    "classes": [
+      "class TouchControls"
+    ],
+    "functions": [
+      "constructor()",
+      "init()",
+      "if ('ontouchstart' in window || navigator.maxTouchPoints > 0)",
+      "_setupListeners()",
+      "if (btn)",
+      "if (typeof module !== 'undefined' && module.exports)",
+      "if (typeof window !== 'undefined')"
+    ]
+  },
+  "src\\Weather.js": {
+    "classes": [
+      "class Weather"
+    ],
+    "functions": [
+      "constructor(scene)",
+      "init()",
+      "for (let i = 0; i < this.particleCount; i++)",
+      "update()",
+      "for (let i = 0; i < this.particleCount; i++)",
+      "if (positions[i * 3 + 1] < 0)",
+      "if (typeof module !== 'undefined' && module.exports)",
+      "if (typeof window !== 'undefined')"
+    ]
+  }
+}

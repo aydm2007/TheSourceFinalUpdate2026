@@ -1,0 +1,156 @@
+{
+  "status": "SUCCESS",
+  "swarm_result": {
+    "status": "parallel_swarm_launched",
+    "task": "AGRI_STRESS_DB_TEST_2026",
+    "active_threads": 20,
+    "completed": 20,
+    "failed": 0,
+    "elapsed_ms": 460,
+    "results": [
+      {
+        "agent": "finance-auditor",
+        "status": "done",
+        "thread_id": 1,
+        "skill_found": true,
+        "duration_ms": 0
+      },
+      {
+        "agent": "finance-auditor",
+        "status": "done",
+        "thread_id": 2,
+        "skill_found": true,
+        "duration_ms": 0
+      },
+      {
+        "agent": "finance-auditor",
+        "status": "done",
+        "thread_id": 3,
+        "skill_found": true,
+        "duration_ms": 1
+      },
+      {
+        "agent": "finance-auditor",
+        "status": "done",
+        "thread_id": 4,
+        "skill_found": true,
+        "duration_ms": 0
+      },
+      {
+        "agent": "finance-auditor",
+        "status": "done",
+        "thread_id": 5,
+        "skill_found": true,
+        "duration_ms": 0
+      },
+      {
+        "agent": "finance-auditor",
+        "status": "done",
+        "thread_id": 6,
+        "skill_found": true,
+        "duration_ms": 1
+      },
+      {
+        "agent": "finance-auditor",
+        "status": "done",
+        "thread_id": 7,
+        "skill_found": true,
+        "duration_ms": 0
+      },
+      {
+        "agent": "admin-governor",
+        "status": "done",
+        "thread_id": 8,
+        "skill_found": true,
+        "duration_ms": 0
+      },
+      {
+        "agent": "admin-governor",
+        "status": "done",
+        "thread_id": 9,
+        "skill_found": true,
+        "duration_ms": 0
+      },
+      {
+        "agent": "admin-governor",
+        "status": "done",
+        "thread_id": 10,
+        "skill_found": true,
+        "duration_ms": 0
+      },
+      {
+        "agent": "admin-governor",
+        "status": "done",
+        "thread_id": 11,
+        "skill_found": true,
+        "duration_ms": 0
+      },
+      {
+        "agent": "admin-governor",
+        "status": "done",
+        "thread_id": 12,
+        "skill_found": true,
+        "duration_ms": 0
+      },
+      {
+        "agent": "admin-governor",
+        "status": "done",
+        "thread_id": 13,
+        "skill_found": true,
+        "duration_ms": 1
+      },
+      {
+        "agent": "admin-governor",
+        "status": "done",
+        "thread_id": 14,
+        "skill_found": true,
+        "duration_ms": 0
+      },
+      {
+        "agent": "quantum-debugger",
+        "status": "done",
+        "thread_id": 15,
+        "skill_found": true,
+        "duration_ms": 0
+      },
+      {
+        "agent": "quantum-debugger",
+        "status": "done",
+        "thread_id": 16,
+        "skill_found": true,
+        "duration_ms": 1
+      },
+      {
+        "agent": "quantum-debugger",
+        "status": "done",
+        "thread_id": 17,
+        "skill_found": true,
+        "duration_ms": 0
+      },
+      {
+        "agent": "quantum-debugger",
+        "status": "done",
+        "thread_id": 18,
+        "skill_found": true,
+        "duration_ms": 0
+      },
+      {
+        "agent": "quantum-debugger",
+        "status": "done",
+        "thread_id": 19,
+        "skill_found": true,
+        "duration_ms": 0
+      },
+      {
+        "agent": "quantum-debugger",
+        "status": "done",
+        "thread_id": 20,
+        "skill_found": true,
+        "duration_ms": 1
+      }
+    ]
+  },
+  "db_ledger_result": "error",
+  "duration_ms": 461,
+  "score": 100
+}

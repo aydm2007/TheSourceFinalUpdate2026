@@ -1,0 +1,42 @@
+{
+  "generatedAt": "2026-06-03T03:01:31.097Z",
+  "selected": {
+    "model": "openai/gpt-oss-120b:free",
+    "inferredProvider": "openrouter",
+    "acceptedEnv": [
+      "OPENROUTER_API_KEY",
+      "OPENROUTER_KEYS",
+      "AETHER_OR_KEYS",
+      "AETHER_RELAY_KEY_ALPHA"
+    ],
+    "keyPresent": false
+  },
+  "claude": {
+    "model": "claude-opus-4-6",
+    "acceptedEnv": [
+      "ANTHROPIC_API_KEY"
+    ],
+    "keyPresent": false
+  },
+  "consoleApi": {
+    "requested": false,
+    "url": "http://localhost:3847/health",
+    "countsAsModelProof": false
+  },
+  "aetherConsole": {
+    "requested": true,
+    "command": "./aether.ps1 console --model=<selected> -p <prompt>",
+    "countsAsModelProof": true
+  },
+  "readyForLiveBattle": false,
+  "missing": [
+    {
+      "side": "claude",
+      "provider": "anthropic",
+      "env": [
+        "ANTHROPIC_API_KEY"
+      ],
+      "method": "fresh_baseline_required"
+    }
+  ]
+}

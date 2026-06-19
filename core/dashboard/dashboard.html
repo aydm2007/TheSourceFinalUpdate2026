@@ -1,0 +1,1446 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=device-width">
+    <title>TheSource — لوحة التحكم السيادية للأسراب</title>
+    <!-- Google Fonts: Outfit & Readex Pro for Arabic -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Readex+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="rtl.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <style>
+        :root {
+            --bg-base: #080b11;
+            --bg-surface: rgba(22, 27, 34, 0.7);
+            --border-glow: rgba(88, 166, 255, 0.2);
+            --primary: #58a6ff;
+            --secondary: #bc8cff;
+            --success: #39d353;
+            --error: #f85149;
+            --text-main: #c9d1d9;
+            --text-muted: #8b949e;
+            --neon-glow: 0 0 15px rgba(88, 166, 255, 0.4);
+            --glass-blur: blur(12px);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Readex Pro', 'Outfit', sans-serif;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        body {
+            background-color: var(--bg-base);
+            background-image: 
+                radial-gradient(at 10% 20%, rgba(88, 166, 255, 0.08) 0px, transparent 50%),
+                radial-gradient(at 90% 80%, rgba(188, 140, 255, 0.08) 0px, transparent 50%);
+            color: var(--text-main);
+            min-height: 100vh;
+            padding: 30px;
+            overflow-x: hidden;
+        }
+
+        /* Ambient background grid */
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(rgba(255, 255, 255, 0.01) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(255, 255, 255, 0.01) 1px, transparent 1px);
+            background-size: 30px 30px;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding-bottom: 20px;
+        }
+
+        .brand h1 {
+            font-size: 2rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 30px rgba(88, 166, 255, 0.2);
+            letter-spacing: -0.5px;
+        }
+
+        .brand p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-top: 5px;
+        }
+
+        .connection-status {
+            display: flex;
+            gap: 15px;
+        }
+
+        .glass-card {
+            background: var(--bg-surface);
+            backdrop-filter: var(--glass-blur);
+            -webkit-backdrop-filter: var(--glass-blur);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+
+        .glass-card:hover {
+            border-color: rgba(88, 166, 255, 0.3);
+            box-shadow: 0 8px 32px 0 rgba(88, 166, 255, 0.1);
+        }
+
+        /* Tabs styling */
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 25px;
+            background: rgba(255, 255, 255, 0.02);
+            padding: 5px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            width: fit-content;
+        }
+
+        .tab-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-muted);
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .tab-btn:hover {
+            color: var(--text-main);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .tab-btn.active {
+            color: #fff;
+            background: linear-gradient(135deg, rgba(88, 166, 255, 0.3), rgba(188, 140, 255, 0.3));
+            border: 1px solid rgba(88, 166, 255, 0.3);
+            box-shadow: var(--neon-glow);
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.4s ease-out forwards;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Overview Grid */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+            margin-bottom: 30px;
+        }
+
+        .stat-card {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 4px; height: 100%;
+            background: linear-gradient(to bottom, var(--primary), var(--secondary));
+        }
+
+        .stat-header {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .stat-value {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 10px;
+            font-family: 'Outfit', sans-serif;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
+
+        /* Badges */
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            border: 1px solid transparent;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .badge.ok {
+            background: rgba(57, 211, 83, 0.1);
+            color: var(--success);
+            border-color: rgba(57, 211, 83, 0.3);
+            animation: pulse-green 2s infinite;
+        }
+
+        .badge.fail {
+            background: rgba(248, 81, 73, 0.1);
+            color: var(--error);
+            border-color: rgba(248, 81, 73, 0.3);
+            animation: pulse-red 2s infinite;
+        }
+
+        @keyframes pulse-green {
+            0% { box-shadow: 0 0 0 0 rgba(57, 211, 83, 0.4); }
+            70% { box-shadow: 0 0 0 8px rgba(57, 211, 83, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(57, 211, 83, 0); }
+        }
+
+        @keyframes pulse-red {
+            0% { box-shadow: 0 0 0 0 rgba(248, 81, 73, 0.4); }
+            70% { box-shadow: 0 0 0 8px rgba(248, 81, 73, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(248, 81, 73, 0); }
+        }
+
+        /* Swarm Topology SVG Area */
+        .topology-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            align-items: center;
+            width: 100%;
+        }
+
+        .topology-viewer {
+            width: 100%;
+            min-height: 450px;
+            background: #11141a;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            overflow: auto;
+        }
+
+        .topology-viewer svg {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        /* Tables & Lists */
+        .list-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .tool-badge {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+            color: var(--text-main);
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            cursor: default;
+        }
+
+        .tool-badge:hover {
+            border-color: var(--primary);
+            background: rgba(88, 166, 255, 0.05);
+            transform: translateY(-2px);
+        }
+
+        /* Preformatted Logs */
+        pre {
+            background: #090c10;
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            color: #8b949e;
+            font-family: 'Consolas', 'Courier New', monospace;
+            font-size: 0.85rem;
+            line-height: 1.6;
+            max-height: 400px;
+            overflow-y: auto;
+            direction: ltr;
+            text-align: left;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 50px;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding-top: 20px;
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: rgba(0,0,0,0.1); }
+        ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.15); border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.3); }
+
+        /* Clickable agent cards */
+        .agent-card {
+            cursor: pointer;
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .agent-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+            box-shadow: 0 8px 25px rgba(88, 166, 255, 0.25);
+        }
+
+        /* Launch button */
+        .launch-btn {
+            background: linear-gradient(135deg, #0052d4, #4364f7, #6fb1fc);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #fff;
+            padding: 10px 22px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            border-radius: 12px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(67, 100, 247, 0.4);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .launch-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(67, 100, 247, 0.6);
+            border-color: rgba(255, 255, 255, 0.25);
+        }
+        .launch-btn:active {
+            transform: translateY(0);
+        }
+
+        /* Modal styling */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 10000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(8, 11, 17, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .modal.active {
+            display: flex;
+            opacity: 1;
+        }
+        .modal-content {
+            width: 90%;
+            max-width: 750px;
+            background: #0d1117;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+            position: relative;
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+        }
+        .modal.active .modal-content {
+            transform: scale(1);
+        }
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: var(--text-muted);
+            transition: color 0.2s;
+        }
+        .close-btn:hover {
+            color: #fff;
+        }
+
+        /* Chat & Evolution Tab Styles */
+        .chat-container {
+            display: flex;
+            gap: 20px;
+            height: 600px;
+            background: rgba(13, 17, 23, 0.4);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            overflow: hidden;
+        }
+        .chat-sidebar {
+            width: 250px;
+            background: rgba(13, 17, 23, 0.6);
+            border-left: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            flex-direction: column;
+            padding: 15px;
+            gap: 15px;
+        }
+        .chat-sessions-list {
+            flex: 1;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .chat-session-item {
+            padding: 10px 14px;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            color: var(--text-muted);
+            cursor: pointer;
+            font-size: 0.85rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.2s;
+        }
+        .chat-session-item:hover, .chat-session-item.active {
+            background: rgba(88, 166, 255, 0.08);
+            border-color: var(--primary);
+            color: #fff;
+        }
+        .chat-session-item .delete-session-btn {
+            background: transparent;
+            border: none;
+            color: var(--error);
+            font-size: 1.1rem;
+            cursor: pointer;
+            padding: 0 4px;
+            opacity: 0.6;
+        }
+        .chat-session-item .delete-session-btn:hover {
+            opacity: 1;
+        }
+        .chat-main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+            gap: 15px;
+        }
+        .chat-messages {
+            flex: 1;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            padding-right: 5px;
+        }
+        .chat-bubble {
+            max-width: 75%;
+            padding: 12px 16px;
+            border-radius: 12px;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            position: relative;
+        }
+        .chat-bubble.user {
+            background: linear-gradient(135deg, rgba(88, 166, 255, 0.2), rgba(88, 166, 255, 0.1));
+            border: 1px solid rgba(88, 166, 255, 0.2);
+            color: #fff;
+            align-self: flex-start;
+            border-bottom-left-radius: 2px;
+        }
+        .chat-bubble.assistant {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            color: var(--text-main);
+            align-self: flex-end;
+            border-bottom-right-radius: 2px;
+        }
+        .chat-bubble.system-tool-result {
+            background: rgba(0, 0, 0, 0.25);
+            border: 1px dashed rgba(255, 255, 255, 0.1);
+            color: var(--text-muted);
+            align-self: stretch;
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
+        }
+        .tool-call-card, .tool-result-card {
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .tool-call-card:hover, .tool-result-card:hover {
+            border-color: var(--primary) !important;
+            transform: translateY(-2px);
+        }
+        .chat-input-container {
+            display: flex;
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 8px 12px;
+            border-radius: 12px;
+        }
+        .chat-input {
+            flex: 1;
+            background: transparent;
+            border: none;
+            color: #fff;
+            font-size: 0.9rem;
+            outline: none;
+        }
+        .chat-input::placeholder {
+            color: var(--text-muted);
+        }
+        .chat-send-btn {
+            background: var(--primary);
+            color: #fff;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.2s;
+        }
+        .chat-send-btn:hover {
+            background: #4384f7;
+        }
+        .evolution-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        .evolution-console {
+            background: #090c10;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 15px;
+            font-family: monospace;
+            height: 300px;
+            overflow-y: auto;
+            direction: ltr;
+            text-align: left;
+        }
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        @keyframes pulse-border {
+            0% { border-color: rgba(88, 166, 255, 0.2); }
+            50% { border-color: rgba(88, 166, 255, 0.6); }
+            100% { border-color: rgba(88, 166, 255, 0.2); }
+        }
+    </style>
+<body>
+
+    <header>
+        <div class="brand">
+            <h1>🏛️ لوحة التحكم السيادية للأسراب</h1>
+            <p>منظومة الإدارة والتوجيه الكلي للأسراب والمحاكاة لـ TheSource</p>
+        </div>
+        <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
+            <button class="launch-btn" onclick="launchSwarm()">🚀 تشغيل أسراب التشخيص (20 وكيل)</button>
+            <button class="launch-btn" style="background: linear-gradient(135deg, #ff007f, #7700ff); box-shadow: 0 4px 15px rgba(255, 0, 127, 0.4);" onclick="launchVisualSwarm()">🎨 تشغيل السرب البصري والخصومي (5 وكلاء)</button>
+            <button class="launch-btn" style="background: linear-gradient(135deg, #4364f7, #6fb1fc, #00c6ff); box-shadow: 0 4px 15px rgba(0, 198, 255, 0.4);" onclick="launchOmega40Swarm()">🌌 تشغيل سرب الأوميغا (40 وكيل)</button>
+            <button class="launch-btn" style="background: linear-gradient(135deg, #10b981, #059669, #00c6ff); box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);" onclick="launchFullCoverageSwarm()">🚀 تشغيل تغطية شاملة (سرب التغطية)</button>
+            <div class="connection-status">
+                <div id="cortexStatus" class="badge fail">البصر البصري (9999): مغلق ❌</div>
+                <div id="mcpStatus" class="badge fail">خادم MCP (3847): مغلق ❌</div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Global Swarm & Agent Progress Indicator -->
+    <div id="globalSwarmProgressCard" class="glass-card" style="margin-bottom: 25px; padding: 15px 20px; display: none; align-items: center; justify-content: space-between; border-color: rgba(88,166,255,0.4); background: rgba(88,166,255,0.05); box-shadow: 0 4px 20px rgba(88,166,255,0.15); animation: pulse-border 2s infinite;">
+        <div style="display: flex; align-items: center; gap: 15px; flex: 1;">
+            <span id="globalSwarmProgressIcon" style="font-size: 1.3rem; animation: spin 2s linear infinite; display: inline-block;">⚙️</span>
+            <div>
+                <div id="globalSwarmStatusText" style="font-weight: bold; color: #fff; font-size: 0.95rem;">تنسيق الأسراب والتحسين النشط قيد التشغيل حالياً...</div>
+                <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 3px;" id="globalSwarmSubtext">جاري تنفيذ المهام الفرعية والتحقق المعماري</div>
+            </div>
+        </div>
+        <div style="display: flex; align-items: center; gap: 15px; min-width: 300px;">
+            <div style="flex: 1; background: rgba(255,255,255,0.05); height: 8px; border-radius: 4px; overflow: hidden;">
+                <div id="globalSwarmProgressBar" style="width: 0%; height: 100%; background: linear-gradient(90deg, var(--success), var(--primary)); transition: width 0.3s;"></div>
+            </div>
+            <span id="globalSwarmProgressText" style="font-weight: bold; font-family: Outfit; font-size: 1.1rem; color: var(--success);">0%</span>
+        </div>
+    </div>
+
+    <div class="tabs">
+        <button class="tab-btn active" onclick="switchTab('overview')">المظهر العام والصحة</button>
+        <button class="tab-btn" onclick="switchTab('topology')">طوبولوجيا الأسراب (خريطة حية)</button>
+        <button class="tab-btn" onclick="switchTab('tools')">الأدوات المسجلة</button>
+        <button class="tab-btn" onclick="switchTab('skills')">المهارات النشطة</button>
+        <button class="tab-btn" onclick="switchTab('ledger')">سجل العمليات (Shadow Ledger)</button>
+        <button class="tab-btn" onclick="switchTab('workshop')">ورشة الأسراب</button>
+        <button class="tab-btn" onclick="switchTab('chat')">💬 دردشة الأسراب</button>
+        <button class="tab-btn" onclick="switchTab('evolution')">🧬 التطوير الذاتي للذكاء</button>
+    </div>
+
+    <!-- Overview Tab -->
+    <div id="overview" class="tab-content active">
+        <div class="grid-3">
+            <div class="glass-card stat-card">
+                <div class="stat-header">المنفذ النشط للأدوات</div>
+                <div class="stat-value" id="toolCount">...</div>
+                <div style="color: var(--primary); font-size: 0.9rem; font-weight: 600;">أداة برمجية مفعلة بالكامل</div>
+            </div>
+            <div class="glass-card stat-card">
+                <div class="stat-header">المهارات والوكلاء المسجلين</div>
+                <div class="stat-value" id="skillCount">...</div>
+                <div style="color: var(--secondary); font-size: 0.9rem; font-weight: 600;">مهارة نشطة في النظام</div>
+            </div>
+            <div class="glass-card stat-card">
+                <div class="stat-header">صحة الأنوية السحابية</div>
+                <div class="stat-value" style="font-size: 1.8rem; height: 56px; display: flex; align-items: center;" id="healthUptime">تحميل...</div>
+                <div id="healthDetails" style="color: var(--text-muted); font-size: 0.8rem;">نظام فرعي سيادي</div>
+            </div>
+        </div>
+
+        <div class="glass-card">
+            <h2 style="font-size: 1.1rem; color: var(--primary); margin-bottom: 15px;">نظرة على صحة النظام والشبكة</h2>
+            <pre id="healthJson">تحميل تفاصيل صحة النظام...</pre>
+        </div>
+    </div>
+
+    <!-- Topology Tab -->
+    <div id="topology" class="tab-content">
+        <div class="glass-card topology-container">
+            <h2 style="font-size: 1.1rem; color: var(--primary); width: 100%;">طوبولوجيا سرب الوكلاء النشط (المخطط البصري)</h2>
+            <div class="topology-viewer" id="svgTopologyContainer">
+                <p style="color: var(--text-muted);">جاري رسم المخطط البصري للأسراب البرمجية...</p>
+            </div>
+            <div style="width: 100%;">
+                <h3 style="font-size: 0.95rem; color: var(--secondary); margin-bottom: 10px;">كود Mermaid المقابل:</h3>
+                <pre id="mermaidCode">flowchart TD
+    Loading...</pre>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tools Tab -->
+    <div id="tools" class="tab-content">
+        <div class="glass-card">
+            <h2 style="font-size: 1.1rem; color: var(--primary);">الأدوات المسجلة في الـ Bridge</h2>
+            <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 5px;">الأدوات التي يمتلك الوكلاء والأسراب صلاحية استدعائها:</p>
+            <div class="list-container" id="toolsList"></div>
+        </div>
+    </div>
+
+    <!-- Skills Tab -->
+    <div id="skills" class="tab-content">
+        <div class="glass-card">
+            <h2 style="font-size: 1.1rem; color: var(--secondary);">المهارات والبروتوكولات النشطة</h2>
+            <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 5px;">المهارات النشطة حالياً لتشخيص وحماية بيئة العمل:</p>
+            <div class="list-container" id="skillsList"></div>
+        </div>
+    </div>
+
+    <!-- Ledger Tab -->
+    <div id="ledger" class="tab-content">
+        <div class="glass-card">
+            <h2 style="font-size: 1.1rem; color: var(--primary); margin-bottom: 15px;">سجل العمليات الآمن (Shadow Ledger Audit Trail)</h2>
+            <pre id="ledgerList">تحميل أحدث العمليات من Shadow Ledger...</pre>
+        </div>
+    </div>
+
+    <!-- Workshop Tab -->
+    <div id="workshop" class="tab-content">
+        <div class="glass-card" style="margin-bottom: 24px;">
+            <h2 style="font-size: 1.1rem; color: var(--primary); margin-bottom: 10px;">📊 مؤشر تقدم الوكلاء السياديين</h2>
+            <div style="width: 100%; background: rgba(255,255,255,0.05); height: 12px; border-radius: 6px; overflow: hidden; margin-bottom: 15px;">
+                <div id="workshopProgress" style="width: 0%; height: 100%; background: linear-gradient(90deg, var(--primary), var(--secondary)); transition: width 0.5s ease-out;"></div>
+            </div>
+            <div style="display: flex; justify-content: space-between; font-size: 0.9rem; color: var(--text-muted);">
+                <span>نسبة الإنجاز الإجمالية: <strong id="progressPct" style="color: #fff;">0%</strong></span>
+                <span>المكتمل: <span style="direction: ltr; display: inline-block;"><strong id="completedCount" style="color: var(--success);">0</strong> / <strong id="totalCount" style="color: var(--primary);">0</strong></span></span>
+            </div>
+        </div>
+
+        <div class="grid-3" id="workshopAgentsList">
+            <div class="glass-card" style="grid-column: 1 / -1; text-align: center; color: var(--text-muted); padding: 40px;">
+                ⏳ في انتظار بدء ورشة العمل لخدمة الأسراب...
+            </div>
+        </div>
+    </div>
+
+    <!-- Chat Tab -->
+    <div id="chat" class="tab-content">
+        <div class="chat-container" style="padding: 0; border: none; background: transparent; height: 80vh; display: block;">
+            <iframe id="chatIframe" src="" width="100%" height="100%" style="border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 16px; box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37); background: var(--bg-surface);"></iframe>
+            <script>document.getElementById('chatIframe').src = window.location.protocol + '//' + window.location.hostname + ':5173';</script>
+        </div>
+    </div>
+
+    <!-- Self-Evolution Tab -->
+    <div id="evolution" class="tab-content">
+        <div class="evolution-grid">
+            <div class="glass-card">
+                <h2 style="font-size: 1.1rem; color: var(--primary); margin-bottom: 15px;">🧬 واجهة التطوير الذاتي للذكاء</h2>
+                <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 20px;">
+                    باستخدام العقل المدبر والنموذج البصري <strong style="color: #fff;">nvidia/nemotron-nano-12b-v2-vl:free</strong>، يقوم النظام بتحليل الواجهة وتدريب الأسراب ذاتياً على معالجة الأخطاء والتطوير الذاتي.
+                </p>
+                <div style="display: flex; flex-direction: column; gap: 15px;">
+                    <div>
+                        <label style="font-size: 0.9rem; color: var(--text-main); font-weight: bold; display: block; margin-bottom: 8px;">هدف التطوير الذاتي:</label>
+                        <input type="text" id="evolutionGoal" class="chat-input" style="width: 100%; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08); padding: 10px; border-radius: 8px;" placeholder="مثال: تحسين سرعة استجابة الواجهة وإصلاح التداخلات البصرية...">
+                    </div>
+                    <button class="launch-btn" style="background: linear-gradient(135deg, #10b981, #059669); box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4); justify-content: center;" onclick="commenceSelfEvolution()">⚡ بدء حلقة التطوير والتحسين الذاتي</button>
+                </div>
+            </div>
+            <div class="glass-card">
+                <h2 style="font-size: 1.1rem; color: var(--secondary); margin-bottom: 15px;">📊 حالة الاتصال والتشخيص للبصر البصري</h2>
+                <div class="grid-3" style="grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 15px;">
+                    <div style="background: rgba(255,255,255,0.01); border: 1px solid rgba(255,255,255,0.05); padding: 12px; border-radius: 8px; text-align: center;">
+                        <div style="font-size: 0.8rem; color: var(--text-muted);">حالة Port 9999</div>
+                        <div id="cortexPortStatus" style="font-size: 1.1rem; font-weight: bold; color: var(--success); margin-top: 5px;">نشط ✅</div>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.01); border: 1px solid rgba(255,255,255,0.05); padding: 12px; border-radius: 8px; text-align: center;">
+                        <div style="font-size: 0.8rem; color: var(--text-muted);">حالة النموذج البصري</div>
+                        <div style="font-size: 1.1rem; font-weight: bold; color: var(--primary); margin-top: 5px;">جاهز 🤖</div>
+                    </div>
+                </div>
+                <h3 style="font-size: 0.95rem; color: #fff; margin-bottom: 8px;">سجل تشغيل أسراب التطوير الذاتي:</h3>
+                <div class="evolution-console" id="evolutionConsole">
+                    [في انتظار إطلاق مهمة التطوير الذاتي...]
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>TheSource SRE Dashboard &copy; 2026. تعمل المنظومة كأنوية مستقلة ذاتية التوجيه (Absolute Autonomy).</p>
+    </footer>
+
+    <script>
+        const API = '/api';
+
+        // Global progress variables
+        let isChatActive = false;
+        let chatProgress = 0;
+        let isEvolutionActive = false;
+        let evolutionProgress = 0;
+
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+            
+            // Highlight current button
+            const activeBtn = Array.from(document.querySelectorAll('.tab-btn')).find(btn => btn.getAttribute('onclick').includes(tabId));
+            if (activeBtn) activeBtn.classList.add('active');
+            
+            // Show current content
+            const activeContent = document.getElementById(tabId);
+            if (activeContent) activeContent.classList.add('active');
+        }
+
+        async function load() {
+            try {
+                const [toolsData, skillsData, ledgerData, healthData, portsData, topologyData] = await Promise.all([
+                    fetch(API + '/tools').then(r => r.json()).catch(() => ({ count: 0, tools: [] })),
+                    fetch(API + '/skills').then(r => r.json()).catch(() => ({ count: 0, skills: [] })),
+                    fetch(API + '/ledger/recent').then(r => r.json()).catch(() => ({ count: 0, recent: [] })),
+                    fetch(API + '/health').then(r => r.json()).catch(() => ({ status: 'unknown', uptime: 0, node: '' })),
+                    fetch(API + '/ports').then(r => r.json()).catch(() => ({ cortex: false, mcp: false })),
+                    fetch(API + '/topology').then(r => r.json()).catch(() => ({ svg: '', mermaid: '' }))
+                ]);
+
+                // Update Overview
+                document.getElementById('toolCount').textContent = toolsData.count;
+                document.getElementById('skillCount').textContent = skillsData.count;
+                
+                const uptimeH = Math.floor(healthData.uptime / 3600);
+                const uptimeM = Math.floor((healthData.uptime % 3600) / 60);
+                const uptimeS = Math.floor(healthData.uptime % 60);
+                document.getElementById('healthUptime').textContent = `${uptimeH}س : ${uptimeM}د : ${uptimeS}ث`;
+                document.getElementById('healthDetails').textContent = `إصدار العقدة: ${healthData.node || 'مجهول'} | بيئة العمل: ${healthData.status || 'مجهول'}`;
+                
+                document.getElementById('healthJson').textContent = JSON.stringify(healthData, null, 2);
+
+                // Update Connection Status
+                const cortexEl = document.getElementById('cortexStatus');
+                if (portsData.cortex) {
+                    cortexEl.className = 'badge ok';
+                    cortexEl.textContent = 'البصر البصري (9999): مفعّل ✅';
+                } else {
+                    cortexEl.className = 'badge fail';
+                    cortexEl.textContent = 'البصر البصري (9999): مغلق ❌';
+                }
+
+                const mcpEl = document.getElementById('mcpStatus');
+                if (portsData.mcp) {
+                    mcpEl.className = 'badge ok';
+                    mcpEl.textContent = 'خادم MCP (3847): مفعّل ✅';
+                } else {
+                    mcpEl.className = 'badge fail';
+                    mcpEl.textContent = 'خادم MCP (3847): مغلق ❌';
+                }
+
+                // Update Tools & Skills Tabs
+                document.getElementById('toolsList').innerHTML = toolsData.tools.map(x => `<div class="tool-badge">${x}</div>`).join('');
+                document.getElementById('skillsList').innerHTML = skillsData.skills.map(x => `<div class="tool-badge" style="border-color: rgba(188, 140, 255, 0.2);">${x}</div>`).join('');
+
+                // Update Ledger
+                if (ledgerData.recent.length === 0) {
+                    document.getElementById('ledgerList').textContent = 'سجل العمليات فارغ حالياً.';
+                } else {
+                    document.getElementById('ledgerList').textContent = ledgerData.recent.slice(-20).reverse().map(e => {
+                        const date = new Date(e.timestamp || Date.now()).toLocaleTimeString('ar-EG');
+                        return `[${date}] ${e.type || 'عملية'} | المنفذ: ${e.action || 'أداة'} | النتيجة: ${e.status || 'نجاح'}`;
+                    }).join('\n');
+                }
+
+                // Update Topology Map
+                if (topologyData.svg) {
+                    document.getElementById('svgTopologyContainer').innerHTML = topologyData.svg;
+                } else {
+                    document.getElementById('svgTopologyContainer').innerHTML = '<p style="color: var(--error);">فشل جلب طوبولوجيا الأسراب أو لا توجد أسراب نشطة.</p>';
+                }
+                
+                if (topologyData.mermaid) {
+                    document.getElementById('mermaidCode').textContent = topologyData.mermaid;
+                } else {
+                    document.getElementById('mermaidCode').textContent = 'لا توجد خريطة أسراب نشطة حالياً.';
+                }
+
+                // Update Workshop Tab
+                const wsAgents = topologyData.agents || [];
+                const completed = wsAgents.filter(a => a.status === 'completed').length;
+                const total = wsAgents.length;
+                const progress = total > 0 ? Math.round((completed / total) * 100) : 0;
+                
+                document.getElementById('workshopProgress').style.width = `${progress}%`;
+                document.getElementById('progressPct').textContent = `${progress}%`;
+                document.getElementById('completedCount').textContent = completed;
+                document.getElementById('totalCount').textContent = total;
+
+                // Calculate and display Global Header Progress Card
+                const globalProgressCard = document.getElementById('globalSwarmProgressCard');
+                const globalStatusText = document.getElementById('globalSwarmStatusText');
+                const globalSubtext = document.getElementById('globalSwarmSubtext');
+                const globalProgressBar = document.getElementById('globalSwarmProgressBar');
+                const globalProgressText = document.getElementById('globalSwarmProgressText');
+                const globalIcon = document.getElementById('globalSwarmProgressIcon');
+                const runningAgents = wsAgents.filter(a => a.status !== 'completed' && a.status !== 'failed');
+                const isSwarmRunning = runningAgents.length > 0;
+
+                if (isChatActive) {
+                    globalProgressCard.style.display = 'flex';
+                    globalIcon.style.animation = 'spin 1.5s linear infinite';
+                    globalStatusText.textContent = 'النائب (Sigma Coordinator) يتفاوض مع الأسراب حالياً... 🧠';
+                    globalSubtext.textContent = 'جاري صياغة خطة العمل واستدعاء أدوات الـ MCP وتعديل الأكواد البرمجية.';
+                    globalProgressBar.style.width = `${chatProgress}%`;
+                    globalProgressText.textContent = `${chatProgress}%`;
+                    globalProgressCard.style.borderColor = 'rgba(88, 166, 255, 0.4)';
+                    globalProgressCard.style.background = 'rgba(88, 166, 255, 0.05)';
+                } else if (isEvolutionActive) {
+                    globalProgressCard.style.display = 'flex';
+                    globalIcon.style.animation = 'spin 2s linear infinite';
+                    globalStatusText.textContent = '🧬 حلقة التطوير والتحسين الذاتي نشطة حالياً...';
+                    globalSubtext.textContent = 'جاري مسح الملفات، دمج وعي gpt-oss-120b وبصر Nemotron VL، وتطبيق الإصلاحات.';
+                    globalProgressBar.style.width = `${evolutionProgress}%`;
+                    globalProgressText.textContent = `${evolutionProgress}%`;
+                    globalProgressCard.style.borderColor = 'rgba(16, 185, 129, 0.4)';
+                    globalProgressCard.style.background = 'rgba(16, 185, 129, 0.05)';
+                } else if (isSwarmRunning) {
+                    globalProgressCard.style.display = 'flex';
+                    globalIcon.style.animation = 'spin 3s linear infinite';
+                    globalStatusText.textContent = '🚀 أسراب الوكلاء المتخصصين قيد التنفيذ والتحقق...';
+                    globalSubtext.textContent = `الأسراب النشطة: ${runningAgents.map(a => a.name).slice(0, 3).join('، ')} (${runningAgents.length} وكيل نشط)`;
+                    globalProgressBar.style.width = `${progress}%`;
+                    globalProgressText.textContent = `${progress}%`;
+                    globalProgressCard.style.borderColor = 'rgba(188, 140, 255, 0.4)';
+                    globalProgressCard.style.background = 'rgba(188, 140, 255, 0.05)';
+                } else if (total > 0 && progress === 100) {
+                    globalProgressCard.style.display = 'flex';
+                    globalIcon.style.animation = 'none';
+                    globalStatusText.textContent = '🎉 اكتملت جميع مهام الأسراب والتحسينات بنجاح بنسبة 100%!';
+                    globalSubtext.textContent = 'تم مطابقة كافة الملفات وتوثيق العمليات في السجل السيادي (Shadow Ledger).';
+                    globalProgressBar.style.width = '100%';
+                    globalProgressText.textContent = '100%';
+                    globalProgressCard.style.borderColor = 'rgba(57, 211, 83, 0.4)';
+                    globalProgressCard.style.background = 'rgba(57, 211, 83, 0.05)';
+                } else {
+                    globalProgressCard.style.display = 'none';
+                }
+
+                if (wsAgents.length === 0) {
+                    document.getElementById('workshopAgentsList').innerHTML = `
+                        <div class="glass-card" style="grid-column: 1 / -1; text-align: center; color: var(--text-muted); padding: 40px;">
+                            ⏳ في انتظار بدء ورشة العمل لخدمة الأسراب...
+                        </div>
+                    `;
+                } else {
+                    document.getElementById('workshopAgentsList').innerHTML = wsAgents.map(a => {
+                        let statusColor = 'var(--primary)';
+                        let statusText = 'قيد التشغيل ⏳';
+                        if (a.status === 'completed') {
+                            statusColor = 'var(--success)';
+                            statusText = 'مكتمل ✅';
+                        } else if (a.status === 'failed') {
+                            statusColor = 'var(--error)';
+                            statusText = 'فشل ❌';
+                        }
+                        
+                        return `
+                            <div class="glass-card stat-card agent-card" onclick="viewAgentLog('${a.id}', '${a.name}', '${a.description || ''}')" style="position: relative; overflow: hidden;">
+                                <div style="position: absolute; right: 0; top: 0; bottom: 0; width: 4px; background: ${statusColor};"></div>
+                                <div class="stat-header">${a.type}</div>
+                                <div style="font-size: 1.1rem; font-weight: bold; color: #fff; margin-bottom: 10px; padding-right: 10px;">${a.name}</div>
+                                <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 15px; padding-right: 10px;">Task ID: ${a.id}</div>
+                                <span class="badge" style="background: rgba(255,255,255,0.02); color: ${statusColor}; border-color: rgba(255,255,255,0.05); width: fit-content; margin-right: 10px;">${statusText}</span>
+                            </div>
+                        `;
+                    }).join('');
+                }
+
+            } catch (e) {
+                console.error(e);
+            }
+        }
+
+        let refreshInterval = 5000;
+        let refreshTimer = null;
+
+        function startTimer() {
+            if (refreshTimer) clearInterval(refreshTimer);
+            refreshTimer = setInterval(load, refreshInterval);
+        }
+
+        async function launchSwarm() {
+            try {
+                // Switch to workshop tab
+                switchTab('workshop');
+                // Set high-frequency refresh
+                refreshInterval = 1000;
+                startTimer();
+                // Trigger API
+                const r = await fetch(API + '/swarm/launch', { method: 'POST' });
+                const res = await r.json();
+                if (res.success) {
+                    // Instantly load to show running status
+                    await load();
+                } else {
+                    alert('فشل إطلاق الأسراب: ' + res.error);
+                }
+            } catch (e) {
+                console.error(e);
+            }
+        }
+
+        async function launchVisualSwarm() {
+            try {
+                // Switch to workshop tab
+                switchTab('workshop');
+                // Set high-frequency refresh
+                refreshInterval = 1000;
+                startTimer();
+                // Trigger API
+                const r = await fetch(API + '/swarm/launch/visual', { method: 'POST' });
+                const res = await r.json();
+                if (res.success) {
+                    // Instantly load to show running status
+                    await load();
+                } else {
+                    alert('فشل إطلاق السرب البصري: ' + res.error);
+                }
+            } catch (e) {
+                console.error(e);
+            }
+        }
+
+        async function launchOmega40Swarm() {
+            try {
+                // Switch to workshop tab
+                switchTab('workshop');
+                // Set high-frequency refresh
+                refreshInterval = 1000;
+                startTimer();
+                // Trigger API with type=omega_40
+                const r = await fetch(API + '/swarm/launch?type=omega_40', { method: 'POST' });
+                const res = await r.json();
+                if (res.success) {
+                    // Instantly load to show running status
+                    await load();
+                } else {
+                    alert('فشل إطلاق سرب الأوميغا 40 وكيل: ' + res.error);
+                }
+            } catch (e) {
+                console.error(e);
+            }
+        }
+
+        async function launchFullCoverageSwarm() {
+            try {
+                // Switch to workshop tab
+                switchTab('workshop');
+                // Set high-frequency refresh
+                refreshInterval = 1000;
+                startTimer();
+                // Trigger API with type=full_coverage
+                const r = await fetch(API + '/swarm/launch?type=full_coverage', { method: 'POST' });
+                const res = await r.json();
+                if (res.success) {
+                    // Instantly load to show running status
+                    await load();
+                } else {
+                    alert('فشل إطلاق سرب التغطية الشاملة: ' + res.error);
+                }
+            } catch (e) {
+                console.error(e);
+            }
+        }
+
+        async function viewAgentLog(id, name, description) {
+            document.getElementById('modalAgentName').textContent = name;
+            document.getElementById('modalAgentDesc').textContent = description;
+            document.getElementById('modalAgentLog').textContent = 'جاري تحميل سجل عمليات الوكيل...';
+            document.getElementById('logModal').classList.add('active');
+
+            try {
+                const r = await fetch(API + '/agent/log?id=' + id);
+                const data = await r.json();
+                document.getElementById('modalAgentLog').textContent = data.output || 'لا يوجد سجل عمليات متاح.';
+            } catch (e) {
+                document.getElementById('modalAgentLog').textContent = 'فشل تحميل السجل: ' + e.message;
+            }
+        }
+
+        function closeModal(event) {
+            document.getElementById('logModal').classList.remove('active');
+        }
+
+        // ─── Swarm Chat JS Logic ─────────────────────────────────────────
+        let activeSessionId = null;
+
+        async function loadChatSessions() {
+            try {
+                const r = await fetch(API + '/chat/sessions');
+                const data = await r.json();
+                const listEl = document.getElementById('chatSessionsList');
+                if (data.sessions && data.sessions.length > 0) {
+                    listEl.innerHTML = data.sessions.map(s => `
+                        <div class="chat-session-item ${s.id === activeSessionId ? 'active' : ''}" onclick="selectChatSession('${s.id}')">
+                            <span style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 150px;">${s.title}</span>
+                            <button class="delete-session-btn" onclick="deleteChatSession('${s.id}', event)">&times;</button>
+                        </div>
+                    `).join('');
+                } else {
+                    listEl.innerHTML = '<div style="color: var(--text-muted); text-align: center; font-size: 0.8rem; margin-top: 20px;">لا توجد جلسات دردشة</div>';
+                }
+            } catch (e) {
+                console.error('Failed to load sessions:', e);
+            }
+        }
+
+        async function createNewChatSession() {
+            try {
+                const r = await fetch(API + '/chat/sessions/new', { method: 'POST' });
+                const data = await r.json();
+                activeSessionId = data.id;
+                await loadChatSessions();
+                await selectChatSession(activeSessionId);
+            } catch (e) {
+                console.error(e);
+            }
+        }
+
+        async function deleteChatSession(sessionId, event) {
+            if (event) event.stopPropagation();
+            if (!confirm('هل أنت متأكد من حذف هذه الجلسة؟')) return;
+            try {
+                await fetch(API + '/chat/sessions/end', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ sessionId })
+                });
+                if (activeSessionId === sessionId) {
+                    activeSessionId = null;
+                    document.getElementById('chatMessages').innerHTML = `
+                        <div style="text-align: center; color: var(--text-muted); margin-top: 50px;">
+                            💬 اختر أو ابدأ جلسة دردشة للتحدث مع النائب (Sigma Coordinator)
+                        </div>
+                    `;
+                }
+                await loadChatSessions();
+            } catch (e) {
+                console.error(e);
+            }
+        }
+
+        async function selectChatSession(sessionId) {
+            activeSessionId = sessionId;
+            document.querySelectorAll('.chat-session-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            const activeItem = Array.from(document.querySelectorAll('.chat-session-item')).find(item => item.getAttribute('onclick').includes(sessionId));
+            if (activeItem) activeItem.classList.add('active');
+
+            try {
+                const r = await fetch(API + '/chat/sessions?sessionId=' + sessionId);
+                const session = await r.json();
+                renderMessages(session.messages);
+            } catch (e) {
+                console.error(e);
+            }
+        }
+
+        function formatContent(content, role) {
+            if (typeof content === 'string') {
+                return content.replace(/\n/g, '<br>');
+            }
+            if (Array.isArray(content)) {
+                return content.map(block => {
+                    if (block.type === 'text') {
+                        return `<div>${block.text.replace(/\n/g, '<br>')}</div>`;
+                    }
+                    if (block.type === 'tool_use') {
+                        const inputStr = typeof block.input === 'object' ? JSON.stringify(block.input, null, 2) : (block.input || '{}');
+                        const uniqueId = 'tool_' + Math.random().toString(36).substring(2, 9);
+                        return `
+                            <div class="tool-call-card" style="margin: 10px 0; background: rgba(88, 166, 255, 0.05); border: 1px solid rgba(88, 166, 255, 0.15); border-radius: 8px; padding: 12px; font-family: monospace;">
+                                <div style="display: flex; justify-content: space-between; align-items: center; cursor: pointer;" onclick="document.getElementById('${uniqueId}').style.display = document.getElementById('${uniqueId}').style.display === 'none' ? 'block' : 'none'">
+                                    <span style="color: var(--primary); font-weight: bold; display: flex; align-items: center; gap: 6px;">🛠️ تشغيل أداة: ${block.name}</span>
+                                    <span style="font-size: 0.8rem; color: var(--text-muted); user-select: none;">عرض المدخلات ▾</span>
+                                </div>
+                                <div id="${uniqueId}" style="display: none; margin-top: 8px; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 8px; font-size: 0.85rem; color: #a5d6ff; overflow-x: auto; max-height: 200px; white-space: pre-wrap; direction: ltr; text-align: left;">${inputStr}</div>
+                            </div>
+                        `;
+                    }
+                    if (block.type === 'tool_result') {
+                        const uniqueId = 'result_' + Math.random().toString(36).substring(2, 9);
+                        const rawContent = typeof block.content === 'string' ? block.content : JSON.stringify(block.content, null, 2);
+                        const isSuccess = !rawContent.startsWith('Error') && !rawContent.startsWith('[SCHEMA-ERROR]') && !rawContent.startsWith('[SOVEREIGN-BLOCK]');
+                        const statusColor = isSuccess ? 'var(--success)' : 'var(--error)';
+                        const statusIcon = isSuccess ? '✅' : '❌';
+                        return `
+                            <div class="tool-result-card" style="margin: 10px 0; background: rgba(255,255,255,0.01); border: 1px dashed rgba(255,255,255,0.1); border-radius: 8px; padding: 12px; font-family: monospace;">
+                                <div style="display: flex; justify-content: space-between; align-items: center; cursor: pointer;" onclick="document.getElementById('${uniqueId}').style.display = document.getElementById('${uniqueId}').style.display === 'none' ? 'block' : 'none'">
+                                    <span style="color: ${statusColor}; font-weight: bold; display: flex; align-items: center; gap: 6px;">${statusIcon} النتيجة: [معرّف ${block.tool_use_id ? block.tool_use_id.substring(0,8) : 'أداة'}]</span>
+                                    <span style="font-size: 0.8rem; color: var(--text-muted); user-select: none;">عرض المخرجات ▾</span>
+                                </div>
+                                <div id="${uniqueId}" style="display: none; margin-top: 8px; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 8px; font-size: 0.85rem; color: #8b949e; overflow-x: auto; max-height: 250px; white-space: pre-wrap; direction: ltr; text-align: left;">${rawContent}</div>
+                            </div>
+                        `;
+                    }
+                    return '';
+                }).join('');
+            }
+            return '';
+        }
+
+        function renderMessages(messages) {
+            const container = document.getElementById('chatMessages');
+            if (!messages || messages.length === 0) {
+                container.innerHTML = `
+                    <div style="text-align: center; color: var(--text-muted); margin-top: 50px;">
+                        👋 أهلاً بك! اكتب أمرك وسيقوم النائب (Sigma Coordinator) بتحويله إلى خطة أسراب.
+                    </div>
+                `;
+                return;
+            }
+            container.innerHTML = messages.map(m => {
+                const isUser = m.role === 'user';
+                const isToolResult = Array.isArray(m.content) && m.content.some(c => c.type === 'tool_result');
+                
+                let senderName = isUser ? 'أنت' : 'النائب (Sigma Coordinator)';
+                let bubbleClass = isUser ? 'user' : 'assistant';
+                
+                if (isToolResult) {
+                    senderName = '🛠️ تنفيذ الأدوات تلقائياً (MCP Execution)';
+                    bubbleClass = 'system-tool-result';
+                }
+
+                return `
+                    <div class="chat-bubble ${bubbleClass}">
+                        <div style="font-size: 0.75rem; color: rgba(255,255,255,0.4); margin-bottom: 5px;">${senderName}</div>
+                        <div>${formatContent(m.content, m.role)}</div>
+                    </div>
+                `;
+            }).join('');
+            container.scrollTop = container.scrollHeight;
+        }
+
+        let audioContext = null;
+        let analyser = null;
+        let mediaStream = null;
+        let isRecording = false;
+        let animationFrameId = null;
+
+        async function toggleAudioRecording() {
+            const micBtn = document.getElementById('micBtn');
+            const statusEl = document.getElementById('recordingStatus');
+            const canvas = document.getElementById('audioVisualizer') || document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+
+            if (isRecording) {
+                isRecording = false;
+                micBtn.style.background = 'rgba(255, 255, 255, 0.05)';
+                micBtn.style.color = '#fff';
+                statusEl.style.display = 'none';
+                if (animationFrameId) cancelAnimationFrame(animationFrameId);
+                if (mediaStream) {
+                    mediaStream.getTracks().forEach(track => track.stop());
+                }
+                if (audioContext) {
+                    audioContext.close();
+                }
+
+                try {
+                    const r = await fetch(API + '/chat/media', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ audioData: 'base64_simulated_audio_data' })
+                    });
+                    const res = await r.json();
+                    if (res.success && res.transcript) {
+                        const input = document.getElementById('chatInput');
+                        input.value = res.transcript;
+                        input.focus();
+                    }
+                } catch (e) {
+                    console.error('Failed to parse simulated transcript:', e);
+                }
+            } else {
+                isRecording = true;
+                micBtn.style.background = 'var(--error)';
+                micBtn.style.color = '#fff';
+                statusEl.style.display = 'flex';
+
+                try {
+                    mediaStream = await navigator.mediaDevices.getUserMedia({ audio: true });
+                    audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                    analyser = audioContext.createAnalyser();
+                    const source = audioContext.createMediaStreamSource(mediaStream);
+                    source.connect(analyser);
+                    analyser.fftSize = 32;
+                    const bufferLength = analyser.frequencyBinCount;
+                    const dataArray = new Uint8Array(bufferLength);
+
+                    function drawReal() {
+                        if (!isRecording) return;
+                        animationFrameId = requestAnimationFrame(drawReal);
+                        analyser.getByteFrequencyData(dataArray);
+
+                        ctx.fillStyle = '#090c10';
+                        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+                        const barWidth = (canvas.width / bufferLength) * 1.5;
+                        let barHeight;
+                        let x = 0;
+
+                        for (let i = 0; i < bufferLength; i++) {
+                            barHeight = dataArray[i] / 4;
+                            ctx.fillStyle = `hsl(${180 + i * 20}, 100%, 50%)`;
+                            ctx.fillRect(x, canvas.height - barHeight, barWidth, barHeight);
+                            x += barWidth + 2;
+                        }
+                    }
+                    drawReal();
+                } catch (err) {
+                    console.log("Mic access not granted or not supported, running fallback simulator.");
+                    function drawSimulated(time) {
+                        if (!isRecording) return;
+                        animationFrameId = requestAnimationFrame(drawSimulated);
+
+                        ctx.fillStyle = '#090c10';
+                        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+                        const count = 8;
+                        const barWidth = canvas.width / count - 2;
+                        for (let i = 0; i < count; i++) {
+                            const amplitude = Math.sin(time / 100 + i) * 8 + 10;
+                            const barHeight = Math.max(2, amplitude + Math.random() * 4);
+                            ctx.fillStyle = `hsl(${260 + i * 15}, 100%, 60%)`;
+                            ctx.fillRect(i * (barWidth + 2), canvas.height - barHeight, barWidth, barHeight);
+                        }
+                    }
+                    drawSimulated(0);
+                }
+            }
+        }
+
+        async function sendChatMessage() {
+            const input = document.getElementById('chatInput');
+            const message = input.value.trim();
+            if (!message || !activeSessionId) return;
+
+            const planMode = document.getElementById('planModeToggle').checked;
+
+            input.value = '';
+            input.disabled = true;
+
+            // Activate global progress status
+            isChatActive = true;
+            chatProgress = 15;
+            load();
+
+            const progressTimer = setInterval(() => {
+                if (isChatActive) {
+                    chatProgress = Math.min(95, chatProgress + Math.floor(Math.random() * 4) + 1);
+                    const progressBar = document.getElementById('globalSwarmProgressBar');
+                    const progressText = document.getElementById('globalSwarmProgressText');
+                    if (progressBar) progressBar.style.width = `${chatProgress}%`;
+                    if (progressText) progressText.textContent = `${chatProgress}%`;
+                }
+            }, 600);
+
+            // Append user message immediately
+            const container = document.getElementById('chatMessages');
+            const userBubble = document.createElement('div');
+            userBubble.className = 'chat-bubble user';
+            userBubble.innerHTML = `<div style="font-size: 0.75rem; color: rgba(255,255,255,0.4); margin-bottom: 5px;">أنت</div><div>${message}</div>`;
+            container.appendChild(userBubble);
+            container.scrollTop = container.scrollHeight;
+
+            // Loader
+            const loaderBubble = document.createElement('div');
+            loaderBubble.className = 'chat-bubble assistant';
+            loaderBubble.innerHTML = `<div style="font-size: 0.75rem; color: rgba(255,255,255,0.4); margin-bottom: 5px;">النائب (Sigma Coordinator)</div><div class="typing-loader">${planMode ? 'جاري صياغة خطة العمل والمخطط الاستراتيجي... 📋' : 'جاري التفكير والتنسيق مع الأسراب... ⏳'}</div>`;
+            container.appendChild(loaderBubble);
+            container.scrollTop = container.scrollHeight;
+
+            try {
+                const r = await fetch(API + '/chat/message', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ sessionId: activeSessionId, message, planMode })
+                });
+                const data = await r.json();
+                
+                // Remove loader and re-render
+                container.removeChild(loaderBubble);
+                renderMessages(data.session.messages);
+                await loadChatSessions(); // Update title
+            } catch (e) {
+                loaderBubble.innerHTML = `<div style="color: var(--error);">⚠️ فشل الاتصال بالنائب: ${e.message}</div>`;
+            } finally {
+                clearInterval(progressTimer);
+                isChatActive = false;
+                chatProgress = 100;
+                load();
+                setTimeout(() => {
+                    if (!isChatActive && !isEvolutionActive) {
+                        load();
+                    }
+                }, 4000);
+                input.disabled = false;
+                input.focus();
+            }
+        }
+
+        // ─── AI Self-Evolution JS Logic ──────────────────────────────────
+        async function commenceSelfEvolution() {
+            const goalInput = document.getElementById('evolutionGoal');
+            const goal = goalInput.value.trim();
+            if (!goal) {
+                alert('الرجاء إدخال هدف للتطوير الذاتي.');
+                return;
+            }
+
+            const consoleEl = document.getElementById('evolutionConsole');
+            consoleEl.innerHTML = '[System] تفعيل بروتوكول التشخيص الذاتي V17.5-OMEGA...\n';
+
+            isEvolutionActive = true;
+            evolutionProgress = 5;
+            load();
+
+            try {
+                const r = await fetch(API + '/evolution/commence', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ goal })
+                });
+                const data = await r.json();
+
+                if (data.success) {
+                    let logIdx = 0;
+                    const interval = setInterval(() => {
+                        if (logIdx < data.logs.length) {
+                            consoleEl.innerHTML += data.logs[logIdx] + '\n';
+                            consoleEl.scrollTop = consoleEl.scrollHeight;
+                            logIdx++;
+                            evolutionProgress = Math.round((logIdx / data.logs.length) * 100);
+                            const progressBar = document.getElementById('globalSwarmProgressBar');
+                            const progressText = document.getElementById('globalSwarmProgressText');
+                            if (progressBar) progressBar.style.width = `${evolutionProgress}%`;
+                            if (progressText) progressText.textContent = `${evolutionProgress}%`;
+                        } else {
+                            clearInterval(interval);
+                            consoleEl.innerHTML += '\n[SUCCESS] اكتمال حلقة التطوير والتحسين بنجاح بنسبة 100/100! 🧬✨\n';
+                            consoleEl.scrollTop = consoleEl.scrollHeight;
+                            
+                            isEvolutionActive = false;
+                            evolutionProgress = 100;
+                            load();
+                            setTimeout(() => {
+                                if (!isChatActive && !isEvolutionActive) {
+                                    load();
+                                }
+                            }, 5000);
+                        }
+                    }, 1000);
+                } else {
+                    consoleEl.innerHTML += `[ERROR] فشل إطلاق حلقة التطوير: ${data.error}\n`;
+                    isEvolutionActive = false;
+                    load();
+                }
+            } catch (e) {
+                consoleEl.innerHTML += `[ERROR] فشل الاتصال: ${e.message}\n`;
+                isEvolutionActive = false;
+                load();
+            }
+        }
+
+        load();
+        loadChatSessions();
+        startTimer();
+    </script>
+
+    <!-- Modal for showing agent logs -->
+    <div id="logModal" class="modal" onclick="closeModal(event)">
+        <div class="modal-content glass-card" onclick="event.stopPropagation()">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <h2 id="modalAgentName" style="color: var(--primary); margin-bottom: 10px; padding-left: 20px;">وكيل سيادي</h2>
+            <p id="modalAgentDesc" style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 20px; padding-left: 20px;">وصف الوكيل...</p>
+            <pre id="modalAgentLog" style="max-height: 400px; overflow-y: auto;">تحميل سجل العمليات...</pre>
+        </div>
+    </div>
+</body>
+</html>

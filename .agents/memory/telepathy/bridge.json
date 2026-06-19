@@ -1,0 +1,46 @@
+{
+  "allowed_tools": [
+    "Bash",
+    "FileRead",
+    "FileReadLines",
+    "FileWrite",
+    "FileEdit",
+    "Glob",
+    "Grep",
+    "TaskStop",
+    "LSPTool",
+    "MCPTool",
+    "OmegaDiagnostic",
+    "NotebookEdit",
+    "WebFetch",
+    "WebSearch",
+    "SendMessage",
+    "TeamCreate",
+    "EnterPlanMode",
+    "ExitPlanMode",
+    "TodoWrite",
+    "SkillTool",
+    "Sleep",
+    "ToolSearch",
+    "TokenEstimation",
+    "VisualAuditReport",
+    "SemanticReference",
+    "SurgicalDiff",
+    "ZodSchema",
+    "EnterWorktree",
+    "FeatureFlag",
+    "TaskCreate",
+    "ServerMode"
+  ],
+  "version": "15.0.0-Apex",
+  "bridgeVersion": "1.0.0",
+  "schema": {
+    "tool": "string",
+    "args": "object"
+  },
+  "last_pulse": {
+    "from": "openai/gpt-oss-120b:free",
+    "timestamp": "2026-05-18T07:21:50.455Z",
+    "content": "Self‑Healing Execution Completed**"
+  }
+}

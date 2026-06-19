@@ -1,0 +1,11 @@
+{
+  "requested": true,
+  "status": "auth_required",
+  "url": "http://localhost:3847/health",
+  "startedAt": "2026-06-03T03:09:19.461Z",
+  "endedAt": "2026-06-03T03:09:19.549Z",
+  "httpStatus": 401,
+  "bodyHash": "2795d97cfe6946bb9ffd692dccb7ab1b64958d3545bdd364448abe53594b0302",
+  "bodyBytes": 41,
+  "bodyPreview": "{\"error\":\"Unauthorized: Invalid API Key\"}"
+}

@@ -1,0 +1,32 @@
+/* Glassmorphism and micro‑animation stylesheet */
+
+/* Glass card component */
+.glass-card {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 1rem;
+  color: #fff;
+}
+
+/* Micro‑animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-6px); }
+}
+
+.anim-fade {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+.anim-float {
+  animation: float 3s ease-in-out infinite;
+}

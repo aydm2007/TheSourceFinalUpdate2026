@@ -1,0 +1,28 @@
+{
+  "status": "launched",
+  "total_agents": 10,
+  "wave_size": 5,
+  "waves": 2,
+  "tasks": [
+    {
+      "wave": 1,
+      "launched": [
+        "[AGENT-COMPLETED] Task ID: agent_1781329814761_2c3a424e-7cf4-4073-a58d-cf72e6d32e09. Status: completed",
+        "[AGENT-COMPLETED] Task ID: agent_1781329814769_058ec57f-ffeb-4f2b-b2b1-8e2aa90b22f1. Status: completed",
+        "[AGENT-COMPLETED] Task ID: agent_1781329814773_719eaba9-d382-4698-9df4-8f797f242a59. Status: completed",
+        "[AGENT-COMPLETED] Task ID: agent_1781329814777_cdd53782-20d1-4fdc-9e90-fc486fa905b4. Status: completed",
+        "[AGENT-COMPLETED] Task ID: agent_1781329814784_c72fb7e2-b789-4d4a-ac1a-e5c8fc1124e0. Status: completed"
+      ]
+    },
+    {
+      "wave": 2,
+      "launched": [
+        "[AGENT-COMPLETED] Task ID: agent_1781329946288_defe6665-afcb-4bd6-b727-2378f27a6ec1. Status: completed",
+        "[AGENT-COMPLETED] Task ID: agent_1781329946292_ffdb1e9c-370f-4a63-b372-dbdc0d951450. Status: completed",
+        "[AGENT-COMPLETED] Task ID: agent_1781329946295_a0e67bed-8ecb-4445-bf2f-c8e9f78ae485. Status: completed",
+        "[AGENT-COMPLETED] Task ID: agent_1781329946299_464ee7d7-ca38-418d-a182-d74736621925. Status: completed",
+        "[AGENT-COMPLETED] Task ID: agent_1781329946303_bbaca4c9-ca89-4f8b-8433-07f0b3027c9b. Status: completed"
+      ]
+    }
+  ]
+}

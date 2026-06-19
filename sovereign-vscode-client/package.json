@@ -1,0 +1,76 @@
+{
+  "name": "sovereign-vscode-client",
+  "displayName": "Sovereign MCP Client",
+  "description": "The graphical body for the Sovereign Nexus MCP Server.",
+  "publisher": "sovereign-ai",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sovereign-ai/sovereign-vscode-client"
+  },
+  "version": "1.0.0",
+  "engines": { "vscode": "^1.80.0" },
+  "categories": ["Other"],
+  "activationEvents": ["*"],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "sovereign.optimizeBlock",
+        "title": "Sovereign: Optimize Block"
+      },
+      {
+        "command": "sovereign.securityAudit",
+        "title": "Sovereign: Security Audit"
+      },
+      {
+        "command": "sovereign.inlineChat",
+        "title": "Sovereign: Inline Chat"
+      },
+      {
+        "command": "sovereign.diffView",
+        "title": "Sovereign: Diff View"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "sovereign.optimizeBlock",
+          "group": "sovereign@1"
+        },
+        {
+          "command": "sovereign.inlineChat",
+          "group": "sovereign@2"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "Sovereign MCP Client Settings",
+      "properties": {
+        "sovereign.serverHost": {
+          "type": "string",
+          "default": "localhost",
+          "description": "Sovereign Server IP address or Host name (e.g., 195.94.24.180 or localhost)"
+        },
+        "sovereign.serverPort": {
+          "type": "number",
+          "default": 9998,
+          "description": "Sovereign Server Port (default 9998)"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "dependencies": {
+    "ws": "^8.13.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/vscode": "^1.80.0",
+    "@types/ws": "^8.5.5",
+    "typescript": "^5.1.3"
+  }
+}

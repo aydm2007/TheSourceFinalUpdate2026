@@ -1,0 +1,21 @@
+{
+  "generatedAt": "2026-06-03T02:04:36.944Z",
+  "mode": "offline-contract-validation",
+  "selectedModel": "openai/gpt-oss-120b:free",
+  "threshold": 90,
+  "minimumScore": 100,
+  "passed": true,
+  "claim": "threshold-validation-only: do not claim direct Claude Opus victory without fresh baseline artifacts",
+  "axes": [
+    "tool_calling",
+    "mcp_compliance",
+    "repo_debugging",
+    "code_review",
+    "long_context",
+    "security",
+    "ui_proof",
+    "artifact_discipline",
+    "retry_failover",
+    "instruction_following"
+  ]
+}

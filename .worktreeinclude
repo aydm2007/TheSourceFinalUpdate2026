@@ -1,0 +1,5 @@
+src/**/*.ts
+!src/**/tests/**
+!src/**/node_modules/**
+!src/**/legacy/**
+!src/**/temp/**

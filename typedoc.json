@@ -1,0 +1,8 @@
+{
+  "entryPoints": ["Games3d_RaceCar/src"],
+  "out": "docs/api",
+  "excludeExternals": true,
+  "readme": "none",
+  "excludePrivate": true,
+  "theme": "default"
+}

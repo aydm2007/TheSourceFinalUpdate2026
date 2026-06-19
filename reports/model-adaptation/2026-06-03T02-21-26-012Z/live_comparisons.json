@@ -1,0 +1,106 @@
+[
+  {
+    "axis": "deep_reasoning",
+    "selected": {
+      "status": "missing_key",
+      "provider": "siliconflow",
+      "model": "openai/gpt-oss-120b:free"
+    },
+    "claude": {
+      "status": "missing_key",
+      "env": "ANTHROPIC_API_KEY"
+    },
+    "directVictory": false
+  },
+  {
+    "axis": "tool_calling",
+    "selected": {
+      "status": "missing_key",
+      "provider": "siliconflow",
+      "model": "openai/gpt-oss-120b:free"
+    },
+    "claude": {
+      "status": "missing_key",
+      "env": "ANTHROPIC_API_KEY"
+    },
+    "directVictory": false
+  },
+  {
+    "axis": "natural_tool_calling",
+    "selected": {
+      "status": "missing_key",
+      "provider": "siliconflow",
+      "model": "openai/gpt-oss-120b:free"
+    },
+    "claude": {
+      "status": "missing_key",
+      "env": "ANTHROPIC_API_KEY"
+    },
+    "directVictory": false
+  },
+  {
+    "axis": "code_review",
+    "selected": {
+      "status": "missing_key",
+      "provider": "siliconflow",
+      "model": "openai/gpt-oss-120b:free"
+    },
+    "claude": {
+      "status": "missing_key",
+      "env": "ANTHROPIC_API_KEY"
+    },
+    "directVictory": false
+  },
+  {
+    "axis": "long_context",
+    "selected": {
+      "status": "missing_key",
+      "provider": "siliconflow",
+      "model": "openai/gpt-oss-120b:free"
+    },
+    "claude": {
+      "status": "missing_key",
+      "env": "ANTHROPIC_API_KEY"
+    },
+    "directVictory": false
+  },
+  {
+    "axis": "agentic_persistence",
+    "selected": {
+      "status": "missing_key",
+      "provider": "siliconflow",
+      "model": "openai/gpt-oss-120b:free"
+    },
+    "claude": {
+      "status": "missing_key",
+      "env": "ANTHROPIC_API_KEY"
+    },
+    "directVictory": false
+  },
+  {
+    "axis": "security",
+    "selected": {
+      "status": "missing_key",
+      "provider": "siliconflow",
+      "model": "openai/gpt-oss-120b:free"
+    },
+    "claude": {
+      "status": "missing_key",
+      "env": "ANTHROPIC_API_KEY"
+    },
+    "directVictory": false
+  },
+  {
+    "axis": "instruction_following",
+    "selected": {
+      "status": "missing_key",
+      "provider": "siliconflow",
+      "model": "local/unknown-model"
+    },
+    "claude": {
+      "status": "missing_key",
+      "env": "ANTHROPIC_API_KEY"
+    },
+    "directVictory": false
+  }
+]

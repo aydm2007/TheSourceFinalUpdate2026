@@ -1,0 +1,30 @@
+{
+  "mcpServers": {
+    "thesource-sovereign-http": {
+      "url": "http://localhost:3847/mcp",
+      "headers": {
+        "Authorization": "Bearer sovereign_nexus_key_2026"
+      }
+    },
+    "thesource-local-stdio": {
+      "command": "C:\\Program Files\\nodejs\\node.exe",
+      "args": ["C:\\tools\\workspace\\TheSource\\mcp_bridge_server.js"],
+      "env": {
+        "AETHER_WORKSPACE_ROOT": "C:\\tools\\workspace\\TheSource",
+        "AETHER_PLATFORM_MODE": "developer",
+        "AETHER_DEFAULT_SKILL": "mcp-developer"
+      }
+    },
+    "aether-native-sovereign": {
+      "command": "C:\\Program Files\\nodejs\\node.exe",
+      "args": [
+        "C:\\tools\\workspace\\TheSource\\package\\dev-platform\\mcp-native-runtime.js"
+      ],
+      "env": {
+        "AETHER_WORKSPACE_ROOT": "C:\\tools\\workspace\\TheSource",
+        "AETHER_PLATFORM_MODE": "developer",
+        "AETHER_DEFAULT_SKILL": "mcp-developer"
+      }
+    }
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "generatedAt": "2026-06-03T03:07:19.843Z",
+  "mode": "live-ready-contract-validation",
+  "selectedModel": "openai/gpt-oss-120b:free",
+  "threshold": 98,
+  "opusChallengerTargets": {
+    "deep_reasoning": 98,
+    "code_review": 98,
+    "long_context": 98,
+    "agentic_persistence": 97,
+    "natural_tool_calling": 97
+  },
+  "minimumScore": 100,
+  "passed": false,
+  "liveBattleRequested": true,
+  "liveBaselineStatus": "missing_or_failed",
+  "directVictoryProven": false,
+  "baselineModel": "claude-opus-4-6",
+  "readiness": {
+    "generatedAt": "2026-06-03T03:06:24.697Z",
+    "selected": {
+      "model": "openai/gpt-oss-120b:free",
+      "inferredProvider": "openrouter",
+      "acceptedEnv": [
+        "OPENROUTER_API_KEY",
+        "OPENROUTER_KEYS",
+        "AETHER_OR_KEYS",
+        "AETHER_RELAY_KEY_ALPHA"
+      ],
+      "keyPresent": false
+    },
+    "claude": {
+      "model": "claude-opus-4-6",
+      "acceptedEnv": [
+        "ANTHROPIC_API_KEY"
+      ],
+      "keyPresent": false
+    },
+    "consoleApi": {
+      "requested": false,
+      "url": "http://localhost:3847/health",
+      "countsAsModelProof": false
+    },
+    "aetherConsole": {
+      "requested": true,
+      "command": "./aether.ps1 console --model=<selected> -p <prompt>",
+      "countsAsModelProof": true
+    },
+    "readyForLiveBattle": false,
+    "missing": [
+      {
+        "side": "claude",
+        "provider": "anthropic",
+        "env": [
+          "ANTHROPIC_API_KEY"
+        ],
+        "method": "fresh_baseline_required"
+      }
+    ]
+  },
+  "consoleApiTransport": {
+    "requested": false,
+    "status": "not_requested",
+    "url": "http://localhost:3847/health"
+  },
+  "claim": "threshold-validation-only: do not claim direct Claude Opus victory without fresh baseline artifacts",
+  "axes": [
+    "deep_reasoning",
+    "tool_calling",
+    "natural_tool_calling",
+    "mcp_compliance",
+    "repo_debugging",
+    "code_review",
+    "long_context",
+    "agentic_persistence",
+    "security",
+    "ui_proof",
+    "artifact_discipline",
+    "retry_failover",
+    "instruction_following"
+  ],
+  "selectedAxes": [
+    "instruction_following"
+  ]
+}

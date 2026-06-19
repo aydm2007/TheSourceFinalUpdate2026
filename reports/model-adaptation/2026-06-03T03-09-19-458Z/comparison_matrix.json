@@ -1,0 +1,19 @@
+[
+  {
+    "axis": "instruction_following",
+    "target": 95,
+    "offlineContractScore": 100,
+    "offlineStatus": "pass",
+    "selectedStatus": "ok",
+    "selectedScore": 100,
+    "claudeStatus": "missing_key",
+    "claudeScore": null,
+    "winner": "unproven",
+    "claudeOutcome": "unproven_no_fresh_baseline",
+    "directVictory": false,
+    "proofState": "missing_live_evidence",
+    "missingEvidence": [
+      "claude:missing_key"
+    ]
+  }
+]

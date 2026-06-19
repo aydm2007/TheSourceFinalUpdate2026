@@ -1,0 +1,1603 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&family=Inter:wght@300;400;600&display=swap");
+
+      :root {
+        --bg: #03060b;
+        --card: rgba(13, 17, 23, 0.85);
+        --border: rgba(48, 54, 61, 0.6);
+        --accent: #238636;
+        --accent-glow: rgba(35, 134, 54, 0.4);
+        --zenith-blue: #00d2ff;
+        --zenith-glow: rgba(0, 210, 255, 0.25);
+        --zenith-purple: #9d50bb;
+        --zenith-purple-glow: rgba(157, 80, 187, 0.25);
+        --text: #e6edf3;
+        --text-muted: #8b949e;
+        --danger: #ff7b72;
+        --success: #3fb950;
+        --warning: #d29922;
+      }
+
+      body {
+        background: radial-gradient(circle at top right, #0d1117, #03060b);
+        color: var(--text);
+        font-family: "Inter", sans-serif;
+        padding: 20px;
+        margin: 0;
+        overflow-x: hidden;
+      }
+
+      .zenith-header {
+        text-align: center;
+        margin-bottom: 25px;
+        padding: 15px;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .zenith-title {
+        font-family: "Outfit", sans-serif;
+        font-size: 1.4rem;
+        font-weight: 600;
+        letter-spacing: 1px;
+        background: linear-gradient(
+          135deg,
+          var(--zenith-blue),
+          var(--zenith-purple)
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin: 0;
+        text-transform: uppercase;
+      }
+
+      .section {
+        background: var(--card);
+        backdrop-filter: blur(12px);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 20px;
+        margin-bottom: 24px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.45);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .section:hover {
+        border-color: var(--zenith-blue);
+        box-shadow: 0 0 15px var(--zenith-glow);
+      }
+
+      h2 {
+        font-family: "Outfit", sans-serif;
+        font-size: 0.9rem;
+        margin-top: 0;
+        color: var(--zenith-blue);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 15px;
+      }
+
+      .form-group {
+        margin-bottom: 18px;
+      }
+      label {
+        display: block;
+        font-size: 0.75rem;
+        margin-bottom: 6px;
+        color: var(--text-muted);
+      }
+
+      input,
+      select {
+        width: 100%;
+        background: rgba(13, 17, 23, 0.8);
+        border: 1px solid var(--border);
+        color: white;
+        padding: 10px;
+        border-radius: 8px;
+        outline: none;
+        box-sizing: border-box;
+        font-family: "Inter", sans-serif;
+        font-size: 0.85rem;
+        transition: all 0.3s;
+      }
+
+      input:focus,
+      select:focus {
+        border-color: var(--zenith-blue);
+        box-shadow: 0 0 8px var(--zenith-glow);
+      }
+
+      .btn {
+        background: linear-gradient(135deg, #1d66a1, #1c4f7a);
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 0.8rem;
+        font-weight: 600;
+        width: 100%;
+        transition: all 0.3s;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+      }
+
+      .btn:hover {
+        transform: translateY(-2px);
+        filter: brightness(1.2);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+      }
+
+      .btn.secondary {
+        background: rgba(33, 38, 45, 0.8);
+        border: 1px solid var(--border);
+      }
+
+      .btn.success {
+        background: linear-gradient(135deg, #238636, #1a6b2a);
+      }
+
+      .btn.purple {
+        background: linear-gradient(135deg, #bc8cff, #8957e5);
+      }
+
+      .status-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 4px 10px;
+        border-radius: 20px;
+        font-size: 0.7rem;
+        background: rgba(33, 38, 45, 0.6);
+        border: 1px solid var(--border);
+        color: var(--text-muted);
+      }
+
+      .status-badge.online {
+        color: var(--success);
+        border-color: var(--success);
+        background: rgba(63, 185, 80, 0.1);
+      }
+      .status-badge.error {
+        color: var(--danger);
+        border-color: var(--danger);
+        background: rgba(248, 81, 73, 0.1);
+      }
+
+      .input-row {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+      }
+
+      .input-row input {
+        flex: 1;
+      }
+      .input-row .btn {
+        width: auto;
+        padding: 10px 14px;
+      }
+
+      .model-label {
+        display: inline-block;
+        font-size: 0.68rem;
+        padding: 2px 8px;
+        border-radius: 10px;
+        margin-bottom: 6px;
+      }
+      .model-label.planner {
+        background: rgba(88, 166, 255, 0.15);
+        color: var(--zenith-blue);
+        border: 1px solid rgba(88, 166, 255, 0.3);
+      }
+      .model-label.executor {
+        background: rgba(188, 140, 255, 0.15);
+        color: var(--zenith-purple);
+        border: 1px solid rgba(188, 140, 255, 0.3);
+      }
+
+      .connection-result {
+        margin-top: 12px;
+        padding: 10px;
+        border-radius: 8px;
+        font-size: 0.75rem;
+        display: none;
+      }
+      .connection-result.ok {
+        display: block;
+        background: rgba(63, 185, 80, 0.1);
+        border: 1px solid var(--success);
+        color: var(--success);
+      }
+      .connection-result.fail {
+        display: block;
+        background: rgba(248, 81, 73, 0.1);
+        border: 1px solid var(--danger);
+        color: var(--danger);
+      }
+
+      .skill-card {
+        background: rgba(15, 20, 24, 0.6);
+        border: 1px solid var(--border);
+        padding: 12px;
+        border-radius: 10px;
+        width: 100%;
+        box-sizing: border-box;
+        margin-bottom: 10px;
+        transition: all 0.3s;
+      }
+
+      .skill-card:hover {
+        border-color: #58a6ff;
+        background: rgba(15, 20, 24, 0.8);
+      }
+
+      .skill-desc {
+        font-size: 0.72rem;
+        color: var(--text-muted);
+        margin-top: 8px;
+        line-height: 1.4;
+      }
+      .skill-actions {
+        display: flex;
+        gap: 8px;
+        margin-top: 10px;
+      }
+      .btn.small {
+        padding: 5px 10px;
+        font-size: 0.7rem;
+        border-radius: 6px;
+        width: auto;
+        flex: 1;
+      }
+
+      .model-status-card {
+        background: linear-gradient(
+          135deg,
+          rgba(0, 210, 255, 0.1),
+          rgba(157, 80, 187, 0.1)
+        );
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 15px;
+        margin-top: 15px;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+      }
+
+      .model-icon {
+        font-size: 1.8rem;
+        background: rgba(13, 17, 23, 0.6);
+        padding: 10px;
+        border-radius: 50%;
+        border: 1px solid var(--zenith-blue);
+        box-shadow: 0 0 10px var(--zenith-glow);
+      }
+
+      .model-info h3 {
+        margin: 0;
+        font-size: 0.85rem;
+        color: var(--zenith-blue);
+      }
+      .model-info p {
+        margin: 4px 0 0;
+        font-size: 0.72rem;
+        color: var(--text-muted);
+      }
+
+      .active-status {
+        margin-right: auto;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        font-size: 0.7rem;
+        color: var(--success);
+        font-weight: 600;
+      }
+
+      .pulse-dot {
+        width: 8px;
+        height: 8px;
+        background: var(--success);
+        border-radius: 50%;
+        box-shadow: 0 0 8px var(--success);
+        animation: pulse 1.5s infinite;
+      }
+
+      @keyframes pulse {
+        0% {
+          opacity: 0.4;
+        }
+        50% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0.4;
+        }
+      }
+
+      #log-container {
+        font-family: "Fira Code", monospace;
+        font-size: 0.68rem;
+        max-height: 180px;
+        overflow-y: auto;
+        background: rgba(1, 4, 9, 0.8);
+        padding: 10px;
+        border-radius: 8px;
+        border: 1px solid var(--border);
+        line-height: 1.5;
+      }
+
+      /* Custom Scrollbar */
+      ::-webkit-scrollbar {
+        width: 6px;
+      }
+      ::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: var(--border);
+        border-radius: 10px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: var(--zenith-blue);
+      }
+
+      /* Premium Floating Dock & Tooltip System */
+      .action-dock {
+        display: flex;
+        justify-content: center;
+        gap: 12px;
+        padding: 12px;
+        background: rgba(13, 17, 23, 0.7);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        backdrop-filter: blur(15px);
+        margin-bottom: 25px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.45);
+      }
+
+      .dock-icon-btn {
+        position: relative;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: rgba(33, 38, 45, 0.6);
+        border: 1px solid var(--border);
+        color: white;
+        font-size: 1.15rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      }
+
+      .dock-icon-btn:hover {
+        transform: translateY(-4px) scale(1.15);
+        background: rgba(0, 210, 255, 0.15);
+        border-color: var(--zenith-blue);
+        box-shadow: 0 0 15px var(--zenith-glow);
+      }
+
+      .dock-icon-btn.danger:hover {
+        background: rgba(248, 81, 73, 0.15);
+        border-color: var(--danger);
+        box-shadow: 0 0 15px rgba(248, 81, 73, 0.3);
+      }
+
+      .dock-icon-btn.purple:hover {
+        background: rgba(157, 80, 187, 0.15);
+        border-color: var(--zenith-purple);
+        box-shadow: 0 0 15px var(--zenith-purple-glow);
+      }
+
+      /* Tooltip Custom Styled Bubble */
+      .dock-icon-btn::before {
+        content: attr(data-tooltip);
+        position: absolute;
+        bottom: -45px;
+        left: 50%;
+        transform: translateX(-50%) translateY(10px);
+        background: rgba(13, 17, 23, 0.95);
+        border: 1px solid var(--border);
+        color: white;
+        padding: 6px 12px;
+        border-radius: 8px;
+        font-size: 0.7rem;
+        white-space: nowrap;
+        opacity: 0;
+        pointer-events: none;
+        transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+        z-index: 1000;
+      }
+
+      .dock-icon-btn:hover::before {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+      }
+
+      /* --- Constitution Markdown View Styling --- */
+      .constitution-title {
+        font-family: "Outfit", sans-serif;
+        color: var(--zenith-blue);
+        border-bottom: 2px solid var(--border);
+        padding-bottom: 8px;
+        margin-top: 20px;
+        font-size: 1.25rem;
+      }
+      .constitution-section-title {
+        font-family: "Outfit", sans-serif;
+        color: var(--zenith-purple);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        padding-bottom: 6px;
+        margin-top: 18px;
+        font-size: 1.1rem;
+      }
+      .constitution-text {
+        font-size: 0.8rem;
+        line-height: 1.6;
+        color: var(--text);
+      }
+      .constitution-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 15px 0;
+        font-size: 0.72rem;
+        border: 1px solid var(--border);
+        background: rgba(13, 17, 23, 0.4);
+      }
+      .constitution-table th {
+        background: rgba(35, 134, 54, 0.15);
+        border: 1px solid var(--border);
+        padding: 8px;
+        text-align: right;
+        font-weight: bold;
+        color: var(--zenith-blue);
+      }
+      .constitution-table td {
+        border: 1px solid var(--border);
+        padding: 8px;
+        color: #e6edf3;
+      }
+      .constitution-blockquote {
+        border-right: 4px solid var(--border);
+        margin: 15px 0;
+        padding: 8px 15px;
+        color: var(--text-muted);
+        font-style: italic;
+        background: rgba(255, 255, 255, 0.02);
+        border-radius: 0 4px 4px 0;
+      }
+      .constitution-code-block {
+        background: rgba(0, 0, 0, 0.45) !important;
+        padding: 12px;
+        border-radius: 8px;
+        overflow-x: auto;
+        border: 1px solid var(--border);
+        font-family: "Fira Code", monospace;
+        color: #58a6ff;
+        font-size: 0.7rem;
+        line-height: 1.4;
+        margin: 15px 0;
+      }
+      .constitution-code-inline {
+        background: rgba(255, 255, 255, 0.08);
+        padding: 2px 6px;
+        border-radius: 4px;
+        font-family: monospace;
+        color: var(--danger);
+        font-size: 0.75rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="zenith-header">
+      <h1 class="zenith-title">💎 AETHER SOVEREIGN V15.0-APEX</h1>
+      <div
+        style="
+          margin-top: 12px;
+          display: flex;
+          justify-content: center;
+          gap: 12px;
+        "
+      >
+        <span class="status-badge online" id="status-label">الجسر: نشط 🛰️</span>
+        <span
+          class="status-badge"
+          id="version-label"
+          style="
+            border-color: var(--zenith-purple);
+            color: var(--zenith-purple);
+          "
+          >SUPRA-ZENITH 15.0</span
+        >
+      </div>
+    </div>
+
+    <!-- 🎛️ Sovereign Action Dock -->
+    <div class="action-dock">
+      <button
+        class="dock-icon-btn"
+        data-tooltip="فحص النزاهة وحالة الجسر"
+        onclick="runIntegrity()"
+      >
+        ⚙️
+      </button>
+      <button
+        class="dock-icon-btn purple"
+        data-tooltip="توليد تقرير Zenith البصري للمشروع"
+        onclick="runVisualAudit()"
+      >
+        📊
+      </button>
+      <button
+        class="dock-icon-btn"
+        data-tooltip="التحليل البنيوي الذري للمشروع"
+        onclick="
+          vscode.postMessage({
+            command: 'runSkill',
+            skill: 'architectural-constitution',
+          })
+        "
+      >
+        🔍
+      </button>
+      <button
+        class="dock-icon-btn"
+        data-tooltip="تحليل وفورنسكس أمن البيانات والـ DB"
+        onclick="
+          vscode.postMessage({ command: 'runSkill', skill: 'db-forensics' })
+        "
+      >
+        🛡️
+      </button>
+      <button
+        class="dock-icon-btn"
+        data-tooltip="اختبار وتشخيص مكونات Django"
+        onclick="
+          vscode.postMessage({ command: 'runSkill', skill: 'django-doctor' })
+        "
+      >
+        🐍
+      </button>
+      <button
+        class="dock-icon-btn"
+        data-tooltip="مراجعة وتعديل أكواد Flutter"
+        onclick="
+          vscode.postMessage({ command: 'runSkill', skill: 'flutter-fixer' })
+        "
+      >
+        📱
+      </button>
+      <button
+        class="dock-icon-btn"
+        data-tooltip="تحليل جراحي لواجهات React/Vite"
+        onclick="
+          vscode.postMessage({ command: 'runSkill', skill: 'react-surgeon' })
+        "
+      >
+        ⚛️
+      </button>
+    </div>
+
+    <!-- 📂 Target Project Root -->
+    <div class="section">
+      <h2>📂 مسار السيادة (Target Project Root)</h2>
+      <div class="form-group">
+        <input
+          type="text"
+          id="target-path"
+          placeholder="C:\path\to\project..."
+        />
+      </div>
+      <div style="display: flex; gap: 10px">
+        <button class="btn" style="flex: 2" onclick="selectTargetPath()">
+          فتح المجلد
+        </button>
+        <button
+          class="btn secondary"
+          style="flex: 1"
+          onclick="saveTargetPath()"
+        >
+          حفظ
+        </button>
+      </div>
+    </div>
+
+    <!-- 🌐 API Provider Configuration -->
+    <div class="section">
+      <h2>🌐 إعدادات المزود (API Provider)</h2>
+      <div class="form-group">
+        <label>المزود النشط (Provider):</label>
+        <select id="provider-select" onchange="onProviderChange()">
+          <option value="siliconflow">
+            SiliconFlow — نماذج مجانية (DeepSeek, Qwen)
+          </option>
+          <option value="openrouter">
+            OpenRouter — تشكيلة ضخمة مجانية (DeepSeek V3, Llama 405B)
+          </option>
+          <option value="sambanova">
+            SambaNova — خوادم فائقة السرعة مجانية (Qwen 72B)
+          </option>
+          <option value="github">
+            GitHub Models — للمطورين مجاناً (GPT-4.1, Codestral)
+          </option>
+          <option value="custom">مخصص (Custom OpenAI-Compatible)</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>رابط الـ API (Base URL):</label>
+        <div class="input-row">
+          <input
+            type="url"
+            id="api-base-url"
+            list="endpoints-list"
+            placeholder="https://api.siliconflow.com/v1/chat/completions"
+          />
+          <datalist id="endpoints-list"></datalist>
+          <button
+            class="btn secondary"
+            onclick="saveEndpoint()"
+            title="حفظ هذا الرابط للقائمة"
+          >
+            💾
+          </button>
+        </div>
+      </div>
+      <div class="form-group">
+        <label id="key-label">مفتاح الـ API الأساسي:</label>
+        <div class="input-row">
+          <input
+            type="password"
+            id="api-key-ayman"
+            placeholder="sk-... أو ghp_..."
+          />
+          <button
+            class="btn secondary"
+            onclick="toggleKeyVisibility('api-key-ayman', this)"
+          >
+            👁️
+          </button>
+        </div>
+      </div>
+      <div class="form-group" id="beta-key-group">
+        <label>مفتاح الـ API الاحتياطي (Node Beta — اختياري):</label>
+        <div class="input-row">
+          <input
+            type="password"
+            id="api-key-ccc"
+            placeholder="sk-... (اختياري)"
+          />
+          <button
+            class="btn secondary"
+            onclick="toggleKeyVisibility('api-key-ccc', this)"
+          >
+            👁️
+          </button>
+        </div>
+      </div>
+      <div style="display: flex; gap: 10px">
+        <button class="btn success" style="flex: 2" onclick="saveProvider()">
+          💾 حفظ الإعدادات
+        </button>
+        <button
+          class="btn secondary"
+          style="flex: 1"
+          onclick="testConnection()"
+        >
+          🔌 اختبار
+        </button>
+      </div>
+      <div class="connection-result" id="connection-result"></div>
+    </div>
+
+    <!-- 🧠 Dual Active Model Selection -->
+    <div class="section">
+      <h2>🧠 المحرك النشط المزدوج (Dual-Engine System)</h2>
+
+      <div class="form-group">
+        <label style="font-weight: 600; color: var(--zenith-blue)"
+          >🧠 نموذج التخطيط والاستدلال (Planner Model):</label
+        >
+        <select id="planner-model" onchange="onModelChange()"></select>
+      </div>
+
+      <div class="form-group">
+        <label style="font-weight: 600; color: var(--zenith-purple)"
+          >⚡ نموذج البرمجة والتنفيذ (Executor Model):</label
+        >
+        <select id="executor-model" onchange="onModelChange()"></select>
+      </div>
+
+      <div
+        class="model-status-card"
+        style="flex-direction: column; align-items: stretch; gap: 10px"
+        id="model-status-card"
+      >
+        <div style="display: flex; align-items: center; gap: 15px">
+          <div
+            class="model-icon"
+            id="planner-icon"
+            style="
+              border-color: var(--zenith-blue);
+              font-size: 1.5rem;
+              padding: 6px;
+            "
+          >
+            🧠
+          </div>
+          <div class="model-info">
+            <h3 style="color: var(--zenith-blue)">
+              المخطط النشط:
+              <span id="display-planner-name">جاري التحميل...</span>
+            </h3>
+            <p
+              id="display-planner-details"
+              style="font-size: 0.7rem; color: var(--text-muted)"
+            ></p>
+          </div>
+        </div>
+        <div
+          style="border-top: 1px solid rgba(255, 255, 255, 0.05); margin: 5px 0"
+        ></div>
+        <div style="display: flex; align-items: center; gap: 15px">
+          <div
+            class="model-icon"
+            id="executor-icon"
+            style="
+              border-color: var(--zenith-purple);
+              font-size: 1.5rem;
+              padding: 6px;
+              box-shadow: 0 0 10px var(--zenith-purple-glow);
+            "
+          >
+            ⚡
+          </div>
+          <div class="model-info">
+            <h3 style="color: var(--zenith-purple)">
+              المنفذ النشط:
+              <span id="display-executor-name">جاري التحميل...</span>
+            </h3>
+            <p
+              id="display-executor-details"
+              style="font-size: 0.7rem; color: var(--text-muted)"
+            ></p>
+          </div>
+        </div>
+        <div
+          style="
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 5px;
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding-top: 8px;
+          "
+        >
+          <span>حالة تكامل الأسراب والوكلاء:</span>
+          <span class="active-status" style="margin-right: 0"
+            ><div class="pulse-dot"></div>
+            متناغم ونشط 🟢</span
+          >
+        </div>
+      </div>
+
+      <div style="margin-top: 20px">
+        <button class="btn success" onclick="saveModels()">
+          💾 اعتماد المحرك النشط المزدوج
+        </button>
+      </div>
+    </div>
+
+    <!-- 📜 Forensic Logs -->
+    <div class="section">
+      <h2>📜 السجل السيادي (Forensic Logs)</h2>
+      <div id="log-container">
+        <div style="color: var(--text-muted)">نظام Zenith في حالة تأهب...</div>
+      </div>
+      <div
+        class="form-group"
+        id="usage-stats"
+        style="
+          font-size: 0.75rem;
+          color: var(--text-muted);
+          display: none;
+          margin-top: 15px;
+          border-top: 1px solid var(--border);
+          padding-top: 10px;
+        "
+      >
+        <div style="display: flex; justify-content: space-between">
+          <span>مدخلات:</span> <span id="prompt-tokens">0</span>
+        </div>
+        <div style="display: flex; justify-content: space-between">
+          <span>مخرجات:</span> <span id="comp-tokens">0</span>
+        </div>
+        <div
+          style="
+            display: flex;
+            justify-content: space-between;
+            font-weight: bold;
+            color: var(--zenith-blue);
+            margin-top: 5px;
+          "
+        >
+          <span>الإجمالي:</span> <span id="total-tokens">0</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 📖 Sovereign Constitution (@master.md) -->
+    <div class="section" id="constitution-panel">
+      <h2>📖 دستور المنظومة السيادية (@master.md)</h2>
+      <div style="font-size: 0.72rem; color: var(--text-muted); margin-bottom: 12px; line-height: 1.4;">
+        عرض حي لوثيقة المرجعية والتحكم السيادية للمهارة النشطة حالياً.
+      </div>
+      
+      <div id="constitution-meta" style="font-size: 0.7rem; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 6px; display: none;">
+        <span>المهارة النشطة: <strong id="const-active-skill" style="color: var(--zenith-blue);">nexus-core</strong></span>
+        <span id="const-resolved-path" style="font-size: 0.62rem; color: var(--text-muted); font-family: monospace; max-width: 150px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"></span>
+      </div>
+
+      <div id="constitution-content" style="max-height: 320px; overflow-y: auto; background: rgba(1, 4, 9, 0.85); border: 1px solid var(--border); padding: 15px; border-radius: 10px; font-size: 0.75rem; line-height: 1.6; direction: rtl; text-align: right;">
+        <span style="color: var(--text-muted)">انقر على زر "تحميل الدستور" لعرض الوثيقة الحاكمة.</span>
+      </div>
+      
+      <div style="display: flex; gap: 10px; margin-top: 12px;">
+        <button class="btn success" style="flex: 2;" onclick="loadConstitution()">
+          📖 تحميل/تحديث الدستور
+        </button>
+        <button class="btn secondary" style="flex: 1;" onclick="toggleConstitutionCollapse()" id="const-toggle-btn">
+          تصغير
+        </button>
+      </div>
+    </div>
+
+    <!-- 🛡️ Skills Manager -->
+    <div class="section">
+      <h2>🛡️ المهارات السيادية النشطة</h2>
+      <div id="skills-list">
+        <div style="color: var(--text-muted); font-size: 0.75rem">
+          جاري مزامنة المهارات...
+        </div>
+      </div>
+      <div style="display: flex; gap: 10px; margin-top: 15px">
+        <button class="btn secondary" style="flex: 1" onclick="runIntegrity()">
+          فحص النزاهة
+        </button>
+        <button class="btn purple" style="flex: 1" onclick="runVisualAudit()">
+          تقرير Zenith البصري
+        </button>
+      </div>
+    </div>
+
+    <script>
+      const vscode = acquireVsCodeApi();
+      vscode.postMessage({ command: "ready" });
+
+      // --- Model Catalogs with Rich GRP Suitability & Cost Tiers ---
+      const MODEL_CATALOG = {
+        siliconflow: {
+          models: [
+            {
+              value: "deepseek-ai/DeepSeek-V3",
+              label: "DeepSeek V3 (النواة الاستراتيجية)",
+              cost: "free",
+              score: 98,
+              role: "planner",
+            },
+            {
+              value: "deepseek-ai/DeepSeek-V3",
+              label: "DeepSeek R1 (تفكير منطقي معمق)",
+              cost: "free",
+              score: 96,
+              role: "planner",
+            },
+            {
+              value: "deepseek-ai/DeepSeek-V3",
+              label: "Qwen Coder 32B (تنفيذ برمجي فوري)",
+              cost: "free",
+              score: 97,
+              role: "executor",
+            },
+            {
+              value: "deepseek-ai/DeepSeek-V3",
+              label: "Qwen 2.5 72B (متعدد المهام ضخم)",
+              cost: "limited",
+              score: 92,
+              role: "executor",
+            },
+            {
+              value: "01-ai/Yi-1.5-34B-Chat-16K",
+              label: "Yi 1.5-34B (لغوي معرب)",
+              cost: "free",
+              score: 85,
+              role: "executor",
+            },
+            {
+              value: "Pro/deepseek-ai/DeepSeek-V3",
+              label: "DeepSeek V3 Pro (استدلال تجاري)",
+              cost: "pro",
+              score: 99,
+              role: "planner",
+            },
+            {
+              value: "meta-llama/Llama-3.1-405B-Instruct",
+              label: "Llama 3.1 405B (عملاق للاستنباط)",
+              cost: "pro",
+              score: 94,
+              role: "planner",
+            },
+          ],
+          url: "https://api.siliconflow.com/v1/chat/completions",
+          keyPlaceholder: "sk-...",
+        },
+        github: {
+          models: [
+            {
+              value: "gpt-4.1",
+              label: "GPT-4.1 (المنظق الأعلى)",
+              cost: "limited",
+              score: 98,
+              role: "planner",
+            },
+            {
+              value: "o4-mini",
+              label: "o4-mini (استدلال مدمج)",
+              cost: "limited",
+              score: 95,
+              role: "planner",
+            },
+            {
+              value: "gpt-4.1-mini",
+              label: "GPT-4.1 Mini (تنفيذ ذكي سريع)",
+              cost: "limited",
+              score: 94,
+              role: "executor",
+            },
+            {
+              value: "deepseek-ai/DeepSeek-V3-0324",
+              label: "DeepSeek V3 (برمجة سحابية)",
+              cost: "limited",
+              score: 97,
+              role: "planner",
+            },
+            {
+              value: "Codestral-2501",
+              label: "Codestral (أوتوماتيكي برمجياً)",
+              cost: "limited",
+              score: 96,
+              role: "executor",
+            },
+            {
+              value: "Meta-Llama-3.1-405B-Instruct",
+              label: "Llama 3.1 405B (بنيوي)",
+              cost: "limited",
+              score: 94,
+              role: "planner",
+            },
+            {
+              value: "Phi-4",
+              label: "Phi-4 (مايكروسوفت خفيف)",
+              cost: "limited",
+              score: 88,
+              role: "planner",
+            },
+          ],
+          url: "https://models.inference.ai.azure.com/chat/completions",
+          keyPlaceholder: "ghp_... (GitHub PAT Token)",
+        },
+        openrouter: {
+          models: [
+            {
+              value: "deepseek/deepseek-r1:free",
+              label: "DeepSeek R1 (تفكير واستدلال فائق)",
+              cost: "free",
+              score: 98,
+              role: "planner",
+            },
+            {
+              value: "qwen/qwen-2.5-coder-32b-instruct:free",
+              label: "Qwen 2.5 Coder (سريع ومثالي)",
+              cost: "free",
+              score: 97,
+              role: "executor",
+            },
+            {
+              value: "google/gemini-2.5-flash:free",
+              label: "Gemini 2.5 Flash (سريع لغوياً)",
+              cost: "free",
+              score: 95,
+              role: "executor",
+            },
+            {
+              value: "meta-llama/llama-3.3-70b-instruct:free",
+              label: "Llama 3.3 70B (استدلال متكامل)",
+              cost: "free",
+              score: 93,
+              role: "planner",
+            },
+            {
+              value: "qwen/qwen-2.5-7b-instruct:free",
+              label: "Qwen 2.5 7B (خفيف وسريع)",
+              cost: "free",
+              score: 91,
+              role: "executor",
+            },
+            {
+              value: "google/gemma-2-9b-it:free",
+              label: "Gemma 2 9B (قوقل خفيف)",
+              cost: "free",
+              score: 88,
+              role: "executor",
+            },
+            {
+              value: "anthropic/claude-3-haiku",
+              label: "Claude 3 Haiku (سياقات ذكية)",
+              cost: "limited",
+              score: 89,
+              role: "executor",
+            },
+          ],
+          url: "https://openrouter.ai/api/v1/chat/completions",
+          keyPlaceholder: "sk-or-v1-...",
+        },
+        sambanova: {
+          models: [
+            {
+              value: "Qwen2.5-Coder-32B-Instruct",
+              label: "Qwen Coder 32B (تنفيذ مفرط السرعة)",
+              cost: "free",
+              score: 97,
+              role: "executor",
+            },
+            {
+              value: "Qwen2.5-72B-Instruct",
+              label: "Qwen 2.5 72B (شامل للبيانات)",
+              cost: "free",
+              score: 92,
+              role: "executor",
+            },
+            {
+              value: "Meta-Llama-3.1-405B-Instruct",
+              label: "Llama 3.1 405B (عملاق استراتيجي)",
+              cost: "limited",
+              score: 94,
+              role: "planner",
+            },
+          ],
+          url: "https://api.sambanova.ai/v1/chat/completions",
+          keyPlaceholder: "sk-...",
+        },
+      };
+
+      function populateModels(provider, savedPlanner, savedExecutor) {
+        const catalog = MODEL_CATALOG[provider] || MODEL_CATALOG.siliconflow;
+        const plannerSelect = document.getElementById("planner-model");
+        const executorSelect = document.getElementById("executor-model");
+        const models = catalog.models || [];
+
+        // Build Planner dropdown group by cost tier
+        let plannerHtml = "";
+        const plannerFree = models.filter((m) => m.cost === "free");
+        const plannerLimited = models.filter((m) => m.cost === "limited");
+        const plannerPro = models.filter((m) => m.cost === "pro");
+
+        if (plannerFree.length) {
+          plannerHtml +=
+            '<optgroup label="🧠 نماذج تخطيط مجانية 100% (أعلى كفاءة)">';
+          plannerFree.forEach((m) => {
+            const labelText = `🧠 [${m.score}%] ${m.label} (مجاني 100%)`;
+            plannerHtml += `<option value="${m.value}" data-cost="${m.cost}" data-score="${m.score}" data-role="${m.role}">${labelText}</option>`;
+          });
+          plannerHtml += "</optgroup>";
+        }
+        if (plannerLimited.length) {
+          plannerHtml += '<optgroup label="⚠️ نماذج تخطيط محدودة الحصص">';
+          plannerLimited.forEach((m) => {
+            const labelText = `🧠 [${m.score}%] ${m.label} (حصص محدودة)`;
+            plannerHtml += `<option value="${m.value}" data-cost="${m.cost}" data-score="${m.score}" data-role="${m.role}">${labelText}</option>`;
+          });
+          plannerHtml += "</optgroup>";
+        }
+        if (plannerPro.length) {
+          plannerHtml +=
+            '<optgroup label="💎 نماذج تخطيط احترافية برو (مدفوعة)">';
+          plannerPro.forEach((m) => {
+            const labelText = `🧠 [${m.score}%] ${m.label} (برو / مدفوع)`;
+            plannerHtml += `<option value="${m.value}" data-cost="${m.cost}" data-score="${m.score}" data-role="${m.role}">${labelText}</option>`;
+          });
+          plannerHtml += "</optgroup>";
+        }
+
+        // Build Executor dropdown group by cost tier
+        let executorHtml = "";
+        if (plannerFree.length) {
+          executorHtml +=
+            '<optgroup label="⚡ نماذج تنفيذ مجانية 100% (سرعة وكفاءة)">';
+          plannerFree.forEach((m) => {
+            const labelText = `⚡ [${m.score}%] ${m.label} (مجاني 100%)`;
+            executorHtml += `<option value="${m.value}" data-cost="${m.cost}" data-score="${m.score}" data-role="${m.role}">${labelText}</option>`;
+          });
+          executorHtml += "</optgroup>";
+        }
+        if (executorHtml && plannerLimited.length) {
+          executorHtml += '<optgroup label="⚠️ نماذج تنفيذ محدودة الحصص">';
+          plannerLimited.forEach((m) => {
+            const labelText = `⚡ [${m.score}%] ${m.label} (حصص محدودة)`;
+            executorHtml += `<option value="${m.value}" data-cost="${m.cost}" data-score="${m.score}" data-role="${m.role}">${labelText}</option>`;
+          });
+          executorHtml += "</optgroup>";
+        }
+        if (plannerPro.length) {
+          executorHtml +=
+            '<optgroup label="💎 نماذج تنفيذ احترافية برو (مدفوعة)">';
+          plannerPro.forEach((m) => {
+            const labelText = `⚡ [${m.score}%] ${m.label} (برو / مدفوع)`;
+            executorHtml += `<option value="${m.value}" data-cost="${m.cost}" data-score="${m.score}" data-role="${m.role}">${labelText}</option>`;
+          });
+          executorHtml += "</optgroup>";
+        }
+
+        plannerSelect.innerHTML = plannerHtml;
+        executorSelect.innerHTML = executorHtml;
+
+        // Defaults resolution (free & suitable first)
+        let defaultPlanner = savedPlanner;
+        let defaultExecutor = savedExecutor;
+
+        if (!defaultPlanner) {
+          const bestFreePlanner =
+            models.find((m) => m.cost === "free" && m.role === "planner") ||
+            models.find((m) => m.cost === "free");
+          defaultPlanner = bestFreePlanner
+            ? bestFreePlanner.value
+            : models[0]?.value || "";
+        }
+        if (!defaultExecutor) {
+          const bestFreeExecutor =
+            models.find((m) => m.cost === "free" && m.role === "executor") ||
+            models.find((m) => m.cost === "free");
+          defaultExecutor = bestFreeExecutor
+            ? bestFreeExecutor.value
+            : models[0]?.value || "";
+        }
+
+        plannerSelect.value = defaultPlanner;
+        executorSelect.value = defaultExecutor;
+
+        onModelChange();
+      }
+
+      function onModelChange() {
+        const plannerSelect = document.getElementById("planner-model");
+        const executorSelect = document.getElementById("executor-model");
+
+        const pOpt = plannerSelect.options[plannerSelect.selectedIndex];
+        const eOpt = executorSelect.options[executorSelect.selectedIndex];
+
+        if (pOpt) {
+          const name = pOpt.text.split("]")[1]?.trim() || pOpt.text;
+          const cost = pOpt.getAttribute("data-cost");
+          const score = pOpt.getAttribute("data-score");
+
+          document.getElementById("display-planner-name").innerText = name;
+          document.getElementById("display-planner-details").innerHTML =
+            `<span class="model-label planner" style="background: rgba(88, 166, 255, 0.15); color: var(--zenith-blue); margin-right: 5px;">🧠 تخطيط واستدلال</span>` +
+            `<span class="model-label" style="background: ${cost === "free" ? "rgba(63, 185, 80, 0.15)" : cost === "limited" ? "rgba(210, 153, 34, 0.15)" : "rgba(157, 80, 187, 0.15)"}; color: ${cost === "free" ? "var(--success)" : cost === "limited" ? "var(--warning)" : "var(--zenith-purple)"}; margin-right: 5px;">${cost === "free" ? "مجاني 100% 🆓" : cost === "limited" ? "محدود التوكن ⚠️" : "احترافي برو 💎"}</span>` +
+            `<span class="model-label" style="background: rgba(255,255,255,0.05); color: white;">الكفاءة: ${score}%</span>`;
+        }
+
+        if (eOpt) {
+          const name = eOpt.text.split("]")[1]?.trim() || eOpt.text;
+          const cost = eOpt.getAttribute("data-cost");
+          const score = eOpt.getAttribute("data-score");
+
+          document.getElementById("display-executor-name").innerText = name;
+          document.getElementById("display-executor-details").innerHTML =
+            `<span class="model-label executor" style="background: rgba(188, 140, 255, 0.15); color: var(--zenith-purple); margin-right: 5px;">⚡ برمجة وتنفيذ</span>` +
+            `<span class="model-label" style="background: ${cost === "free" ? "rgba(63, 185, 80, 0.15)" : cost === "limited" ? "rgba(210, 153, 34, 0.15)" : "rgba(157, 80, 187, 0.15)"}; color: ${cost === "free" ? "var(--success)" : cost === "limited" ? "var(--warning)" : "var(--zenith-purple)"}; margin-right: 5px;">${cost === "free" ? "مجاني 100% 🆓" : cost === "limited" ? "محدود التوكن ⚠️" : "احترافي برو 💎"}</span>` +
+            `<span class="model-label" style="background: rgba(255,255,255,0.05); color: white;">الكفاءة: ${score}%</span>`;
+        }
+      }
+
+      function onProviderChange() {
+        const providerSelect = document.getElementById("provider-select");
+        const provider = providerSelect.value;
+        const providerName = providerSelect.options[
+          providerSelect.selectedIndex
+        ].text
+          .split("—")[0]
+          .trim();
+        const catalog = MODEL_CATALOG[provider] || MODEL_CATALOG.siliconflow;
+
+        if (provider !== "custom") {
+          document.getElementById("api-base-url").value = catalog.url;
+        }
+
+        const keyInput = document.getElementById("api-key-ayman");
+        keyInput.placeholder = catalog.keyPlaceholder || "API Key...";
+
+        if (window.savedKeys && window.savedKeys[provider] !== undefined) {
+          keyInput.value = window.savedKeys[provider];
+        }
+
+        const keyLabel = document.getElementById("key-label");
+        if (provider === "github") {
+          keyLabel.innerText = "مفتاح GitHub (PAT — بدون صلاحيات):";
+        } else if (provider === "custom") {
+          keyLabel.innerText = "مفتاح الـ API المخصص:";
+        } else {
+          keyLabel.innerText = `مفتاح ${providerName}:`;
+        }
+
+        document.getElementById("beta-key-group").style.display =
+          provider === "github" ||
+          provider === "openrouter" ||
+          provider === "sambanova"
+            ? "none"
+            : "block";
+
+        populateModels(provider);
+      }
+
+      // Initialize with default
+      populateModels("siliconflow");
+
+      let savedEndpoints = [
+        "https://api.siliconflow.com/v1/chat/completions",
+        "https://models.inference.ai.azure.com/chat/completions",
+        "https://api.groq.com/openai/v1/chat/completions",
+      ];
+
+      function renderEndpoints() {
+        const list = document.getElementById("endpoints-list");
+        list.innerHTML = savedEndpoints
+          .map((url) => `<option value="${url}">`)
+          .join("");
+      }
+
+      function saveEndpoint() {
+        const url = document.getElementById("api-base-url").value;
+        if (url && !savedEndpoints.includes(url)) {
+          savedEndpoints.push(url);
+          renderEndpoints();
+          saveProvider();
+        }
+      }
+
+      function toggleKeyVisibility(inputId, btn) {
+        const input = document.getElementById(inputId);
+        if (input.type === "password") {
+          input.type = "text";
+          btn.innerText = "🔒";
+        } else {
+          input.type = "password";
+          btn.innerText = "👁️";
+        }
+      }
+
+      function saveProvider() {
+        const provider = document.getElementById("provider-select").value;
+        const apiBaseUrl = document.getElementById("api-base-url").value;
+        const keyA = document.getElementById("api-key-ayman").value;
+        const keyB = document.getElementById("api-key-ccc").value;
+        const plannerModel = document.getElementById("planner-model").value;
+        const executorModel = document.getElementById("executor-model").value;
+        vscode.postMessage({
+          command: "saveProvider",
+          provider,
+          apiBaseUrl,
+          keyA,
+          keyB,
+          plannerModel,
+          executorModel,
+          savedEndpoints: JSON.stringify(savedEndpoints),
+        });
+      }
+
+      function testConnection() {
+        const resultEl = document.getElementById("connection-result");
+        resultEl.className = "connection-result";
+        resultEl.style.display = "block";
+        resultEl.innerText = "⏳ جاري اختبار الاتصال...";
+        resultEl.style.background = "rgba(88,166,255,0.1)";
+        resultEl.style.borderColor = "var(--zenith-blue)";
+        resultEl.style.color = "var(--zenith-blue)";
+
+        vscode.postMessage({
+          command: "testConnection",
+          apiBaseUrl: document.getElementById("api-base-url").value,
+          apiKey: document.getElementById("api-key-ayman").value,
+          model: document.getElementById("planner-model").value,
+        });
+      }
+
+      function saveModels() {
+        const plannerModel = document.getElementById("planner-model").value;
+        const executorModel = document.getElementById("executor-model").value;
+        vscode.postMessage({
+          command: "saveModels",
+          plannerModel,
+          executorModel,
+        });
+      }
+
+      function saveTargetPath() {
+        const path = document.getElementById("target-path").value;
+        vscode.postMessage({ command: "saveTargetPath", path });
+      }
+
+      function selectTargetPath() {
+        vscode.postMessage({ command: "selectTargetPath" });
+      }
+
+      function runIntegrity() {
+        vscode.postMessage({ command: "runIntegrity" });
+      }
+
+      function runVisualAudit() {
+        vscode.postMessage({ command: "runVisualAudit" });
+      }
+
+      function runSkill(name) {
+        vscode.postMessage({ command: "runSkill", skill: name });
+      }
+
+      function showSkillDetails(name) {
+        const skills = window._skills || [];
+        const s = skills.find((sk) => (sk.name || sk) === name) || {};
+        const desc = s.description || "";
+        vscode.postMessage({ command: "showInfo", text: `${name}: ${desc}` });
+      }
+
+      function loadConstitution() {
+        const contentEl = document.getElementById("constitution-content");
+        contentEl.innerHTML = `<span style="color: var(--zenith-blue)">⏳ جاري تحميل الوثيقة الدستورية...</span>`;
+        vscode.postMessage({ command: "loadConstitution" });
+      }
+
+      let constitutionCollapsed = false;
+      function toggleConstitutionCollapse() {
+        const contentEl = document.getElementById("constitution-content");
+        const btn = document.getElementById("const-toggle-btn");
+        if (constitutionCollapsed) {
+          contentEl.style.display = "block";
+          btn.innerText = "تصغير";
+          constitutionCollapsed = false;
+        } else {
+          contentEl.style.display = "none";
+          btn.innerText = "تكبير";
+          constitutionCollapsed = true;
+        }
+      }
+
+      function parseMarkdown(md) {
+        if (!md) return "";
+        let html = md;
+
+        // Strip YAML frontmatter if present
+        html = html.replace(/^---\r?\n([\s\S]*?)\r?\n---/g, '');
+
+        // Escape HTML tags to prevent broken layouts, but keep safe ones we generate
+        html = html.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+
+        // Handle backticks for code blocks (```lang ... ```)
+        html = html.replace(/```(.*?)\r?\n([\s\S]*?)```/g, (match, lang, code) => {
+          return `<pre class="constitution-code-block"><code>${code.trim()}</code></pre>`;
+        });
+
+        // Handle inline code (`code`)
+        html = html.replace(/`([^`]+)`/g, '<code class="constitution-code-inline">$1</code>');
+
+        // Handle GitHub style alerts (> [!IMPORTANT] ...)
+        html = html.replace(/&gt;\s*\[!(NOTE|TIP|IMPORTANT|WARNING|CAUTION)\]\r?\n([\s\S]*?)(?=\r?\n\r?\n|\r?\n&gt;|\r?\n\s*$|$)/gi, (match, type, text) => {
+          const colors = {
+            NOTE: { border: "#1f6feb", bg: "rgba(31,111,235,0.15)", text: "#58a6ff", label: "ملاحظة" },
+            TIP: { border: "#238636", bg: "rgba(35,134,54,0.15)", text: "#56d364", label: "توضيح" },
+            IMPORTANT: { border: "#8957e5", bg: "rgba(137,87,229,0.15)", text: "#a371f7", label: "هام جداً" },
+            WARNING: { border: "#d29922", bg: "rgba(210,153,34,0.15)", text: "#e3b341", label: "تحذير" },
+            CAUTION: { border: "#da3633", bg: "rgba(248,81,73,0.15)", text: "#f85149", label: "تنبيه خطير" }
+          };
+          const cfg = colors[type.toUpperCase()] || colors.NOTE;
+          return `<div style="border-right: 4px solid ${cfg.border}; background: ${cfg.bg}; padding: 10px 15px; border-radius: 6px; margin: 10px 0; color: #e6edf3; direction: rtl; text-align: right;">` +
+                 `<strong style="color: ${cfg.text}; display: block; font-size: 0.8rem; margin-bottom: 5px;">⚠️ ${cfg.label}</strong>` +
+                 text.trim().replace(/\r?\n/g, '<br>') +
+                 `</div>`;
+        });
+
+        // Handle headers (H1 to H4)
+        html = html.replace(/^# (.*?)$/gm, '<h1 class="constitution-title">$1</h1>');
+        html = html.replace(/^## (.*?)$/gm, '<h2 class="constitution-section-title">$1</h2>');
+        html = html.replace(/^### (.*?)$/gm, '<h3 style="color: var(--text); font-family: \'Outfit\', sans-serif; font-size: 0.95rem; margin-top: 15px; border-bottom: 1px solid rgba(255,255,255,0.02); padding-bottom: 3px;">$1</h3>');
+        html = html.replace(/^#### (.*?)$/gm, '<h4 style="color: var(--text-muted); font-family: \'Outfit\', sans-serif; font-size: 0.85rem; margin-top: 12px;">$1</h4>');
+
+        // Handle lists
+        html = html.replace(/^\s*-\s*(.*?)$/gm, '<li style="margin-right: 15px; list-style-type: square; margin-bottom: 4px; color: #cbd5e1;">$1</li>');
+
+        // Handle tables
+        const lines = html.split('\n');
+        let inTable = false;
+        let tableHtml = '';
+        for (let i = 0; i < lines.length; i++) {
+          const line = lines[i].trim();
+          if (line.startsWith('|') && line.endsWith('|')) {
+            const parts = line.split('|').map(s => s.trim()).filter((s, idx, arr) => idx > 0 && idx < arr.length - 1);
+            if (!inTable) {
+              inTable = true;
+              tableHtml = '<table class="constitution-table">';
+              const nextLine = lines[i+1]?.trim() || '';
+              if (nextLine.startsWith('|') && nextLine.includes('-')) {
+                tableHtml += '<thead><tr>' + parts.map(p => `<th>${p}</th>`).join('') + '</tr></thead><tbody>';
+                i++; // skip separator line
+              } else {
+                tableHtml += '<tbody><tr>' + parts.map(p => `<td>${p}</td>`).join('') + '</tr>';
+              }
+            } else {
+              tableHtml += '<tr>' + parts.map(p => `<td>${p}</td>`).join('') + '</tr>';
+            }
+          } else {
+            if (inTable) {
+              tableHtml += '</tbody></table>';
+              lines[i-1] += '\n' + tableHtml;
+              inTable = false;
+            }
+          }
+        }
+        html = lines.join('\n');
+
+        // Handle blockquotes
+        html = html.replace(/^&gt;\s*(.*?)$/gm, '<blockquote class="constitution-blockquote">$1</blockquote>');
+
+        // Replace double line breaks with paragraph breaks
+        html = html.replace(/\r?\n\r?\n/g, '<p style="margin: 10px 0;"></p>');
+        // Replace remaining single line breaks (excluding those inside pre/table/blockquote)
+        html = html.replace(/\r?\n/g, '<br>');
+
+        return html;
+      }
+
+      // --- Message Handler ---
+      window.addEventListener("message", (event) => {
+        const msg = event.data;
+        if (msg.command === "loadSettings") {
+          window.savedKeys = msg.savedKeys || {};
+
+          document.getElementById("target-path").value = msg.projectRoot || "";
+          document.getElementById("api-key-ayman").value = msg.keyA || "";
+          document.getElementById("api-key-ccc").value = msg.keyB || "";
+          document.getElementById("api-base-url").value =
+            msg.apiBaseUrl || "https://api.siliconflow.com/v1/chat/completions";
+
+          const provider = msg.provider || "siliconflow";
+          document.getElementById("provider-select").value = provider;
+          populateModels(provider, msg.plannerModel, msg.executorModel);
+          onProviderChange();
+
+          if (msg.savedEndpoints) {
+            try {
+              savedEndpoints = JSON.parse(msg.savedEndpoints);
+            } catch (e) {}
+          }
+          renderEndpoints();
+
+          if (msg.plannerModel) {
+            document.getElementById("planner-model").value = msg.plannerModel;
+          }
+          if (msg.executorModel) {
+            document.getElementById("executor-model").value = msg.executorModel;
+          }
+          onModelChange();
+
+          window._skills = msg.skills || [];
+
+          if (msg.skills) {
+            const list = document.getElementById("skills-list");
+            list.innerHTML = msg.skills
+              .map((s) => {
+                const name = typeof s === "string" ? s : s.name;
+                const desc = typeof s === "string" ? "" : s.description || "";
+                return `
+                            <div class="skill-card">
+                                <div style="display:flex;justify-content:space-between;align-items:center;">
+                                    <span style="font-weight:600; font-size:0.8rem; color:var(--zenith-blue);">⚡ ${name}</span>
+                                    <div class="skill-actions" style="display:flex; gap:6px; margin-top: 0;">
+                                        <button class="dock-icon-btn" style="width:28px; height:28px; font-size:0.75rem;" data-tooltip="تشغيل المهارة سيادياً" onclick="runSkill('${name.replace(/'/g, "\\'")}')">⚡</button>
+                                        <button class="dock-icon-btn purple" style="width:28px; height:28px; font-size:0.75rem;" data-tooltip="عرض تفاصيل المهارة" onclick="showSkillDetails('${name.replace(/'/g, "\\'")}')">ℹ️</button>
+                                    </div>
+                                </div>
+                                <div class="skill-desc">${desc}</div>
+                            </div>`;
+              })
+              .join("");
+          }
+          // Auto load constitution on settings load
+          loadConstitution();
+        } else if (msg.command === "updateStatus") {
+          const label = document.getElementById("status-label");
+          if (msg.status === "online") {
+            label.innerText = "الجسر: متصل 🟢";
+            label.className = "status-badge online";
+          } else {
+            label.innerText = "الجسر: غير متصل 🔴";
+            label.className = "status-badge error";
+          }
+        } else if (msg.command === "updateUsage") {
+          document.getElementById("usage-stats").style.display = "block";
+          document.getElementById("prompt-tokens").innerText =
+            msg.usage.input_tokens || msg.usage.prompt_tokens;
+          document.getElementById("comp-tokens").innerText =
+            msg.usage.output_tokens || msg.usage.completion_tokens;
+          const total =
+            (msg.usage.input_tokens || msg.usage.prompt_tokens) +
+            (msg.usage.output_tokens || msg.usage.completion_tokens);
+          document.getElementById("total-tokens").innerText = total;
+        } else if (msg.command === "connectionResult") {
+          const resultEl = document.getElementById("connection-result");
+          if (msg.success) {
+            resultEl.className = "connection-result ok";
+            resultEl.innerText = "✅ الاتصال ناجح! المزود يعمل بشكل سليم.";
+          } else {
+            resultEl.className = "connection-result fail";
+            resultEl.innerText =
+              "❌ فشل الاتصال: " + (msg.details || "خطأ غير معروف");
+          }
+        } else if (msg.command === "newLog") {
+          const container = document.getElementById("log-container");
+          if (container.innerText.includes("نظام Zenith"))
+            container.innerHTML = "";
+          const logDiv = document.createElement("div");
+          const color =
+            msg.log.type === "error"
+              ? "#f85149"
+              : msg.log.type === "success"
+                ? "#3fb950"
+                : "#8b949e";
+          logDiv.innerHTML = `<span style="color: #484f58;">[${msg.log.timestamp}]</span> <span style="color: ${color}">${msg.log.msg}</span>`;
+          container.appendChild(logDiv);
+          container.scrollTop = container.scrollHeight;
+        } else if (msg.command === "skillResult") {
+          const container = document.getElementById("log-container");
+          const logDiv = document.createElement("div");
+          const color = msg.success ? "#3fb950" : "#f85149";
+          const short = (msg.output || "")
+            .toString()
+            .substring(0, 300)
+            .replace(/</g, "&lt;");
+          logDiv.innerHTML = `<span style="color: #484f58;">[${new Date().toLocaleTimeString()}]</span> <span style="color: ${color}">[Skill ${msg.skill}] ${short}</span>`;
+          container.appendChild(logDiv);
+          container.scrollTop = container.scrollHeight;
+          if (msg.success) {
+            loadConstitution();
+          }
+        } else if (msg.command === "constitutionLoaded") {
+          const contentEl = document.getElementById("constitution-content");
+          const metaEl = document.getElementById("constitution-meta");
+          const skillEl = document.getElementById("const-active-skill");
+          const pathEl = document.getElementById("const-resolved-path");
+
+          if (msg.error) {
+            contentEl.innerHTML = `<span style="color: var(--danger)">⚠️ ${msg.error}</span>`;
+            metaEl.style.display = "none";
+          } else {
+            skillEl.innerText = msg.skill || "nexus-core";
+            pathEl.innerText = msg.path || "";
+            pathEl.title = msg.path || "";
+            metaEl.style.display = "flex";
+            contentEl.innerHTML = parseMarkdown(msg.content);
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

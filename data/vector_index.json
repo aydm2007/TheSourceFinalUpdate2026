@@ -1,0 +1,29 @@
+{
+  "version": "1.0",
+  "last_updated": "2026-06-16T09:17:04.518Z",
+  "functions": [
+    {
+      "name": "executeTool",
+      "path": "nexus_bridge.js"
+    },
+    {
+      "name": "applyTokenGuard",
+      "path": "nexus_bridge.js"
+    },
+    {
+      "name": "runAgent",
+      "path": "nexus_bridge.js"
+    }
+  ],
+  "classes": [
+    {
+      "name": "ToolOrchestrator",
+      "path": "core/utils/tool_orchestrator.js"
+    },
+    {
+      "name": "SiliconFlowAdapter",
+      "path": "package/siliconflow_adapter.js"
+    }
+  ],
+  "models": []
+}

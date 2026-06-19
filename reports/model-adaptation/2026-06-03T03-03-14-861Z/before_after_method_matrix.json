@@ -1,0 +1,129 @@
+[
+  {
+    "axis": "routing",
+    "before": "Model-name focused routing could turn the comparison into provider preference.",
+    "after": "Selected-model preservation plus method contract; Aether console can run the chosen model without changing the benchmark target.",
+    "delta": "from model contest to selected-model deterministic adaptation",
+    "evidence": [
+      {
+        "status": "pass",
+        "artifact": "readiness.json",
+        "proof": "selected model readiness is separated from baseline readiness"
+      },
+      {
+        "status": "partial",
+        "artifact": "console_api_transport.json",
+        "proof": "console transport was not requested or did not prove a transport boundary"
+      }
+    ],
+    "status": "provisional"
+  },
+  {
+    "axis": "deep_reasoning",
+    "before": "Generic reasoning prompt with weak proof boundaries.",
+    "after": "Axis protocol requires hypotheses, disconfirming evidence, counterexamples, second-order effects, decision, and residual risk.",
+    "delta": "from fluent reasoning to auditable reasoning protocol",
+    "evidence": [
+      {
+        "status": "pass",
+        "artifact": "transcripts.json",
+        "proof": "offline contract injects required axis protocol"
+      }
+    ],
+    "status": "upgraded"
+  },
+  {
+    "axis": "code_review",
+    "before": "Single-pass review could miss severity ordering, regressions, and test gaps.",
+    "after": "Review pass count, severity ranking, regression scan, concrete evidence, and residual-risk guard are required.",
+    "delta": "from review text to review gate",
+    "evidence": [
+      {
+        "status": "pass",
+        "artifact": "scores.json",
+        "proof": "code-review checks are scored against deterministic requirements"
+      }
+    ],
+    "status": "upgraded"
+  },
+  {
+    "axis": "long_context",
+    "before": "Large-context handling relied on broad memory claims.",
+    "after": "Context map, source anchors, refreshed assumptions, and checkpoints are part of the proof schema.",
+    "delta": "from memory confidence to anchored context management",
+    "evidence": [
+      {
+        "status": "pass",
+        "artifact": "transcripts.json",
+        "proof": "long-context scenario requires source anchors and checkpoints"
+      }
+    ],
+    "status": "upgraded"
+  },
+  {
+    "axis": "tool_calling",
+    "before": "Tool use could be described in prose without schema reconciliation.",
+    "after": "Tool intent, selected tool, valid JSON/schema arguments, evidence, reconciliation, and residual risk are required.",
+    "delta": "from prose tool intent to schema-first MCP behavior",
+    "evidence": [
+      {
+        "status": "pass",
+        "artifact": "comparison_matrix.json",
+        "proof": "tool-call axes are scored with target thresholds"
+      }
+    ],
+    "status": "upgraded"
+  },
+  {
+    "axis": "agentic_persistence",
+    "before": "Persistence was hard to distinguish from repeated attempts.",
+    "after": "Checkpoint, retry budget, blocker audit, changed tactics, next action, and residual risk are required.",
+    "delta": "from retrying to audited persistence",
+    "evidence": [
+      {
+        "status": "pass",
+        "artifact": "scores.json",
+        "proof": "persistence axis passes deterministic checks when threshold is met"
+      }
+    ],
+    "status": "upgraded"
+  },
+  {
+    "axis": "artifact_discipline",
+    "before": "Success language could outrun evidence.",
+    "after": "No direct victory claim unless live selected response, live baseline, thresholds, artifacts, and hashes all exist.",
+    "delta": "from assertion to artifact-gated certification",
+    "evidence": [
+      {
+        "status": "pass",
+        "artifact": "artifact_hashes.json",
+        "proof": "artifact set is hashed after generation"
+      },
+      {
+        "status": "partial",
+        "artifact": "summary.json",
+        "proof": "direct victory intentionally withheld without complete fresh baseline"
+      }
+    ],
+    "status": "provisional"
+  },
+  {
+    "axis": "opus_4_6_comparison",
+    "before": "Comparison could be implied without fresh baseline.",
+    "after": "Claude Opus 4.6 remains only a baseline lane; without fresh baseline artifacts the claim stays provisional.",
+    "delta": "from implied win to explicit non-certification when evidence is missing",
+    "evidence": [
+      {
+        "status": "partial",
+        "artifact": "live_comparisons.json",
+        "proof": "baseline is missing, so no direct win is claimed"
+      },
+      {
+        "status": "partial",
+        "artifact": "live_comparisons.json",
+        "proof": "selected live response is missing or not requested"
+      }
+    ],
+    "status": "provisional"
+  }
+]

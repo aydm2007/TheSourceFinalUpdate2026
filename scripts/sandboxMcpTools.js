@@ -1,0 +1,1 @@
+// sandboxMcpTools.js – stub for MCP tool sandbox execution\nconsole.log('Running MCP tools sandbox...');\nprocess.exit(0);

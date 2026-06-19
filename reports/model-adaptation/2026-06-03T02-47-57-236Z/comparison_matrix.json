@@ -1,0 +1,20 @@
+[
+  {
+    "axis": "instruction_following",
+    "target": 95,
+    "offlineContractScore": 100,
+    "offlineStatus": "pass",
+    "selectedStatus": "skipped",
+    "selectedScore": null,
+    "claudeStatus": "skipped",
+    "claudeScore": null,
+    "winner": "unproven",
+    "claudeOutcome": "unproven_no_fresh_baseline",
+    "directVictory": false,
+    "proofState": "offline_threshold_only",
+    "missingEvidence": [
+      "selected:skipped",
+      "claude:skipped"
+    ]
+  }
+]

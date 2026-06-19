@@ -1,0 +1,613 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ø§Ù„Ø¯Ù„ÙŠÙ„ Ø§Ù„Ø³ÙŠØ§Ø¯ÙŠ Ø§Ù„Ù…ÙˆØ­Ø¯ Ù„Ù„ØªØ´ØºÙŠÙ„ ÙˆØ§Ù„Ù†Ø´Ø±</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- Prism CSS for syntax highlighting -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    
+    <style>
+        :root {
+            --bg-color: #0f172a; 
+            --surface-color: #1e293b; 
+            --text-primary: #f8fafc; 
+            --text-secondary: #94a3b8; 
+            --accent-primary: #3b82f6; 
+            --accent-secondary: #8b5cf6; 
+            --border-color: #334155; 
+        }
+        
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background: linear-gradient(135deg, var(--bg-color), #020617);
+            background-attachment: fixed;
+            color: var(--text-primary);
+            margin: 0;
+            display: flex;
+            min-height: 100vh;
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+
+        /* Sidebar Styles */
+        .sidebar {
+            width: 320px;
+            background: rgba(30, 41, 59, 0.6);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-left: 1px solid var(--border-color);
+            padding: 2.5rem 2rem;
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
+            box-shadow: -4px 0 25px rgba(0,0,0,0.4);
+            z-index: 100;
+        }
+
+        .sidebar h2 {
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            background: -webkit-linear-gradient(45deg, var(--accent-primary), #60a5fa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 800;
+            line-height: 1.3;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .sidebar li {
+            margin-bottom: 0.5rem;
+        }
+
+        .sidebar a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: block;
+            padding: 0.75rem 1rem;
+            border-radius: 10px;
+            font-size: 1rem;
+        }
+
+        .sidebar a:hover, .sidebar a.active {
+            color: var(--text-primary);
+            background: rgba(59, 130, 246, 0.15);
+            transform: translateX(-8px);
+            border-right: 3px solid var(--accent-primary);
+        }
+
+        /* Main Content Styles */
+        .main-content {
+            flex-grow: 1;
+            margin-right: 320px; /* Space for sidebar */
+            padding: 4rem 5rem;
+            max-width: 1200px;
+        }
+
+        .content-card {
+            background: rgba(30, 41, 59, 0.4);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 24px;
+            padding: 3.5rem;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            margin-bottom: 4rem;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .content-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.4);
+        }
+
+        .header-card {
+            text-align: center;
+            background: linear-gradient(145deg, rgba(30, 41, 59, 0.6), rgba(15, 23, 42, 0.8));
+            border-top: 4px solid var(--accent-primary);
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: -webkit-linear-gradient(45deg, #fff, var(--text-secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            color: var(--accent-primary);
+            margin-bottom: 2rem;
+            font-weight: 700;
+        }
+
+        h2 {
+            font-size: 2.2rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 1rem;
+            margin-top: 0;
+            margin-bottom: 2rem;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        h3 {
+            font-size: 1.6rem;
+            color: var(--accent-primary);
+            margin-top: 2.5rem;
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+            color: var(--text-secondary);
+        }
+
+        /* Tables */
+        .table-container {
+            overflow-x: auto;
+            border-radius: 12px;
+            margin: 2rem 0;
+            border: 1px solid var(--border-color);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: rgba(15, 23, 42, 0.5);
+            text-align: right;
+        }
+
+        th, td {
+            padding: 1.2rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        th {
+            background: rgba(51, 65, 85, 0.6);
+            font-weight: 700;
+            color: #fff;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:hover td {
+            background: rgba(59, 130, 246, 0.05);
+        }
+
+        /* Alerts */
+        .alert {
+            background: rgba(234, 179, 8, 0.1);
+            border-right: 4px solid #eab308;
+            padding: 1.5rem 2rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+            color: #fef08a;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .alert-info {
+            background: rgba(59, 130, 246, 0.1);
+            border-right: 4px solid var(--accent-primary);
+            color: #bfdbfe;
+        }
+        
+        .alert-icon {
+            font-size: 1.5rem;
+        }
+
+        /* Code Blocks */
+        pre[class*="language-"] {
+            background: #0f111a !important;
+            border-radius: 12px;
+            padding: 1.5rem !important;
+            border: 1px solid #1e293b;
+            margin: 2rem 0;
+            box-shadow: inset 0 2px 15px rgba(0,0,0,0.5);
+            direction: ltr; /* Code must be LTR */
+            text-align: left;
+        }
+
+        code[class*="language-"], code {
+            font-family: 'Fira Code', monospace;
+            font-size: 0.95rem;
+        }
+        
+        /* Inline code */
+        :not(pre) > code {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 0.2rem 0.4rem;
+            border-radius: 6px;
+            color: #93c5fd;
+            direction: ltr;
+            display: inline-block;
+        }
+
+        /* Mermaid Diagrams */
+        .mermaid-container {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 2rem;
+            border-radius: 16px;
+            margin: 2rem 0;
+            border: 1px solid var(--border-color);
+            display: flex;
+            justify-content: center;
+            direction: ltr; /* Crucial for rendering flowchart logic */
+            overflow-x: auto;
+        }
+
+        /* Scrollbars */
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: var(--bg-color); }
+        ::-webkit-scrollbar-thumb { background: var(--border-color); border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--accent-primary); }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .sidebar {
+                width: 250px;
+            }
+            .main-content {
+                margin-right: 250px;
+                padding: 3rem 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body { flex-direction: column; }
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+                padding: 1.5rem;
+                border-left: none;
+                border-bottom: 1px solid var(--border-color);
+            }
+            .main-content {
+                margin-right: 0;
+                padding: 2rem 1rem;
+            }
+            .content-card { padding: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sidebar Navigation -->
+    <nav class="sidebar">
+        <h2>Ø§Ù„Ø¯Ù„ÙŠÙ„ Ø§Ù„Ø³ÙŠØ§Ø¯ÙŠ</h2>
+        <ul>
+            <li><a href="#intro" class="active">Ø§Ù„Ù…Ù‚Ø¯Ù…Ø©</a></li>
+            <li><a href="#architecture">1. Ø§Ù„Ø¨Ù†ÙŠØ© Ø§Ù„Ù…Ø¹Ù…Ø§Ø±ÙŠØ©</a></li>
+            <li><a href="#config">2. ØªÙƒÙˆÙŠÙ† Ø§Ù„Ø¨ÙŠØ¦Ø©</a></li>
+            <li><a href="#multi-tenancy">3. Ø¥Ø¯Ø§Ø±Ø© Ø§Ù„Ù…Ø³ØªØ£Ø¬Ø±ÙŠÙ†</a></li>
+            <li><a href="#docker">4. Ø§Ù„Ù†Ø´Ø± ÙˆØ§Ù„Ø­Ø§ÙˆÙŠØ§Øª</a></li>
+            <li><a href="#scaling">5. Ø§Ù„ØªÙˆØ³Ø¹ Ø¹Ø¨Ø± Redis</a></li>
+            <li><a href="#monitoring">6. Ø§Ù„Ù…Ø±Ø§Ù‚Ø¨Ø© ÙˆØ§Ù„ØªØ­Ù„ÙŠÙ„Ø§Øª</a></li>
+            <li><a href="#security">7. Ø§Ù„Ø£Ù…Ø§Ù† ÙˆØ§Ù„Ø­Ù…Ø§ÙŠØ©</a></li>
+            <li><a href="#troubleshooting">8. Ø§Ø³ØªÙƒØ´Ø§Ù Ø§Ù„Ø£Ø®Ø·Ø§Ø¡</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+        
+        <!-- Intro Section -->
+        <section id="intro" class="content-card header-card">
+            <h1>ðŸ›ï¸ Ø§Ù„Ø¯Ù„ÙŠÙ„ Ø§Ù„Ø³ÙŠØ§Ø¯ÙŠ Ø§Ù„Ù…ÙˆØ­Ø¯ Ù„Ù„ØªØ´ØºÙŠÙ„ ÙˆØ§Ù„Ù†Ø´Ø±</h1>
+            <div class="subtitle">Ù†Ø¸Ø§Ù… Aether-Zenith V21.1-Observability_Scale</div>
+            <p style="color: var(--text-primary); font-size: 1.2rem; max-width: 800px; margin: 0 auto;">
+                Ù…Ø±Ø­Ø¨Ø§Ù‹ Ø¨Ùƒ ÙÙŠ Ø§Ù„Ø¯Ù„ÙŠÙ„ Ø§Ù„Ù…Ø±ÙƒØ²ÙŠ Ù„Ø¹Ù…Ù„ÙŠØ§Øª ÙˆØªØ´ØºÙŠÙ„ Ù…Ù†ØµØ© <strong>TheSource (Aether Engine)</strong>. 
+                ØªÙ… ØªØµÙ…ÙŠÙ… Ù‡Ø°Ø§ Ø§Ù„Ø¯Ù„ÙŠÙ„ Ù„ØªÙ‚Ø¯ÙŠÙ… Ø¥Ø±Ø´Ø§Ø¯ ÙƒØ§Ù…Ù„ Ø¨Ù†Ø³Ø¨Ø© 100% Ù„ÙØ±ÙŠÙ‚ Ø§Ù„Ø¹Ù…Ù„ Ø§Ù„Ø¥Ø¯Ø§Ø±ÙŠ ÙˆØ§Ù„ØªÙ‚Ù†ÙŠ Ù„ØªØ´ØºÙŠÙ„ ÙˆØ¥Ø¯Ø§Ø±Ø© Ø§Ù„Ù…Ù†ØµØ© ÙÙŠ Ø¨ÙŠØ¦Ø§Øª Ø§Ù„Ø¹Ù…Ù„ Ø§Ù„Ø­ÙŠØ© ÙˆØ§Ù„Ø¥Ù†ØªØ§Ø¬ÙŠØ© Ø§Ù„Ø³Ø­Ø§Ø¨ÙŠØ© Ù…ØªØ¹Ø¯Ø¯Ø© Ø§Ù„Ù…Ø³ØªØ£Ø¬Ø±ÙŠÙ† (Multi-Tenant PaaS).
+            </p>
+        </section>
+
+        <!-- Architecture -->
+        <section id="architecture" class="content-card">
+            <h2>ðŸ“ 1. Ø§Ù„Ø¨Ù†ÙŠØ© Ø§Ù„Ù‡ÙŠÙƒÙ„ÙŠØ© Ø§Ù„Ù…Ø¹Ù…Ø§Ø±ÙŠØ©</h2>
+            <p>ÙŠØ¹ØªÙ…Ø¯ Ø®Ø§Ø¯Ù… Aether Engine Ø¹Ù„Ù‰ Ù‡Ù†Ø¯Ø³Ø© Ø¨Ø±Ù…Ø¬ÙŠØ© Ù…ÙˆØ²Ø¹Ø© ØªÙØµÙ„ Ø¨ÙŠÙ† Ø·Ø¨Ù‚Ø§Øª Ù…Ø¹Ø§Ù„Ø¬Ø© Ø§Ù„Ø·Ù„Ø¨Ø§ØªØŒ Ø§Ù„ØªØ®Ø²ÙŠÙ† ÙˆØ§Ù„ØªØ­Ù‚Ù‚ØŒ ÙˆØ§Ù„Ø¨Ø« Ø§Ù„ÙÙˆØ±ÙŠ.</p>
+            
+            <div class="mermaid-container">
+                <div class="mermaid">
+                    graph TD
+                        Client[AI Client / IDE] -->|SSE Connection| LB[Load Balancer]
+                        LB --> Node1[Aether Node 1]
+                        LB --> Node2[Aether Node 2]
+                        
+                        subgraph Storage & Distribution
+                            Node1 <-->|Pub/Sub Message Sync| Redis[(Redis Broker)]
+                            Node2 <-->|Pub/Sub Message Sync| Redis
+                            Node1 -->|Queries & Auth| SQLite[(SQLite persistence.db)]
+                            Node2 -->|Queries & Auth| SQLite
+                        end
+
+                        subgraph Multi-Tenancy Isolation
+                            Node1 --> TenantA[Tenant A Workspace]
+                            Node2 --> TenantB[Tenant B Workspace]
+                        end
+                        
+                        Prom[Prometheus Server] -->|Scrapes /metrics| Node1
+                        Prom -->|Scrapes /metrics| Node2
+                </div>
+            </div>
+        </section>
+
+        <!-- Configuration -->
+        <section id="config" class="content-card">
+            <h2>âš™ï¸ 2. Ù…ØªØºÙŠØ±Ø§Øª ØªÙƒÙˆÙŠÙ† Ø§Ù„Ø¨ÙŠØ¦Ø©</h2>
+            <p>ÙŠØªÙ… Ø¶Ø¨Ø· Ø³Ù„ÙˆÙƒ Ø§Ù„Ù†Ø¸Ø§Ù… Ø¯ÙŠÙ†Ø§Ù…ÙŠÙƒÙŠØ§Ù‹ Ø¹Ù† Ø·Ø±ÙŠÙ‚ ØªØ¹Ø¯ÙŠÙ„ Ù…Ù„Ù Ø§Ù„ØªÙƒÙˆÙŠÙ† <code>.env</code> ÙÙŠ Ø§Ù„Ù…Ø³Ø§Ø± Ø§Ù„Ø¬Ø°Ø±ÙŠ Ù„Ù„Ù…Ø´Ø±ÙˆØ¹:</p>
+            
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Ø§Ù„Ù…ØªØºÙŠØ± Ø§Ù„Ø¨ÙŠØ¦ÙŠ</th>
+                            <th>Ø§Ù„Ù‚ÙŠÙ…Ø© Ø§Ù„Ø§ÙØªØ±Ø§Ø¶ÙŠØ©</th>
+                            <th>Ø§Ù„ÙˆØµÙ Ø§Ù„ÙÙ†ÙŠ</th>
+                            <th>Ø§Ù„Ø£Ù‡Ù…ÙŠØ©</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code class="language-bash">PORT</code></td>
+                            <td><code>3847</code></td>
+                            <td>Ø§Ù„Ù…Ù†ÙØ° Ø§Ù„ÙÙŠØ²ÙŠØ§Ø¦ÙŠ Ø§Ù„Ø°ÙŠ ÙŠØ³ØªÙ…Ø¹ Ø¥Ù„ÙŠÙ‡ Ø®Ø§Ø¯Ù… Ø§Ù„ÙˆÙŠØ¨ Ø§Ù„Ø®Ø§Øµ Ø¨Ø§Ù„ØªØ·Ø¨ÙŠÙ‚.</td>
+                            <td>Ø£Ø³Ø§Ø³ÙŠ</td>
+                        </tr>
+                        <tr>
+                            <td><code class="language-bash">MCP_API_KEY</code></td>
+                            <td><code>${MCP_API_KEY}</code></td>
+                            <td>Ù…ÙØªØ§Ø­ Ø§Ù„ØªØ­Ù‚Ù‚ Ø§Ù„Ø±Ø¦ÙŠØ³ÙŠ Ù„Ù„Ù…Ø³Ø¤ÙˆÙ„ (Admin) Ù„Ù„ÙˆØµÙˆÙ„ Ù„Ù„Ù…Ù‚Ø§ÙŠÙŠØ³ ÙˆØ­Ø³Ø§Ø¨Ø§Øª Ø§Ù„Ù…Ø³ØªØ®Ø¯Ù…ÙŠÙ†.</td>
+                            <td>Ø­Ø±Ø¬ Ø¬Ø¯Ø§Ù‹</td>
+                        </tr>
+                        <tr>
+                            <td><code class="language-bash">REDIS_URL</code></td>
+                            <td>Ù„Ø§ ÙŠÙˆØ¬Ø¯</td>
+                            <td>Ø±Ø§Ø¨Ø· Ø§Ù„Ø§ØªØµØ§Ù„ Ø¨Ø®Ø§Ø¯Ù… Redis (Ù…Ø«Ø§Ù„: <code>redis://redis:6379</code>).</td>
+                            <td>Ù…Ø·Ù„ÙˆØ¨ Ù„Ù„ØªÙˆØ³Ø¹</td>
+                        </tr>
+                        <tr>
+                            <td><code class="language-bash">DB_PATH</code></td>
+                            <td><code>core/db/persistence.db</code></td>
+                            <td>Ø§Ù„Ù…Ø³Ø§Ø± Ø§Ù„Ù†Ø³Ø¨ÙŠ Ø£Ùˆ Ø§Ù„Ù…Ø·Ù„Ù‚ Ù„Ø­ÙØ¸ Ù‚Ø§Ø¹Ø¯Ø© Ø¨ÙŠØ§Ù†Ø§Øª SQLite Ø§Ù„ØªØ±Ø§ÙƒÙ…ÙŠØ©.</td>
+                            <td>Ø£Ø³Ø§Ø³ÙŠ</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Multi-Tenancy -->
+        <section id="multi-tenancy" class="content-card">
+            <h2>ðŸ—„ï¸ 3. Ø¥Ø¯Ø§Ø±Ø© Ø§Ù„Ù…Ø³ØªØ£Ø¬Ø±ÙŠÙ† ÙˆØ¹Ø²Ù„ Ø§Ù„Ù…Ø´Ø§Ø±ÙŠØ¹</h2>
+            <p>ÙŠØªÙ… ØªØ´ØºÙŠÙ„ Ø§Ù„Ù†Ø¸Ø§Ù… ÙƒØ¨ÙŠØ¦Ø© Ø³Ø­Ø§Ø¨ÙŠØ© Ø¢Ù…Ù†Ø© ØªØ®Ø¯Ù… Ø¹Ø¯Ø© Ù…Ø³ØªØ®Ø¯Ù…ÙŠÙ† Ø¨Ù…Ø³ØªÙˆÙŠØ§Øª ØµÙ„Ø§Ø­ÙŠØ§Øª Ù…Ù†ÙØµÙ„Ø©ØŒ ÙˆÙŠØªÙ… ØªØ®Ø²ÙŠÙ† Ù‡Ø°Ù‡ Ø§Ù„Ø¨ÙŠØ§Ù†Ø§Øª ÙÙŠ Ù‚Ø§Ø¹Ø¯Ø© Ø¨ÙŠØ§Ù†Ø§Øª SQLite Ù…Ø¯Ù…Ø¬Ø©.</p>
+            
+            <h3>ðŸ‘¥ Ø£. Ø¬Ø¯Ø§ÙˆÙ„ ÙˆÙ…Ø³ØªÙˆÙŠØ§Øª Ø§Ù„Ù…Ø³ØªØ®Ø¯Ù…ÙŠÙ† (Users Table)</h3>
+            <p>ØªØªÙˆØ²Ø¹ Ø§Ù„Ø£Ø¯ÙˆØ§Ø± ÙˆÙÙ‚ Ø«Ù„Ø§Ø«Ø© Ù…Ø³ØªÙˆÙŠØ§Øª ØµÙ„Ø§Ø­ÙŠØ§Øª:</p>
+            <ul style="color: var(--text-secondary); margin-bottom: 1.5rem;">
+                <li><strong>Admin (Ø§Ù„Ù…Ø´Ø±Ù):</strong> ÙŠÙ…ØªÙ„Ùƒ ØµÙ„Ø§Ø­ÙŠØ© ØªØ¬Ø§ÙˆØ² Ø­Ø¯ÙˆØ¯ Ø§Ù„Ø§Ø³ØªÙ‡Ù„Ø§Ùƒ ÙˆÙ‚Ø±Ø§Ø¡Ø© Ù…Ù‚Ø§ÙŠÙŠØ³ Ø§Ù„Ø®Ø§Ø¯Ù….</li>
+                <li><strong>Developer (Ø§Ù„Ù…Ø·ÙˆØ±):</strong> ÙŠÙ…ØªÙ„Ùƒ ØµÙ„Ø§Ø­ÙŠØ© ØªØ´ØºÙŠÙ„ Ø­ØªÙ‰ <code>120</code> Ø·Ù„Ø¨ Ø§Ø³ØªØ¯Ø¹Ø§Ø¡ ÙÙŠ Ø§Ù„Ø¯Ù‚ÙŠÙ‚Ø©.</li>
+                <li><strong>Guest (Ø§Ù„Ø²Ø§Ø¦Ø±):</strong> ÙŠÙ…ØªÙ„Ùƒ ØµÙ„Ø§Ø­ÙŠØ© ØªØ´ØºÙŠÙ„ Ø­ØªÙ‰ <code>60</code> Ø·Ù„Ø¨ Ø§Ø³ØªØ¯Ø¹Ø§Ø¡ ÙÙŠ Ø§Ù„Ø¯Ù‚ÙŠÙ‚Ø©.</li>
+            </ul>
+
+<pre><code class="language-sql">CREATE TABLE users (
+  id TEXT PRIMARY KEY,
+  username TEXT UNIQUE NOT NULL,
+  apikey TEXT UNIQUE NOT NULL,
+  role TEXT NOT NULL
+);</code></pre>
+
+            <h3>ðŸ“‚ Ø¨. Ø­Ø¯ÙˆØ¯ ÙˆØ¹Ø²Ù„ Ø§Ù„Ù…Ø´Ø§Ø±ÙŠØ¹ (Projects Isolation)</h3>
+            <p>Ù„ÙƒÙ„ Ù…Ø³ØªØ£Ø¬Ø± Ù…Ø³Ø§Ø­Ø© Ø¹Ù…Ù„ Ù…Ø¹Ø²ÙˆÙ„Ø© ÙˆÙ…Ø­Ø¯Ø¯Ø© Ø§Ù„Ù…Ø³Ø§Ø± Ø¹Ù„Ù‰ Ø§Ù„Ù‚Ø±Øµ Ù„Ù…Ù†Ø¹ ØªØ¬Ø§ÙˆØ² Ø§Ù„Ù…Ø¬Ù„Ø¯Ø§Øª Ø§Ù„Ù…ØµØ±Ø­ Ø¨Ù‡Ø§ (Path Traversal).</p>
+
+<pre><code class="language-sql">CREATE TABLE projects (
+  id TEXT PRIMARY KEY,
+  name TEXT NOT NULL,
+  path TEXT NOT NULL,
+  owner_id TEXT NOT NULL,
+  allowed_tools TEXT, -- JSON Array for allowed tools
+  enforcement_mode TEXT DEFAULT 'STRICT', 
+  FOREIGN KEY(owner_id) REFERENCES users(id)
+);</code></pre>
+        </section>
+
+        <!-- Docker -->
+        <section id="docker" class="content-card">
+            <h2>ðŸ³ 4. Ø§Ù„Ù†Ø´Ø± ÙˆØ¥Ø¹Ø¯Ø§Ø¯ Ø§Ù„Ø­Ø§ÙˆÙŠØ§Øª</h2>
+            <p>Ù„ØªØ´ØºÙŠÙ„ Ø§Ù„Ù…Ù†ØµØ© ÙÙŠ ÙˆØ¶Ø¹ Ø§Ù„Ø¥Ù†ØªØ§Ø¬ Ø§Ù„Ù…Ø³ØªÙ‚Ø±ØŒ ÙŠØªÙ… Ø¨Ù†Ø§Ø¡ Ø§Ù„Ø­Ø§ÙˆÙŠØ© Ù…Ø¹ ØªØ¬Ø±ÙŠØ¯ Ø§Ù„ØµÙ„Ø§Ø­ÙŠØ§Øª Ø§Ù„Ø¥Ø¯Ø§Ø±ÙŠØ© Ù„ØªÙ‚Ù„ÙŠØµ Ù…Ø³Ø§Ø­Ø© Ø§Ù„Ù‡Ø¬ÙˆÙ… Ø§Ù„Ø£Ù…Ù†ÙŠ.</p>
+
+            <h3>Ø£. Ù…Ù„Ù Ø§Ù„ØªÙƒÙˆÙŠÙ† (Dockerfile):</h3>
+<pre><code class="language-dockerfile"># Stage 1: Build dependencies
+FROM node:18-alpine AS builder
+WORKDIR /app
+COPY package*.json ./
+RUN npm ci --only=production
+
+# Stage 2: Minimal Production Image
+FROM node:18-alpine
+WORKDIR /app
+ENV NODE_ENV=production
+COPY --from=builder /app/node_modules ./node_modules
+COPY . .
+# Run as non-root user for maximum security
+USER node
+EXPOSE 3847
+CMD ["node", "mcp_remote_server.js"]</code></pre>
+
+            <h3>Ø¨. ØªØ´ØºÙŠÙ„ Ø§Ù„Ù†Ø¸Ø§Ù… Ø¨Ù„Ù…Ø³Ø© ÙˆØ§Ø­Ø¯Ø©:</h3>
+            <p>ÙŠÙ…ÙƒÙ† Ø¨Ø¯Ø¡ ØªØ´ØºÙŠÙ„ Ø®Ø§Ø¯Ù… Ø§Ù„ØªØ·Ø¨ÙŠÙ‚ Ù…Ø¹ Ù‚Ø§Ø¹Ø¯Ø© Ø§Ù„Ø¨ÙŠØ§Ù†Ø§Øª Ø§Ù„Ù…Ù„Ø­Ù‚Ø© ÙˆØ®Ø¯Ù…Ø© Ø§Ù„ÙƒØ§Ø´ Ø¨Ø§Ø³ØªØ®Ø¯Ø§Ù… Ø§Ù„Ø£Ù…Ø± Ø§Ù„ØªØ§Ù„ÙŠ:</p>
+<pre><code class="language-bash">docker-compose up -d --build</code></pre>
+        </section>
+
+        <!-- Horizontal Scaling -->
+        <section id="scaling" class="content-card">
+            <h2>ðŸ”„ 5. Ø§Ù„ØªÙˆØ³Ø¹ ÙˆÙ…Ø²Ø§Ù…Ù†Ø© Ø§Ù„Ø¬Ù„Ø³Ø§Øª (Redis Pub/Sub)</h2>
+            <p>Ø¹Ù†Ø¯ ØªØ´ØºÙŠÙ„ Ù…Ø«ÙŠÙ„Ø§Øª Ù…ØªØ¹Ø¯Ø¯Ø© Ù…Ù† Ø§Ù„Ø®Ø§Ø¯Ù… Ø®Ù„Ù Ù…ÙˆØ§Ø²Ù† Ø£Ø­Ù…Ø§Ù„ØŒ Ù‚Ø¯ ÙŠØ­Ø¯Ø« ØªØ´ØªØª Ù„Ù„Ø§ØªØµØ§Ù„Ø§Øª: ÙŠØªØµÙ„ Ø§Ù„Ø¹Ù…ÙŠÙ„ Ø¨Ù€ SSE Ø¹Ù„Ù‰ Ø®Ø§Ø¯Ù… (Ø£)ØŒ ÙˆÙŠØ±Ø³Ù„ Ø·Ù„Ø¨Ø§Øª Ø§Ù„Ù€ Post Ø¹Ù„Ù‰ Ø®Ø§Ø¯Ù… (Ø¨). ÙŠØªÙ… ØªÙˆØ¬ÙŠÙ‡ Ø§Ù„Ø±Ø³Ø§Ø¦Ù„ ØªÙ„Ù‚Ø§Ø¦ÙŠØ§Ù‹ Ø¹Ø¨Ø± Redis.</p>
+
+            <div class="mermaid-container">
+                <div class="mermaid">
+                    sequenceDiagram
+                        autonumber
+                        Client->>LB: POST /mcp/message?sessionId=123 (Payload)
+                        LB->>Node 2: Route Request
+                        Note over Node 2: Session 123 is NOT local!
+                        Node 2->>Redis: Publish (mcp:messages, Payload)
+                        Redis-->>Node 1: Broadcast Message
+                        Note over Node 1: Session 123 is active here!
+                        Node 1->>Node 1: handleMessage(Payload)
+                        Node 1-->>Client: SSE Event (Message Response)
+                </div>
+            </div>
+
+            <div class="alert alert-info">
+                <span class="alert-icon">ðŸ’¡</span>
+                <div>
+                    <strong>Ù…Ù„Ø§Ø­Ø¸Ø© (Fallback Mode):</strong> Ø¥Ø°Ø§ ÙƒØ§Ù† Ù…ØªØºÙŠØ± <code>REDIS_URL</code> ØºÙŠØ± Ù…Ø¹Ø±ÙØŒ Ø³ÙŠØ¹Ù…Ù„ Ø§Ù„Ø®Ø§Ø¯Ù… ØªÙ„Ù‚Ø§Ø¦ÙŠØ§Ù‹ ÙˆØ¨Ø³Ù„Ø§Ø³Ø© ÙÙŠ Ø§Ù„ÙˆØ¶Ø¹ Ø§Ù„Ø£Ø­Ø§Ø¯ÙŠ (Single-Instance Mode) Ù„ØªÙØ§Ø¯ÙŠ Ø§Ù„Ø£Ø¹Ø·Ø§Ù„.
+                </div>
+            </div>
+        </section>
+
+        <!-- Observability -->
+        <section id="monitoring" class="content-card">
+            <h2>ðŸ“Š 6. Ù†Ø¸Ø§Ù… Ø§Ù„Ù…Ø±Ø§Ù‚Ø¨Ø© ÙˆØ§Ù„ØªØ­Ù„ÙŠÙ„Ø§Øª (Prometheus)</h2>
+            <p>ÙŠØµØ¯Ø± Ø§Ù„Ø®Ø§Ø¯Ù… Ù…Ù‚Ø§ÙŠÙŠØ³ Prometheus Ø§Ù„ØªØ±Ø§ÙƒÙ…ÙŠØ© ÙÙŠ Ø§Ù„ÙˆÙ‚Øª Ø§Ù„ÙØ¹Ù„ÙŠ Ø¹Ø¨Ø± Ù…Ø³Ø§Ø± Ø¢Ù…Ù† Ù„Ø§ ÙŠÙ…ÙƒÙ† ØªØµÙØ­Ù‡ Ø¥Ù„Ø§ Ù…Ù† Ø®Ù„Ø§Ù„ Ù…ÙØ§ØªÙŠØ­ Ø§Ù„Ù…Ø´Ø±ÙÙŠÙ† (Admin).</p>
+
+            <h3>ðŸ“ˆ Ù…Ù‚Ø§ÙŠÙŠØ³ Ø§Ù„Ø£Ø¯Ø§Ø¡ Ø§Ù„Ù…ØªØ§Ø­Ø©:</h3>
+            <ul style="color: var(--text-secondary); margin-bottom: 1.5rem;">
+                <li><code class="language-bash">mcp_active_connections</code>: Ø¹Ø¯Ø¯ Ø§ØªØµØ§Ù„Ø§Øª Ø§Ù„Ù€ SSE Ø§Ù„Ù…ÙØªÙˆØ­Ø© ÙÙŠ Ø§Ù„ÙˆÙ‚Øª Ø§Ù„Ø­Ø§Ù„ÙŠ Ù„ÙƒÙ„ Ø¹Ù…ÙŠÙ„ ÙˆÙ…Ø´Ø±ÙˆØ¹.</li>
+                <li><code class="language-bash">mcp_tool_executions_total</code>: Ø¹Ø¯Ø§Ø¯ ÙŠØ­ØµÙŠ Ø§Ù„Ø§Ø³ØªØ¯Ø¹Ø§Ø¡Ø§Øª Ø§Ù„Ù†Ø§Ø¬Ø­Ø© ÙˆØ§Ù„ÙØ§Ø´Ù„Ø© Ù„ÙƒÙ„ Ø£Ø¯Ø§Ø© Ø¹Ù„Ù‰ Ø­Ø¯Ø©.</li>
+                <li><code class="language-bash">mcp_tool_execution_duration_seconds</code>: ÙŠÙ‚ÙŠØ³ ØªÙˆØ²ÙŠØ¹ Ø§Ù„ÙØªØ±Ø§Øª Ø§Ù„Ø²Ù…Ù†ÙŠØ© Ù„ØªÙ†ÙÙŠØ° Ø§Ù„Ø¹Ù…Ù„ÙŠØ§Øª.</li>
+            </ul>
+
+            <p><strong>Ø·Ù„Ø¨ Ø§Ù„ÙØ­Øµ Ø§Ù„Ø¨Ø±Ù…Ø¬ÙŠ ÙŠØ¯ÙˆÙŠØ§Ù‹:</strong></p>
+<pre><code class="language-bash">curl -i "http://localhost:3847/metrics?apikey=${MCP_API_KEY}"</code></pre>
+        </section>
+
+        <!-- Security -->
+        <section id="security" class="content-card">
+            <h2>ðŸ›¡ï¸ 7. Ù…Ø¹Ø§ÙŠÙŠØ± Ø§Ù„Ø­Ù…Ø§ÙŠØ© ÙˆØ§Ù„Ø£Ù…Ø§Ù† Ø§Ù„Ø³ÙŠØ§Ø¯ÙŠ</h2>
+            
+            <ul style="color: var(--text-secondary); line-height: 2;">
+                <li><strong>Ù…Ù†Ø¹ ØªØ®Ø·ÙŠ Ø§Ù„Ù…Ø³Ø§Ø±Ø§Øª (Path Traversal):</strong> ÙŠÙ‚ÙˆÙ… Ø§Ù„Ù†Ø¸Ø§Ù… Ø¨Ø§Ù„ØªØ­Ù‚Ù‚ Ø£ÙˆØªÙˆÙ…Ø§ØªÙŠÙƒÙŠØ§Ù‹ Ù…Ù† Ø£Ù† Ø¬Ù…ÙŠØ¹ Ø·Ù„Ø¨Ø§Øª Ø§Ù„Ù…Ù„ÙØ§Øª ØªÙ‚Ø¹ ØªØ­Øª Ù…Ø³Ø§Ø± Ø§Ù„Ù…Ø´Ø±ÙˆØ¹ Ø§Ù„Ù…Ø³Ø¬Ù„ ÙÙŠ Ù‚Ø§Ø¹Ø¯Ø© Ø§Ù„Ø¨ÙŠØ§Ù†Ø§Øª Ù„Ø¶Ù…Ø§Ù† Ø¹Ø²Ù„ Ø§Ù„Ù…Ø³Ø§Ø­Ø§Øª.</li>
+                <li><strong>Ù…Ø­Ø¯Ø¯ Ø§Ù„Ø·Ù„Ø¨Ø§Øª (Rate Limiting Middleware):</strong> ÙŠØ­Ù…ÙŠ Ø§Ù„Ø®Ø§Ø¯Ù… Ù…Ù† Ù‡Ø¬Ù…Ø§Øª Ø§Ù„Ø¥ØºØ±Ø§Ù‚ (DoS) ÙˆØ¹Ù…Ù„ÙŠØ§Øª Ø§Ù„Ø§Ø³ØªØ¯Ø¹Ø§Ø¡ Ø§Ù„Ù„Ø§Ù†Ù‡Ø§Ø¦ÙŠØ©ØŒ ÙˆÙŠØ¹Ù…Ù„ Ø¹Ù„Ù‰ ØªÙ‚ÙŠÙŠØ¯ Ø§Ù„Ø·Ù„Ø¨Ø§Øª ØªÙ„Ù‚Ø§Ø¦ÙŠØ§Ù‹ Ø¨Ø§Ù„Ø§Ø¹ØªÙ…Ø§Ø¯ Ø¹Ù„Ù‰ Ù‡ÙˆÙŠØ© Ø§Ù„Ø¹Ù…ÙŠÙ„.</li>
+                <li><strong>Ø¹Ø²Ù„ Ø§Ù„Ø­Ø§ÙˆÙŠØ§Øª (Container Isolation):</strong> ØªØ¬Ø±ÙŠØ¯ Ø­Ø³Ø§Ø¨ Ø§Ù„ØªØ´ØºÙŠÙ„ Ø¯Ø§Ø®Ù„ Docker Ø¥Ù„Ù‰ Ø­Ø³Ø§Ø¨ Ø¹Ø§Ø¯ÙŠ (Non-root user) Ù„Ù…Ù†Ø¹ Ø§Ù„Ø³ÙŠØ·Ø±Ø© Ø¹Ù„Ù‰ Ø§Ù„Ø®Ø§Ø¯Ù… Ø§Ù„Ù…Ø¶ÙŠÙ.</li>
+            </ul>
+        </section>
+
+        <!-- Troubleshooting -->
+        <section id="troubleshooting" class="content-card" style="margin-bottom: 2rem;">
+            <h2>ðŸ©º 8. Ø§Ø³ØªÙƒØ´Ø§Ù Ø§Ù„Ø£Ø®Ø·Ø§Ø¡ ÙˆØ¥ØµÙ„Ø§Ø­Ù‡Ø§</h2>
+            
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Ø§Ù„Ù…Ø´ÙƒÙ„Ø©</th>
+                            <th>Ø§Ù„Ø³Ø¨Ø¨ Ø§Ù„Ù…Ø­ØªÙ…Ù„</th>
+                            <th>Ø®Ø·Ø© Ø§Ù„Ø¹Ù„Ø§Ø¬ Ø§Ù„Ø³Ø±ÙŠØ¹</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="color: #ef4444; font-weight: bold;">ÙØ´Ù„ Ø¨Ø¯Ø¡ Ø§ØªØµØ§Ù„ Redis</td>
+                            <td>Ø¹Ù†ÙˆØ§Ù† <code>REDIS_URL</code> ØºÙŠØ± ØµØ­ÙŠØ­ Ø£Ùˆ Ø­Ø§ÙˆÙŠØ© Redis Ù…ØªÙˆÙ‚ÙØ©.</td>
+                            <td>ØªØ­Ù‚Ù‚ Ù…Ù† Ø§Ù„Ø³Ø¬Ù„Ø§Øª Ø¹Ø¨Ø± <code>docker logs redis</code>. Ø§Ù„Ø®Ø§Ø¯Ù… Ø³ÙŠØ¹Ù…Ù„ Ø¨ÙˆØ¶Ø¹ Fallback ØªÙ„Ù‚Ø§Ø¦ÙŠØ§Ù‹.</td>
+                        </tr>
+                        <tr>
+                            <td style="color: #ef4444; font-weight: bold;">Ø±ÙØ¶ Ø§Ù„Ø·Ù„Ø¨Ø§Øª Ø¨Ø±Ù…Ø² 429</td>
+                            <td>Ø§Ø³ØªÙ‡Ù„Ø§Ùƒ Ø§Ù„Ù…Ø·ÙˆØ± Ù„ÙƒØ§Ù…Ù„ Ø§Ù„Ø­ØµØµ Ø§Ù„Ù…Ø®ØµØµØ© ÙÙŠ Ø§Ù„Ø¯Ù‚ÙŠÙ‚Ø©.</td>
+                            <td>Ù‚Ù… Ø¨ØªØ±Ù‚ÙŠØ© Ø­Ø³Ø§Ø¨ Ø§Ù„Ø¹Ù…ÙŠÙ„ ÙÙŠ Ø¬Ø¯ÙˆÙ„ <code>users</code> Ø¥Ù„Ù‰ <code>Developer</code> Ø£Ùˆ <code>Admin</code>.</td>
+                        </tr>
+                        <tr>
+                            <td style="color: #ef4444; font-weight: bold;">Ù„Ø§ ØªÙˆØ¬Ø¯ Ø§Ø³ØªØ¬Ø§Ø¨Ø© Ù„Ù„Ø±Ø³Ø§Ø¦Ù„</td>
+                            <td>ØªÙØ¹ÙŠÙ„ <code>express.json()</code> Ø¹Ø§Ù„Ù…ÙŠØ§Ù‹ Ù‚Ø¨Ù„ Ø§Ù„Ù€ SDK.</td>
+                            <td>ØªØ£ÙƒØ¯ Ù…Ù† Ø¥Ø²Ø§Ù„Ø© <code>app.use(express.json())</code> Ù…Ù† Ù…Ø³ØªÙˆÙ‰ Ø§Ù„Ø®Ø§Ø¯Ù… Ø§Ù„Ø±Ø¦ÙŠØ³ÙŠ.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Scripts for UI Functionality -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-sql.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-docker.min.js"></script>
+    
+    <!-- Mermaid.js -->
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script>
+        // Initialize Mermaid with Dark Theme
+        mermaid.initialize({ 
+            startOnLoad: true,
+            theme: 'dark',
+            fontFamily: 'Tajawal, sans-serif'
+        });
+
+        // Simple smooth scroll and active state for sidebar links
+        document.querySelectorAll('.sidebar a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelectorAll('.sidebar a').forEach(a => a.classList.remove('active'));
+                this.classList.add('active');
+                
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 20,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Auto-update active link based on scroll position
+        window.addEventListener('scroll', () => {
+            let current = '';
+            const sections = document.querySelectorAll('.content-card');
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (scrollY >= sectionTop - 150) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            document.querySelectorAll('.sidebar a').forEach(a => {
+                a.classList.remove('active');
+                if (a.getAttribute('href').substring(1) === current) {
+                    a.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

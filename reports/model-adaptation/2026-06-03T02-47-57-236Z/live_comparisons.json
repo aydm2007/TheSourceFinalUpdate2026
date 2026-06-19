@@ -1,0 +1,12 @@
+[
+  {
+    "axis": "instruction_following",
+    "selected": {
+      "status": "skipped"
+    },
+    "claude": {
+      "status": "skipped"
+    },
+    "directVictory": false
+  }
+]

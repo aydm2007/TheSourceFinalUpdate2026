@@ -1,0 +1,27 @@
+{
+  "name": "agriasset-synapse",
+  "displayName": "AgriAsset Synapse",
+  "description": "Sovereign Peripheral Nervous System for MCP Server",
+  "version": "1.0.0",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "agriasset-synapse.connect",
+        "title": "Synapse: Connect to MCP"
+      }
+    ]
+  },
+  "dependencies": {
+    "ws": "^8.21.0"
+  }
+}

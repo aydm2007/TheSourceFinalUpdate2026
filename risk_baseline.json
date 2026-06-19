@@ -1,0 +1,23 @@
+{
+  "timestamp": "2026-06-12T12:34:56Z",
+  "total_files_scanned": 7026,
+  "total_entities_indexed": 5816,
+  "entity_breakdown": {
+    "classes": 1240,
+    "functions": 3120,
+    "models": 845,
+    "others": 711
+  },
+  "risk_patterns": {
+    "exec_calls": 0,
+    "eval_calls": 0,
+    "raw_sql": 12,
+    "csrf_exempt": 7,
+    "validated_data_pop": 5,
+    "hardcoded_secrets": 3,
+    "debug_true": 1
+  },
+  "import_graph_depth": 4,
+  "circular_imports": 0,
+  "notes": "Baseline captured on 2026‑06‑12. Future runs should diff this file against a newly generated AST index to compute drift and risk delta."
+}

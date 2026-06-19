@@ -1,0 +1,41 @@
+name: Package and Publish VS Code Extension
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build-and-package:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: |
+          cd vscode-extension
+          npm ci
+
+      - name: Run tests
+        run: |
+          cd vscode-extension
+          npm test
+
+      - name: Package extension
+        run: |
+          cd vscode-extension
+          npx vsce package
+
+      - name: Publish to Marketplace (optional)
+        if: secrets.VSCE_PAT != ''
+        env:
+          VSCE_PAT: ${{ secrets.VSCE_PAT }}
+        run: |
+          cd vscode-extension
+          npx vsce publish -p $VSCE_PAT

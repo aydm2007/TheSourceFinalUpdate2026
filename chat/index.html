@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>دردشة سيادية</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="chat-container" class="chat-container">
+    <div class="chat-header">
+      <span class="chat-title">دردشة السيادة</span>
+      <button id="chat-close" class="chat-close-btn" title="إغلاق">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+    <div id="chat-messages" class="chat-messages"></div>
+    <div class="chat-mode-toggle">
+      <span id="mode-label" class="mode-label tactical">⚡ تدخّل تكتيكي (Tactician)</span>
+      <label class="switch">
+        <input type="checkbox" id="tactical-mode-toggle" checked>
+        <span class="slider round"></span>
+      </label>
+    </div>
+    <div class="chat-input-area">
+      <input type="text" id="chat-input" placeholder="اكتب رسالتك أو أمر /run أو /ledger ..." />
+      <button id="chat-send" class="chat-send-btn"><i class="fa-solid fa-paper-plane"></i></button>
+    </div>
+    <div class="tactical-toolbar">
+      <button id="btn-purge-swarm" class="btn-tactical danger" title="قتل جميع عمليات الأسراب فوراً"><i class="fa-solid fa-skull"></i> هدم</button>
+      <button id="btn-free-ports" class="btn-tactical warning" title="تدمير العمليات التي تحجز المنافذ الحيوية"><i class="fa-solid fa-plug-circle-xmark"></i> منافذ</button>
+      <button id="btn-ledger-radar" class="btn-tactical info" title="جلب آخر 5 أخطاء من السجل"><i class="fa-solid fa-satellite-dish"></i> السجل</button>
+      <button id="btn-amnesia" class="btn-tactical amnesia" title="مسح الذاكرة الحالية وبدء سياق نظيف"><i class="fa-solid fa-broom"></i> مسح السياق</button>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,114 @@
+[
+  {
+    "axis": "deep_reasoning",
+    "selected": {
+      "status": "api_url_transport_only",
+      "provider": "console-api-url",
+      "model": "openai/gpt-oss-120b:free",
+      "reason": "Console/API URL transport is probed as an artifact, but no model response was produced through the relay."
+    },
+    "claude": {
+      "status": "missing_key",
+      "env": "ANTHROPIC_API_KEY"
+    },
+    "directVictory": false
+  },
+  {
+    "axis": "tool_calling",
+    "selected": {
+      "status": "api_url_transport_only",
+      "provider": "console-api-url",
+      "model": "openai/gpt-oss-120b:free",
+      "reason": "Console/API URL transport is probed as an artifact, but no model response was produced through the relay."
+    },
+    "claude": {
+      "status": "missing_key",
+      "env": "ANTHROPIC_API_KEY"
+    },
+    "directVictory": false
+  },
+  {
+    "axis": "natural_tool_calling",
+    "selected": {
+      "status": "api_url_transport_only",
+      "provider": "console-api-url",
+      "model": "openai/gpt-oss-120b:free",
+      "reason": "Console/API URL transport is probed as an artifact, but no model response was produced through the relay."
+    },
+    "claude": {
+      "status": "missing_key",
+      "env": "ANTHROPIC_API_KEY"
+    },
+    "directVictory": false
+  },
+  {
+    "axis": "code_review",
+    "selected": {
+      "status": "api_url_transport_only",
+      "provider": "console-api-url",
+      "model": "openai/gpt-oss-120b:free",
+      "reason": "Console/API URL transport is probed as an artifact, but no model response was produced through the relay."
+    },
+    "claude": {
+      "status": "missing_key",
+      "env": "ANTHROPIC_API_KEY"
+    },
+    "directVictory": false
+  },
+  {
+    "axis": "long_context",
+    "selected": {
+      "status": "api_url_transport_only",
+      "provider": "console-api-url",
+      "model": "openai/gpt-oss-120b:free",
+      "reason": "Console/API URL transport is probed as an artifact, but no model response was produced through the relay."
+    },
+    "claude": {
+      "status": "missing_key",
+      "env": "ANTHROPIC_API_KEY"
+    },
+    "directVictory": false
+  },
+  {
+    "axis": "agentic_persistence",
+    "selected": {
+      "status": "api_url_transport_only",
+      "provider": "console-api-url",
+      "model": "openai/gpt-oss-120b:free",
+      "reason": "Console/API URL transport is probed as an artifact, but no model response was produced through the relay."
+    },
+    "claude": {
+      "status": "missing_key",
+      "env": "ANTHROPIC_API_KEY"
+    },
+    "directVictory": false
+  },
+  {
+    "axis": "security",
+    "selected": {
+      "status": "api_url_transport_only",
+      "provider": "console-api-url",
+      "model": "openai/gpt-oss-120b:free",
+      "reason": "Console/API URL transport is probed as an artifact, but no model response was produced through the relay."
+    },
+    "claude": {
+      "status": "missing_key",
+      "env": "ANTHROPIC_API_KEY"
+    },
+    "directVictory": false
+  },
+  {
+    "axis": "instruction_following",
+    "selected": {
+      "status": "api_url_transport_only",
+      "provider": "console-api-url",
+      "model": "local/unknown-model",
+      "reason": "Console/API URL transport is probed as an artifact, but no model response was produced through the relay."
+    },
+    "claude": {
+      "status": "missing_key",
+      "env": "ANTHROPIC_API_KEY"
+    },
+    "directVictory": false
+  }
+]

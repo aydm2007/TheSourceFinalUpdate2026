@@ -1,0 +1,15 @@
+{
+  "plan_mode": false,
+  "plan_history": [
+    {
+      "exited_at": "2026-05-13T05:41:13.110Z",
+      "plan": {
+        "description": "اختبار خطة الصعود إلى 100%",
+        "started_at": "2026-05-13T05:41:13.028Z",
+        "steps": []
+      }
+    }
+  ],
+  "current_plan": null,
+  "last_exit": "2026-05-13T05:41:13.111Z"
+}
